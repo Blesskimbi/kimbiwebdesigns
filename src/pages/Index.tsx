@@ -5,18 +5,21 @@ import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
 import ContactSection from "@/components/ContactSection";
+import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 
 const Index = () => {
   return (
-    <div className="relative min-h-screen bg-background">
-      <ParticleBackground />
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <ContactSection />
-    </div>
+    <LenisSmoothScroll>
+      <div className="relative min-h-screen bg-background">
+        <ParticleBackground />
+        <Navbar />
+        <HeroSection />
+        <AboutSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <ContactSection />
+      </div>
+    </LenisSmoothScroll>
   );
 };
 
