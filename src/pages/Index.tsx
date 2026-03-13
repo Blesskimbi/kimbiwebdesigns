@@ -1,9 +1,14 @@
 import ParticleBackground from "@/components/ParticleBackground";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import MarqueeSection from "@/components/MarqueeSection";
 import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import ProcessSection from "@/components/ProcessSection";
 import SkillsSection from "@/components/SkillsSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 
@@ -14,9 +19,14 @@ const Index = () => {
         <ParticleBackground />
         <Navbar />
         <HeroSection />
+        <MarqueeSection />
         <AboutSection />
+        <ServicesSection />
         <ProjectsSection />
+        <ProcessSection />
         <SkillsSection />
+        <ExperienceSection />
+        <TestimonialsSection />
         <ContactSection />
       </div>
     </LenisSmoothScroll>
