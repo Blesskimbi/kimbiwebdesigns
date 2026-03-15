@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   { label: "Projects", href: "#projects" },
@@ -28,32 +29,46 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-glass-strong py-4" : "py-6"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-glass-strong py-4" : "py-6"
+        }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a
-          href="#"
+        <Link
+          to="/"
           className="font-display font-bold text-lg tracking-wider text-foreground"
         >
-          STUDIO<span className="text-primary">.</span>
-        </a>
+          BlessKimbi<span className="text-primary">.</span>
+        </Link>
 
         <div className="hidden sm:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-muted-foreground hover:text-foreground font-body text-sm tracking-wider transition-colors duration-300"
-            >
-              {link.label}
-            </a>
-          ))}
+          <Link
+            to="/projects"
+            className="text-muted-foreground hover:text-foreground font-body text-sm tracking-wider transition-colors duration-300"
+          >
+            Projects
+          </Link>
+          <Link
+            to="/blog"
+            className="text-muted-foreground hover:text-foreground font-body text-sm tracking-wider transition-colors duration-300"
+          >
+            Blog
+          </Link>
+          <a
+            href="/#skills"
+            className="text-muted-foreground hover:text-foreground font-body text-sm tracking-wider transition-colors duration-300"
+          >
+            Skills
+          </a>
+          <a
+            href="/#contact"
+            className="text-muted-foreground hover:text-foreground font-body text-sm tracking-wider transition-colors duration-300"
+          >
+            Contact
+          </a>
         </div>
 
         <a
-          href="#contact"
+          href="/#contact"
           className="px-5 py-2 rounded-full bg-glass text-sm font-body text-foreground hover:glow-primary transition-shadow duration-300"
         >
           Let's Talk

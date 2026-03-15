@@ -1,43 +1,86 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+
+const words = ["Modern", "Unique", "Functional"];
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
+  const staticText1Ref = useRef<HTMLSpanElement>(null);
+  const staticText2Ref = useRef<HTMLSpanElement>(null);
+  const dynamicTextRef = useRef<HTMLSpanElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const orbRef = useRef<HTMLDivElement>(null);
 
+  const [index, setIndex] = useState(0);
+
+  // Setup the word cycling animation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Animate out
+      gsap.to(dynamicTextRef.current, {
+        y: -15,
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => {
+          setIndex((prev) => (prev + 1) % words.length);
+          // Set start position for animate in
+          gsap.set(dynamicTextRef.current, { y: 15 });
+          // Animate in
+          gsap.to(dynamicTextRef.current, {
+            y: 0,
+            opacity: 1,
+            duration: 0.4,
+            ease: "power2.out"
+          });
+        }
+      });
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Setup the initial entrance animations
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Split heading chars
-      const heading = headingRef.current;
-      if (heading) {
-        const text = heading.textContent || "";
-        heading.innerHTML = text
+      // Helper function to split text and animate chars
+      const animateText = (element: HTMLElement | null, delayOffset: number) => {
+        if (!element) return;
+        const text = element.textContent || "";
+        element.innerHTML = text
           .split("")
           .map((char) =>
             char === " "
               ? `<span class="inline-block">&nbsp;</span>`
-              : `<span class="inline-block opacity-0">${char}</span>`
+              : `<span class="inline-block opacity-0 translate-y-4">${char}</span>`
           )
           .join("");
 
-        gsap.to(heading.querySelectorAll("span"), {
+        gsap.to(element.querySelectorAll("span"), {
           opacity: 1,
           y: 0,
           duration: 0.6,
           stagger: 0.03,
           ease: "power3.out",
-          delay: 0.3,
+          delay: delayOffset,
         });
-      }
+      };
+
+      animateText(staticText1Ref.current, 0.2);
+      animateText(staticText2Ref.current, 1.0);
+
+      // Entrance for the dynamic word
+      gsap.fromTo(
+        dynamicTextRef.current,
+        { opacity: 0, scale: 0.95, y: 15 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.8, delay: 0.6, ease: "back.out(1.5)" }
+      );
 
       gsap.from(subRef.current, {
         opacity: 0,
         y: 30,
         duration: 1,
-        delay: 1.2,
+        delay: 1.4,
         ease: "power3.out",
       });
 
@@ -45,7 +88,7 @@ const HeroSection = () => {
         opacity: 0,
         y: 30,
         duration: 1,
-        delay: 1.5,
+        delay: 1.6,
         ease: "power3.out",
       });
 
@@ -81,11 +124,16 @@ const HeroSection = () => {
           Creative Developer & Designer
         </div>
 
-        <h1
-          ref={headingRef}
-          className="font-display font-800 text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tight mb-8 glow-text"
-        >
-          Crafting Digital Experiences
+        <h1 className="font-display font-800 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight mb-8 glow-text flex flex-col items-center justify-center">
+          <span ref={staticText1Ref} className="block w-full text-center mb-2 md:mb-4">Do You Need a</span>
+          <span className="flex flex-col md:flex-row items-center justify-center gap-y-2 md:gap-y-0 md:gap-x-5">
+            <span className="inline-flex justify-center min-w-[220px] sm:min-w-[280px] md:min-w-[340px] lg:min-w-[400px]">
+              <span ref={dynamicTextRef} className="text-gradient-primary inline-block text-center w-full whitespace-nowrap">
+                {words[index]}
+              </span>
+            </span>
+            <span ref={staticText2Ref}>Website?</span>
+          </span>
         </h1>
 
         <p

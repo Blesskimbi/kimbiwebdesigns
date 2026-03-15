@@ -64,7 +64,7 @@ const ParticleBackground = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(6, 182, 212, ${p.opacity})`;
+        ctx.fillStyle = `rgba(59, 130, 246, ${p.opacity})`; // Primary blue
         ctx.fill();
       });
 
@@ -78,7 +78,7 @@ const ParticleBackground = () => {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(139, 92, 246, ${0.08 * (1 - dist / 150)})`;
+            ctx.strokeStyle = `rgba(37, 99, 235, ${0.1 * (1 - dist / 150)})`; // Deeper blue
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

@@ -1,41 +1,16 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
+import { useDashboard } from "./dashboard/DashboardContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projects = [
-  {
-    title: "Nebula OS",
-    category: "Web Application",
-    description: "A futuristic operating system interface built for the browser with real-time collaboration.",
-    tags: ["React", "WebGL", "Three.js"],
-    color: "from-primary/20 to-secondary/10",
-  },
-  {
-    title: "Synthwave Studio",
-    category: "Creative Tool",
-    description: "An AI-powered music visualization platform that generates real-time reactive visuals.",
-    tags: ["GSAP", "Web Audio", "Canvas"],
-    color: "from-secondary/20 to-primary/10",
-  },
-  {
-    title: "Quantum Dashboard",
-    category: "Data Visualization",
-    description: "Interactive data exploration tool with physics-based animations and 3D chart rendering.",
-    tags: ["D3.js", "WebGL", "TypeScript"],
-    color: "from-primary/15 to-accent/10",
-  },
-  {
-    title: "Void Commerce",
-    category: "E-Commerce",
-    description: "A premium e-commerce experience with cinematic product reveals and immersive browsing.",
-    tags: ["Next.js", "Stripe", "Framer"],
-    color: "from-accent/10 to-secondary/15",
-  },
-];
-
 const ProjectsSection = () => {
+  const { projects } = useDashboard();
+  // Filter for only published projects and take top 4
+  const displayProjects = projects.filter(p => p.status === "Published").slice(0, 4);
+
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -75,26 +50,49 @@ const ProjectsSection = () => {
   return (
     <section ref={sectionRef} id="projects" className="relative py-32 px-6">
       <div className="max-w-6xl mx-auto">
-        <div ref={headingRef} className="mb-20">
-          <span className="text-primary font-body text-sm tracking-widest uppercase mb-4 block">
-            Selected Work
-          </span>
-          <h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl">
-            Projects that
-            <br />
-            <span className="text-gradient-primary">push boundaries</span>
-          </h2>
+        <div ref={headingRef} className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <span className="text-primary font-body text-sm tracking-widest uppercase mb-4 block">
+              Selected Work
+            </span>
+            <h2 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl">
+              Projects that
+              <br />
+              <span className="text-gradient-primary">push boundaries</span>
+            </h2>
+          </div>
+          <Link
+            to="/projects"
+            className="px-6 py-3 rounded-full bg-glass text-sm font-body text-foreground border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 flex items-center gap-2 group"
+          >
+            Explore All Projects
+            <svg
+              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, i) => (
+          {displayProjects.map((project, i) => (
             <div
-              key={project.title}
+              key={project.id}
               ref={(el) => { cardsRef.current[i] = el; }}
               className="group relative rounded-2xl bg-glass overflow-hidden cursor-pointer transition-transform duration-500 hover:scale-[1.02]"
             >
-              {/* Gradient top */}
-              <div className={`h-48 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
+              {/* Gradient top / Image */}
+              <div className={`h-48 relative overflow-hidden ${!project.imageUrl ? `bg-gradient-to-br ${project.imageColor}` : ''}`}>
+                {project.imageUrl && (
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-primary/20 blur-2xl" />
@@ -108,19 +106,9 @@ const ProjectsSection = () => {
                 <h3 className="font-display font-bold text-2xl mt-2 mb-3 group-hover:text-gradient-primary transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-2">
                   {project.description}
                 </p>
-                <div className="flex gap-2 flex-wrap">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
 
               {/* Hover glow border */}

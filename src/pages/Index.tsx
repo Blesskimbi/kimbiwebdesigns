@@ -11,6 +11,8 @@ import ExperienceSection from "@/components/ExperienceSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
+import FloatingChat from "@/components/FloatingChat";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
@@ -28,6 +30,8 @@ const Index = () => {
         <ExperienceSection />
         <TestimonialsSection />
         <ContactSection />
+        <FloatingChat />
+        <ScrollToTop />
       </div>
     </LenisSmoothScroll>
   );

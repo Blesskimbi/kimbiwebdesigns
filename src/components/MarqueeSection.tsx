@@ -15,7 +15,7 @@ const words = [
   "✦",
   "INNOVATOR",
   "✦",
-  "DREAMER",
+  "Web Developer",
   "✦",
 ];
 

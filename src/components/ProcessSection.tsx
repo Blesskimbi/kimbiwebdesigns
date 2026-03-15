@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Search, Palette, Code2, Rocket } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,25 +10,25 @@ const steps = [
     num: "01",
     title: "Discover",
     description: "Deep dive into your vision, goals, and audience. I research, ask questions, and map the full picture before a single line of code.",
-    icon: "🔍",
+    icon: Search,
   },
   {
     num: "02",
     title: "Design",
     description: "Crafting wireframes and high-fidelity mockups that balance aesthetics with function. Every pixel has purpose.",
-    icon: "🎨",
+    icon: Palette,
   },
   {
     num: "03",
     title: "Develop",
     description: "Building with modern tools, clean architecture, and performance-first thinking. Animations and interactions are baked in from day one.",
-    icon: "⚡",
+    icon: Code2,
   },
   {
     num: "04",
     title: "Deliver",
     description: "Rigorous testing, optimization, and seamless deployment. The result: a polished experience that exceeds expectations.",
-    icon: "🚀",
+    icon: Rocket,
   },
 ];
 
@@ -102,7 +103,9 @@ const ProcessSection = () => {
                 {step.num}
               </div>
 
-              <div className="text-4xl mb-6">{step.icon}</div>
+              <div className="flex justify-center mb-6">
+                <step.icon className="w-10 h-10 text-primary group-hover:scale-110 transition-transform duration-500" />
+              </div>
 
               <h3 className="font-display font-bold text-xl mb-3 text-foreground group-hover:text-gradient-primary transition-colors duration-300">
                 {step.title}
