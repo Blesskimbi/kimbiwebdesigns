@@ -123,13 +123,20 @@ const ContactSection = () => {
         </div>
 
         <div data-animate className="flex justify-center gap-8 mt-10">
-          {["GitHub", "Tiktok", "Facebook", "LinkedIn"].map((link) => (
+          {[
+            { label: "GitHub", href: "https://github.com/Blesskimbi" },
+            { label: "TikTok", href: "https://www.tiktok.com/@blesskimbi" },
+            { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61582208347827" },
+            { label: "LinkedIn", href: "https://www.linkedin.com/in/bless-kimbi-09413936a/" },
+          ].map(({ label, href }) => (
             <a
-              key={link}
-              href="#"
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground font-body text-sm tracking-wider transition-colors duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-primary after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
             >
-              {link}
+              {label}
             </a>
           ))}
         </div>

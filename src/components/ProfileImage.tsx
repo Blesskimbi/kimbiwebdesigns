@@ -20,8 +20,6 @@ const ProfileImage = () => {
         { name: "GitHub", icon: "https://cdn.simpleicons.org/github/FFFFFF" },
         { name: "Canva", icon: "https://img.icons8.com/ios-filled/50/FFFFFF/canva.png" },
         { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E" },
-        { name: "Photoshop", icon: "https://cdn.simpleicons.org/adobephotoshop/31A8FF" },
-        { name: "Illustrator", icon: "https://cdn.simpleicons.org/adobeillustrator/FF9A00" },
         { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
 
         { name: "Vite", icon: "https://cdn.simpleicons.org/vite/646CFF" },
