@@ -96,10 +96,10 @@ const ProcessSection = () => {
             <div
               key={step.num}
               ref={(el) => { cardsRef.current[i] = el; }}
-              className="group relative bg-glass rounded-2xl p-8 text-center transition-all duration-500 hover:glow-primary"
+              className="group relative bg-glass rounded-2xl p-8 text-center transition-all duration-500 hover:glow-primary overflow-hidden"
             >
               {/* Large number watermark */}
-              <div className="absolute top-4 right-4 font-display font-bold text-5xl text-primary/5 select-none leading-none">
+              <div className="absolute top-4 right-6 font-display font-bold text-4xl sm:text-5xl text-primary/5 select-none leading-none">
                 {step.num}
               </div>
 

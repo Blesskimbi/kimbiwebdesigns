@@ -124,10 +124,10 @@ const HeroSection = () => {
           Software Engineer & Creative Developer
         </div>
 
-        <h1 className="font-display font-800 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight mb-8 glow-text flex flex-col items-center justify-center">
+        <h1 className="font-display font-800 text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight mb-8 glow-text flex flex-col items-center justify-center">
           <span ref={staticText1Ref} className="block w-full text-center mb-2 md:mb-4">Turning Ideas Into</span>
           <span className="flex flex-col md:flex-row items-center justify-center gap-y-2 md:gap-y-0 md:gap-x-5">
-            <span className="inline-flex justify-center min-w-[220px] sm:min-w-[280px] md:min-w-[340px] lg:min-w-[400px]">
+            <span className="inline-flex justify-center min-w-[180px] sm:min-w-[280px] md:min-w-[340px] lg:min-w-[400px]">
               <span ref={dynamicTextRef} className="text-gradient-primary inline-block text-center w-full whitespace-nowrap">
                 {words[index]}
               </span>
@@ -138,13 +138,13 @@ const HeroSection = () => {
 
         <p
           ref={subRef}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-body leading-relaxed"
+          className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-body leading-relaxed md:px-0 px-4"
         >
           I build websites, web apps, and digital content, combining coding skills 
           with design to create functional and visually appealing projects.
         </p>
 
-        <div ref={ctaRef} className="flex gap-4 justify-center flex-wrap">
+        <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
           <a
             href="#projects"
             className="group relative px-8 py-4 rounded-full bg-glass glow-primary font-display font-semibold tracking-wide text-foreground transition-all duration-300 hover:scale-105"

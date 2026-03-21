@@ -111,7 +111,7 @@ const ProfileImage = () => {
     }, []);
 
     return (
-        <div className="relative w-full max-w-[480px] aspect-square mx-auto flex items-center justify-center">
+        <div className="relative w-full max-w-[320px] sm:max-w-[480px] aspect-square mx-auto flex items-center justify-center">
             <div ref={containerRef} className="relative w-full h-[95%]">
                 {/* Background Aura Glow */}
                 <div
@@ -140,7 +140,11 @@ const ProfileImage = () => {
                 {techStack.map((tech, i) => {
                     const total = techStack.length;
                     const angle = (i / total) * Math.PI * 2 - Math.PI / 2; // Start from top
-                    const radius = 62; // percentage
+                    
+                    // Responsive radius
+                    const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+                    const radius = isMobile ? 48 : 62; // percentage
+                    
                     const x = 50 + radius * Math.cos(angle);
                     const y = 50 + radius * Math.sin(angle);
 
@@ -153,7 +157,7 @@ const ProfileImage = () => {
                                 top: `${y}%`,
                                 transform: 'translate(-50%, -50%)' 
                             }}
-                            className="absolute z-20 w-9 h-9 md:w-11 md:h-11 bg-white/10 border border-white/20 rounded-xl p-2 flex items-center justify-center backdrop-blur-md shadow-lg transition-all hover:scale-125 hover:bg-white/20 hover:border-white/40 group"
+                            className="absolute z-20 w-8 h-8 sm:w-9 sm:h-9 md:w-11 md:h-11 bg-white/10 border border-white/20 rounded-xl p-1.5 flex items-center justify-center backdrop-blur-md shadow-lg transition-all hover:scale-125 hover:bg-white/20 hover:border-white/40 group"
                         >
                             <img
                                 src={tech.icon}

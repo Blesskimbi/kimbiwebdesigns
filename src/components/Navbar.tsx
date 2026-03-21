@@ -32,10 +32,10 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-glass-strong py-4" : "py-6"
         }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         <Link
           to="/"
-          className="font-display font-bold text-lg tracking-wider text-foreground"
+          className="font-display font-bold text-base sm:text-lg tracking-wider text-foreground whitespace-nowrap"
         >
           <span className="text-primary">&lt;/</span>BlessKimbi<span className="text-primary">&gt;</span>
         </Link>
@@ -69,7 +69,7 @@ const Navbar = () => {
 
         <a
           href="/#contact"
-          className="px-5 py-2 rounded-full bg-glass text-sm font-body text-foreground hover:glow-primary transition-shadow duration-300"
+          className="px-3 py-1.5 sm:px-5 sm:py-2 rounded-full bg-glass text-[10px] sm:text-sm font-body text-foreground hover:glow-primary transition-shadow duration-300 whitespace-nowrap"
         >
           Let's Talk
         </a>
