@@ -121,7 +121,7 @@ const HeroSection = () => {
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <div className="inline-block mb-6 px-4 py-1.5 rounded-full bg-glass text-muted-foreground text-sm font-body tracking-wider uppercase">
-          Software Engineer & Creative Developer
+         開発ソフトウェア開発者
         </div>
 
         <h1 className="font-display font-800 text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight mb-8 glow-text flex flex-col items-center justify-center">
