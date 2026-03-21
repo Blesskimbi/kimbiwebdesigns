@@ -121,18 +121,18 @@ const HeroSection = () => {
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <div className="inline-block mb-6 px-4 py-1.5 rounded-full bg-glass text-muted-foreground text-sm font-body tracking-wider uppercase">
-          Creative Developer & Designer
+          Software Engineer & Creative Developer
         </div>
 
         <h1 className="font-display font-800 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight mb-8 glow-text flex flex-col items-center justify-center">
-          <span ref={staticText1Ref} className="block w-full text-center mb-2 md:mb-4">Do You Need a</span>
+          <span ref={staticText1Ref} className="block w-full text-center mb-2 md:mb-4">Turning Ideas Into</span>
           <span className="flex flex-col md:flex-row items-center justify-center gap-y-2 md:gap-y-0 md:gap-x-5">
             <span className="inline-flex justify-center min-w-[220px] sm:min-w-[280px] md:min-w-[340px] lg:min-w-[400px]">
               <span ref={dynamicTextRef} className="text-gradient-primary inline-block text-center w-full whitespace-nowrap">
                 {words[index]}
               </span>
             </span>
-            <span ref={staticText2Ref}>Website?</span>
+            <span ref={staticText2Ref}>Realities</span>
           </span>
         </h1>
 
@@ -140,8 +140,8 @@ const HeroSection = () => {
           ref={subRef}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-body leading-relaxed"
         >
-          I build immersive, boundary-pushing web experiences that blend art,
-          technology, and human emotion into something unforgettable.
+          I build websites, web apps, and digital content, combining coding skills 
+          with design to create functional and visually appealing projects.
         </p>
 
         <div ref={ctaRef} className="flex gap-4 justify-center flex-wrap">

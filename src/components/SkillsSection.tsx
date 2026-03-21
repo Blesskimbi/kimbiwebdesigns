@@ -5,12 +5,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const skills = [
-  { name: "React / Next.js", level: 95 },
-  { name: "TypeScript", level: 92 },
-  { name: "GSAP / Animation", level: 88 },
-  { name: "Three.js / WebGL", level: 80 },
-  { name: "UI/UX Design", level: 85 },
-  { name: "Node.js / APIs", level: 78 },
+  { name: "React / TypeScript", level: 90 },
+  { name: "Python / Node.js", level: 85 },
+  { name: "WordPress / CMS", level: 80 },
+  { name: "Canva / Design", level: 88 },
+  { name: "Digital Strategy", level: 75 },
 ];
 
 const SkillsSection = () => {

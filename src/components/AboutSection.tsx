@@ -51,15 +51,19 @@ const AboutSection = () => {
               About Me
             </span>
             <h2 className="font-display font-bold text-4xl md:text-6xl mb-8">
-              Building the <span className="text-gradient-primary">future</span>,
+              Full-Stack <span className="text-gradient-primary">Creator</span>
               <br />
-              one pixel at a time
+              with Design Skills
             </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed font-body mb-6">
+              I’m a software engineer and creative developer who builds websites, web apps, and digital content. 
+              By combining coding skills with design, I turn complex ideas into real, functional, and 
+              visually appealing projects.
+            </p>
             <p className="text-muted-foreground text-lg leading-relaxed font-body">
-              I'm a creative developer obsessed with the intersection of design and
-              technology. I craft digital experiences that feel alive — using motion,
-              depth, and interactivity to transform ideas into immersive web journeys
-              that captivate and inspire.
+              Whether it's frontend development with React, backend systems with Node.js/Python, 
+              or creative branding with Canva, I handle both the technical and visual sides of a 
+              project from concept to finished product.
             </p>
           </div>
 

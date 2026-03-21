@@ -6,19 +6,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    title: "Interactive Websites",
-    description: "Bespoke websites with cinematic animations, scroll-driven storytelling, and immersive interactions that captivate visitors.",
-    features: ["GSAP Animations", "Scroll Experiences", "Responsive Design"],
+    title: "Web Development",
+    description: "Building custom, responsive, and e-commerce websites tailored to your needs using modern technologies.",
+    features: ["Custom Design", "Responsive Layouts", "E-commerce Solutions"],
   },
   {
     title: "Web Applications",
-    description: "Scalable, performant applications built with modern frameworks. Clean architecture meets beautiful interface design.",
-    features: ["React / Next.js", "TypeScript", "API Integration"],
+    description: "Developing interactive tools and full-stack web applications with robust frontend and backend systems.",
+    features: ["React / TypeScript", "Node.js / Python", "API Development"],
   },
   {
-    title: "Creative Development",
-    description: "Experimental digital experiences — generative art, WebGL visualizations, and interactive installations for brands.",
-    features: ["WebGL / Three.js", "Canvas API", "Generative Art"],
+    title: "Creative Design",
+    description: "Professional graphic design for branding, including logos, banners, and social media graphics.",
+    features: ["Logo Design", "Social Media Graphics", "Branding & Identity"],
   },
 ];
 

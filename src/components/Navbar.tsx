@@ -37,7 +37,7 @@ const Navbar = () => {
           to="/"
           className="font-display font-bold text-lg tracking-wider text-foreground"
         >
-          BlessKimbi<span className="text-primary">.</span>
+          <span className="text-primary">&lt;/</span>BlessKimbi<span className="text-primary">&gt;</span>
         </Link>
 
         <div className="hidden sm:flex items-center gap-8">

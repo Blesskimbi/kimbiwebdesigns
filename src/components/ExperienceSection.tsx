@@ -6,28 +6,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
-    year: "2024 — Present",
-    title: "Lead Creative Developer",
-    company: "Flux Studio",
-    description: "Architecting award-winning interactive experiences and leading a team of developers pushing the boundaries of web creativity.",
+    year: "Junior Engineer",
+    title: "Web App Developer",
+    company: "Cyprogram",
+    description: "Developed functional web applications, handling both frontend and backend tasks to deliver complete digital solutions.",
   },
   {
-    year: "2022 — 2024",
-    title: "Senior Frontend Engineer",
-    company: "Orbit Labs",
-    description: "Built high-performance web applications with cinematic animations and real-time data visualization for enterprise clients.",
+    year: "Junior Engineer",
+    title: "Web Developer",
+    company: "Otroli",
+    description: "Built responsive websites and focused on improving user experience through clean code and intuitive design.",
   },
   {
-    year: "2020 — 2022",
-    title: "Creative Technologist",
-    company: "NovaTech",
-    description: "Developed experimental web experiences combining WebGL, GSAP, and generative art for brand campaigns.",
-  },
-  {
-    year: "2018 — 2020",
-    title: "Frontend Developer",
-    company: "Prism Digital",
-    description: "Crafted responsive, accessible web experiences with a focus on micro-interactions and performance optimization.",
+    year: "Freelance & Personal",
+    title: "Full-Stack Creator",
+    company: "Independent Projects",
+    description: "Hands-on experience in real-world projects, delivering custom websites, branding, and digital strategies for various clients.",
   },
 ];
 
