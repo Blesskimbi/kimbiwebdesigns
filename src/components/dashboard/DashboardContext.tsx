@@ -55,11 +55,11 @@ interface DashboardContextType {
 
 // --- Initial Mock Data ---
 const initialProjects: Project[] = [
-    { id: 1, title: "Nebula OS", category: "Web Design", status: "Published", date: "Mar 10, 2026", description: "A futuristic operating system interface built for the browser.", imageColor: "from-primary/20 to-secondary/10" },
+    { id: 1, title: "Nebula OS", category: "Web Design", status: "Published", date: "Mar 10, 2026", description: "A futuristic operating system interface built for the browser.", imageColor: "from-primary/20 to-secondary/10", imageUrl: "/cyprogram-riscam.co.png" },
     { id: 2, title: "EcoBrand Identity", category: "Logo Design", status: "Draft", date: "Mar 8, 2026", description: "Modern minimalist logo set for a sustainable tech company.", imageColor: "from-green-500/20 to-emerald-500/10" },
-    { id: 3, title: "Synthwave Studio", category: "Web Design", status: "Published", date: "Mar 1, 2026", description: "An AI-powered music visualization platform.", imageColor: "from-secondary/20 to-primary/10" },
+    { id: 3, title: "Synthwave Studio", category: "Web Design", status: "Published", date: "Mar 1, 2026", description: "An AI-powered music visualization platform.", imageColor: "from-secondary/20 to-primary/10", imageUrl: "/mclevioflfe.png" },
     { id: 4, title: "Abstract Concept 01", category: "Uncategorized", status: "Archived", date: "Feb 24, 2026", description: "Experimental 3D rendering and motion graphics playground.", imageColor: "from-purple-500/20 to-pink-500/10" },
-    { id: 5, title: "TechFlow Branding", category: "Logo Design", status: "Published", date: "Feb 15, 2026", description: "Complete brand identity and logo suite for a SaaS startup.", imageColor: "from-blue-500/20 to-cyan-500/10" },
+    { id: 5, title: "TechFlow Branding", category: "Logo Design", status: "Published", date: "Feb 15, 2026", description: "Complete brand identity and logo suite for a SaaS startup.", imageColor: "from-blue-500/20 to-cyan-500/10", imageUrl: "/medproexpeditions.com.png" },
 ];
 
 const initialBlogPosts: BlogPost[] = [
@@ -81,24 +81,34 @@ const DashboardContext = createContext<DashboardContextType | undefined>(undefin
 export const DashboardProvider = ({ children }: { children: ReactNode }) => {
     // State initialization from localStorage or defaults
     const [projects, setProjects] = useState<Project[]>(() => {
-        const saved = localStorage.getItem("blesskimbi_projects");
+        const saved = localStorage.getItem("blesskimbi_v2_projects");
         return saved ? JSON.parse(saved) : initialProjects;
     });
 
     const [blogPosts, setBlogPosts] = useState<BlogPost[]>(() => {
-        const saved = localStorage.getItem("blesskimbi_blogPosts");
+        const saved = localStorage.getItem("blesskimbi_v2_blogPosts");
         return saved ? JSON.parse(saved) : initialBlogPosts;
     });
 
     const [messages, setMessages] = useState<Message[]>(() => {
-        const saved = localStorage.getItem("blesskimbi_messages");
+        const saved = localStorage.getItem("blesskimbi_v2_messages");
         return saved ? JSON.parse(saved) : initialMessages;
     });
 
     // Save to localStorage whenever state changes
-    useEffect(() => { localStorage.setItem("blesskimbi_projects", JSON.stringify(projects)); }, [projects]);
-    useEffect(() => { localStorage.setItem("blesskimbi_blogPosts", JSON.stringify(blogPosts)); }, [blogPosts]);
-    useEffect(() => { localStorage.setItem("blesskimbi_messages", JSON.stringify(messages)); }, [messages]);
+    useEffect(() => { localStorage.setItem("blesskimbi_v2_projects", JSON.stringify(projects)); }, [projects]);
+    useEffect(() => { localStorage.setItem("blesskimbi_v2_blogPosts", JSON.stringify(blogPosts)); }, [blogPosts]);
+    useEffect(() => { localStorage.setItem("blesskimbi_v2_messages", JSON.stringify(messages)); }, [messages]);
+    // Sync initial images to state if missing or outdated (to handle existing localStorage data)
+    // Migration/Fix for image paths
+    useEffect(() => {
+        setProjects(prev => prev.map(p => {
+            if (p.imageUrl && p.imageUrl.startsWith('/public/')) {
+                return { ...p, imageUrl: p.imageUrl.replace('/public/', '/') };
+            }
+            return p;
+        }));
+    }, []);
 
     // Helpers
     const generateId = () => Date.now();
