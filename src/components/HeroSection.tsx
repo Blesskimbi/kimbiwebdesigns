@@ -124,10 +124,10 @@ const HeroSection = () => {
          Software Developer
         </div>
 
-        <h1 className="font-display font-800 text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight mb-8 glow-text flex flex-col items-center justify-center">
+        <h1 className="font-display font-800 text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight mb-8 glow-text flex flex-col items-center justify-center">
           <span ref={staticText1Ref} className="block w-full text-center mb-2 md:mb-4">Turning Ideas Into</span>
           <span className="flex flex-col md:flex-row items-center justify-center gap-y-2 md:gap-y-0 md:gap-x-5">
-            <span className="inline-flex justify-center min-w-[180px] sm:min-w-[280px] md:min-w-[340px] lg:min-w-[400px]">
+            <span className="inline-flex justify-center min-w-[140px] sm:min-w-[280px] md:min-w-[340px] lg:min-w-[400px]">
               <span ref={dynamicTextRef} className="text-gradient-primary inline-block text-center w-full whitespace-nowrap">
                 {words[index]}
               </span>
