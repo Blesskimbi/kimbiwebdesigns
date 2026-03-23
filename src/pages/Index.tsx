@@ -17,7 +17,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 const Index = () => {
   return (
     <LenisSmoothScroll>
-      <div className="relative min-h-screen bg-background">
+      <div className="relative min-h-screen bg-background overflow-x-hidden border-x border-transparent">
         <ParticleBackground />
         <Navbar />
         <HeroSection />

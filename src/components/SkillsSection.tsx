@@ -43,13 +43,13 @@ const SkillsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 px-6">
+    <section ref={sectionRef} className="relative py-32 px-6 overflow-hidden">
       <div className="max-w-4xl mx-auto">
         <div className="mb-16">
           <span className="text-primary font-body text-sm tracking-widest uppercase mb-4 block">
             Expertise
           </span>
-          <h2 className="font-display font-bold text-4xl md:text-6xl">
+          <h2 className="font-display font-bold text-3xl xs:text-4xl md:text-6xl">
             Skills &{" "}
             <span className="text-gradient-primary">Technologies</span>
           </h2>

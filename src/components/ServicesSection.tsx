@@ -54,13 +54,13 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 px-6">
+    <section ref={sectionRef} className="relative py-32 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div ref={headingRef} className="mb-20">
           <span className="text-primary font-body text-sm tracking-widest uppercase mb-4 block">
             What I Do
           </span>
-          <h2 className="font-display font-bold text-4xl md:text-6xl">
+          <h2 className="font-display font-bold text-3xl xs:text-4xl md:text-6xl">
             Services & <span className="text-gradient-primary">Expertise</span>
           </h2>
         </div>

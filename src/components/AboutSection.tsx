@@ -43,14 +43,14 @@ const AboutSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="relative py-32 px-6">
+    <section ref={sectionRef} className="relative py-32 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <div ref={textRef}>
             <span className="text-primary font-body text-sm tracking-widest uppercase mb-4 block">
               About Me
             </span>
-            <h2 className="font-display font-bold text-4xl md:text-6xl mb-8">
+            <h2 className="font-display font-bold text-3xl xs:text-4xl md:text-6xl mb-8">
               Full-Stack <span className="text-gradient-primary">Creator</span>
               <br />
               with Design Skills
