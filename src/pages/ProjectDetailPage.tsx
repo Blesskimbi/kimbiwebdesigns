@@ -8,7 +8,7 @@ import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import { staticProjects } from "@/data/projects";
 
-const WHATSAPP = "https://wa.me/237600000000?text=Hi%20Bless%2C%20I%20saw%20your%20project%20and%20would%20like%20to%20discuss%20a%20similar%20one.";
+const WHATSAPP = "https://wa.me/237675126845?text=Hi%20Bless%2C%20I%20saw%20your%20project%20and%20would%20like%20to%20discuss%20a%20similar%20one.";
 
 const ProjectDetailPage = () => {
     const { slug } = useParams<{ slug: string }>();

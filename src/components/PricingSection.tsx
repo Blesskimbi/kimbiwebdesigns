@@ -5,7 +5,7 @@ import { Check, X, Zap } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WHATSAPP = "https://wa.me/237600000000?text=Hi%20Bless%2C%20I%20am%20interested%20in%20your%20web%20design%20services.";
+const WHATSAPP = "https://wa.me/237675126845?text=Hi%20Bless%2C%20I%20am%20interested%20in%20your%20web%20design%20services.";
 
 interface PricingFeature {
   text: string;
