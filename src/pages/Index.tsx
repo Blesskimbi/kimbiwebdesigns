@@ -26,9 +26,9 @@ const Index = () => {
         <AboutSection />
         <ServicesSection />
         <ProjectsSection />
-        <ProcessSection />
+        <div className="hidden sm:block"><ProcessSection /></div>
         <SkillsSection />
-        <ExperienceSection />
+        <div className="hidden sm:block"><ExperienceSection /></div>
         <TestimonialsSection />
         <PricingSection />
         <ContactSection />
