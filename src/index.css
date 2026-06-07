@@ -85,6 +85,15 @@
   }
 }
 
+/* Project image slow pan-down on hover */
+@keyframes pan-image {
+  0%   { object-position: center top; }
+  100% { object-position: center bottom; }
+}
+.group:hover .pan-on-hover {
+  animation: pan-image 5s ease-in-out forwards;
+}
+
 @layer utilities {
   .font-display {
     font-family: 'Syne', sans-serif;
@@ -128,6 +137,11 @@
 
   .glow-accent {
     box-shadow: 0 0 20px -5px hsl(var(--accent) / 0.4);
+  }
+
+  /* Project card image pan animation */
+  .pan-on-hover {
+    transition: object-position 0.5s ease;
   }
 
   .mesh-gradient {

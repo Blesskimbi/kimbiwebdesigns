@@ -9,6 +9,7 @@ import ProcessSection from "@/components/ProcessSection";
 import SkillsSection from "@/components/SkillsSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import PricingSection from "@/components/PricingSection";
 import ContactSection from "@/components/ContactSection";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import FloatingChat from "@/components/FloatingChat";
@@ -29,6 +30,7 @@ const Index = () => {
         <SkillsSection />
         <ExperienceSection />
         <TestimonialsSection />
+        <PricingSection />
         <ContactSection />
         <FloatingChat />
         <ScrollToTop />

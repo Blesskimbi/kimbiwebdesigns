@@ -1,0 +1,133 @@
+export interface StaticProject {
+    id: number;
+    slug: string;
+    title: string;
+    shortDescription: string;
+    description: string;
+    category: string;
+    tags: string[];
+    technologies: string[];
+    imageUrl: string;
+    liveUrl?: string;
+    color: string;
+}
+
+export const staticProjects: StaticProject[] = [
+    {
+        id: 1,
+        slug: "cyprogram-academy",
+        title: "CyProgram Academy",
+        shortDescription: "Online learning platform for cybersecurity and programming courses in Cameroon.",
+        description: "CyProgram Academy is a full-featured e-learning platform built for the African market, offering courses in cybersecurity, web development, and programming. The platform features a modern dashboard, course progress tracking, video lessons, and a seamless payment integration for local and international students.",
+        category: "Web Design",
+        tags: ["E-Learning", "Dashboard", "LMS"],
+        technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
+        imageUrl: "/cyprogram-riscam.co.png",
+        liveUrl: "https://cyprogram.com",
+        color: "from-blue-500/20 to-cyan-500/10",
+    },
+    {
+        id: 2,
+        slug: "medpro-expeditions",
+        title: "MedPro Expeditions",
+        shortDescription: "Medical tourism and expedition booking platform connecting patients to healthcare across Africa.",
+        description: "MedPro Expeditions is a medical tourism booking platform designed to help patients access quality healthcare across Africa. The website features detailed doctor profiles, hospital listings, appointment scheduling, and travel coordination services, all wrapped in a clean and trustworthy design.",
+        category: "Web Design",
+        tags: ["Healthcare", "Booking", "Medical Tourism"],
+        technologies: ["React", "TypeScript", "Tailwind CSS", "Supabase"],
+        imageUrl: "/medproexpeditions.com.png",
+        liveUrl: "https://medproexpeditions.com",
+        color: "from-green-500/20 to-emerald-500/10",
+    },
+    {
+        id: 3,
+        slug: "mclevio-lifestyle",
+        title: "Mclevio Lifestyle",
+        shortDescription: "Premium lifestyle and fashion brand website with a bold editorial aesthetic.",
+        description: "Mclevio Lifestyle is a premium fashion and lifestyle brand website built to capture the energy of modern African streetwear. The site features full-screen editorial imagery, animated product reveals, and a smooth shopping experience designed to drive conversions and brand awareness.",
+        category: "Web Design",
+        tags: ["Fashion", "E-commerce", "Lifestyle"],
+        technologies: ["React", "GSAP", "Tailwind CSS", "Stripe"],
+        imageUrl: "/mclevioflfe.png",
+        liveUrl: "#",
+        color: "from-purple-500/20 to-pink-500/10",
+    },
+    {
+        id: 4,
+        slug: "techflow-saas",
+        title: "TechFlow SaaS",
+        shortDescription: "Analytics dashboard platform for SaaS businesses to track growth metrics.",
+        description: "TechFlow is a data-driven SaaS analytics dashboard that helps businesses visualize growth metrics, track user behaviour, and generate actionable reports. The interface was designed for clarity and speed, with real-time data visualization, customizable widget panels, and a dark-mode-first design language.",
+        category: "Web Design",
+        tags: ["SaaS", "Dashboard", "Analytics"],
+        technologies: ["React", "TypeScript", "Recharts", "Node.js", "PostgreSQL"],
+        imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
+        liveUrl: "#",
+        color: "from-sky-500/20 to-blue-500/10",
+    },
+    {
+        id: 5,
+        slug: "greenleaf-organics",
+        title: "GreenLeaf Organics",
+        shortDescription: "E-commerce store for organic products with subscription box features.",
+        description: "GreenLeaf Organics is an e-commerce platform for a sustainable organic products brand. The site supports product subscriptions, filtered browsing, and a minimal checkout experience. Special attention was paid to performance and accessibility to serve customers across varying connection speeds.",
+        category: "E-commerce",
+        tags: ["Organic", "E-commerce", "Subscription"],
+        technologies: ["React", "Tailwind CSS", "Shopify API", "Stripe"],
+        imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80",
+        liveUrl: "#",
+        color: "from-green-500/20 to-lime-500/10",
+    },
+    {
+        id: 6,
+        slug: "novatech-solutions",
+        title: "NovaTech Solutions",
+        shortDescription: "Corporate IT consulting website with service showcase and lead capture.",
+        description: "NovaTech Solutions is a professional corporate website built for an IT consulting firm operating in Central Africa. The site showcases their service offerings, team expertise, case studies, and includes a multi-step contact form for lead qualification. SEO was a core deliverable, resulting in first-page rankings for key local search terms.",
+        category: "Web Design",
+        tags: ["Corporate", "IT", "Lead Generation"],
+        technologies: ["React", "TypeScript", "Tailwind CSS", "EmailJS"],
+        imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=80",
+        liveUrl: "#",
+        color: "from-indigo-500/20 to-violet-500/10",
+    },
+    {
+        id: 7,
+        slug: "lumina-photography",
+        title: "Lumina Photography",
+        shortDescription: "Award-winning portfolio site for a professional photographer with gallery and booking.",
+        description: "Lumina Photography is a visually immersive portfolio for a professional photographer. The site features a masonry gallery, GSAP-powered scroll animations, an online booking system for photoshoots, and a client gallery portal. Every interaction was crafted to reflect the photographer's artistic vision.",
+        category: "Portfolio",
+        tags: ["Photography", "Portfolio", "Gallery"],
+        technologies: ["React", "GSAP", "Tailwind CSS", "Cloudinary"],
+        imageUrl: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&q=80",
+        liveUrl: "#",
+        color: "from-amber-500/20 to-orange-500/10",
+    },
+    {
+        id: 8,
+        slug: "foodiehub-restaurant",
+        title: "FoodieHub Restaurant",
+        shortDescription: "Restaurant website with online menu, table reservations, and food ordering.",
+        description: "FoodieHub is a full-featured restaurant website that combines an appetizing visual experience with practical functionality. Customers can browse the interactive menu, make table reservations, and place online orders for delivery or pickup. The admin panel allows staff to manage orders, update menus, and view booking schedules in real time.",
+        category: "Web Design",
+        tags: ["Restaurant", "Ordering", "Reservations"],
+        technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS", "Stripe"],
+        imageUrl: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80",
+        liveUrl: "#",
+        color: "from-red-500/20 to-orange-500/10",
+    },
+    {
+        id: 9,
+        slug: "sportspulse-fitness",
+        title: "SportsPulse Fitness",
+        shortDescription: "Fitness club platform with membership management, class scheduling, and trainer profiles.",
+        description: "SportsPulse Fitness is a complete web platform for a fitness club chain. Members can sign up, manage their subscriptions, book workout classes, and track their progress. Trainers have their own dashboards to manage sessions and communicate with members. The design is bold, energetic, and conversion-focused.",
+        category: "Web Design",
+        tags: ["Fitness", "Membership", "Scheduling"],
+        technologies: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Stripe"],
+        imageUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80",
+        liveUrl: "#",
+        color: "from-orange-500/20 to-red-500/10",
+    },
+];
