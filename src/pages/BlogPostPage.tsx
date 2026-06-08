@@ -160,21 +160,23 @@ const BlogPostPage = () => {
                 <ParticleBackground />
                 <Navbar />
 
-                <main className="pt-20 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 relative z-10 max-w-[1500px] mx-auto">
-                    {/* Breadcrumbs */}
-                    <nav className="flex items-center gap-2 text-xs font-medium text-gray-400 mb-6 md:mb-8 overflow-x-auto whitespace-nowrap pb-2" aria-label="Breadcrumb">
-                        <Link to="/" className="flex items-center gap-1 hover:text-primary transition-colors">
-                            <Home size={14} /><span>Home</span>
-                        </Link>
-                        <ChevronRight size={14} className="opacity-40" />
-                        <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
-                        <ChevronRight size={14} className="opacity-40" />
-                        <span className="text-white/80 truncate max-w-[240px] md:max-w-none">{post.title}</span>
-                    </nav>
+                <main className="pt-20 md:pt-32 pb-12 md:pb-20 px-4 sm:px-6 lg:px-8 relative z-10">
+                    {/* Center container with max-width */}
+                    <div className="max-w-[1400px] mx-auto">
+                        {/* Breadcrumbs */}
+                        <nav className="flex items-center gap-2 text-xs font-medium text-gray-400 mb-6 md:mb-8 overflow-x-auto whitespace-nowrap pb-2" aria-label="Breadcrumb">
+                            <Link to="/" className="flex items-center gap-1 hover:text-primary transition-colors">
+                                <Home size={14} /><span>Home</span>
+                            </Link>
+                            <ChevronRight size={14} className="opacity-40" />
+                            <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
+                            <ChevronRight size={14} className="opacity-40" />
+                            <span className="text-white/80 truncate max-w-[240px] md:max-w-none">{post.title}</span>
+                        </nav>
 
-                    <div className="grid xl:grid-cols-[1fr_300px] gap-6 md:gap-10 xl:gap-14">
-                        {/* Article */}
-                        <article>
+                        <div className="grid xl:grid-cols-[1fr_320px] gap-8 lg:gap-12">
+                            {/* Article */}
+                            <article className="min-w-0">
                             <header className="mb-6 md:mb-10">
                                 <div className="flex flex-wrap items-center gap-3 md:gap-4 text-xs text-gray-400 mb-4 md:mb-6 font-medium uppercase tracking-widest">
                                     <span className="px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">
@@ -221,18 +223,18 @@ const BlogPostPage = () => {
                             </div>
 
                             {/* Content */}
-                            <div className="bg-[#0A0C10]/60 backdrop-blur-xl border border-white/8 rounded-2xl md:rounded-3xl p-4 md:p-10 shadow-xl">
+                            <div className="bg-[#0A0C10]/60 backdrop-blur-xl border border-white/8 rounded-2xl md:rounded-3xl p-5 sm:p-8 lg:p-10 shadow-xl">
                                 <div className="prose prose-invert max-w-none prose-sm md:prose-base
                                     prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-white prose-headings:mb-3 md:prose-headings:mb-4 prose-headings:mt-6 md:prose-headings:mt-8
                                     prose-h2:text-xl md:prose-h2:text-2xl lg:prose-h2:text-3xl prose-h2:border-b prose-h2:border-white/10 prose-h2:pb-2 md:prose-h2:pb-3
                                     prose-h3:text-lg md:prose-h3:text-xl lg:prose-h3:text-2xl
-                                    prose-p:text-gray-200 prose-p:leading-[1.75] md:prose-p:leading-[1.85] prose-p:text-[0.95rem] md:prose-p:text-[1.05rem]
+                                    prose-p:text-gray-200 prose-p:leading-[1.75] md:prose-p:leading-[1.85] prose-p:text-[0.95rem] md:prose-p:text-[1.05rem] prose-p:text-justify
                                     prose-li:text-gray-200 prose-li:text-[0.95rem] md:prose-li:text-[1.05rem] prose-li:leading-[1.75] md:prose-li:leading-[1.85] prose-li:my-1
                                     prose-ul:my-4 md:prose-ul:my-5 prose-ol:my-4 md:prose-ol:my-5
                                     prose-strong:text-white prose-strong:font-semibold
                                     prose-em:text-gray-100
                                     prose-a:text-primary prose-a:font-medium prose-a:no-underline hover:prose-a:underline prose-a:break-words
-                                    prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:py-2 md:prose-blockquote:py-3 prose-blockquote:px-4 md:prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:text-gray-200 prose-blockquote:text-sm md:prose-blockquote:text-base
+                                    prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:py-2 md:prose-blockquote:py-3 prose-blockquote:px-4 md:prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:text-gray-200 prose-blockquote:text-sm md:prose-blockquote:text-base prose-blockquote:text-justify
                                     prose-code:text-primary prose-code:bg-white/8 prose-code:rounded prose-code:px-1 md:prose-code:px-1.5 prose-code:py-0.5 prose-code:text-xs md:prose-code:text-sm prose-code:break-words
                                     prose-img:rounded-xl md:prose-img:rounded-2xl prose-img:border prose-img:border-white/10
                                 ">
@@ -261,8 +263,16 @@ const BlogPostPage = () => {
                         </article>
 
                         {/* Sidebar */}
+                        <aside className="hidden xl:block">
+                            <BlogSidebar />
+                        </aside>
+                    </div>
+
+                    {/* Mobile Sidebar - Show below article */}
+                    <div className="xl:hidden mt-12 max-w-2xl mx-auto">
                         <BlogSidebar />
                     </div>
+                </div>
                 </main>
 
                 <Footer />
