@@ -12,11 +12,6 @@ import BlogPage from "./pages/BlogPage.tsx";
 import BlogPostPage from "./pages/BlogPostPage.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
 import DashboardLayout from "./components/dashboard/DashboardLayout.tsx";
-import DashboardOverview from "./pages/dashboard/DashboardOverview.tsx";
-import DashboardProjects from "./pages/dashboard/DashboardProjects.tsx";
-import DashboardBlog from "./pages/dashboard/DashboardBlog.tsx";
-import DashboardMessages from "./pages/dashboard/DashboardMessages.tsx";
-import { DashboardProvider } from "./components/dashboard/DashboardContext.tsx";
 
 const queryClient = new QueryClient();
 
@@ -25,8 +20,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <DashboardProvider>
-        <BrowserRouter>
+      <BrowserRouter>
           <Routes>
             <Route path="/"                element={<Index />} />
             <Route path="/services"        element={<ServicesPage />} />
@@ -35,17 +29,10 @@ const App = () => (
             <Route path="/blog"            element={<BlogPage />} />
             <Route path="/blog/:slug"      element={<BlogPostPage />} />
             <Route path="/contact"         element={<ContactPage />} />
-            {/* Dashboard */}
-            <Route path="/dashboard" element={<DashboardLayout />}>
-              <Route index element={<DashboardOverview />} />
-              <Route path="projects" element={<DashboardProjects />} />
-              <Route path="blog"     element={<DashboardBlog />} />
-              <Route path="messages" element={<DashboardMessages />} />
-            </Route>
+            <Route path="/dashboard/*" element={<DashboardLayout />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-      </DashboardProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
