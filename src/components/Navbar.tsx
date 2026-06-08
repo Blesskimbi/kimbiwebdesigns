@@ -11,11 +11,11 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   { label: "Home",     href: "/",          isPage: true  },
-  { label: "Services", href: "/#services",  isPage: false },
-  { label: "Projects", href: "/projects",   isPage: true  },
-  { label: "Pricing",  href: "/#pricing",   isPage: false },
-  { label: "Blog",     href: "/blog",       isPage: true  },
-  { label: "Contact",  href: "/#contact",   isPage: false },
+  { label: "Services", href: "/services",  isPage: true  },
+  { label: "Projects", href: "/projects",  isPage: true  },
+  { label: "Pricing",  href: "/#pricing",  isPage: false },
+  { label: "Blog",     href: "/blog",      isPage: true  },
+  { label: "Contact",  href: "/contact",   isPage: true  },
 ];
 
 const Navbar = () => {
@@ -134,7 +134,7 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <a
-            href="/#contact"
+            href="/contact"
             className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-primary text-white text-sm font-display font-bold hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(79,142,240,0.4)] transition-all duration-300 whitespace-nowrap flex-shrink-0"
           >
             Let's Talk
@@ -159,7 +159,7 @@ const Navbar = () => {
         <div className="flex flex-col items-center gap-8 w-full px-8">
           {navLinks.map((link) => renderLink(link, true))}
           <a
-            href="/#contact"
+            href="/contact"
             onClick={() => setIsMenuOpen(false)}
             className="mt-4 w-full max-w-[260px] text-center px-8 py-4 rounded-full bg-primary text-white font-display font-bold tracking-widest hover:bg-primary/90 transition-all duration-300 shadow-[0_0_25px_rgba(79,142,240,0.3)]"
           >
