@@ -1,27 +1,24 @@
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/ContactSection"; // Use ContactSection as a pseudo-footer or we can just render the layout
+import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import ParticleBackground from "@/components/ParticleBackground";
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
-import { useDashboard } from "@/components/dashboard/DashboardContext";
+import { ExternalLink } from "lucide-react";
+import { staticProjects } from "@/data/projects";
 
-// Standardize categories based on User request
-const categories = ["All", "Logo Design", "Uncategorized", "Web Design"];
+// Derive unique categories from actual project data
+const allCategories = ["All", ...Array.from(new Set(staticProjects.map(p => p.category)))];
 
 const ProjectsPage = () => {
-    const { projects } = useDashboard();
-    const publishedProjects = projects.filter(p => p.status === "Published");
     const [activeCategory, setActiveCategory] = useState("All");
 
-    const filteredProjects =
-        activeCategory === "All"
-            ? publishedProjects
-            : publishedProjects.filter((project) => project.category === activeCategory);
+    const filtered = activeCategory === "All"
+        ? staticProjects
+        : staticProjects.filter(p => p.category === activeCategory);
 
     return (
         <LenisSmoothScroll>
@@ -34,92 +31,94 @@ const ProjectsPage = () => {
                 <meta property="og:url" content="https://everythx.com/projects" />
                 <meta property="og:type" content="website" />
             </Helmet>
-            <div className="relative min-h-screen bg-background">
-                <ParticleBackground />
 
-                {/* Simple Navbar for sub-pages */}
-                <nav className="fixed top-0 left-0 right-0 z-50 py-4 bg-background/80 backdrop-blur-md border-b border-white/5">
-                    <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-                        <Link to="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-                            <ArrowLeft size={20} />
-                            <span className="font-display font-medium">Back to Home</span>
-                        </Link>
-                        <div className="font-display font-bold text-lg tracking-wider text-foreground">
-                            BlessKimbi<span className="text-primary">.</span>
-                        </div>
-                    </div>
-                </nav>
+            <div className="relative min-h-screen bg-background overflow-x-hidden">
+                <ParticleBackground />
+                <Navbar />
 
                 <main className="pt-32 pb-20 px-6 max-w-6xl mx-auto min-h-screen relative z-10">
 
-                    <div className="mb-16 text-center">
-                        <h1 className="font-display font-bold text-5xl md:text-6xl mb-6">
+                    {/* Heading */}
+                    <div className="mb-14 text-center">
+                        <h1 className="font-display font-bold text-5xl md:text-6xl mb-5">
                             My <span className="text-gradient-primary">Projects</span>
                         </h1>
-                        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                            Explore my portfolio across different disciplines. Select a category below to filter the projects.
+                        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                            {filtered.length} project{filtered.length !== 1 ? "s" : ""} — select a category to filter.
                         </p>
                     </div>
 
-                    {/* Filter Bar */}
-                    <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-                        {categories.map((category) => (
+                    {/* Category Filter */}
+                    <div className="flex flex-wrap items-center justify-center gap-3 mb-14">
+                        {allCategories.map((cat) => (
                             <button
-                                key={category}
-                                onClick={() => setActiveCategory(category)}
-                                className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === category
-                                    ? "bg-white text-[#0EA5E9] shadow-[0_0_20px_rgba(255,255,255,0.1)]" // Using cyan/light-blue for active text to match image
-                                    : "bg-[#11141C] text-white hover:bg-[#1A1E29]" // Dark navy backgrounds to match image
-                                    }`}
+                                key={cat}
+                                onClick={() => setActiveCategory(cat)}
+                                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                                    activeCategory === cat
+                                        ? "bg-primary text-white shadow-[0_0_20px_rgba(79,142,240,0.35)]"
+                                        : "bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 hover:text-white"
+                                }`}
                             >
-                                {category}
+                                {cat}
                             </button>
                         ))}
                     </div>
 
                     {/* Projects Grid */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {filteredProjects.map((project, i) => (
-                            <div
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {filtered.map((project, i) => (
+                            <Link
                                 key={project.id}
-                                className="group relative rounded-2xl bg-[#0A0C10] border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 animate-in fade-in zoom-in duration-500"
-                                style={{ animationFillMode: "both", animationDelay: `${i * 100}ms` }}
+                                to={`/projects/${project.slug}`}
+                                className="group relative rounded-2xl bg-[#0A0C10] border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/25 flex flex-col animate-in fade-in zoom-in duration-500"
+                                style={{ animationFillMode: "both", animationDelay: `${i * 80}ms` }}
                             >
-                                {/* Image Placeholder / Actual Image */}
-                                <div className={`h-56 relative overflow-hidden flex items-center justify-center ${!project.imageUrl ? `bg-gradient-to-br ${project.imageColor}` : ''}`}>
-                                    {project.imageUrl ? (
-                                        <img
-                                            src={project.imageUrl}
-                                            alt={project.title}
-                                            className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                        />
-                                    ) : (
-                                        <span className="font-display font-bold text-white/30 text-2xl group-hover:scale-110 transition-transform duration-500">{project.category}</span>
-                                    )}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0C10] to-transparent opacity-80" />
+                                {/* Image with pan animation */}
+                                <div className="h-56 relative overflow-hidden shrink-0">
+                                    <img
+                                        src={project.imageUrl}
+                                        alt={`${project.title} — web design project by Bless Kimbi`}
+                                        className="w-full h-full object-cover object-top pan-on-hover"
+                                        loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0C10] via-transparent to-transparent opacity-80" />
+                                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold uppercase tracking-wider border border-white/10">
+                                        {project.category}
+                                    </span>
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-6 relative z-10">
-                                    <span className="text-xs font-medium text-primary tracking-widest uppercase mb-2 block">
-                                        {project.category}
-                                    </span>
-                                    <h3 className="font-display font-bold text-xl mb-3 text-white group-hover:text-primary transition-colors">
+                                <div className="flex flex-col flex-1 p-6">
+                                    <h2 className="font-display font-bold text-xl mb-2 text-white group-hover:text-primary transition-colors leading-snug">
                                         {project.title}
-                                    </h3>
-                                    <p className="text-muted-foreground text-sm line-clamp-2">
-                                        {project.description}
+                                    </h2>
+                                    <p className="text-gray-400 text-sm line-clamp-2 leading-relaxed mb-4 flex-1">
+                                        {project.shortDescription}
                                     </p>
-                                </div>
-                            </div>
-                        ))}
 
-                        {filteredProjects.length === 0 && (
-                            <div className="col-span-full py-20 text-center text-muted-foreground">
-                                No projects found in this category.
-                            </div>
-                        )}
+                                    {/* Tags */}
+                                    <div className="flex flex-wrap gap-1.5 mb-4">
+                                        {project.tags.slice(0, 3).map(tag => (
+                                            <span key={tag} className="px-2 py-0.5 rounded text-[11px] bg-white/5 text-gray-300 border border-white/[0.08]">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:text-white transition-colors">
+                                        View Project <ExternalLink size={14} />
+                                    </span>
+                                </div>
+                            </Link>
+                        ))}
                     </div>
+
+                    {filtered.length === 0 && (
+                        <div className="py-24 text-center text-gray-400">
+                            No projects in this category yet.
+                        </div>
+                    )}
 
                 </main>
 
