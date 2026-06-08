@@ -1,3 +1,4 @@
+import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import Footer from "@/components/ContactSection";
@@ -9,7 +10,63 @@ import BlogSidebar from "@/components/BlogSidebar";
 import { ArrowLeft, Calendar, Clock, Share2, ChevronRight, Home } from "lucide-react";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import { getPostBySlug, BlogPost } from "@/lib/blog";
+
+/* Custom markdown components ------------------------------------------------ */
+const mdComponents = {
+    /* Responsive table wrapper */
+    table: ({ children }: { children?: React.ReactNode }) => (
+        <div className="overflow-x-auto my-8 rounded-xl border border-white/10 shadow-lg">
+            <table className="min-w-full border-collapse text-sm">{children}</table>
+        </div>
+    ),
+    thead: ({ children }: { children?: React.ReactNode }) => (
+        <thead className="bg-white/5">{children}</thead>
+    ),
+    tbody: ({ children }: { children?: React.ReactNode }) => (
+        <tbody className="divide-y divide-white/5">{children}</tbody>
+    ),
+    tr: ({ children }: { children?: React.ReactNode }) => (
+        <tr className="even:bg-white/[0.02] hover:bg-white/5 transition-colors">{children}</tr>
+    ),
+    th: ({ children }: { children?: React.ReactNode }) => (
+        <th className="px-4 py-3 text-left text-xs font-bold text-white uppercase tracking-wider border-b border-white/10 whitespace-nowrap">
+            {children}
+        </th>
+    ),
+    td: ({ children }: { children?: React.ReactNode }) => (
+        <td className="px-4 py-3 text-gray-200 whitespace-nowrap">{children}</td>
+    ),
+    /* Image carousel for image-only paragraphs, plain img elsewhere */
+    p: ({ children }: { children?: React.ReactNode }) => {
+        const arr = React.Children.toArray(children);
+        const imgs = arr.filter(
+            (c): c is React.ReactElement =>
+                React.isValidElement(c) && (c as React.ReactElement).type === "img"
+        );
+        const nonImg = arr.filter(
+            (c) => !(React.isValidElement(c) && (c as React.ReactElement).type === "img") &&
+                   !(typeof c === "string" && c.trim() === "")
+        );
+        if (imgs.length > 0 && nonImg.length === 0) {
+            return (
+                <div className="my-6 flex flex-col gap-4">
+                    {imgs.map((img, i) => (
+                        <img
+                            key={i}
+                            src={(img.props as { src: string }).src}
+                            alt={(img.props as { alt?: string }).alt || ""}
+                            className="w-full rounded-2xl border border-white/10"
+                            loading="lazy"
+                        />
+                    ))}
+                </div>
+            );
+        }
+        return <p>{children}</p>;
+    },
+};
 
 const BASE = "https://everythx.com";
 
@@ -189,7 +246,12 @@ const BlogPostPage = () => {
                                     prose-code:text-primary prose-code:bg-white/8 prose-code:rounded prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm
                                     prose-img:rounded-2xl prose-img:border prose-img:border-white/10
                                 ">
-                                    <ReactMarkdown>{post.content}</ReactMarkdown>
+                                    <ReactMarkdown
+                                        rehypePlugins={[rehypeRaw]}
+                                        components={mdComponents as object}
+                                    >
+                                        {post.content}
+                                    </ReactMarkdown>
                                 </div>
 
                                 <div className="mt-12 pt-8 border-t border-white/8 flex items-center justify-between">
