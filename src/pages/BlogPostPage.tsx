@@ -19,8 +19,8 @@ import { getPostBySlug, BlogPost } from "@/lib/blog";
 const mdComponents = {
     /* Responsive table wrapper */
     table: ({ children }: { children?: React.ReactNode }) => (
-        <div className="overflow-x-auto my-8 rounded-xl border border-white/10 shadow-lg">
-            <table className="min-w-full border-collapse text-sm">{children}</table>
+        <div className="overflow-x-auto my-6 md:my-8 rounded-lg md:rounded-xl border border-white/10 shadow-lg -mx-4 md:mx-0">
+            <table className="min-w-full border-collapse text-xs md:text-sm">{children}</table>
         </div>
     ),
     thead: ({ children }: { children?: React.ReactNode }) => (
@@ -33,12 +33,12 @@ const mdComponents = {
         <tr className="even:bg-white/[0.02] hover:bg-white/5 transition-colors">{children}</tr>
     ),
     th: ({ children }: { children?: React.ReactNode }) => (
-        <th className="px-4 py-3 text-left text-xs font-bold text-white uppercase tracking-wider border-b border-white/10 whitespace-nowrap">
+        <th className="px-2 md:px-4 py-2 md:py-3 text-left text-xs font-bold text-white uppercase tracking-wider border-b border-white/10 whitespace-nowrap">
             {children}
         </th>
     ),
     td: ({ children }: { children?: React.ReactNode }) => (
-        <td className="px-4 py-3 text-gray-200 whitespace-nowrap">{children}</td>
+        <td className="px-2 md:px-4 py-2 md:py-3 text-gray-200 whitespace-nowrap">{children}</td>
     ),
     /* Image carousel for image-only paragraphs, plain img elsewhere */
     p: ({ children }: { children?: React.ReactNode }) => {
@@ -53,13 +53,13 @@ const mdComponents = {
         );
         if (imgs.length > 0 && nonImg.length === 0) {
             return (
-                <div className="my-6 flex flex-col gap-4">
+                <div className="my-4 md:my-6 flex flex-col gap-3 md:gap-4">
                     {imgs.map((img, i) => (
                         <img
                             key={i}
                             src={(img.props as { src: string }).src}
                             alt={(img.props as { alt?: string }).alt || ""}
-                            className="w-full rounded-2xl border border-white/10"
+                            className="w-full rounded-xl md:rounded-2xl border border-white/10"
                             loading="lazy"
                         />
                     ))}
@@ -160,9 +160,9 @@ const BlogPostPage = () => {
                 <ParticleBackground />
                 <Navbar />
 
-                <main className="pt-32 pb-20 px-4 md:px-6 relative z-10 max-w-[1500px] mx-auto">
+                <main className="pt-20 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 relative z-10 max-w-[1500px] mx-auto">
                     {/* Breadcrumbs */}
-                    <nav className="flex items-center gap-2 text-xs font-medium text-gray-400 mb-8 overflow-x-auto whitespace-nowrap pb-2" aria-label="Breadcrumb">
+                    <nav className="flex items-center gap-2 text-xs font-medium text-gray-400 mb-6 md:mb-8 overflow-x-auto whitespace-nowrap pb-2" aria-label="Breadcrumb">
                         <Link to="/" className="flex items-center gap-1 hover:text-primary transition-colors">
                             <Home size={14} /><span>Home</span>
                         </Link>
@@ -172,11 +172,11 @@ const BlogPostPage = () => {
                         <span className="text-white/80 truncate max-w-[240px] md:max-w-none">{post.title}</span>
                     </nav>
 
-                    <div className="grid xl:grid-cols-[1fr_300px] gap-10 xl:gap-14">
+                    <div className="grid xl:grid-cols-[1fr_300px] gap-6 md:gap-10 xl:gap-14">
                         {/* Article */}
                         <article>
-                            <header className="mb-10">
-                                <div className="flex items-center gap-4 text-xs text-gray-400 mb-6 font-medium uppercase tracking-widest">
+                            <header className="mb-6 md:mb-10">
+                                <div className="flex flex-wrap items-center gap-3 md:gap-4 text-xs text-gray-400 mb-4 md:mb-6 font-medium uppercase tracking-widest">
                                     <span className="px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">
                                         {post.category}
                                     </span>
@@ -185,11 +185,11 @@ const BlogPostPage = () => {
                                     </span>
                                 </div>
 
-                                <h1 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-8 leading-tight">
+                                <h1 className="font-display font-bold text-2xl md:text-4xl lg:text-5xl text-white mb-6 md:mb-8 leading-tight">
                                     {post.title}
                                 </h1>
 
-                                <div className="flex items-center gap-8 py-5 border-y border-white/8">
+                                <div className="flex flex-wrap items-center gap-4 md:gap-8 py-4 md:py-5 border-y border-white/8">
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">BK</div>
                                         <div>
@@ -210,7 +210,7 @@ const BlogPostPage = () => {
                             </header>
 
                             {/* Featured Image */}
-                            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-10 shadow-2xl border border-white/8">
+                            <div className="relative aspect-[16/9] rounded-xl md:rounded-2xl overflow-hidden mb-6 md:mb-10 shadow-2xl border border-white/8">
                                 <img
                                     src={post.imageUrl}
                                     alt={post.title}
@@ -221,20 +221,20 @@ const BlogPostPage = () => {
                             </div>
 
                             {/* Content */}
-                            <div className="bg-[#0A0C10]/60 backdrop-blur-xl border border-white/8 rounded-3xl p-6 md:p-10 shadow-xl">
-                                <div className="prose prose-invert max-w-none
-                                    prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-white prose-headings:mb-4 prose-headings:mt-8
-                                    prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:border-b prose-h2:border-white/10 prose-h2:pb-3
-                                    prose-h3:text-xl prose-h3:md:text-2xl
-                                    prose-p:text-gray-200 prose-p:leading-[1.85] prose-p:text-[1.05rem]
-                                    prose-li:text-gray-200 prose-li:text-[1.05rem] prose-li:leading-[1.85] prose-li:my-1
-                                    prose-ul:my-5 prose-ol:my-5
+                            <div className="bg-[#0A0C10]/60 backdrop-blur-xl border border-white/8 rounded-2xl md:rounded-3xl p-4 md:p-10 shadow-xl">
+                                <div className="prose prose-invert max-w-none prose-sm md:prose-base
+                                    prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-white prose-headings:mb-3 md:prose-headings:mb-4 prose-headings:mt-6 md:prose-headings:mt-8
+                                    prose-h2:text-xl md:prose-h2:text-2xl lg:prose-h2:text-3xl prose-h2:border-b prose-h2:border-white/10 prose-h2:pb-2 md:prose-h2:pb-3
+                                    prose-h3:text-lg md:prose-h3:text-xl lg:prose-h3:text-2xl
+                                    prose-p:text-gray-200 prose-p:leading-[1.75] md:prose-p:leading-[1.85] prose-p:text-[0.95rem] md:prose-p:text-[1.05rem]
+                                    prose-li:text-gray-200 prose-li:text-[0.95rem] md:prose-li:text-[1.05rem] prose-li:leading-[1.75] md:prose-li:leading-[1.85] prose-li:my-1
+                                    prose-ul:my-4 md:prose-ul:my-5 prose-ol:my-4 md:prose-ol:my-5
                                     prose-strong:text-white prose-strong:font-semibold
                                     prose-em:text-gray-100
-                                    prose-a:text-primary prose-a:font-medium prose-a:no-underline hover:prose-a:underline
-                                    prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:py-3 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:text-gray-200
-                                    prose-code:text-primary prose-code:bg-white/8 prose-code:rounded prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm
-                                    prose-img:rounded-2xl prose-img:border prose-img:border-white/10
+                                    prose-a:text-primary prose-a:font-medium prose-a:no-underline hover:prose-a:underline prose-a:break-words
+                                    prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:py-2 md:prose-blockquote:py-3 prose-blockquote:px-4 md:prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:text-gray-200 prose-blockquote:text-sm md:prose-blockquote:text-base
+                                    prose-code:text-primary prose-code:bg-white/8 prose-code:rounded prose-code:px-1 md:prose-code:px-1.5 prose-code:py-0.5 prose-code:text-xs md:prose-code:text-sm prose-code:break-words
+                                    prose-img:rounded-xl md:prose-img:rounded-2xl prose-img:border prose-img:border-white/10
                                 ">
                                     <ReactMarkdown
                                         remarkPlugins={[remarkGfm]}
@@ -245,7 +245,7 @@ const BlogPostPage = () => {
                                     </ReactMarkdown>
                                 </div>
 
-                                <div className="mt-12 pt-8 border-t border-white/8 flex items-center justify-between">
+                                <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                                     <button
                                         onClick={handleShare}
                                         className="flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors"
