@@ -1,6 +1,6 @@
 ---
 title: "Web Design Trends in Africa 2025: What Every Business Needs to Know"
-slug: "web-design-trends-africa-2025"
+slug: "web-design-trends-africa-2026"
 date: "2021-06-15"
 focusKeyword: ""
 seoTitle: "Web Design Trends in Africa 2025: What Every Business Needs to Know"

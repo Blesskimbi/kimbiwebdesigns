@@ -22,6 +22,7 @@ function getBlogSlugs(): string[] {
 const blogSlugs = getBlogSlugs();
 
 const staticRoutes = [
+  { url: "/services" },
   { url: "/projects" },
   { url: "/blog"     },
   { url: "/contact"  },

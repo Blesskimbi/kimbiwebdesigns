@@ -1,6 +1,6 @@
 ---
 title: "How to Choose a Web Design Agency in Cameroon in 2026 (Without Getting Burned)"
-slug: "choose-a-web-wesign-agency-in-2026"
+slug: "choose-a-web-design-agency-in-2026"
 date: "2021-06-15"
 focusKeyword: ""
 seoTitle: "How to Choose a Web Design Agency in Cameroon in 2026 (Without Getting Burned)"

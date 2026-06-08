@@ -1,6 +1,6 @@
 ---
 title: "Why Your Business Needs a Website in 2025 (And Why Every Day Without One Is Costing You Money)"
-slug: "why-your-business-needs-a-website-2025"
+slug: "why-your-business-needs-a-website-2026"
 date: "2021-06-15"
 focusKeyword: ""
 seoTitle: "Why Your Business Needs a Website in 2025 (And Why Every Day Without One Is Costing You Money)"
