@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { ArrowLeft, ExternalLink, MessageCircle, Tag, Cpu, ChevronRight, Home } from "lucide-react";
@@ -14,11 +15,7 @@ const ProjectDetailPage = () => {
     const { slug } = useParams<{ slug: string }>();
     const project = staticProjects.find((p) => p.slug === slug);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        if (project) document.title = `${project.title} | Bless Kimbi`;
-        return () => { document.title = "Bless Kimbi | Web Developer & Designer"; };
-    }, [project]);
+    useEffect(() => { window.scrollTo(0, 0); }, [slug]);
 
     if (!project) {
         return (
@@ -33,8 +30,20 @@ const ProjectDetailPage = () => {
 
     const related = staticProjects.filter((p) => p.id !== project.id && p.category === project.category).slice(0, 3);
 
+    const canonical = `https://everythx.com/projects/${project.slug}`;
+
     return (
         <LenisSmoothScroll>
+            <Helmet>
+                <title>{`${project.title} | Blesskimbi Portfolio`}</title>
+                <meta name="description" content={project.shortDescription} />
+                <link rel="canonical" href={canonical} />
+                <meta property="og:title" content={`${project.title} | Blesskimbi Portfolio`} />
+                <meta property="og:description" content={project.shortDescription} />
+                <meta property="og:url" content={canonical} />
+                <meta property="og:image" content={project.imageUrl.startsWith("http") ? project.imageUrl : `https://everythx.com${project.imageUrl}`} />
+                <meta property="og:type" content="website" />
+            </Helmet>
             <div className="relative min-h-screen bg-background">
                 <ParticleBackground />
 

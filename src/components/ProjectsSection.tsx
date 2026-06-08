@@ -15,6 +15,7 @@ const ProjectCard = ({ project }: { project: (typeof staticProjects)[0] }) => (
         src={project.imageUrl}
         alt={project.title}
         className="w-full h-full object-cover object-top pan-on-hover"
+      loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#080B0F] via-transparent to-transparent opacity-80" />
       <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm text-white text-[11px] font-semibold uppercase tracking-wider border border-white/10">

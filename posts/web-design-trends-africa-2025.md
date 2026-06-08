@@ -2,13 +2,10 @@
 title: "Web Design Trends in Africa 2025: What Every Business Needs to Know"
 slug: "web-design-trends-africa-2025"
 date: "2021-06-15"
-author: "Bless Kimbi"
-category: "Trends"
-excerpt: "The African digital landscape is evolving fast. Discover the web design trends defining 2025 and what they mean for your business in Cameroon and across Africa."
-imageUrl: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1200&q=80"
-focusKeyword: "web design trends Africa 2025"
+focusKeyword: ""
 seoTitle: "Web Design Trends in Africa 2025: What Every Business Needs to Know"
-metaDescription: "The African digital landscape is evolving fast. Discover the web design trends defining 2025 and what they mean for your business in Cameroon and across Africa."
+metaDescription: ""
+author: "Bless Kimbi"
 ---
 
 The African digital landscape is evolving faster than most businesses realise and your website needs to keep up.

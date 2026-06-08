@@ -16,10 +16,7 @@ export interface BlogPost {
     date: string;
     imageUrl: string;
     slug: string;
-    readingTime: number;
     tags?: string[];
-    seoTitle?: string;
-    metaDescription?: string;
 }
 
 export const getAllPosts = async (): Promise<BlogPost[]> => {
@@ -29,20 +26,15 @@ export const getAllPosts = async (): Promise<BlogPost[]> => {
     const posts = Object.keys(modules).map((path) => {
         const content = (modules[path] as any).default;
         const { data, content: body } = matter(content);
-
+        
+        // Use filename as ID if slug is not present
         const id = path.split('/').pop()?.replace('.md', '') || '';
-        const wordCount = body.trim().split(/\s+/).length;
-        const readingTime = Math.max(1, Math.round(wordCount / 200));
-
+        
         return {
             id,
             ...data,
             content: body,
             slug: data.slug || id,
-            excerpt: data.excerpt || data.metaDescription || '',
-            category: data.category || 'General',
-            imageUrl: data.imageUrl || 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=80',
-            readingTime,
         } as BlogPost;
     });
 

@@ -2,13 +2,10 @@
 title: "How to Choose a Web Design Agency in Cameroon in 2026 (Without Getting Burned)"
 slug: "choose-a-web-wesign-agency-in-2026"
 date: "2021-06-15"
-author: "Bless Kimbi"
-category: "Web Design"
-excerpt: "Choosing the wrong web design agency is one of the most expensive mistakes a business can make. Here's the exact checklist to use before signing any contract."
-imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"
-focusKeyword: "web design agency in cameroon"
+focusKeyword: ""
 seoTitle: "How to Choose a Web Design Agency in Cameroon in 2026 (Without Getting Burned)"
-metaDescription: "Choosing the wrong web design agency is one of the most expensive mistakes a business can make. Here's the exact checklist to use before signing any contract."
+metaDescription: ""
+author: "Bless Kimbi"
 ---
 
 Choosing the wrong web design agency is one of the most expensive mistakes a business can make.

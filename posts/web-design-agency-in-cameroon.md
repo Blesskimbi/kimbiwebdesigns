@@ -2,13 +2,10 @@
 title: "10 Best Web Design Agency in Cameroon in 2026 (Pro Guide)"
 slug: "web-design-agency-in-cameroon"
 date: "2026-05-29"
-author: "Bless Kimbi"
-category: "Web Design"
-excerpt: "Looking for the best web design agency in Cameroon? This pro guide covers the top 10 agencies, key criteria to evaluate, and how to make the right choice for your business in 2026."
-imageUrl: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80"
 focusKeyword: "web design agency in cameroon"
 seoTitle: "10 Best Web Design Agency in Cameroon in 2026 (Pro Guide)"
-metaDescription: "Looking for the best web design agency in Cameroon? This pro guide covers the top 10 agencies, key criteria to evaluate, and how to make the right choice for your business in 2026."
+metaDescription: ""
+author: "Bless Kimbi"
 ---
 
 - [Why Your Brand Needs a Premium Web Design Agency in Cameroon](#why-your-brand-needs-a-premium-web-design-agency-in-cameroon)

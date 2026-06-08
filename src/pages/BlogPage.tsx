@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/ContactSection";
@@ -44,6 +45,15 @@ const BlogPage = () => {
 
     return (
         <LenisSmoothScroll>
+            <Helmet>
+                <title>Web Design &amp; Dev Blog | Blesskimbi</title>
+                <meta name="description" content="Tips, tutorials and insights on web design, SEO, and digital marketing from Blesskimbi." />
+                <link rel="canonical" href="https://everythx.com/blog" />
+                <meta property="og:title" content="Web Design &amp; Dev Blog | Blesskimbi" />
+                <meta property="og:description" content="Tips, tutorials and insights on web design, SEO, and digital marketing from Blesskimbi." />
+                <meta property="og:url" content="https://everythx.com/blog" />
+                <meta property="og:type" content="website" />
+            </Helmet>
             <div className="relative min-h-screen bg-background">
                 <ParticleBackground />
 
@@ -122,6 +132,7 @@ const BlogPage = () => {
                                             src={post.imageUrl}
                                             alt={post.title}
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            loading="lazy"
                                         />
                                         <div className="absolute top-4 left-4 z-20">
                                             <span className="px-3 py-1 bg-black/60 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-wider rounded-full border border-white/10">

@@ -2,13 +2,10 @@
 title: "Why Your Business Needs a Website in 2025 (And Why Every Day Without One Is Costing You Money)"
 slug: "why-your-business-needs-a-website-2025"
 date: "2021-06-15"
-author: "Bless Kimbi"
-category: "Business"
-excerpt: "If your business doesn't have a website in 2025, you don't exist online. Discover why every day without a professional website is costing you real money and customers."
-imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=80"
-focusKeyword: "why your business needs a website 2025"
+focusKeyword: ""
 seoTitle: "Why Your Business Needs a Website in 2025 (And Why Every Day Without One Is Costing You Money)"
-metaDescription: "If your business doesn't have a website in 2025, you don't exist online. Discover why every day without a professional website is costing you real money and customers."
+metaDescription: ""
+author: "Bless Kimbi"
 ---
 
 If your business doesn't have a website in 2025, you don't exist  at least not to the millions of customers searching online every day.

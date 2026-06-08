@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import ParticleBackground from "@/components/ParticleBackground";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -18,6 +19,17 @@ import ScrollToTop from "@/components/ScrollToTop";
 const Index = () => {
   return (
     <LenisSmoothScroll>
+      <Helmet>
+        <title>Blesskimbi | Web Designer &amp; Developer</title>
+        <meta name="description" content="Blesskimbi builds fast, modern websites and mobile apps for businesses worldwide. Get a professional website that ranks on Google and converts visitors." />
+        <link rel="canonical" href="https://everythx.com" />
+        <meta property="og:title" content="Blesskimbi | Web Designer &amp; Developer" />
+        <meta property="og:description" content="Blesskimbi builds fast, modern websites and mobile apps for businesses worldwide. Get a professional website that ranks on Google and converts visitors." />
+        <meta property="og:url" content="https://everythx.com" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Blesskimbi | Web Designer &amp; Developer" />
+        <meta name="twitter:description" content="Blesskimbi builds fast, modern websites and mobile apps for businesses worldwide. Get a professional website that ranks on Google and converts visitors." />
+      </Helmet>
       <div className="relative min-h-screen bg-background overflow-x-hidden border-x border-transparent">
         <ParticleBackground />
         <Navbar />

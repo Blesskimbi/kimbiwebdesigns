@@ -2,13 +2,10 @@
 title: "Best Web Design Services for Businesses in Africa in 2026"
 slug: "best-web-design-services-businesses-africa-2026"
 date: "2026-05-26"
-author: "Bless Kimbi"
-category: "Web Design"
-excerpt: "Discover the best web design services for businesses in Africa in 2026. Learn what separates great agencies from average ones — and why Bless Kimbi Web Design stands out."
-imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80"
 focusKeyword: "best web design services for businesses in Africa"
 seoTitle: "Best Web Design Services for Businesses in Africa in 2026 | Bless Kimbi"
 metaDescription: "Discover the best web design services for businesses in Africa in 2026. Learn what separates great agencies from average ones — and why Bless Kimbi Web Design stands out."
+author: "Bless Kimbi"
 ---
 
 Africa's digital economy is growing faster than ever. From Lagos to Nairobi, Accra to Douala, businesses across the continent are finally realising what the rest of the world figured out years ago your website is your most important business asset.

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/ContactSection"; // Use ContactSection as a pseudo-footer or we can just render the layout
@@ -24,6 +25,15 @@ const ProjectsPage = () => {
 
     return (
         <LenisSmoothScroll>
+            <Helmet>
+                <title>Web Design Portfolio | Blesskimbi</title>
+                <meta name="description" content="Browse Blesskimbi's portfolio of web design and development projects for clients worldwide." />
+                <link rel="canonical" href="https://everythx.com/projects" />
+                <meta property="og:title" content="Web Design Portfolio | Blesskimbi" />
+                <meta property="og:description" content="Browse Blesskimbi's portfolio of web design and development projects for clients worldwide." />
+                <meta property="og:url" content="https://everythx.com/projects" />
+                <meta property="og:type" content="website" />
+            </Helmet>
             <div className="relative min-h-screen bg-background">
                 <ParticleBackground />
 
