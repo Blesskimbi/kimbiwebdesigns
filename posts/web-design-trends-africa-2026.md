@@ -140,7 +140,7 @@ In 2026, the most effective web designs for Kenyan businesses combine **global m
 ## Watch: Web Design Best Practices for African Businesses in 2026
 
 <div class="video-embed">
-  <iframe src="https://www.youtube.com/embed/1Rs2ND1ryYc?rel=0" title="Web Design Best Practices for African Businesses" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  <iframe src="https://www.youtube.com/embed/w7ejDZ8SWv8?rel=0" title="Build Modern Websites with React — Full Crash Course" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 </div>
 
 ---

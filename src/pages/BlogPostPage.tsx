@@ -1,15 +1,17 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import ParticleBackground from "@/components/ParticleBackground";
 import BlogSidebar from "@/components/BlogSidebar";
-import { ArrowLeft, Calendar, Clock, Share2, ChevronRight, Home } from "lucide-react";
+import { Calendar, Clock, Share2, ChevronRight, Home } from "lucide-react";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { getPostBySlug, BlogPost } from "@/lib/blog";
 
@@ -156,19 +158,7 @@ const BlogPostPage = () => {
 
             <div className="relative min-h-screen bg-background">
                 <ParticleBackground />
-
-                {/* Navbar */}
-                <nav className="fixed top-0 left-0 right-0 z-50 py-4 bg-background/80 backdrop-blur-md border-b border-white/5">
-                    <div className="max-w-[1500px] mx-auto px-6 flex items-center justify-between">
-                        <Link to="/blog" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-                            <ArrowLeft size={20} />
-                            <span className="font-display font-medium">Back to Blog</span>
-                        </Link>
-                        <div className="font-display font-bold text-lg tracking-wider text-foreground">
-                            BlessKimbi<span className="text-primary">.</span>
-                        </div>
-                    </div>
-                </nav>
+                <Navbar />
 
                 <main className="pt-32 pb-20 px-4 md:px-6 relative z-10 max-w-[1500px] mx-auto">
                     {/* Breadcrumbs */}
@@ -247,6 +237,7 @@ const BlogPostPage = () => {
                                     prose-img:rounded-2xl prose-img:border prose-img:border-white/10
                                 ">
                                     <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
                                         rehypePlugins={[rehypeRaw]}
                                         components={mdComponents as object}
                                     >

@@ -109,7 +109,7 @@ A website is the hub around which all of your digital marketing activities opera
 ## Watch: How a Website Can Transform Your Nigerian Business
 
 <div class="video-embed">
-  <iframe src="https://www.youtube.com/embed/hbYhF1jOEsE?rel=0" title="How a Business Website Transforms Your Sales" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  <iframe src="https://www.youtube.com/embed/kRiyssa52Y0?rel=0" title="How to Create a WordPress Website for Your Business in 2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 </div>
 
 ---

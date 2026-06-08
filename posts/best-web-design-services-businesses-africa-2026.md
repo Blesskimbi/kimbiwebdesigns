@@ -90,7 +90,7 @@ A website is not a once-and-done project. The best services offer maintenance pl
 ## Watch: What Makes a Great Business Website in 2026
 
 <div class="video-embed">
-  <iframe src="https://www.youtube.com/embed/yFngOzv5YtM?rel=0" title="What Makes a Great Business Website in 2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  <iframe src="https://www.youtube.com/embed/SqcY0GlETPk?rel=0" title="React Tutorial for Beginners — Build Modern Websites" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 </div>
 
 ---

@@ -104,7 +104,7 @@ At Bless Kimbi Web Design, we include clear pricing for everything — from doma
 ## Watch: How to Build a Business Website That Actually Works
 
 <div class="video-embed">
-  <iframe src="https://www.youtube.com/embed/UB1O30fR-EE?rel=0" title="How to Build a Business Website" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  <iframe src="https://www.youtube.com/embed/w7ejDZ8SWv8?rel=0" title="React JS Crash Course — Build Real Websites Fast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 </div>
 
 ---
