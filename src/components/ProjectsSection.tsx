@@ -98,13 +98,6 @@ const ProjectsSection = () => {
               <span className="text-gradient-primary">push boundaries</span>
             </h2>
           </div>
-          <Link
-            to="/projects"
-            className="hidden sm:flex px-6 py-3 rounded-full bg-glass text-sm font-body text-foreground border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 items-center gap-2 group shrink-0"
-          >
-            View All Projects
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
         </div>
 
         {/* ── Mobile: single featured card + View More button ── */}
@@ -119,16 +112,28 @@ const ProjectsSection = () => {
           </Link>
         </div>
 
-        {/* ── Desktop: full 3-column grid ── */}
-        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {staticProjects.map((project, i) => (
-            <div
-              key={project.id}
-              ref={(el) => { cardsRef.current[i] = el; }}
+        {/* ── Desktop: first 6 projects + View All button ── */}
+        <div className="hidden sm:block">
+          <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {staticProjects.slice(0, 6).map((project, i) => (
+              <div
+                key={project.id}
+                ref={(el) => { cardsRef.current[i] = el; }}
+              >
+                <ProjectCard project={project} />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl border border-white/10 bg-white/[0.03] text-white font-display font-bold text-sm hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 group"
             >
-              <ProjectCard project={project} />
-            </div>
-          ))}
+              View All {staticProjects.length} Projects
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
