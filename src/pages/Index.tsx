@@ -17,18 +17,41 @@ import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Bless Kimbi",
+    "url": "https://everythx.com",
+    "telephone": "+237675126845",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Yaoundé",
+      "addressCountry": "CM"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 3.848,
+      "longitude": 11.502
+    },
+    "areaServed": ["Cameroon", "Africa", "Worldwide"],
+    "serviceType": ["Web Design", "Web Development", "SEO", "Mobile App Development"]
+  };
+
   return (
     <LenisSmoothScroll>
       <Helmet>
-        <title>Blesskimbi | Web Designer &amp; Developer</title>
-        <meta name="description" content="Blesskimbi builds fast, modern websites and mobile apps for businesses worldwide. Get a professional website that ranks on Google and converts visitors." />
+        <title>Bless Kimbi — Best Web Designer &amp; Developer in Cameroon</title>
+        <meta name="description" content="I design and build professional websites that rank on Google and convert visitors into clients. Based in Yaoundé, serving businesses across Cameroon and Africa." />
         <link rel="canonical" href="https://everythx.com" />
-        <meta property="og:title" content="Blesskimbi | Web Designer &amp; Developer" />
-        <meta property="og:description" content="Blesskimbi builds fast, modern websites and mobile apps for businesses worldwide. Get a professional website that ranks on Google and converts visitors." />
+        <meta property="og:title" content="Bless Kimbi — Best Web Designer &amp; Developer in Cameroon" />
+        <meta property="og:description" content="I design and build professional websites that rank on Google and convert visitors into clients. Based in Yaoundé, serving businesses across Cameroon and Africa." />
         <meta property="og:url" content="https://everythx.com" />
         <meta property="og:type" content="website" />
-        <meta name="twitter:title" content="Blesskimbi | Web Designer &amp; Developer" />
-        <meta name="twitter:description" content="Blesskimbi builds fast, modern websites and mobile apps for businesses worldwide. Get a professional website that ranks on Google and converts visitors." />
+        <meta property="og:image" content="https://everythx.com/og-image.png" />
+        <meta name="twitter:title" content="Bless Kimbi — Best Web Designer &amp; Developer in Cameroon" />
+        <meta name="twitter:description" content="I design and build professional websites that rank on Google and convert visitors into clients. Based in Yaoundé, serving businesses across Cameroon and Africa." />
+        <meta name="twitter:image" content="https://everythx.com/og-image.png" />
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       </Helmet>
       <div className="relative min-h-screen bg-background overflow-x-hidden border-x border-transparent">
         <ParticleBackground />

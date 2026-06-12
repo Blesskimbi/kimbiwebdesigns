@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import ServicesSection from "@/components/ServicesSection";
+import CaseStudiesSection from "@/components/CaseStudiesSection";
 import PricingSection from "@/components/PricingSection";
 import ContactSection from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
@@ -25,6 +26,7 @@ const ServicesPage = () => (
             <Navbar />
             <div className="pt-20">
                 <ServicesSection />
+                <CaseStudiesSection />
                 <PricingSection />
                 <ContactSection />
             </div>

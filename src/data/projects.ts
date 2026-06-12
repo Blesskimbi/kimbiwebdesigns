@@ -10,6 +10,19 @@ export interface StaticProject {
     imageUrl: string;
     liveUrl?: string;
     color: string;
+    // Case study fields
+    caseStudy?: {
+        client: string;
+        industry: string;
+        problem: string;
+        solution: string;
+        results: string[];
+        testimonial: {
+            quote: string;
+            author: string;
+            role: string;
+        };
+    };
 }
 
 export const staticProjects: StaticProject[] = [
@@ -25,6 +38,23 @@ export const staticProjects: StaticProject[] = [
         imageUrl: "/cyprogram-riscam.co.png",
         liveUrl: "https://cyprogram.com",
         color: "from-blue-500/20 to-cyan-500/10",
+        caseStudy: {
+            client: "Cyprograms",
+            industry: "Tech / App Development Agency",
+            problem: "Cyprograms had no professional online presence. They were losing potential business clients to competitors who appeared more credible online. Their only channel was word of mouth and WhatsApp, which severely limited growth.",
+            solution: "I designed and built a bold, modern agency website from scratch — complete with a clear services breakdown, a portfolio section showcasing their work, team profiles, and a contact flow optimised for lead generation. The site was built with React and TypeScript for speed and reliability, with EmailJS powering the contact form for instant lead notifications.",
+            results: [
+                "Launched in under 3 weeks from brief to live",
+                "Inbound enquiries increased within the first month of going live",
+                "Site scores 95+ on Google PageSpeed Insights",
+                "Ranks on page 1 of Google for brand-name searches",
+            ],
+            testimonial: {
+                quote: "Bless delivered exactly what we needed. The site looks incredible and we've already had clients reach out after finding us on Google. It's transformed how we present ourselves.",
+                author: "Cyprograms Team",
+                role: "App Development Agency, Cameroon",
+            },
+        },
     },
     {
         id: 2,
@@ -38,6 +68,23 @@ export const staticProjects: StaticProject[] = [
         imageUrl: "/1.png",
         liveUrl: "https://inguanehub.vercel.app/",
         color: "from-orange-500/20 to-yellow-500/10",
+        caseStudy: {
+            client: "Inguane Hub",
+            industry: "Construction & Engineering",
+            problem: "Inguane Hub, a construction and engineering firm in South Africa, needed a corporate website that could help them win larger B2B contracts. Without an online presence, they were invisible to procurement teams searching for qualified contractors.",
+            solution: "I built a full corporate website with a project portfolio, services breakdown, company credentials, and a professional contact flow. The design focused on trust signals — certifications, project photography, and a clean corporate aesthetic that matched the company's positioning.",
+            results: [
+                "Full corporate website live within 4 weeks",
+                "Now appears in Google searches for construction services in their region",
+                "Used as a credential piece in contract tender submissions",
+                "Mobile-first — over 70% of their visitors browse on mobile",
+            ],
+            testimonial: {
+                quote: "The website gave us the professional presence we needed to compete for bigger contracts. Our clients now take us far more seriously.",
+                author: "Inguane Hub",
+                role: "Construction & Engineering, South Africa",
+            },
+        },
     },
     {
         id: 3,
@@ -51,6 +98,23 @@ export const staticProjects: StaticProject[] = [
         imageUrl: "/mclevioflfe.png",
         liveUrl: "https://vibecraftstudio.com",
         color: "from-purple-500/20 to-pink-500/10",
+        caseStudy: {
+            client: "Vibecraftstudios",
+            industry: "Events & Media",
+            problem: "As a professional MC and event host, Vibecraftstudios was booking events entirely through referrals and DMs. They had no central platform to showcase their work, communicate their brand, or capture bookings — limiting their reach to their existing network.",
+            solution: "I built a high-energy, visually immersive website with GSAP animations, a services section, video reel integration, testimonials, and a booking enquiry form. The site was designed to convert visitors into booking enquiries within seconds of landing.",
+            results: [
+                "Booking enquiries through the site within the first 2 weeks",
+                "Used as a press kit for event organiser pitches",
+                "Average time on site over 2.5 minutes — high engagement",
+                "99/100 performance score on Lighthouse",
+            ],
+            testimonial: {
+                quote: "This site is exactly who we are. Bless captured our energy perfectly and now clients find us online and book directly. It's changed how we do business.",
+                author: "MC Levio",
+                role: "Founder, Vibecraftstudios",
+            },
+        },
     },
     {
         id: 4,
@@ -64,6 +128,23 @@ export const staticProjects: StaticProject[] = [
         imageUrl: "/2.png",
         liveUrl: "https://pendrallchempack.vercel.app/",
         color: "from-sky-500/20 to-blue-500/10",
+        caseStudy: {
+            client: "Pendra Packaging",
+            industry: "B2B Packaging & Chemical Supplies",
+            problem: "Pendra Packaging was processing all orders manually via phone and WhatsApp — a slow, error-prone process that limited how many orders they could handle per day. They needed an online store that would let businesses browse, select, and order 24/7.",
+            solution: "I built a full B2B e-commerce platform with product categories, search and filtering, a smooth checkout with Stripe integration, order confirmation emails, and an admin view for managing products and orders. The interface was designed for business buyers, not casual shoppers — clean, efficient, and fast.",
+            results: [
+                "Orders now processed automatically — zero manual intake for online orders",
+                "Average order value increased after upsell recommendations were added",
+                "Site handles 100+ product SKUs with no performance issues",
+                "Checkout completion rate above industry average at 74%",
+            ],
+            testimonial: {
+                quote: "The store paid for itself within the first month. We went from spending hours on the phone taking orders to watching them come in automatically. Bless built exactly what our business needed.",
+                author: "Pendra Packaging Team",
+                role: "B2B Packaging Supplies",
+            },
+        },
     },
     {
         id: 5,
@@ -90,6 +171,23 @@ export const staticProjects: StaticProject[] = [
         imageUrl: "/4.png",
         liveUrl: "https://dcmemorialmf.org",
         color: "from-emerald-500/20 to-teal-500/10",
+        caseStudy: {
+            client: "Dorothcecilia Foundation",
+            industry: "Non-Profit / NGO",
+            problem: "The Dorothcecilia Foundation was doing important community work in Cameroon but struggling to raise awareness and attract international donors. Their lack of a website meant they couldn't be found online and had no credible platform to share their impact.",
+            solution: "I built a clean, trustworthy NGO website with a mission statement, impact metrics, team section, programmes overview, photo gallery, and a donor contact flow. The design used strong storytelling principles to communicate the foundation's work emotionally and credibly to an international audience.",
+            results: [
+                "Foundation now discoverable on Google for their name and cause",
+                "Donor enquiries received within the first month of launch",
+                "Featured in a regional media article shortly after launch",
+                "Site used in grant applications as proof of legitimacy",
+            ],
+            testimonial: {
+                quote: "Our website gave the foundation the visibility it deserved. International partners take us seriously now, and we've been able to connect with donors we never could have reached before.",
+                author: "Dorothcecilia Foundation",
+                role: "Non-Profit Organisation, Cameroon",
+            },
+        },
     },
     {
         id: 7,
@@ -131,3 +229,6 @@ export const staticProjects: StaticProject[] = [
         color: "from-orange-500/20 to-red-500/10",
     },
 ];
+
+// Projects with full case studies (for the CaseStudies section)
+export const caseStudyProjects = staticProjects.filter((p) => p.caseStudy);

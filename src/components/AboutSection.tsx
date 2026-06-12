@@ -43,7 +43,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="relative py-32 px-6 overflow-hidden">
+    <section ref={sectionRef} id="about" className="relative py-32 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <div ref={textRef}>
@@ -51,19 +51,28 @@ const AboutSection = () => {
               About Me
             </span>
             <h2 className="font-display font-bold text-3xl xs:text-4xl md:text-6xl mb-8">
-              Full-Stack <span className="text-gradient-primary">Creator</span>
+              Bless Kimbi{" "}
+              <span className="text-gradient-primary">Web Designer</span>
               <br />
-              with Design Skills
+              in Cameroon
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed font-body mb-6">
-              I’m a software engineer and creative developer who builds websites, web apps, and digital content. 
-              By combining coding skills with design, I turn complex ideas into real, functional, and 
-              visually appealing projects.
+              I'm <strong className="text-white">Bless Kimbi</strong>, a professional web designer and
+              developer based in <strong className="text-white">Yaoundé, Cameroon</strong>. I help
+              businesses across Cameroon and Africa build a strong online presence with fast,
+              modern websites that rank on Google and turn visitors into paying clients.
+            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed font-body mb-6">
+              Whether you're a small business in Yaoundé looking for your first professional website,
+              or an established company that needs an e-commerce store or web app. I handle the
+              full stack: design, development, SEO, and launch. My work combines clean UI/UX design
+              with solid technical foundations in React, TypeScript, and modern web standards.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed font-body">
-              Whether it's frontend development with React, backend systems with Node.js/Python, 
-              or creative branding with Canva, I handle both the technical and visual sides of a 
-              project from concept to finished product.
+              As Cameroon's go-to web designer, I've delivered 50+ projects for clients across
+              Cameroon, South Africa, and beyond. From NGO websites and agency sites to
+              e-commerce platforms and booking systems. Every site I build is mobile-first,
+              SEO-optimised, and built to perform.
             </p>
           </div>
 

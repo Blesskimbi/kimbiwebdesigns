@@ -121,18 +121,25 @@ const HeroSection = () => {
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <div className="inline-block mb-6 px-4 py-1.5 rounded-full bg-glass text-muted-foreground text-sm font-body tracking-wider uppercase">
-         Software Developer
+          Web Designer &amp; Developer | Yaoundé, Cameroon
         </div>
 
-        <h1 className="font-display font-800 text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.1] tracking-tight mb-8 glow-text flex flex-col items-center justify-center">
-          <span ref={staticText1Ref} className="block w-full text-center mb-2 md:mb-4">Turning Ideas Into</span>
-          <span className="flex flex-col md:flex-row items-center justify-center gap-y-2 md:gap-y-0 md:gap-x-5">
-            <span className="inline-flex justify-center min-w-[140px] sm:min-w-[280px] md:min-w-[340px] lg:min-w-[400px]">
-              <span ref={dynamicTextRef} className="text-gradient-primary inline-block text-center w-full whitespace-nowrap">
-                {words[index]}
-              </span>
+        <h1 className="font-display font-800 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight mb-8 glow-text flex flex-col items-center justify-center gap-1 md:gap-2">
+          {/* Line 1 */}
+          <span ref={staticText1Ref} className="block w-full text-center">
+            Hi, I'm Bless Kimbi
+          </span>
+          {/* Line 2: cycling adjective + "Web Designer" side by side, always on one line */}
+          <span className="flex items-baseline justify-center gap-3 md:gap-5 w-full flex-nowrap">
+            <span
+              ref={dynamicTextRef}
+              className="text-gradient-primary whitespace-nowrap shrink-0"
+            >
+              {words[index]}
             </span>
-            <span ref={staticText2Ref}>Realities</span>
+            <span ref={staticText2Ref} className="whitespace-nowrap shrink-0">
+              Web Designer
+            </span>
           </span>
         </h1>
 
@@ -140,23 +147,23 @@ const HeroSection = () => {
           ref={subRef}
           className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-body leading-relaxed md:px-0 px-4"
         >
-          I build websites, web apps, and digital content, combining coding skills 
-          with design to create functional and visually appealing projects.
+          Cameroon's leading web designer &amp; developer, based in Yaoundé. I build
+          fast, professional websites and web apps that rank on Google and convert
+          visitors into paying clients, serving businesses across Cameroon and Africa.
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
           <a
-            href="#projects"
-            className="group relative px-8 py-4 rounded-full bg-glass glow-primary font-display font-semibold tracking-wide text-foreground transition-all duration-300 hover:scale-105"
+            href="/contact"
+            className="group relative px-8 py-4 rounded-full bg-primary glow-primary font-display font-semibold tracking-wide text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(79,142,240,0.5)]"
           >
-            <span className="relative z-10">View Projects</span>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative z-10">Get a Free Quote</span>
           </a>
           <a
-            href="#contact"
+            href="#projects"
             className="px-8 py-4 rounded-full border border-border font-display font-semibold tracking-wide text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-300 hover:scale-105"
           >
-            Get in Touch
+            View Projects
           </a>
         </div>
       </div>

@@ -20,7 +20,7 @@ const testimonials = [
     avatar: "MR",
   },
   {
-    quote: "The level of craft is extraordinary. Our conversion rate doubled after the redesign — users just can't stop exploring.",
+    quote: "The level of craft is extraordinary. Our conversion rate doubled after the redesign. Users just can't stop exploring.",
     name: "Elena Volkov",
     role: "Head of Product, Orbit Labs",
     avatar: "EV",
@@ -55,6 +55,7 @@ const TestimonialsSection = () => {
   }, [emblaApi]);
 
   useEffect(() => {
+    if (!headingRef.current) return;
     const ctx = gsap.context(() => {
       gsap.from(headingRef.current, {
         scrollTrigger: { trigger: headingRef.current, start: "top 80%" },

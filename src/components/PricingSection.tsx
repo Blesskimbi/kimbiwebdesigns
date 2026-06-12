@@ -74,7 +74,7 @@ const tiers: Tier[] = [
   {
     name: "Diamond",
     price: "$885",
-    description: "The complete package — everything you need to lead your market online.",
+    description: "The complete package, everything you need to lead your market online.",
     featured: false,
     features: [
       { text: "Unlimited Pages", included: true },
@@ -137,7 +137,7 @@ const PricingSection = () => {
             Transparent <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600">Pricing</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            No hidden fees. Pick the package that fits your business and let's get started.
+            We prioritise working within our clients' budget.
           </p>
         </div>
 
