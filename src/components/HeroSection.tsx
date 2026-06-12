@@ -120,9 +120,9 @@ const HeroSection = () => {
       </div>
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <div className="inline-block mb-6 px-4 py-1.5 rounded-full bg-glass text-muted-foreground text-sm font-body tracking-wider uppercase">
-          Web Designer &amp; Developer | Yaoundé, Cameroon
-        </div>
+        <p className="text-muted-foreground text-sm font-body tracking-wider uppercase mb-6">
+          Web Designer &amp; Developer
+        </p>
 
         <h1 className="font-display font-800 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight mb-8 glow-text flex flex-col items-center justify-center gap-1 md:gap-2">
           {/* Line 1 */}

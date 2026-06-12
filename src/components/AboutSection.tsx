@@ -62,17 +62,10 @@ const AboutSection = () => {
               businesses across Cameroon and Africa build a strong online presence with fast,
               modern websites that rank on Google and turn visitors into paying clients.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed font-body mb-6">
-              Whether you're a small business in Yaoundé looking for your first professional website,
-              or an established company that needs an e-commerce store or web app. I handle the
-              full stack: design, development, SEO, and launch. My work combines clean UI/UX design
-              with solid technical foundations in React, TypeScript, and modern web standards.
-            </p>
             <p className="text-muted-foreground text-lg leading-relaxed font-body">
-              As Cameroon's go-to web designer, I've delivered 50+ projects for clients across
-              Cameroon, South Africa, and beyond. From NGO websites and agency sites to
-              e-commerce platforms and booking systems. Every site I build is mobile-first,
-              SEO-optimised, and built to perform.
+              From small businesses in Yaoundé to established companies needing e-commerce or web apps,
+              I handle the full stack: design, development, SEO, and launch — 50+ projects delivered
+              across Cameroon, South Africa, and beyond. Every site is mobile-first and built to perform.
             </p>
           </div>
 
