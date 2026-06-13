@@ -54,8 +54,6 @@ const FaqAccordion = ({ faqs }: { faqs: FaqItem[] }) => {
   );
 };
 
-const BASE = "https://everythx.com";
-
 /* Custom markdown components ------------------------------------------------ */
 const mdComponents = {
   table: ({ children }: { children?: React.ReactNode }) => (
