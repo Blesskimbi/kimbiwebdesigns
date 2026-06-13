@@ -25,6 +25,14 @@ const ServicesPage = () => (
             <ParticleBackground />
             <Navbar />
             <div className="pt-20">
+                <div className="max-w-6xl mx-auto px-6 pt-12 pb-2 text-center">
+                    <h1 className="font-display font-bold text-4xl md:text-6xl text-white mb-4">
+                        Web Design <span className="text-gradient-primary">Services</span>
+                    </h1>
+                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                        Professional web design, development, SEO, and mobile apps for businesses in Cameroon and Africa.
+                    </p>
+                </div>
                 <ServicesSection />
                 <CaseStudiesSection />
                 <PricingSection />

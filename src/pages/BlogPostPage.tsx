@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
-import { Calendar, ChevronRight, Clock, Home, Share2 } from "lucide-react";
+import { Calendar, ChevronRight, Clock, Home, Share2, ChevronDown } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -15,6 +15,44 @@ import ParticleBackground from "@/components/ParticleBackground";
 import BlogSidebar from "@/components/BlogSidebar";
 import BlogImageCarousel from "@/components/BlogImageCarousel";
 import { getPostBySlug, BlogPost } from "@/lib/blog";
+
+const BASE = "https://everythx.com";
+
+/* FAQ Accordion ------------------------------------------------------------- */
+interface FaqItem { q: string; a: string; }
+
+const FaqAccordion = ({ faqs }: { faqs: FaqItem[] }) => {
+  const [open, setOpen] = useState<number | null>(null);
+  return (
+    <section className="mt-10 md:mt-14">
+      <h2 className="font-display font-bold text-xl md:text-2xl text-white mb-6">
+        Frequently Asked Questions
+      </h2>
+      <div className="space-y-3">
+        {faqs.map((faq, i) => (
+          <div key={i} className="border border-white/10 rounded-xl overflow-hidden">
+            <button
+              onClick={() => setOpen(open === i ? null : i)}
+              className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left text-white font-semibold text-sm md:text-base hover:bg-white/5 transition-colors"
+              aria-expanded={open === i}
+            >
+              <span>{faq.q}</span>
+              <ChevronDown
+                size={18}
+                className={`shrink-0 text-primary transition-transform duration-300 ${open === i ? "rotate-180" : ""}`}
+              />
+            </button>
+            {open === i && (
+              <div className="px-5 pb-5 text-gray-300 text-sm md:text-base leading-relaxed border-t border-white/8 pt-4">
+                {faq.a}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 const BASE = "https://everythx.com";
 
@@ -173,6 +211,17 @@ const BlogPostPage = () => {
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+        {post.faqs && post.faqs.length > 0 && (
+          <script type="application/ld+json">{JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": post.faqs.map((f: FaqItem) => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a },
+            })),
+          })}</script>
+        )}
       </Helmet>
 
       <div className="relative min-h-screen bg-background">
@@ -282,6 +331,11 @@ const BlogPostPage = () => {
                       {post.content}
                     </ReactMarkdown>
                   </div>
+
+                  {/* FAQ Section */}
+                  {post.faqs && post.faqs.length > 0 && (
+                    <FaqAccordion faqs={post.faqs} />
+                  )}
 
                   <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <button

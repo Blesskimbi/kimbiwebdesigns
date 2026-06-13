@@ -22,6 +22,14 @@ const ContactPage = () => (
             <ParticleBackground />
             <Navbar />
             <div className="pt-20">
+                <div className="max-w-5xl mx-auto px-6 pt-12 pb-2 text-center">
+                    <h1 className="font-display font-bold text-4xl md:text-6xl text-white mb-4">
+                        Get In <span className="text-gradient-primary">Touch</span>
+                    </h1>
+                    <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+                        Ready to build your professional website? Let's talk about your project.
+                    </p>
+                </div>
                 <ContactSection />
             </div>
             <FloatingChat />

@@ -17,6 +17,7 @@ export interface BlogPost {
     imageUrl: string;
     slug: string;
     tags?: string[];
+    faqs?: { q: string; a: string }[];
 }
 
 export const getAllPosts = async (): Promise<BlogPost[]> => {

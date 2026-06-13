@@ -1,12 +1,23 @@
 ---
 title: "Why Every Cameroonian Business Needs a Website in 2025"
 slug: "why-cameroonian-business-needs-website"
-excerpt: "Still relying on WhatsApp and Facebook to run your business? Bless Kimbi explains exactly why every business in Cameroon needs a professional website in 2025 — and what you're losing every day without one."
+excerpt: "Still relying on WhatsApp and Facebook to run your business? Bless Kimbi explains exactly why every business in Cameroon needs a professional website in 2025 and what you're losing every day without one."
 category: "Business"
 author: "Bless Kimbi"
 date: "2025-06-05"
 imageUrl: "/Why Your Business Needs a Website in 2025 (And Why Every Day Without One Is Costing You Money).png"
 tags: ["professional website Cameroon", "web designer Cameroon", "business Yaoundé"]
+faqs:
+  - q: "Why does my Cameroonian business need a website?"
+    a: "Over 9 million Cameroonians are online, and most search for products and services on Google. Without a website, your business is invisible to these potential customers. A professional website builds credibility, generates leads 24/7, and gives you a digital asset you fully own."
+  - q: "Is a Facebook page enough for my business in Cameroon?"
+    a: "No. Facebook limits organic reach to under 5% of followers, can suspend your page at any time, and does not rank on Google. A professional website is the only digital presence you fully own and control."
+  - q: "How much does a professional website cost in Cameroon?"
+    a: "A professional business website in Yaoundé starts from around 400,000 FCFA. For a full breakdown of pricing tiers, read our guide: How Much Does a Website Cost in Cameroon in 2025?"
+  - q: "Will my website work well on mobile in Cameroon?"
+    a: "Yes. Every website built by Bless Kimbi is mobile-first and optimised for the speed and connection conditions common across Cameroon and Africa. Most Cameroonian users browse on mobile."
+  - q: "How long does it take to build a website in Cameroon?"
+    a: "A professional business website typically takes 2 to 4 weeks from brief to launch, depending on the complexity and how quickly content is provided. E-commerce and web app projects take longer."
 ---
 
 # Why Every Cameroonian Business Needs a Website in 2025

@@ -5,7 +5,7 @@ import { Home, ArrowLeft } from "lucide-react";
 const NotFound = () => (
   <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6 text-center">
     <Helmet>
-      <title>404 — Page Not Found | Blesskimbi</title>
+      <title>404 Not Found | Blesskimbi</title>
       <meta name="robots" content="noindex, nofollow" />
     </Helmet>
 

@@ -59,11 +59,11 @@ const ProjectsPage = () => {
                     {/* Heading */}
                     <div className="mb-14 text-center">
                         <h1 className="font-display font-bold text-5xl md:text-6xl mb-5">
-                            My <span className="text-gradient-primary">Projects</span>
+                            Web Design <span className="text-gradient-primary">Portfolio</span>
                         </h1>
                         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                             {loading
-                                ? "Loading projects…"
+                                ? "Loading projects..."
                                 : `${filtered.length} project${filtered.length !== 1 ? "s" : ""} — select a tag to filter.`}
                         </p>
                     </div>
@@ -130,7 +130,7 @@ const ProjectsPage = () => {
                                         {project.cover_image ? (
                                             <img
                                                 src={project.cover_image}
-                                                alt={`${project.title} — web design project by Bless Kimbi`}
+                                            alt={`${project.title} web design project by Bless Kimbi`}
                                                 className="w-full h-full object-cover object-top pan-on-hover"
                                                 loading="lazy"
                                             />
