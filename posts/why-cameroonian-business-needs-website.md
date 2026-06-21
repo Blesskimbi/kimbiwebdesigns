@@ -5,7 +5,7 @@ excerpt: "Still relying on WhatsApp and Facebook to run your business? Bless Kim
 category: "Business"
 author: "Bless Kimbi"
 date: "2026-06-05"
-imageUrl: "/Why Your Business Needs a Website in 2025 (And Why Every Day Without One Is Costing You Money).png"
+imageUrl: "/Why Your Business Needs a Website in 2026.png"
 tags: ["professional website Cameroon", "web designer Cameroon", "business Yaoundé"]
 faqs:
   - q: "Why does my Cameroonian business need a website?"
