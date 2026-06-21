@@ -22,8 +22,6 @@ The good news is that choosing the right agency — one that delivers quality, r
 <strong>TL;DR:</strong> Before hiring a web design agency in South Africa, check their portfolio, ask about their SEO process, request a written contract, and verify post-launch support. Use the checklist in this post to make a confident decision. <a href="https://everythx.com/contact">Or skip the search and work with Bless Kimbi</a>.
 </div>
 
----
-
 ## Why Getting This Decision Right Matters So Much
 
 Your website is not a cost — it is an investment. According to [Forbes](https://www.forbes.com/advisor/business/software/website-statistics/), businesses with professional websites are **23x more likely to be seen as a legitimate, trustworthy company** than those without one.
@@ -38,8 +36,6 @@ Conversely, a poorly executed website can:
 
 Choosing right the first time saves you money, time, and frustration.
 
----
-
 ## Step 1: Define Your Website Goals Before You Start Looking
 
 Before approaching any agency, be clear about what your website needs to achieve. Ask yourself:
@@ -51,8 +47,6 @@ Before approaching any agency, be clear about what your website needs to achieve
 - **What is my budget?** (Realistic ranges in ZAR for your type of project)
 
 Having clear answers to these questions makes it far easier to evaluate whether an agency's proposal actually meets your needs.
-
----
 
 ## Step 2: Evaluate the Portfolio Thoroughly
 
@@ -66,9 +60,7 @@ The portfolio is the single most important signal of an agency's quality. Here i
 
 **Check page speed.** Use [Google PageSpeed Insights](https://pagespeed.web.dev/) to test the sites in their portfolio. Professional agencies consistently deliver scores of **80+ on mobile** — anything below 60 is a warning sign.
 
-[View the Bless Kimbi portfolio](https://everythx.com/projects) to see examples of our work across multiple industries and regions.
-
----
+[View the Bless Kimbi portfolio](https://everythx.com/projects) to see examples of our work across multiple industries and regions. You can also benchmark quality against established African web agencies like [Website Designer NG](https://www.websitedesigner.ng/) and tech companies like [Cyprogram](https://cyprogram.com) to calibrate your expectations.
 
 ## Step 3: Assess Their SEO Knowledge
 
@@ -80,9 +72,7 @@ Many South African businesses have a beautiful website that no one can find beca
 - Can you show me examples of sites you built that rank on Google?
 - Do you optimise for page speed?
 
-If they cannot answer these confidently and specifically, their "SEO included" promise is empty. For more on what proper SEO looks like, read our post on [web design services for African businesses](https://everythx.com/blog/best-web-design-services-businesses-africa-2026).
-
----
+If they cannot answer these confidently and specifically, their "SEO included" promise is empty. [Ahrefs' keyword research guide](https://ahrefs.com/blog/keyword-research/) explains what genuine SEO keyword strategy looks like — use it to test whether an agency really knows what they are talking about. For more on what proper SEO looks like, read our post on [web design services for African businesses](https://everythx.com/blog/best-web-design-services-businesses-africa-2026).
 
 ## Step 4: Understand the Contract and Ownership Terms
 
@@ -100,8 +90,6 @@ Before signing anything, get clarity on:
 
 Get all of this in writing. A professional agency will always provide a formal proposal and contract.
 
----
-
 ## Step 5: Test Their Communication Style
 
 The best technical skill in the world is useless if your designer does not communicate well. Before committing:
@@ -112,8 +100,6 @@ The best technical skill in the world is useless if your designer does not commu
 - Test whether they can explain technical concepts in plain language
 
 A web design project involves many decisions and feedback loops. Good communication makes the process smooth. Poor communication creates delays, misunderstandings, and frustration.
-
----
 
 ## The Complete Pre-Hire Checklist for South African Businesses
 
@@ -132,15 +118,11 @@ Use this checklist before hiring any web design agency in South Africa:
 | References available | Can they provide client references? |
 | Communication | Responsive, asks questions, clear explanations |
 
----
-
 ## Watch: How to Evaluate a Web Design Proposal
 
 <div class="video-embed">
   <iframe src="https://www.youtube.com/embed/O3BUHwfHf84?rel=0" title="How to Build a WordPress Website for Your Business" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 </div>
-
----
 
 ## Red Flags That Should Make You Walk Away
 
@@ -157,15 +139,11 @@ Watch for these warning signs when evaluating web design agencies in South Afric
 
 If you encounter any of these, move on. There are many excellent agencies and designers in South Africa who operate professionally.
 
----
-
 ## What Great Web Design Looks Like: Real Examples
 
 Here is a sample of websites delivered by Bless Kimbi — judge the quality for yourself:
 
 ![High-converting website built by Bless Kimbi for an African business](/7.png)
-
----
 
 ## Why South African Businesses Choose Bless Kimbi
 
@@ -178,9 +156,9 @@ Here is a sample of websites delivered by Bless Kimbi — judge the quality for 
 - **Post-launch support** — we are here when you need us
 - **Proven portfolio** — real results for real businesses
 
-Visit our [services page](https://everythx.com/services) for full details on what we offer South African businesses.
+We also work alongside respected peers in the African web space. Developers like [Front to Back Dev](https://fronttobackdev.com/) are raising the standard for what professional web development looks like across the continent — and we hold ourselves to that same bar.
 
----
+Visit our [services page](https://everythx.com/services) for full details on what we offer South African businesses.
 
 ## Frequently Asked Questions
 
@@ -204,15 +182,11 @@ At minimum: **PayFast** (South Africa's most popular gateway), **Yoco** (point-o
 
 A local agency with knowledge of the South African market — local SEO, payment gateways, business culture — typically delivers better results for SA-focused businesses. However, Bless Kimbi operates internationally and brings a global perspective to every South African project.
 
----
-
 ## Make the Right Choice for Your South African Business
 
 Armed with this checklist, you are ready to evaluate any web design agency in South Africa confidently. But if you would rather skip the search and work with a proven professional, Bless Kimbi is ready.
 
 **[Contact Bless Kimbi today](https://everythx.com/contact)** — no pressure, transparent pricing, and a website your business can be proud of.
-
----
 
 ### Connect With Bless Kimbi
 
