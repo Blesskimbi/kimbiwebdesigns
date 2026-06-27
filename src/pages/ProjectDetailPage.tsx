@@ -102,6 +102,10 @@ const ProjectDetailPage = () => {
     if (notFound || !project) {
         return (
             <div className="min-h-screen bg-background flex items-center justify-center">
+                <Helmet>
+                    <title>Project Not Found | Bless Kimbi</title>
+                    <meta name="robots" content="noindex, nofollow" />
+                </Helmet>
                 <div className="text-center">
                     <h1 className="text-3xl font-display font-bold text-white mb-4">Project Not Found</h1>
                     <p className="text-gray-400 mb-6">This project doesn't exist or has been removed.</p>
@@ -117,10 +121,10 @@ const ProjectDetailPage = () => {
     return (
         <LenisSmoothScroll>
             <Helmet>
-                <title>{`${project.title} | Blesskimbi Portfolio`}</title>
+                <title>{`${project.title} | Bless Kimbi`}</title>
                 <meta name="description" content={project.description ?? project.title} />
                 <link rel="canonical" href={canonical} />
-                <meta property="og:title" content={`${project.title} | Blesskimbi Portfolio`} />
+                <meta property="og:title" content={`${project.title} | Bless Kimbi`} />
                 <meta property="og:description" content={project.description ?? project.title} />
                 <meta property="og:url" content={canonical} />
                 {project.cover_image && (

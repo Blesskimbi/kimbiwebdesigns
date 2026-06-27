@@ -33,7 +33,7 @@ const QA_DATA = [
 const FloatingChat = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
-        { id: "1", text: "Hi! I'm BlessKimbi's AI assistant. How can I help you today?", sender: "bot" }
+        { id: "1", text: "Hi! I'm Bless Kimbi's AI assistant. How can I help you today?", sender: "bot" }
     ]);
     const [inputValue, setInputValue] = useState("");
     const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -65,7 +65,7 @@ const FloatingChat = () => {
         // Simulate bot thinking and replying
         setTimeout(() => {
             const lowerInput = userText.toLowerCase();
-            let foundAnswer = "I'm sorry, I don't have a specific answer for that. But you can chat with BlessKimbi directly! Just click the WhatsApp or Instagram buttons at the top to send a DM.";
+            let foundAnswer = "I'm sorry, I don't have a specific answer for that. But you can chat with Bless Kimbi directly! Just click the WhatsApp or Instagram buttons at the top to send a DM.";
 
             for (const q of QA_DATA) {
                 if (q.keywords.some((kw) => lowerInput.includes(kw))) {

@@ -199,17 +199,17 @@ const BlogPostPage = () => {
   return (
     <LenisSmoothScroll>
       <Helmet>
-        <title>{`${post.title} | Blesskimbi Blog`}</title>
+        <title>{`${post.title} | Bless Kimbi`}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={`${post.title} | Blesskimbi Blog`} />
+        <meta property="og:title" content={`${post.title} | Bless Kimbi`} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={ogImage} />
         <meta property="article:published_time" content={post.date} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${post.title} | Blesskimbi Blog`} />
+        <meta name="twitter:title" content={`${post.title} | Bless Kimbi`} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
