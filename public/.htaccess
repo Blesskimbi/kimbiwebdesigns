@@ -4,33 +4,33 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.everythx\.com$ [NC]
 RewriteRule ^(.*)$ https://everythx.com/$1 [R=301,L]
 
-# Custom 404 page for all real HTTP 404 responses
+# Custom 404 page (also set in hPanel if Hostinger CDN overrides this)
 ErrorDocument 404 /404.html
 
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
+RewriteRule ^404\.html$ - [L]
 
-# Legacy removed routes — no files exist; let Apache return 404 + ErrorDocument above.
-# Add explicit Redirect gone entries here if a path needs a hard 404 before other rules:
+# Legacy removed routes — add hard 404s here as needed:
 # Redirect gone /old-path
 
-# Serve prerendered HTML for nested routes (e.g. /blog/slug → /blog/slug/index.html)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME}/index.html -f
-RewriteRule ^(.+)$ $1/index.html [L]
+# Prerendered routes (e.g. /blog/slug/index.html)
+RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+RewriteRule ^(.+?)/?$ $1/index.html [L]
 
-# Dashboard — SPA shell (not prerendered, blocked in robots.txt)
-RewriteCond %{REQUEST_URI} ^/dashboard(/|$) [NC]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule . /index.html [L]
+# Dashboard — SPA shell (blocked in robots.txt)
+RewriteRule ^dashboard(/.*)?$ /index.html [L]
 
-# Valid /blog/{slug} or /projects/{slug} with missing data → SPA (app sets noindex)
-RewriteCond %{REQUEST_URI} ^/(blog|projects)/[^/]+/?$ [NC]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME}/index.html !-f
-RewriteRule . /index.html [L]
+# Missing blog/project slug → SPA (BlogPostPage / ProjectDetailPage set noindex)
+RewriteRule ^blog/[^/]+/?$ /index.html [L]
+RewriteRule ^projects/[^/]+/?$ /index.html [L]
 
-# No SPA catch-all — unknown paths (e.g. /nonexistent-page, /portfolio) return HTTP 404
+# Unknown paths → custom 404.html (Hostinger CDN may ignore ErrorDocument;
+# internal rewrite ensures crawlers see noindex content instead of the homepage)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !\.(css|js|png|jpe?g|gif|webp|svg|ico|xml|txt|woff2?|map|json|html)$ [NC]
+RewriteRule . /404.html [L]
 
 # ── Security Headers ──────────────────────────────────────────────────────
 <IfModule mod_headers.c>
