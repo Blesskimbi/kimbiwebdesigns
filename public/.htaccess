@@ -1,4 +1,9 @@
 RewriteEngine On
+
+# Force non-www (www -> apex), keep this as the first rule
+RewriteCond %{HTTP_HOST} ^www\.everythx\.com$ [NC]
+RewriteRule ^(.*)$ https://everythx.com/$1 [R=301,L]
+
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
