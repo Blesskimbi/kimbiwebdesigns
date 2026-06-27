@@ -44,13 +44,16 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks: {
+          // Core — needed by every public route
           "vendor-react":    ["react", "react-dom", "react-router-dom"],
-          "vendor-ui":       ["@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-tooltip"],
           "vendor-gsap":     ["gsap"],
+          // Deferred — only pulled in when the matching lazy route loads
+          "vendor-supabase": ["@supabase/supabase-js"],
           "vendor-md":       ["react-markdown", "remark-gfm", "rehype-raw", "gray-matter"],
           "vendor-embla":    ["embla-carousel-react"],
           "vendor-query":    ["@tanstack/react-query"],
-          "vendor-supabase": ["@supabase/supabase-js"],
+          // Radix UI — used by dashboard; kept separate from public-page bundles
+          "vendor-radix":    ["@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-tooltip"],
         },
       },
     },
