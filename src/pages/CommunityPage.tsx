@@ -33,7 +33,7 @@ const benefits = [
   {
     icon: Users,
     title: "Peer Community",
-    desc: "Connect with other learners across Cameroon and Africa on the same journey.",
+    desc: "Connect with learners and professionals from around the world on the same journey.",
   },
   {
     icon: Star,
@@ -49,8 +49,7 @@ const faqs = [
   },
   {
     q: "Do I need prior coding experience to join?",
-    // TODO: confirm with Bless — adjust if intermediate developers are also a target audience
-    a: "No prior experience needed. The community welcomes complete beginners as well as developers who are still learning. If you know the basics of HTML and CSS, even better — but it's not a requirement.",
+      a: "No prior experience needed. The community welcomes complete beginners, developers who are still learning, and experienced professionals who want to collaborate and share knowledge.",
   },
   {
     q: "How much time do I need to commit each week?",
@@ -71,17 +70,17 @@ const faqs = [
 const CommunityPage = () => (
   <LenisSmoothScroll>
     <Helmet>
-      <title>Free Web Development Mentorship Community | Bless Kimbi — Cameroon &amp; Africa</title>
+      <title>Free Web Development Mentorship Community | Bless Kimbi</title>
       <meta
         name="description"
-        content="Join Bless Kimbi's free web development mentorship community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for aspiring developers in Cameroon and Africa."
+        content="Join Bless Kimbi's free web development mentorship community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for beginners and professionals worldwide."
       />
       <link rel="canonical" href="https://everythx.com/community" />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="Free Web Development Mentorship Community | Bless Kimbi" />
       <meta
         property="og:description"
-        content="Join Bless Kimbi's free web development mentorship community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for aspiring developers in Cameroon and Africa."
+        content="Join Bless Kimbi's free web development mentorship community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for beginners and professionals worldwide."
       />
       <meta property="og:url" content="https://everythx.com/community" />
       <meta property="og:type" content="website" />
@@ -92,7 +91,7 @@ const CommunityPage = () => (
       <meta name="twitter:title" content="Free Web Development Mentorship Community | Bless Kimbi" />
       <meta
         name="twitter:description"
-        content="Join Bless Kimbi's free web development mentorship community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for aspiring developers in Cameroon and Africa."
+        content="Join Bless Kimbi's free web development mentorship community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for beginners and professionals worldwide."
       />
       <meta name="twitter:image" content="https://everythx.com/og-image.png" />
       <script type="application/ld+json">{JSON.stringify({
@@ -119,15 +118,13 @@ const CommunityPage = () => (
           </span>
           <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-white leading-[1.1] tracking-tight mb-6">
             Free Web Development{" "}
-            <span className="text-gradient-primary">Mentorship</span>
-            <br />
-            in Cameroon &amp; Africa
+            <span className="text-gradient-primary">Mentorship</span>{" "}
+            Community
           </h1>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-            {/* TODO: confirm audience description with Bless */}
-            A free WhatsApp community for beginners and aspiring developers who
-            want to learn web development, build real projects, and grow their
-            skills with guidance from an experienced mentor.
+            A free WhatsApp community for beginners, aspiring developers, and
+            professionals who want to learn, collaborate on projects, and grow
+            together — no matter where you are in the world.
           </p>
           <a
             href={WHATSAPP_LINK}
@@ -147,20 +144,20 @@ const CommunityPage = () => (
             <h2 className="font-display font-bold text-2xl md:text-3xl text-white mb-4">
               Who is this community for?
             </h2>
-            {/* TODO: confirm audience description with Bless */}
             <p className="text-gray-300 text-base leading-relaxed mb-6">
-              This community is for anyone in Cameroon, Africa, or beyond who
-              wants to get into web development but doesn't know where to start —
-              or has started but feels stuck. If you've been watching web
-              development content on TikTok and want a space to ask questions,
-              share your progress, and learn alongside others, this is the right
-              place.
+              This community is for anyone who wants to get into web development
+              but doesn't know where to start — or has started but feels stuck.
+              It's also for experienced developers who want to collaborate, share
+              knowledge, and connect with like-minded builders. If you've been
+              watching web development content and want a space to actually build
+              things with others, this is the right place.
             </p>
             <ul className="space-y-3">
               {[
                 "Complete beginners with no coding experience",
                 "Self-taught developers looking for structure and feedback",
-                "Students studying computer science or IT in Cameroon",
+                "Students studying computer science or IT",
+                "Professionals who want to collaborate and share knowledge",
                 "Anyone who wants to build a website or start freelancing in web design",
                 "TikTok followers who want to go beyond watching and start building",
               ].map((item) => (
