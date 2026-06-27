@@ -220,9 +220,9 @@ const CommunityPage = () => (
                 </p>
                 <p className="text-gray-300 leading-relaxed mb-4">
                   I started this community because I know how hard it is to learn
-                  to code without guidance. I want to create a space where anyone
-                  — regardless of background or location — can get real support,
-                  honest feedback, and the motivation to keep building.
+                  to code without guidance.                   I want to create a space where anyone, regardless of background
+                  or location, can get real support, honest feedback, and the
+                  motivation to keep building.
                 </p>
                 <div className="flex flex-wrap gap-3 mt-4">
                   <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">React &amp; TypeScript</span>
