@@ -5,22 +5,25 @@ RewriteBase /
 RewriteCond %{HTTP_HOST} ^www\.everythx\.com$ [NC]
 RewriteRule ^ https://everythx.com%{REQUEST_URI} [R=301,L]
 
-# Custom 404 page (set /404.html in hPanel → Advanced → Custom error pages if CDN ignores this)
 ErrorDocument 404 /404.html
 
-# Pass through real files and directories (includes prerendered /blog/slug/ folders)
+# Pass through real files and directories (prerendered routes are physical folders)
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Dashboard — SPA shell (blocked in robots.txt)
-RewriteRule ^dashboard(/.*)?$ /index.html [L]
+# SPA fallbacks — use REQUEST_URI (more reliable on Hostinger/LiteSpeed)
+RewriteCond %{REQUEST_URI} ^/dashboard(/|$) [NC]
+RewriteRule ^ /index.html [L]
 
-# Missing blog/project slug → SPA (BlogPostPage / ProjectDetailPage set noindex)
-RewriteRule ^blog/[^/]+/?$ /index.html [L]
-RewriteRule ^projects/[^/]+/?$ /index.html [L]
+RewriteCond %{REQUEST_URI} ^/blog/[^/]+/?$ [NC]
+RewriteRule ^ /index.html [L]
 
-# Unknown paths → prerendered 404 page (noindex; avoids serving homepage shell)
+RewriteCond %{REQUEST_URI} ^/projects/[^/]+/?$ [NC]
+RewriteRule ^ /index.html [L]
+
+# Unknown paths → prerendered 404 page
+RewriteCond %{REQUEST_URI} !^/404\.html$ [NC]
 RewriteRule ^ /404.html [L]
 
 # ── Security Headers ──────────────────────────────────────────────────────

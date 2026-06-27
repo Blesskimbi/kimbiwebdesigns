@@ -16,6 +16,7 @@ import {
   existsSync,
   readdirSync,
   statSync,
+  copyFileSync,
 } from "fs";
 import { join, resolve, extname } from "path";
 import { fileURLToPath } from "url";
@@ -279,6 +280,14 @@ for (const route of routes) {
   } finally {
     await page.close();
   }
+}
+
+// Dashboard SPA shell — physical file so Hostinger CDN doesn't 404 before rewrite
+{
+  const dashboardDir = join(distDir, "dashboard");
+  mkdirSync(dashboardDir, { recursive: true });
+  copyFileSync(join(distDir, "index.html"), join(dashboardDir, "index.html"));
+  console.log("  ✓ dashboard/index.html (SPA shell copy)");
 }
 
 await browser.close();
