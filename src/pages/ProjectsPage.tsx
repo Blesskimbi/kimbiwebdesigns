@@ -81,11 +81,7 @@ const ProjectsPage = () => {
                             Web Design <span className="text-gradient-primary">Portfolio</span>
                         </h1>
                         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                            {loading
-                                ? "Loading projects..."
-                                : activeTag === "All"
-                                    ? `${filtered.length} project${filtered.length !== 1 ? "s" : ""} — select a tag to filter.`
-                                    : `${filtered.length} of ${projects.length} project${projects.length !== 1 ? "s" : ""} — filtered by: ${activeTag}`}
+                            Browse my work across web design, development, and digital experiences.
                         </p>
                     </div>
 
