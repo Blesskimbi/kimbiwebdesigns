@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/gen-og.mjs && vite build && node scripts/gen-og.mjs dist/og-image.png",
+    "build": "node scripts/gen-og.mjs && vite build && node scripts/gen-og.mjs dist/og-image.png && node scripts/prerender.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
