@@ -41,13 +41,32 @@ const ProjectsPage = () => {
     return (
         <LenisSmoothScroll>
             <Helmet>
-                <title>Web Design Portfolio | Blesskimbi</title>
-                <meta name="description" content="Browse Blesskimbi's portfolio of web design and development projects for clients worldwide." />
+                <title>Web Design Portfolio | Bless Kimbi — Cameroon & Africa</title>
+                <meta name="description" content="Browse Bless Kimbi's portfolio of web design and development projects for clients in Cameroon, South Africa, Nigeria and beyond." />
                 <link rel="canonical" href="https://everythx.com/projects" />
-                <meta property="og:title" content="Web Design Portfolio | Blesskimbi" />
-                <meta property="og:description" content="Browse Blesskimbi's portfolio of web design and development projects for clients worldwide." />
+                <meta property="og:title" content="Web Design Portfolio | Bless Kimbi" />
+                <meta property="og:description" content="Browse Bless Kimbi's portfolio of web design and development projects for clients in Cameroon, South Africa, Nigeria and beyond." />
                 <meta property="og:url" content="https://everythx.com/projects" />
                 <meta property="og:type" content="website" />
+                <meta property="og:image" content="https://everythx.com/og-image.png" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Web Design Portfolio | Bless Kimbi" />
+                <meta name="twitter:description" content="Browse Bless Kimbi's portfolio of web design and development projects for clients in Cameroon, South Africa, Nigeria and beyond." />
+                <meta name="twitter:image" content="https://everythx.com/og-image.png" />
+                <script type="application/ld+json">{JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "CollectionPage",
+                    "name": "Web Design Portfolio — Bless Kimbi",
+                    "description": "Portfolio of web design and development projects by Bless Kimbi for businesses across Cameroon and Africa.",
+                    "url": "https://everythx.com/projects",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Bless Kimbi",
+                        "url": "https://everythx.com"
+                    }
+                })}</script>
             </Helmet>
 
             <div className="relative min-h-screen bg-background overflow-x-hidden">
@@ -64,7 +83,9 @@ const ProjectsPage = () => {
                         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                             {loading
                                 ? "Loading projects..."
-                                : `${filtered.length} project${filtered.length !== 1 ? "s" : ""} — select a tag to filter.`}
+                                : activeTag === "All"
+                                    ? `${filtered.length} project${filtered.length !== 1 ? "s" : ""} — select a tag to filter.`
+                                    : `${filtered.length} of ${projects.length} project${projects.length !== 1 ? "s" : ""} — filtered by: ${activeTag}`}
                         </p>
                     </div>
 
