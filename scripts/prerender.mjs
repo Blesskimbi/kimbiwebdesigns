@@ -121,16 +121,27 @@ function writeRouteHtml(route, html) {
   writeFileSync(join(outDir, "index.html"), html);
 }
 
-function cleanPrerenderedHtml(html) {
-  if (!html.includes('data-rh="true"')) return html;
+function dedupeInlineStyles(html) {
+  const seen = new Set();
+  return html.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, (block) => {
+    if (seen.has(block)) return "";
+    seen.add(block);
+    return block;
+  });
+}
 
-  return html.replace(/<head([^>]*)>([\s\S]*?)<\/head>/i, (_, attrs, head) => {
+function cleanPrerenderedHtml(html) {
+  if (!html.includes('data-rh="true"')) return dedupeInlineStyles(html);
+
+  const withHead = html.replace(/<head([^>]*)>([\s\S]*?)<\/head>/i, (_, attrs, head) => {
     let cleaned = head
       .replace(/<meta(?![^>]*\bdata-rh)[^>]*(?:name="description"|property="og:[^"]+"|name="twitter:[^"]+")[^>]*\/?>\s*/gi, "")
       .replace(/<link(?![^>]*\bdata-rh)[^>]*rel="canonical"[^>]*\/?>\s*/gi, "")
       .replace(/\s+data-rh="true"/g, "");
     return `<head${attrs}>${cleaned}</head>`;
   });
+
+  return dedupeInlineStyles(withHead);
 }
 
 function validateHtml(route, html) {

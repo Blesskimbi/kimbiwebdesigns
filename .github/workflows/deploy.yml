@@ -6,8 +6,9 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v4
@@ -20,9 +21,6 @@ jobs:
       - name: Install Playwright browsers
         run: bunx playwright install chromium --with-deps
 
-      - name: Create dist directory
-        run: mkdir -p dist
-
       - name: Build
         run: bun run build
         env:
@@ -30,6 +28,28 @@ jobs:
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
           VITE_ADMIN_USER: ${{ secrets.VITE_ADMIN_USER }}
           VITE_ADMIN_PASS: ${{ secrets.VITE_ADMIN_PASS }}
+
+      - name: Show dist size
+        run: du -sh dist && find dist -name index.html | wc -l
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
 
       - name: Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
@@ -39,6 +59,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          timeout: 60000
+          timeout: 600000
           local-dir: ./dist/
           server-dir: /public_html/
