@@ -193,19 +193,25 @@ const ProjectDetailPage = () => {
                     {/* Image Gallery Thumbnails */}
                     {allImages.length > 1 && (
                         <div className="flex gap-3 mb-12 overflow-x-auto pb-2">
-                            {allImages.map((img, i) => (
-                                <button
-                                    key={i}
-                                    onClick={() => setActiveImage(img)}
-                                    className={`shrink-0 w-24 h-16 rounded-lg overflow-hidden border-2 transition-all ${
-                                        activeImage === img
-                                            ? "border-primary"
-                                            : "border-white/10 opacity-60 hover:opacity-100"
-                                    }`}
-                                >
-                                    <img src={img} alt="" className="w-full h-full object-cover" />
-                                </button>
-                            ))}
+                            {allImages.map((img, i) => {
+                                const label = i === 0
+                                    ? `${project.title} — cover image`
+                                    : `${project.title} — screenshot ${i + 1}`;
+                                return (
+                                    <button
+                                        key={i}
+                                        onClick={() => setActiveImage(img)}
+                                        aria-label={`View ${label}`}
+                                        className={`shrink-0 w-24 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                                            activeImage === img
+                                                ? "border-primary"
+                                                : "border-white/10 opacity-60 hover:opacity-100"
+                                        }`}
+                                    >
+                                        <img src={img} alt={label} className="w-full h-full object-cover" />
+                                    </button>
+                                );
+                            })}
                         </div>
                     )}
 
