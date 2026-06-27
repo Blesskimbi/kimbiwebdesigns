@@ -27,11 +27,12 @@ const BASE      = "https://everythx.com";
 // ── Route definitions ──────────────────────────────────────────────────────
 
 const STATIC_ROUTES = [
-  { url: "/",         changefreq: "weekly",  priority: 1.0 },
-  { url: "/services", changefreq: "monthly", priority: 0.8 },
-  { url: "/projects", changefreq: "monthly", priority: 0.8 },
-  { url: "/blog",     changefreq: "weekly",  priority: 0.8 },
-  { url: "/contact",  changefreq: "monthly", priority: 0.7 },
+  { url: "/",           changefreq: "weekly",  priority: 1.0 },
+  { url: "/services",   changefreq: "monthly", priority: 0.8 },
+  { url: "/projects",   changefreq: "monthly", priority: 0.8 },
+  { url: "/blog",       changefreq: "weekly",  priority: 0.8 },
+  { url: "/community",  changefreq: "monthly", priority: 0.8 },
+  { url: "/contact",    changefreq: "monthly", priority: 0.7 },
 ];
 
 function getBlogEntries() {

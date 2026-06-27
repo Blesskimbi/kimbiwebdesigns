@@ -21,6 +21,7 @@ const BlogPage          = lazy(() => import("./pages/BlogPage.tsx"));
 const BlogPostPage      = lazy(() => import("./pages/BlogPostPage.tsx"));
 const ContactPage       = lazy(() => import("./pages/ContactPage.tsx"));
 const DashboardLayout   = lazy(() => import("./components/dashboard/DashboardLayout.tsx"));
+const CommunityPage     = lazy(() => import("./pages/CommunityPage.tsx"));
 
 // Minimal fallback: matches site background so prerendered HTML is preserved
 // without any flash. Playwright's networkidle waits until lazy chunks load.
@@ -43,6 +44,7 @@ const App = () => (
             <Route path="/blog"           element={<BlogPage />} />
             <Route path="/blog/:slug"     element={<BlogPostPage />} />
             <Route path="/contact"        element={<ContactPage />} />
+            <Route path="/community"      element={<CommunityPage />} />
             <Route path="/dashboard/*"    element={<DashboardLayout />} />
             <Route path="*"               element={<NotFound />} />
           </Routes>

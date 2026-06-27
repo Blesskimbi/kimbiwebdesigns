@@ -26,7 +26,7 @@ const rootDir = resolve(__dirname, "..");
 const distDir = resolve(rootDir, "dist");
 const PORT = 4177;
 
-const STATIC_ROUTES = ["/", "/services", "/projects", "/blog", "/contact"];
+const STATIC_ROUTES = ["/", "/services", "/projects", "/blog", "/contact", "/community"];
 
 /** Internal-only path that renders NotFound.tsx — written to dist/404.html */
 const NOT_FOUND_PROBE = "/__404_prerender__";

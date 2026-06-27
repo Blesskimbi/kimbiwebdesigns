@@ -14,8 +14,9 @@ const navLinks: NavLink[] = [
   { label: "Services", href: "/services",  isPage: true  },
   { label: "Projects", href: "/projects",  isPage: true  },
   { label: "Pricing",  href: "/#pricing",  isPage: false },
-  { label: "Blog",     href: "/blog",      isPage: true  },
-  { label: "Contact",  href: "/contact",   isPage: true  },
+  { label: "Blog",      href: "/blog",       isPage: true  },
+  { label: "Community", href: "/community", isPage: true  },
+  { label: "Contact",   href: "/contact",   isPage: true  },
 ];
 
 const Navbar = () => {
