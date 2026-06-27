@@ -45,7 +45,7 @@ const benefits = [
 const faqs = [
   {
     q: "Is this completely free?",
-    a: "Yes — 100% free, no hidden fees, no paid tiers. The WhatsApp group is open to anyone who wants to learn web development.",
+    a: "Yes — 100% free, no hidden fees, no paid tiers. The WhatsApp group is open to anyone who wants to learn or collaborate on software development.",
   },
   {
     q: "Do I need prior coding experience to join?",
@@ -58,8 +58,7 @@ const faqs = [
   },
   {
     q: "What technologies and topics does the community cover?",
-    // TODO: confirm with Bless — expand list if other stacks are covered
-    a: "The focus is on modern web development: HTML, CSS, JavaScript, React, and building real projects. Topics like freelancing, SEO, and getting your first clients are also covered regularly.",
+    a: "Web development (HTML, CSS, JavaScript, React) and mobile app development are both covered. Topics like freelancing, SEO, getting clients, and building a portfolio come up regularly too.",
   },
   {
     q: "How do I join?",
@@ -70,17 +69,17 @@ const faqs = [
 const CommunityPage = () => (
   <LenisSmoothScroll>
     <Helmet>
-      <title>Free Web Development Mentorship Community | Bless Kimbi</title>
+      <title>Free Software Development Mentorship Community | Bless Kimbi</title>
       <meta
         name="description"
-        content="Join Bless Kimbi's free web development mentorship community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for beginners and professionals worldwide."
+        content="Join Bless Kimbi's free software development community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for web and mobile developers worldwide."
       />
       <link rel="canonical" href="https://everythx.com/community" />
       <meta name="robots" content="index, follow" />
-      <meta property="og:title" content="Free Web Development Mentorship Community | Bless Kimbi" />
+      <meta property="og:title" content="Free Software Development Mentorship Community | Bless Kimbi" />
       <meta
         property="og:description"
-        content="Join Bless Kimbi's free web development mentorship community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for beginners and professionals worldwide."
+        content="Join Bless Kimbi's free software development community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for web and mobile developers worldwide."
       />
       <meta property="og:url" content="https://everythx.com/community" />
       <meta property="og:type" content="website" />
@@ -88,10 +87,10 @@ const CommunityPage = () => (
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Free Web Development Mentorship Community | Bless Kimbi" />
+      <meta name="twitter:title" content="Free Software Development Mentorship Community | Bless Kimbi" />
       <meta
         name="twitter:description"
-        content="Join Bless Kimbi's free web development mentorship community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for beginners and professionals worldwide."
+        content="Join Bless Kimbi's free software development community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for web and mobile developers worldwide."
       />
       <meta name="twitter:image" content="https://everythx.com/og-image.png" />
       <script type="application/ld+json">{JSON.stringify({
@@ -117,14 +116,15 @@ const CommunityPage = () => (
             Free Community
           </span>
           <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-white leading-[1.1] tracking-tight mb-6">
-            Free Web Development{" "}
+            Free Software Development{" "}
             <span className="text-gradient-primary">Mentorship</span>{" "}
             Community
           </h1>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
             A free WhatsApp community for beginners, aspiring developers, and
-            professionals who want to learn, collaborate on projects, and grow
-            together — no matter where you are in the world.
+            professionals who want to learn web and mobile development,
+            collaborate on projects, and grow together — no matter where you
+            are in the world.
           </p>
           <a
             href={WHATSAPP_LINK}
@@ -145,11 +145,11 @@ const CommunityPage = () => (
               Who is this community for?
             </h2>
             <p className="text-gray-300 text-base leading-relaxed mb-6">
-              This community is for anyone who wants to get into web development
-              but doesn't know where to start — or has started but feels stuck.
-              It's also for experienced developers who want to collaborate, share
-              knowledge, and connect with like-minded builders. If you've been
-              watching web development content and want a space to actually build
+              This community is for anyone who wants to get into software
+              development — web, mobile, or both — but doesn't know where to
+              start, or has started but feels stuck. It's also for experienced
+              developers who want to collaborate, share knowledge, and connect
+              with like-minded builders. If you want a space to actually build
               things with others, this is the right place.
             </p>
             <ul className="space-y-3">
@@ -158,7 +158,7 @@ const CommunityPage = () => (
                 "Self-taught developers looking for structure and feedback",
                 "Students studying computer science or IT",
                 "Professionals who want to collaborate and share knowledge",
-                "Anyone who wants to build a website or start freelancing in web design",
+                "Anyone who wants to build a website, web app, or mobile app",
                 "TikTok followers who want to go beyond watching and start building",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-gray-300">
@@ -213,21 +213,20 @@ const CommunityPage = () => (
               <div>
                 <p className="text-gray-300 leading-relaxed mb-4">
                   I'm <strong className="text-white">Bless Kimbi</strong>, a
-                  professional web designer and developer based in{" "}
+                  professional software developer based in{" "}
                   <strong className="text-white">Yaoundé, Cameroon</strong>. I've
-                  built 50+ websites for businesses across Cameroon, South Africa,
-                  and internationally — everything from small business sites to
-                  full-stack web applications.
+                  delivered 50+ projects — websites, web apps, and mobile apps —
+                  for businesses across Cameroon, South Africa, and internationally.
                 </p>
                 <p className="text-gray-300 leading-relaxed mb-4">
                   I started this community because I know how hard it is to learn
-                  web development without guidance, especially in Cameroon where
-                  access to quality mentorship is limited. I want to change that.
-                  This group is my way of giving back and building a generation of
-                  developers across Africa.
+                  to code without guidance. I want to create a space where anyone
+                  — regardless of background or location — can get real support,
+                  honest feedback, and the motivation to keep building.
                 </p>
                 <div className="flex flex-wrap gap-3 mt-4">
                   <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">React &amp; TypeScript</span>
+                  <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Mobile App Development</span>
                   <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">SEO &amp; Web Performance</span>
                   <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Freelancing</span>
                   <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">50+ Projects Delivered</span>
@@ -243,7 +242,7 @@ const CommunityPage = () => (
             Ready to start learning?
           </h2>
           <p className="text-gray-400 mb-8 leading-relaxed">
-            Join hundreds of aspiring developers in the community. It's free,
+            Join a growing community of developers and builders. It's free,
             it's on WhatsApp, and it takes 10 seconds to join.
           </p>
           <a
