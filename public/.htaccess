@@ -4,14 +4,15 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.everythx\.com$ [NC]
 RewriteRule ^(.*)$ https://everythx.com/$1 [R=301,L]
 
+# Custom 404 page for all real HTTP 404 responses
+ErrorDocument 404 /404.html
+
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
 
-# Legacy removed routes → real HTTP 404 (before SPA / prerender fallbacks)
-RewriteCond %{REQUEST_URI} ^/(portfolio|about)/?$ [NC]
-RewriteRule ^ - [R=404,L]
-
-ErrorDocument 404 /404.html
+# Legacy removed routes — no files exist; let Apache return 404 + ErrorDocument above.
+# Add explicit Redirect gone entries here if a path needs a hard 404 before other rules:
+# Redirect gone /old-path
 
 # Serve prerendered HTML for nested routes (e.g. /blog/slug → /blog/slug/index.html)
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -23,16 +24,13 @@ RewriteCond %{REQUEST_URI} ^/dashboard(/|$) [NC]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule . /index.html [L]
 
-# Valid /blog/{slug} or /projects/{slug} patterns with missing data → SPA (app sets noindex)
+# Valid /blog/{slug} or /projects/{slug} with missing data → SPA (app sets noindex)
 RewriteCond %{REQUEST_URI} ^/(blog|projects)/[^/]+/?$ [NC]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}/index.html !-f
 RewriteRule . /index.html [L]
 
-# Unknown paths → real HTTP 404 (serves /404.html via ErrorDocument)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . - [R=404,L]
+# No SPA catch-all — unknown paths (e.g. /nonexistent-page, /portfolio) return HTTP 404
 
 # ── Security Headers ──────────────────────────────────────────────────────
 <IfModule mod_headers.c>
