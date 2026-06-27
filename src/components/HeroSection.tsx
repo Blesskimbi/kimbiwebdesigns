@@ -126,20 +126,25 @@ const HeroSection = () => {
 
         <h1 className="font-display font-800 text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight mb-8 glow-text flex flex-col items-center justify-center gap-1 md:gap-2">
           {/* Line 1 */}
-          <span ref={staticText1Ref} className="block w-full text-center">
+          <span ref={staticText1Ref} className="block w-full text-center" aria-label="Hi, I'm Bless Kimbi">
             Hi, I'm Bless Kimbi
           </span>
           {/* Line 2: cycling adjective + "Web Designer" side by side, always on one line */}
-          <span className="flex items-baseline justify-center gap-3 md:gap-5 w-full flex-nowrap">
+          <span className="flex items-baseline justify-center gap-3 md:gap-5 w-full flex-nowrap" aria-label={`${words[index]} Web Designer & Developer`}>
             <span
               ref={dynamicTextRef}
               className="text-gradient-primary whitespace-nowrap shrink-0"
+              aria-hidden="true"
             >
               {words[index]}
             </span>
-            <span ref={staticText2Ref} className="whitespace-nowrap shrink-0">
+            <span ref={staticText2Ref} className="whitespace-nowrap shrink-0" aria-hidden="true">
               Web Designer
             </span>
+          </span>
+          {/* Line 3: location keyword — own line, no overflow risk */}
+          <span className="block w-full text-center text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-muted-foreground font-body font-normal tracking-wide">
+            in Cameroon &amp; Africa
           </span>
         </h1>
 
