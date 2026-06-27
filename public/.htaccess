@@ -1,22 +1,17 @@
 RewriteEngine On
+RewriteBase /
 
 # Force non-www (www -> apex), keep this as the first rule
 RewriteCond %{HTTP_HOST} ^www\.everythx\.com$ [NC]
-RewriteRule ^(.*)$ https://everythx.com/$1 [R=301,L]
+RewriteRule ^ https://everythx.com%{REQUEST_URI} [R=301,L]
 
-# Custom 404 page (also set in hPanel if Hostinger CDN overrides this)
+# Custom 404 page (set /404.html in hPanel → Advanced → Custom error pages if CDN ignores this)
 ErrorDocument 404 /404.html
 
-RewriteBase /
-RewriteRule ^index\.html$ - [L]
-RewriteRule ^404\.html$ - [L]
-
-# Legacy removed routes — add hard 404s here as needed:
-# Redirect gone /old-path
-
-# Prerendered routes (e.g. /blog/slug/index.html)
-RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
-RewriteRule ^(.+?)/?$ $1/index.html [L]
+# Pass through real files and directories (includes prerendered /blog/slug/ folders)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
 # Dashboard — SPA shell (blocked in robots.txt)
 RewriteRule ^dashboard(/.*)?$ /index.html [L]
@@ -25,24 +20,15 @@ RewriteRule ^dashboard(/.*)?$ /index.html [L]
 RewriteRule ^blog/[^/]+/?$ /index.html [L]
 RewriteRule ^projects/[^/]+/?$ /index.html [L]
 
-# Unknown paths → custom 404.html (Hostinger CDN may ignore ErrorDocument;
-# internal rewrite ensures crawlers see noindex content instead of the homepage)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !\.(css|js|png|jpe?g|gif|webp|svg|ico|xml|txt|woff2?|map|json|html)$ [NC]
-RewriteRule . /404.html [L]
+# Unknown paths → prerendered 404 page (noindex; avoids serving homepage shell)
+RewriteRule ^ /404.html [L]
 
 # ── Security Headers ──────────────────────────────────────────────────────
 <IfModule mod_headers.c>
-  # HSTS: force HTTPS for 1 year, include subdomains
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-  # Prevent clickjacking
   Header always set X-Frame-Options "SAMEORIGIN"
-  # Prevent MIME sniffing
   Header always set X-Content-Type-Options "nosniff"
-  # Control referrer information
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  # Basic XSS protection for older browsers
   Header always set X-XSS-Protection "1; mode=block"
 </IfModule>
 
