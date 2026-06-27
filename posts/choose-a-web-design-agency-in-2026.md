@@ -7,7 +7,7 @@ author: "Bless Kimbi"
 category: "Web Design"
 tags: ["web design agency South Africa", "how to choose web designer South Africa", "web agency Cape Town", "web agency Johannesburg", "web design checklist South Africa", "website development South Africa 2026"]
 excerpt: "Choosing a web design agency in South Africa? This step-by-step guide reveals the exact checklist to use, red flags to avoid, and questions to ask before signing anything."
-imageUrl: "/How to Choose a Web Design Agency in South Africa in 2026.png"
+imageUrl: "/blog-choose-web-design-agency-south-africa-2026.png"
 readTime: "10 min read"
 focusKeyword: "how to choose a web design agency in South Africa"
 seoTitle: "How to Choose a Web Design Agency in South Africa in 2026 | Bless Kimbi"

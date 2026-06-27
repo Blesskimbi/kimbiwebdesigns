@@ -5,7 +5,7 @@ excerpt: "Wondering what a professional website costs in Cameroon? Bless Kimbi b
 category: "Web Design"
 author: "Bless Kimbi"
 date: "2026-06-01"
-imageUrl: "/How Much Does a Website Cost in Cameroon in 2025.png"
+imageUrl: "/blog-website-cost-cameroon-2025.png"
 tags: ["web design Cameroon", "website cost", "web designer Yaoundé"]
 faqs:
   - q: "How much does a basic website cost in Cameroon?"

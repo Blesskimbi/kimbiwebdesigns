@@ -7,7 +7,7 @@ author: "Bless Kimbi"
 category: "Trends"
 tags: ["web design trends Kenya", "web design Nairobi 2026", "Kenya digital marketing", "mobile-first Kenya", "website design Kenya", "SEO Kenya", "African web design trends 2026"]
 excerpt: "Discover the top web design trends shaping Kenyan businesses in 2026. From mobile-first design to AI-powered UX, learn what it takes to win online in Nairobi and beyond."
-imageUrl: "/Web Design Trends in Africa 2025 What Every Business Needs to Know.png"
+imageUrl: "/blog-web-design-trends-africa-2026.png"
 readTime: "8 min read"
 focusKeyword: "web design trends Kenya 2026"
 seoTitle: "Web Design Trends in Kenya 2026: What Nairobi Businesses Must Know | Bless Kimbi"

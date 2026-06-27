@@ -7,7 +7,7 @@ author: "Bless Kimbi"
 category: "Web Design"
 tags: ["web design agency Cameroon", "web design Douala", "web design Yaoundé", "best web designer Cameroon", "professional website Cameroon", "Cameroon digital agency", "web development Cameroon"]
 excerpt: "Searching for the best web design agency in Cameroon? This complete guide covers what to look for, questions to ask, and why Bless Kimbi is the top choice for 2026."
-imageUrl: "/10 Best Web Design Agency in Cameroon in 2026 (Pro Guide).png"
+imageUrl: "/blog-web-design-agency-cameroon-2026.png"
 readTime: "9 min read"
 focusKeyword: "web design agency in Cameroon"
 seoTitle: "Best Web Design Agency in Cameroon in 2026 | Bless Kimbi"

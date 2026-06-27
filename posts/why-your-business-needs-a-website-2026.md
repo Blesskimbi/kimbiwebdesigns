@@ -7,7 +7,7 @@ author: "Bless Kimbi"
 category: "Business"
 tags: ["business website Nigeria", "why need website Nigeria 2026", "web design Lagos", "web design Abuja", "Nigerian small business online", "digital marketing Nigeria", "website for Nigerian business"]
 excerpt: "If your Nigerian business doesn't have a website in 2026, you're invisible to millions of online customers. Here's the business case every Lagos and Abuja entrepreneur must read."
-imageUrl: "/Why Your Business Needs a Website in 2025 (And Why Every Day Without One Is Costing You Money).png"
+imageUrl: "/blog-why-business-needs-website-2025.png"
 readTime: "9 min read"
 focusKeyword: "why your business needs a website in Nigeria 2026"
 seoTitle: "Why Your Business Needs a Website in Nigeria in 2026 | Bless Kimbi"
