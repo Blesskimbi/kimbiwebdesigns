@@ -140,6 +140,10 @@ const BlogPostPage = () => {
   if (!post) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
+        <Helmet>
+          <title>Post Not Found | Bless Kimbi</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         <div className="text-center">
           <h1 className="text-2xl font-display font-bold text-white mb-4">Post Not Found</h1>
           <Link to="/blog" className="text-primary hover:underline">

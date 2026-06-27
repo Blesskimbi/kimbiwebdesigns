@@ -27,6 +27,9 @@ const PORT = 4177;
 
 const STATIC_ROUTES = ["/", "/services", "/projects", "/blog", "/contact"];
 
+/** Internal-only path that renders NotFound.tsx — written to dist/404.html */
+const NOT_FOUND_PROBE = "/__404_prerender__";
+
 const mimeMap = {
   ".html": "text/html",
   ".js": "application/javascript",
@@ -146,6 +149,17 @@ function cleanPrerenderedHtml(html) {
 
 function validateHtml(route, html) {
   const issues = [];
+
+  if (route === NOT_FOUND_PROBE) {
+    if (!html.includes('name="robots"') || !html.includes("noindex")) {
+      issues.push("404 page missing noindex");
+    }
+    if (!html.includes("Page Not Found")) {
+      issues.push("404 page missing heading");
+    }
+    return issues;
+  }
+
   const canonical = expectedCanonical(route);
 
   if (!html.includes("<h1")) {
@@ -171,6 +185,12 @@ function validateHtml(route, html) {
 }
 
 async function waitForRouteReady(page, route) {
+  if (route === NOT_FOUND_PROBE) {
+    await page.waitForSelector("h1", { timeout: 25000 });
+    await new Promise((r) => setTimeout(r, 400));
+    return;
+  }
+
   await page.waitForSelector("h1", { timeout: 25000 });
 
   await page
@@ -231,6 +251,31 @@ for (const route of routes) {
   } catch (err) {
     failed += 1;
     console.warn(`  ✗ ${route} — ${err.message}`);
+  } finally {
+    await page.close();
+  }
+}
+
+// Prerender NotFound.tsx → dist/404.html for Apache ErrorDocument
+{
+  const page = await context.newPage();
+  try {
+    await page.goto(`http://localhost:${PORT}${NOT_FOUND_PROBE}`, {
+      waitUntil: "networkidle",
+      timeout: 45000,
+    });
+    await waitForRouteReady(page, NOT_FOUND_PROBE);
+    const html = cleanPrerenderedHtml(await page.content());
+    const issues = validateHtml(NOT_FOUND_PROBE, html);
+    if (issues.length > 0) {
+      console.warn(`  ⚠ 404.html — ${issues.join(", ")}`);
+    } else {
+      console.log("  ✓ 404.html (NotFound)");
+    }
+    writeFileSync(join(distDir, "404.html"), html);
+  } catch (err) {
+    failed += 1;
+    console.warn(`  ✗ 404.html — ${err.message}`);
   } finally {
     await page.close();
   }
