@@ -7,6 +7,16 @@ RewriteRule ^ https://everythx.com%{REQUEST_URI} [R=301,L]
 
 ErrorDocument 404 /404.html
 
+# ── WordPress legacy URL cleanup ──────────────────────────────────────────
+# Old WordPress post/page/attachment IDs: /?p=123, /?page_id=456
+# 301-redirect to homepage (clean URL, no query string)
+RewriteCond %{QUERY_STRING} (^|&)(p|page_id|attachment_id)=[0-9]+ [NC]
+RewriteRule .* /? [R=301,L]
+
+# Old WordPress taxonomy/feed/search query params: /?cat=5, /?tag=foo, /?feed=rss2, /?s=query
+RewriteCond %{QUERY_STRING} (^|&)(cat|tag|author|feed|s)= [NC]
+RewriteRule .* /? [R=301,L]
+
 # Pass through real files and directories (prerendered routes are physical folders)
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
@@ -22,9 +32,8 @@ RewriteRule ^ /index.html [L]
 RewriteCond %{REQUEST_URI} ^/projects/[^/]+/?$ [NC]
 RewriteRule ^ /index.html [L]
 
-# Unknown paths → prerendered 404 page
-RewriteCond %{REQUEST_URI} !^/404\.html$ [NC]
-RewriteRule ^ /404.html [L]
+# All other unmatched paths: Apache returns 404 naturally, triggering ErrorDocument
+# above — this serves dist/404.html with a proper HTTP 404 status (not a soft 200)
 
 # ── Security Headers ──────────────────────────────────────────────────────
 <IfModule mod_headers.c>
