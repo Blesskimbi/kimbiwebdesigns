@@ -115,12 +115,12 @@ const CommunityPage = () => (
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] text-xs font-semibold uppercase tracking-widest mb-6">
             Free Community
           </span>
-          <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-white leading-[1.1] tracking-tight mb-6">
+          <h1 className="font-display font-bold text-3xl sm:text-5xl md:text-6xl text-white leading-[1.1] tracking-tight mb-5">
             Free Software Development{" "}
             <span className="text-gradient-primary">Mentorship</span>{" "}
             Community
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+          <p className="text-gray-400 text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
             A free WhatsApp community for beginners, aspiring developers, and
             professionals who want to learn web and mobile development,
             collaborate on projects, and grow together — no matter where you
@@ -130,9 +130,10 @@ const CommunityPage = () => (
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#1fba58] text-white font-display font-bold text-base tracking-wide transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(37,211,102,0.35)] hover:shadow-[0_0_40px_rgba(37,211,102,0.5)]"
+            className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-[#25D366] hover:bg-[#1fba58] text-white font-display font-bold text-sm sm:text-base tracking-wide transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(37,211,102,0.35)] hover:shadow-[0_0_40px_rgba(37,211,102,0.5)]"
           >
-            <MessageCircle size={22} />
+            <MessageCircle size={18} className="sm:hidden" />
+            <MessageCircle size={22} className="hidden sm:block" />
             Join the WhatsApp Community
           </a>
           <p className="text-gray-500 text-sm mt-4">Free to join · No sign-up form · Open now</p>
@@ -140,7 +141,7 @@ const CommunityPage = () => (
 
         {/* ── Who it's for ─────────────────────────────────────────────────── */}
         <section className="max-w-4xl mx-auto px-6 mb-20">
-          <div className="bg-white/3 border border-white/8 rounded-2xl p-8 md:p-10">
+          <div className="bg-white/3 border border-white/8 rounded-2xl p-5 sm:p-8 md:p-10">
             <h2 className="font-display font-bold text-2xl md:text-3xl text-white mb-4">
               Who is this community for?
             </h2>
@@ -200,7 +201,7 @@ const CommunityPage = () => (
 
         {/* ── About the mentor ─────────────────────────────────────────────── */}
         <section className="max-w-4xl mx-auto px-6 mb-20">
-          <div className="bg-gradient-to-br from-primary/10 to-blue-900/10 border border-primary/15 rounded-2xl p-8 md:p-10">
+          <div className="bg-gradient-to-br from-primary/10 to-blue-900/10 border border-primary/15 rounded-2xl p-5 sm:p-8 md:p-10">
             <h2 className="font-display font-bold text-2xl md:text-3xl text-white mb-6">
               Your mentor — Bless Kimbi
             </h2>
@@ -249,9 +250,10 @@ const CommunityPage = () => (
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-[#25D366] hover:bg-[#1fba58] text-white font-display font-bold text-base tracking-wide transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(37,211,102,0.35)] hover:shadow-[0_0_40px_rgba(37,211,102,0.5)]"
+            className="inline-flex items-center gap-2 px-6 py-3 sm:px-10 sm:py-4 rounded-full bg-[#25D366] hover:bg-[#1fba58] text-white font-display font-bold text-sm sm:text-base tracking-wide transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(37,211,102,0.35)] hover:shadow-[0_0_40px_rgba(37,211,102,0.5)]"
           >
-            <MessageCircle size={22} />
+            <MessageCircle size={18} className="sm:hidden" />
+            <MessageCircle size={22} className="hidden sm:block" />
             Join the WhatsApp Community
           </a>
           <p className="text-gray-500 text-sm mt-4">Free to join · No sign-up form · Open now</p>
