@@ -43,6 +43,7 @@ const ProjectsPage = () => {
             <Helmet>
                 <title>Web Design Portfolio | Bless Kimbi — Cameroon & Africa</title>
                 <meta name="description" content="Browse Bless Kimbi's portfolio of web design and development projects for clients in Cameroon, South Africa, Nigeria and beyond." />
+                <meta name="robots" content="index, follow" />
                 <link rel="canonical" href="https://everythx.com/projects" />
                 <meta property="og:title" content="Web Design Portfolio | Bless Kimbi" />
                 <meta property="og:description" content="Browse Bless Kimbi's portfolio of web design and development projects for clients in Cameroon, South Africa, Nigeria and beyond." />

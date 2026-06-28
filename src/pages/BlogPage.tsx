@@ -49,8 +49,11 @@ const BlogPage = () => {
                 <title>Web Design &amp; SEO Blog | Bless Kimbi — Cameroon</title>
                 <meta name="description" content="Tips, guides and insights on web design, SEO, and digital marketing for businesses in Cameroon and Africa. By Bless Kimbi." />
                 <link rel="canonical" href="https://everythx.com/blog" />
-                {/* noindex filtered/category views — prevents thin duplicate pages */}
-                {categoryFilter && <meta name="robots" content="noindex, follow" />}
+                {categoryFilter ? (
+                    <meta name="robots" content="noindex, follow" />
+                ) : (
+                    <meta name="robots" content="index, follow" />
+                )}
                 <meta property="og:title" content="Web Design &amp; SEO Blog | Bless Kimbi" />
                 <meta property="og:description" content="Tips, guides and insights on web design, SEO, and digital marketing for businesses in Cameroon and Africa." />
                 <meta property="og:url" content="https://everythx.com/blog" />

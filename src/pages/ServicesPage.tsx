@@ -14,6 +14,7 @@ const ServicesPage = () => (
         <Helmet>
             <title>Web Design &amp; Development Services | Bless Kimbi — Cameroon</title>
             <meta name="description" content="Professional web design, SEO optimization, social media management, mobile app development and more. Based in Yaoundé, serving businesses across Cameroon and Africa." />
+            <meta name="robots" content="index, follow" />
             <link rel="canonical" href="https://everythx.com/services" />
             <meta property="og:title" content="Web Design &amp; Development Services | Bless Kimbi" />
             <meta property="og:description" content="Professional web design, SEO optimization, social media management, mobile app development and more. Based in Yaoundé, serving businesses across Cameroon and Africa." />

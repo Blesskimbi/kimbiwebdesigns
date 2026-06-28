@@ -11,6 +11,7 @@ const ContactPage = () => (
         <Helmet>
             <title>Contact Bless Kimbi | Web Designer in Cameroon — Free Quote</title>
             <meta name="description" content="Ready to start your project? Contact Bless Kimbi, web designer based in Yaoundé, Cameroon. Get a free quote for your website within 24 hours." />
+            <meta name="robots" content="index, follow" />
             <link rel="canonical" href="https://everythx.com/contact" />
             <meta property="og:title" content="Contact Bless Kimbi | Web Designer in Cameroon" />
             <meta property="og:description" content="Ready to start your project? Contact Bless Kimbi, web designer based in Yaoundé, Cameroon. Get a free quote within 24 hours." />

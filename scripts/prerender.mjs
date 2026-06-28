@@ -139,13 +139,46 @@ function cleanPrerenderedHtml(html) {
 
   const withHead = html.replace(/<head([^>]*)>([\s\S]*?)<\/head>/i, (_, attrs, head) => {
     let cleaned = head
-      .replace(/<meta(?![^>]*\bdata-rh)[^>]*(?:name="description"|property="og:[^"]+"|name="twitter:[^"]+")[^>]*\/?>\s*/gi, "")
+      .replace(/<meta(?![^>]*\bdata-rh)[^>]*(?:name="description"|name="robots"|property="og:[^"]+"|name="twitter:[^"]+")[^>]*\/?>\s*/gi, "")
       .replace(/<link(?![^>]*\bdata-rh)[^>]*rel="canonical"[^>]*\/?>\s*/gi, "")
       .replace(/\s+data-rh="true"/g, "");
     return `<head${attrs}>${cleaned}</head>`;
   });
 
   return dedupeInlineStyles(withHead);
+}
+
+/** Move SEO-critical tags to the top of <head> so crawlers see them in the first few KB. */
+function reorderHeadForSeo(html) {
+  return html.replace(/<head([^>]*)>([\s\S]*?)<\/head>/i, (_, attrs, head) => {
+    const extracted = [];
+    const pull = (regex) => {
+      head = head.replace(regex, (match) => {
+        extracted.push(match.trim());
+        return "";
+      });
+    };
+
+    pull(/<title>[\s\S]*?<\/title>\s*/i);
+    pull(/<meta[^>]*name="description"[^>]*\/?>\s*/gi);
+    pull(/<meta[^>]*name="robots"[^>]*\/?>\s*/gi);
+    pull(/<link[^>]*rel="canonical"[^>]*\/?>\s*/gi);
+    pull(/<meta[^>]*property="og:[^"]+"[^>]*\/?>\s*/gi);
+    pull(/<meta[^>]*name="twitter:[^"]+"[^>]*\/?>\s*/gi);
+    pull(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>\s*/gi);
+
+    const essentials = [];
+    head = head.replace(
+      /<(meta charset[^>]*\/?>|meta name="viewport"[^>]*\/?>|meta name="google-site-verification"[^>]*\/?>|link rel="icon"[^>]*\/?>|link rel="apple-touch-icon"[^>]*\/?>)\s*/gi,
+      (match) => {
+        essentials.push(match.trim());
+        return "";
+      },
+    );
+
+    const reordered = [...essentials, ...extracted, head.trim()].filter(Boolean).join("\n    ");
+    return `<head${attrs}>\n    ${reordered}\n  </head>`;
+  });
 }
 
 function validateHtml(route, html) {
@@ -170,6 +203,13 @@ function validateHtml(route, html) {
     issues.push("missing canonical link");
   } else if (!html.includes(canonical)) {
     issues.push(`canonical mismatch (expected ${canonical})`);
+  } else {
+    const headEnd = html.indexOf("</head>");
+    const headChunk = headEnd > 0 ? html.slice(0, headEnd) : html;
+    const canonPos = headChunk.indexOf('rel="canonical"');
+    if (canonPos < 0 || canonPos > 8192) {
+      issues.push("canonical not in first 8KB of head");
+    }
   }
   if (!html.match(/<title>[^<]+<\/title>/)) {
     issues.push("missing <title>");
@@ -239,7 +279,7 @@ for (const route of routes) {
     await page.goto(url, { waitUntil: "networkidle", timeout: 45000 });
     await waitForRouteReady(page, route);
 
-    const html = cleanPrerenderedHtml(await page.content());
+    const html = reorderHeadForSeo(cleanPrerenderedHtml(await page.content()));
     const issues = validateHtml(route, html);
 
     if (issues.length > 0) {
@@ -266,7 +306,7 @@ for (const route of routes) {
       timeout: 45000,
     });
     await waitForRouteReady(page, NOT_FOUND_PROBE);
-    const html = cleanPrerenderedHtml(await page.content());
+    const html = reorderHeadForSeo(cleanPrerenderedHtml(await page.content()));
     const issues = validateHtml(NOT_FOUND_PROBE, html);
     if (issues.length > 0) {
       console.warn(`  ⚠ 404.html — ${issues.join(", ")}`);
