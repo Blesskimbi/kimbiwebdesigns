@@ -9,13 +9,20 @@ import ParticleBackground from "@/components/ParticleBackground";
 const ContactPage = () => (
     <LenisSmoothScroll>
         <Helmet>
-            <title>Contact Blesskimbi | Let&apos;s Build Something Great</title>
-            <meta name="description" content="Ready to start your project? Contact Blesskimbi for web design, SEO, and mobile app development services." />
+            <title>Contact Bless Kimbi | Web Designer in Cameroon — Free Quote</title>
+            <meta name="description" content="Ready to start your project? Contact Bless Kimbi, web designer based in Yaoundé, Cameroon. Get a free quote for your website within 24 hours." />
             <link rel="canonical" href="https://everythx.com/contact" />
-            <meta property="og:title" content="Contact Blesskimbi | Let's Build Something Great" />
-            <meta property="og:description" content="Ready to start your project? Contact Blesskimbi for web design, SEO, and mobile app development services." />
+            <meta property="og:title" content="Contact Bless Kimbi | Web Designer in Cameroon" />
+            <meta property="og:description" content="Ready to start your project? Contact Bless Kimbi, web designer based in Yaoundé, Cameroon. Get a free quote within 24 hours." />
             <meta property="og:url" content="https://everythx.com/contact" />
             <meta property="og:type" content="website" />
+            <meta property="og:image" content="https://everythx.com/og-image.png" />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Contact Bless Kimbi | Web Designer in Cameroon" />
+            <meta name="twitter:description" content="Ready to start your project? Contact Bless Kimbi, web designer based in Yaoundé, Cameroon. Get a free quote within 24 hours." />
+            <meta name="twitter:image" content="https://everythx.com/og-image.png" />
         </Helmet>
 
         <div className="relative min-h-screen bg-background overflow-x-hidden">

@@ -46,13 +46,22 @@ const BlogPage = () => {
     return (
         <LenisSmoothScroll>
             <Helmet>
-                <title>Web Design &amp; Dev Blog | Blesskimbi</title>
-                <meta name="description" content="Tips, tutorials and insights on web design, SEO, and digital marketing from Blesskimbi." />
+                <title>Web Design &amp; SEO Blog | Bless Kimbi — Cameroon</title>
+                <meta name="description" content="Tips, guides and insights on web design, SEO, and digital marketing for businesses in Cameroon and Africa. By Bless Kimbi." />
                 <link rel="canonical" href="https://everythx.com/blog" />
-                <meta property="og:title" content="Web Design &amp; Dev Blog | Blesskimbi" />
-                <meta property="og:description" content="Tips, tutorials and insights on web design, SEO, and digital marketing from Blesskimbi." />
+                {/* noindex filtered/category views — prevents thin duplicate pages */}
+                {categoryFilter && <meta name="robots" content="noindex, follow" />}
+                <meta property="og:title" content="Web Design &amp; SEO Blog | Bless Kimbi" />
+                <meta property="og:description" content="Tips, guides and insights on web design, SEO, and digital marketing for businesses in Cameroon and Africa." />
                 <meta property="og:url" content="https://everythx.com/blog" />
                 <meta property="og:type" content="website" />
+                <meta property="og:image" content="https://everythx.com/og-image.png" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Web Design &amp; SEO Blog | Bless Kimbi" />
+                <meta name="twitter:description" content="Tips, guides and insights on web design, SEO, and digital marketing for businesses in Cameroon and Africa." />
+                <meta name="twitter:image" content="https://everythx.com/og-image.png" />
             </Helmet>
             <div className="relative min-h-screen bg-background">
                 <ParticleBackground />
@@ -154,11 +163,11 @@ const BlogPage = () => {
                                             </span>
                                         </div>
 
-                                        <h3 className="font-display font-bold text-2xl mb-4 text-white group-hover:text-primary transition-colors leading-tight">
+                                        <h2 className="font-display font-bold text-2xl mb-4 text-white group-hover:text-primary transition-colors leading-tight">
                                             <Link to={`/blog/${post.slug}`} className="hover:underline decoration-primary/30 underline-offset-4">
                                                 {post.title}
                                             </Link>
-                                        </h3>
+                                        </h2>
 
                                         <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-1">
                                             {post.excerpt}
