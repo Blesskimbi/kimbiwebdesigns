@@ -62,7 +62,7 @@ const faqs = [
   },
   {
     q: "How do I join?",
-    a: "Click the 'Join the WhatsApp Community' button on this page. It links directly to the WhatsApp group — no sign-up form, no waiting list.",
+    a: "Click the 'Join the Community' button on this page. It links directly to the WhatsApp group — no sign-up form, no waiting list.",
   },
 ];
 
@@ -134,7 +134,7 @@ const CommunityPage = () => (
           >
             <MessageCircle size={18} className="sm:hidden" />
             <MessageCircle size={22} className="hidden sm:block" />
-            Join the WhatsApp Community
+            Join the Community
           </a>
           <p className="text-gray-500 text-sm mt-4">Free to join · No sign-up form · Open now</p>
         </section>
@@ -254,7 +254,7 @@ const CommunityPage = () => (
           >
             <MessageCircle size={18} className="sm:hidden" />
             <MessageCircle size={22} className="hidden sm:block" />
-            Join the WhatsApp Community
+            Join the Community
           </a>
           <p className="text-gray-500 text-sm mt-4">Free to join · No sign-up form · Open now</p>
         </section>
