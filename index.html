@@ -2,11 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var h = location.hostname;
+        if (h.indexOf("www.") === 0) {
+          location.replace(
+            location.protocol + "//" + h.slice(4) + location.pathname + location.search + location.hash
+          );
+        }
+      })();
+    </script>
     <meta name="google-site-verification" content="SVQDufiyWx3KrL7NrFUAixJZAHSD-bQ6NouSodGhkqU" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
     <!-- Primary Meta -->
     <title>Bless Kimbi — Best Web Designer &amp; Developer in Cameroon</title>

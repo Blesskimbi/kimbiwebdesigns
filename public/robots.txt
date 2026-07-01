@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /dashboard/
-Disallow: /blog?category=
 
 Sitemap: https://everythx.com/sitemap.xml

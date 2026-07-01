@@ -201,6 +201,7 @@ const BlogPostPage = () => {
       <Helmet>
         <title>{`${post.title} | Bless Kimbi`}</title>
         <meta name="description" content={description} />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={`${post.title} | Bless Kimbi`} />

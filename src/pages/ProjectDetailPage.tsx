@@ -123,6 +123,7 @@ const ProjectDetailPage = () => {
             <Helmet>
                 <title>{`${project.title} | Bless Kimbi`}</title>
                 <meta name="description" content={project.description ?? project.title} />
+                <meta name="robots" content="index, follow" />
                 <link rel="canonical" href={canonical} />
                 <meta property="og:title" content={`${project.title} | Bless Kimbi`} />
                 <meta property="og:description" content={project.description ?? project.title} />

@@ -181,6 +181,22 @@ function reorderHeadForSeo(html) {
   });
 }
 
+/** Ensure every indexable prerendered page has an explicit robots meta tag. */
+function ensureRobotsMeta(html, route) {
+  if (route === NOT_FOUND_PROBE) return html;
+
+  const headEnd = html.indexOf("</head>");
+  if (headEnd < 0) return html;
+
+  const head = html.slice(0, headEnd);
+  if (head.includes('name="robots"')) return html;
+
+  return html.replace(
+    /<head([^>]*)>/i,
+    '<head$1>\n    <meta name="robots" content="index, follow">',
+  );
+}
+
 function validateHtml(route, html) {
   const issues = [];
 
@@ -210,6 +226,14 @@ function validateHtml(route, html) {
     if (canonPos < 0 || canonPos > 8192) {
       issues.push("canonical not in first 8KB of head");
     }
+  }
+  if (!html.includes('name="robots"')) {
+    issues.push("missing robots meta");
+  } else if (
+    route !== NOT_FOUND_PROBE &&
+    /<meta[^>]*name="robots"[^>]*content="[^"]*noindex/i.test(html)
+  ) {
+    issues.push("unexpected noindex on indexable route");
   }
   if (!html.match(/<title>[^<]+<\/title>/)) {
     issues.push("missing <title>");
@@ -279,7 +303,7 @@ for (const route of routes) {
     await page.goto(url, { waitUntil: "networkidle", timeout: 45000 });
     await waitForRouteReady(page, route);
 
-    const html = reorderHeadForSeo(cleanPrerenderedHtml(await page.content()));
+    const html = ensureRobotsMeta(reorderHeadForSeo(cleanPrerenderedHtml(await page.content())), route);
     const issues = validateHtml(route, html);
 
     if (issues.length > 0) {
@@ -306,7 +330,7 @@ for (const route of routes) {
       timeout: 45000,
     });
     await waitForRouteReady(page, NOT_FOUND_PROBE);
-    const html = reorderHeadForSeo(cleanPrerenderedHtml(await page.content()));
+    const html = ensureRobotsMeta(reorderHeadForSeo(cleanPrerenderedHtml(await page.content())), route);
     const issues = validateHtml(NOT_FOUND_PROBE, html);
     if (issues.length > 0) {
       console.warn(`  ⚠ 404.html — ${issues.join(", ")}`);
