@@ -330,7 +330,7 @@ for (const route of routes) {
       timeout: 45000,
     });
     await waitForRouteReady(page, NOT_FOUND_PROBE);
-    const html = ensureRobotsMeta(reorderHeadForSeo(cleanPrerenderedHtml(await page.content())), route);
+    const html = ensureRobotsMeta(reorderHeadForSeo(cleanPrerenderedHtml(await page.content())), NOT_FOUND_PROBE);
     const issues = validateHtml(NOT_FOUND_PROBE, html);
     if (issues.length > 0) {
       console.warn(`  ⚠ 404.html — ${issues.join(", ")}`);
