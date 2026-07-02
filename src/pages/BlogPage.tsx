@@ -47,7 +47,7 @@ const BlogPage = () => {
         <LenisSmoothScroll>
             <Helmet>
                 <title>Web Design &amp; SEO Blog | Bless Kimbi — Cameroon</title>
-                <meta name="description" content="Tips, guides and insights on web design, SEO, and digital marketing for businesses in Cameroon and Africa. By Bless Kimbi." />
+                <meta name="description" content="Practical tips, guides and insights on web design, SEO, and digital marketing for businesses in Cameroon and Africa. Written by Bless Kimbi, web designer based in Yaoundé." />
                 <link rel="canonical" href="https://everythx.com/blog" />
                 {categoryFilter ? (
                     <meta name="robots" content="noindex, follow" />
@@ -55,7 +55,7 @@ const BlogPage = () => {
                     <meta name="robots" content="index, follow" />
                 )}
                 <meta property="og:title" content="Web Design &amp; SEO Blog | Bless Kimbi" />
-                <meta property="og:description" content="Tips, guides and insights on web design, SEO, and digital marketing for businesses in Cameroon and Africa." />
+                <meta property="og:description" content="Practical tips, guides and insights on web design, SEO, and digital marketing for businesses in Cameroon and Africa. Written by Bless Kimbi." />
                 <meta property="og:url" content="https://everythx.com/blog" />
                 <meta property="og:type" content="website" />
                 <meta property="og:image" content="https://everythx.com/og-image.png" />

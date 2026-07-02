@@ -42,11 +42,11 @@ const ProjectsPage = () => {
         <LenisSmoothScroll>
             <Helmet>
                 <title>Web Design Portfolio | Bless Kimbi — Cameroon & Africa</title>
-                <meta name="description" content="Browse Bless Kimbi's portfolio of web design and development projects for clients in Cameroon, South Africa, Nigeria and beyond." />
+                <meta name="description" content="Browse Bless Kimbi's portfolio of web design and development projects. Real websites built for clients in Cameroon, South Africa, Nigeria and across Africa." />
                 <meta name="robots" content="index, follow" />
                 <link rel="canonical" href="https://everythx.com/projects" />
                 <meta property="og:title" content="Web Design Portfolio | Bless Kimbi" />
-                <meta property="og:description" content="Browse Bless Kimbi's portfolio of web design and development projects for clients in Cameroon, South Africa, Nigeria and beyond." />
+                <meta property="og:description" content="Browse Bless Kimbi's portfolio of web design and development projects. Real websites built for clients in Cameroon, South Africa, Nigeria and across Africa." />
                 <meta property="og:url" content="https://everythx.com/projects" />
                 <meta property="og:type" content="website" />
                 <meta property="og:image" content="https://everythx.com/og-image.png" />

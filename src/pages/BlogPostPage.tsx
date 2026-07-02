@@ -162,9 +162,20 @@ const BlogPostPage = () => {
 
   const canonical = `${BASE}/blog/${post.slug}`;
   const ogImage = post.imageUrl || `${BASE}/og-image.png`;
-  const description = (
-    post.excerpt || post.content.replace(/[#*_`]/g, "").slice(0, 155)
-  ).slice(0, 155);
+  const cleanContent = post.content
+    .replace(/[#*_`[\]()>!]/g, "")
+    .replace(/https?:\/\/\S+/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  const rawDesc = post.excerpt && post.excerpt.length >= 120
+    ? post.excerpt
+    : post.excerpt
+      ? `${post.excerpt} ${cleanContent}`.replace(/\s+/g, " ").trim()
+      : cleanContent;
+  // trim to last full word at ≤155 chars
+  const description = rawDesc.length <= 155
+    ? rawDesc
+    : rawDesc.slice(0, 155).replace(/\s\S*$/, "");
   const readingTime = Math.max(
     1,
     Math.round(post.content.trim().split(/\s+/).length / 200)
