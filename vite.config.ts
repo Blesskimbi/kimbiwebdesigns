@@ -57,7 +57,7 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    cssMinify: true,
+    cssMinify: "lightningcss",
     chunkSizeWarningLimit: 600,
   },
 }));
