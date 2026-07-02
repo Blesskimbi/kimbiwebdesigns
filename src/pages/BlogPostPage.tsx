@@ -213,10 +213,16 @@ const BlogPostPage = () => {
     timeRequired: `PT${readingTime}M`,
   };
 
+  const suffix = " | Bless Kimbi";
+  const maxTitleRaw = 58 - suffix.length - 1; // -1 for ellipsis if needed
+  const titleTag = post.title.length <= 58 - suffix.length
+    ? `${post.title}${suffix}`
+    : `${post.title.slice(0, maxTitleRaw).replace(/\s\S*$/, "")}…${suffix}`;
+
   return (
     <LenisSmoothScroll>
       <Helmet>
-        <title>{`${post.title} | Bless Kimbi`}</title>
+        <title>{titleTag}</title>
         <meta name="description" content={description} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={canonical} />

@@ -69,14 +69,14 @@ const faqs = [
 const CommunityPage = () => (
   <LenisSmoothScroll>
     <Helmet>
-      <title>Free Software Development Mentorship Community | Bless Kimbi</title>
+      <title>Free Dev Mentorship Community | Bless Kimbi</title>
       <meta
         name="description"
         content="Join Bless Kimbi's free software development community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for web and mobile developers worldwide."
       />
       <link rel="canonical" href="https://everythx.com/community" />
       <meta name="robots" content="index, follow" />
-      <meta property="og:title" content="Free Software Development Mentorship Community | Bless Kimbi" />
+      <meta property="og:title" content="Free Dev Mentorship Community | Bless Kimbi" />
       <meta
         property="og:description"
         content="Join Bless Kimbi's free software development community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for web and mobile developers worldwide."

@@ -118,10 +118,16 @@ const ProjectDetailPage = () => {
     const allImages = [project.cover_image, ...(project.images ?? [])].filter(Boolean) as string[];
     const canonical = `https://everythx.com/projects/${project.slug}`;
 
+    const suffix = " | Bless Kimbi";
+    const maxTitleRaw = 58 - suffix.length - 1;
+    const titleTag = project.title.length <= 58 - suffix.length
+        ? `${project.title}${suffix}`
+        : `${project.title.slice(0, maxTitleRaw).replace(/\s\S*$/, "")}…${suffix}`;
+
     return (
         <LenisSmoothScroll>
             <Helmet>
-                <title>{`${project.title} | Bless Kimbi`}</title>
+                <title>{titleTag}</title>
                 <meta name="description" content={project.description ?? project.title} />
                 <meta name="robots" content="index, follow" />
                 <link rel="canonical" href={canonical} />

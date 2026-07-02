@@ -9,7 +9,7 @@ import ParticleBackground from "@/components/ParticleBackground";
 const ContactPage = () => (
     <LenisSmoothScroll>
         <Helmet>
-            <title>Contact Bless Kimbi | Web Designer in Cameroon — Free Quote</title>
+            <title>Contact Bless Kimbi | Web Designer in Cameroon</title>
             <meta name="description" content="Ready to start your project? Contact Bless Kimbi, web designer based in Yaoundé, Cameroon. Get a free quote for your website within 24 hours." />
             <meta name="robots" content="index, follow" />
             <link rel="canonical" href="https://everythx.com/contact" />
