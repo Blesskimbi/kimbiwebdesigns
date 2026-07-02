@@ -56,6 +56,12 @@ const FaqAccordion = ({ faqs }: { faqs: FaqItem[] }) => {
 
 /* Custom markdown components ------------------------------------------------ */
 const mdComponents = {
+  // Demote markdown # headings to h2 — the page title is already the only h1
+  h1: ({ children }: { children?: React.ReactNode }) => (
+    <h2 className="font-display font-bold text-xl md:text-2xl lg:text-3xl text-white mt-8 mb-4 border-b border-white/10 pb-2">
+      {children}
+    </h2>
+  ),
   table: ({ children }: { children?: React.ReactNode }) => (
     <div className="overflow-x-auto my-4 md:my-6">
       <table className="w-full text-sm border-collapse border border-white/10 rounded-xl overflow-hidden">
