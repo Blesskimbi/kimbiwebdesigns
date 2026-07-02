@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 // NotFound is kept eager — tiny, needed on every unmatched URL with no delay
 import NotFound from "./pages/NotFound.tsx";
+import Analytics from "./components/Analytics.tsx";
 
 // All page-level components are lazy so Vite creates separate async chunks.
 // Each chunk only pulls in the vendor libs that page actually imports:
@@ -35,6 +36,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <Analytics />
         <Suspense fallback={<PageShell />}>
           <Routes>
             <Route path="/"               element={<Index />} />
