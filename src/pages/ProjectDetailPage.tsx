@@ -124,15 +124,30 @@ const ProjectDetailPage = () => {
         ? `${project.title}${suffix}`
         : `${project.title.slice(0, maxTitleRaw).replace(/\s\S*$/, "")}…${suffix}`;
 
+    // Build a meta description that always targets ~155 chars
+    const cleanFull = (project.full_description ?? "")
+        .replace(/[#*_`[\]()>!]/g, "")
+        .replace(/https?:\/\/\S+/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    const rawDesc = project.description && project.description.length >= 120
+        ? project.description
+        : project.description
+            ? `${project.description} ${cleanFull}`.replace(/\s+/g, " ").trim()
+            : cleanFull || project.title;
+    const metaDescription = rawDesc.length <= 155
+        ? rawDesc
+        : rawDesc.slice(0, 155).replace(/\s\S*$/, "");
+
     return (
         <LenisSmoothScroll>
             <Helmet>
                 <title>{titleTag}</title>
-                <meta name="description" content={project.description ?? project.title} />
+                <meta name="description" content={metaDescription} />
                 <meta name="robots" content="index, follow" />
                 <link rel="canonical" href={canonical} />
                 <meta property="og:title" content={`${project.title} | Bless Kimbi`} />
-                <meta property="og:description" content={project.description ?? project.title} />
+                <meta property="og:description" content={metaDescription} />
                 <meta property="og:url" content={canonical} />
                 {project.cover_image && (
                     <meta property="og:image" content={
