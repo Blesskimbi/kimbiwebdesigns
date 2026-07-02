@@ -182,16 +182,24 @@ const BlogPostPage = () => {
   );
 
   // BlogPosting JSON-LD schema (replaces generic Article)
+  const absoluteOgImage = ogImage.startsWith("http") ? ogImage : `${BASE}${ogImage}`;
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `${canonical}#article`,
     headline: post.title,
     description,
-    image: ogImage.startsWith("http") ? ogImage : `${BASE}${ogImage}`,
+    image: {
+      "@type": "ImageObject",
+      "url": absoluteOgImage,
+      "width": 1200,
+      "height": 630,
+    },
     url: canonical,
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
     author: {
       "@type": "Person",
+      "@id": `${BASE}/#person`,
       name: "Bless Kimbi",
       url: BASE,
       sameAs: [
@@ -201,9 +209,10 @@ const BlogPostPage = () => {
     },
     publisher: {
       "@type": "Organization",
+      "@id": `${BASE}/#localbusiness`,
       name: "Bless Kimbi",
       url: BASE,
-      logo: { "@type": "ImageObject", url: `${BASE}/blesskimbi.png` },
+      logo: { "@type": "ImageObject", url: `${BASE}/blesskimbi.png`, width: 400, height: 400 },
     },
     datePublished: post.date,
     dateModified: post.date,
@@ -230,7 +239,7 @@ const BlogPostPage = () => {
         <meta property="og:title" content={`${post.title} | Bless Kimbi`} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
-        <meta property="og:image" content={ogImage} />
+        <meta property="og:image" content={absoluteOgImage} />
         <meta property="article:published_time" content={post.date} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} | Bless Kimbi`} />

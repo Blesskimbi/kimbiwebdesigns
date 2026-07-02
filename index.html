@@ -69,10 +69,21 @@
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
+      "@id": "https://everythx.com/#localbusiness",
       "name": "Bless Kimbi",
       "url": "https://everythx.com",
-      "logo": "https://everythx.com/blesskimbi.png",
-      "image": "https://everythx.com/blesskimbi.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://everythx.com/blesskimbi.png",
+        "width": 400,
+        "height": 400
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://everythx.com/blesskimbi.png",
+        "width": 400,
+        "height": 400
+      },
       "description": "Professional web designer and developer based in Yaoundé, Cameroon. I build fast, modern websites that rank on Google and convert visitors into clients.",
       "telephone": "+237675126845",
       "email": "blesskimbi10@gmail.com",
@@ -88,8 +99,23 @@
         "latitude": 3.848,
         "longitude": 11.502
       },
-      "areaServed": ["Cameroon", "Africa", "Worldwide"],
-      "serviceType": ["Web Design", "Web Development", "SEO Optimization", "Social Media Management", "Mobile App Development", "E-commerce"],
+      "areaServed": [
+        { "@type": "Country", "name": "Cameroon" },
+        { "@type": "Country", "name": "South Africa" },
+        { "@type": "Country", "name": "Nigeria" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Design & Development Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Design" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Optimization" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-commerce Development" } }
+        ]
+      },
       "priceRange": "$$",
       "sameAs": [
         "https://instagram.com/blesskimbi",
@@ -106,12 +132,19 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
+      "@id": "https://everythx.com/#person",
       "name": "Bless Kimbi",
       "url": "https://everythx.com",
-      "image": "https://everythx.com/blesskimbi.png",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://everythx.com/blesskimbi.png",
+        "width": 400,
+        "height": 400
+      },
       "jobTitle": "Web Designer & Developer",
       "worksFor": {
         "@type": "Organization",
+        "@id": "https://everythx.com/#localbusiness",
         "name": "Bless Kimbi Web Design"
       },
       "address": {
@@ -134,8 +167,12 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://everythx.com/#website",
       "name": "Bless Kimbi",
-      "url": "https://everythx.com"
+      "url": "https://everythx.com",
+      "publisher": {
+        "@id": "https://everythx.com/#person"
+      }
     }
     </script>
   </head>
