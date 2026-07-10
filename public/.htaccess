@@ -42,14 +42,12 @@ RewriteRule ^ /index.html [L]
 
 # ── Security Headers ──────────────────────────────────────────────────────
 <IfModule mod_headers.c>
-  # Explicit index signal for HTML (404/dashboard excluded)
-  SetEnvIf REDIRECT_STATUS ^404$ seo_noindex
-  SetEnvIf Request_URI "^/(404|blog-not-found|project-not-found)\.html$" seo_noindex
-  SetEnvIf Request_URI "^/dashboard(/|$)" seo_noindex
-  SetEnvIf Request_URI \.(js|css|png|jpe?g|webp|svg|ico|woff2?|xml|txt|map|json)$ seo_asset
-  Header always set X-Robots-Tag "noindex, nofollow" env=seo_noindex
-  Header always set X-Robots-Tag "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" env=!seo_noindex
-  Header always unset X-Robots-Tag env=seo_asset
+  # X-Robots-Tag: tell all crawlers this site is fully indexable
+  # (Hostinger CDN may strip this — the HTML <meta name="robots"> is the reliable fallback)
+  Header always set X-Robots-Tag "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  # Override noindex for dashboard and 404 states
+  SetEnvIf Request_URI "^/dashboard(/|$)" NOINDEX=1
+  Header always set X-Robots-Tag "noindex, nofollow" env=NOINDEX
 
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
   Header always set X-Frame-Options "SAMEORIGIN"

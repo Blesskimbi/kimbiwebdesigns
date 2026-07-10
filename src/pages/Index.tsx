@@ -42,11 +42,11 @@ const Index = () => {
       <Helmet>
         <title>Bless Kimbi — Best Web Designer &amp; Developer in Cameroon</title>
         <meta name="description" content="I design and build professional websites that rank on Google and convert visitors into clients. Based in Yaoundé, serving businesses across Cameroon and Africa." />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://everythx.com" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <link rel="canonical" href="https://everythx.com/" />
         <meta property="og:title" content="Bless Kimbi — Best Web Designer &amp; Developer in Cameroon" />
         <meta property="og:description" content="I design and build professional websites that rank on Google and convert visitors into clients. Based in Yaoundé, serving businesses across Cameroon and Africa." />
-        <meta property="og:url" content="https://everythx.com" />
+        <meta property="og:url" content="https://everythx.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://everythx.com/og-image.png" />
         <meta name="twitter:title" content="Bless Kimbi — Best Web Designer &amp; Developer in Cameroon" />
