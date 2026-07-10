@@ -17,14 +17,14 @@ faqs:
   - q: "What are red flags when hiring a web designer in Cameroon?"
     a: "Watch out for: no live portfolio, unrealistically low prices, no contract, promises to launch in 1-2 days, and retaining ownership of your domain or hosting. Any of these should make you look elsewhere."
   - q: "Why choose Bless Kimbi as a web designer in Cameroon?"
-    a: "Bless Kimbi is based in Yaoundé and has delivered 50+ projects for clients across Cameroon, South Africa, and internationally. Every site is custom-designed, mobile-first, SEO-optimised, and handed over with full ownership to the client."
+    a: "Bless Kimbi is based in Buea and has delivered 50+ projects for clients across Cameroon, South Africa, and internationally. Every site is custom-designed, mobile-first, SEO-optimised, and handed over with full ownership to the client."
 ---
 
 # How to Choose the Best Web Designer in Cameroon
 
 Hiring the wrong web designer in Cameroon can be an expensive mistake. A poorly built website doesn't just look bad — it loads slowly, ranks nowhere on Google, and actively drives potential clients away. I've spoken to dozens of business owners in Yaoundé and Douala who paid for a website only to rebuild it completely 12 months later.
 
-I'm **Bless Kimbi**, a professional web designer and developer based in **Yaoundé, Cameroon**, and I've built 50+ websites for clients across Cameroon, South Africa, and internationally. In this guide, I'll walk you through exactly what to look for — and what to avoid — when choosing a **web designer in Cameroon** in 2026.
+I'm **Bless Kimbi**, a professional web designer and developer based in **Buea, Cameroon**, and I've built 50+ websites for clients across Cameroon, South Africa, and internationally. In this guide, I'll walk you through exactly what to look for — and what to avoid — when choosing a **web designer in Cameroon** in 2026.
 
 ## 1. Check Their Portfolio — Not Just Screenshots, Real Live Sites
 
@@ -107,7 +107,7 @@ Some designers in Cameroon retain control over these as a way to keep clients lo
 
 ## Why Businesses in Cameroon Choose Bless Kimbi
 
-As a **web designer in Yaoundé**, I've built a reputation for delivering websites that actually perform — fast, beautiful, and ranking on Google. Here's what sets my work apart:
+As a **web designer in Buea**, I've built a reputation for delivering websites that actually perform — fast, beautiful, and ranking on Google. Here's what sets my work apart:
 
 - Every site is **custom-designed** — no templates
 - Built with **React and modern web standards** for speed
@@ -116,6 +116,6 @@ As a **web designer in Yaoundé**, I've built a reputation for delivering websit
 - **Transparent pricing** with no hidden fees
 - Full handover — you own everything
 
-I serve clients across Cameroon, including businesses in Yaoundé, Douala, and internationally. Whether you need a simple professional site, an e-commerce store, or a complex web application — I build it right, the first time.
+I serve clients across Cameroon, including businesses in Buea, Douala, and internationally. Whether you need a simple professional site, an e-commerce store, or a complex web application — I build it right, the first time.
 
 **Need a website? [Contact Bless Kimbi today](/contact)** — Cameroon's leading web designer. Get a free quote within 24 hours, with no obligation.

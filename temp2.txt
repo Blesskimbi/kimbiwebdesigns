@@ -36,7 +36,7 @@
         "width": 400,
         "height": 400
       },
-      "description": "Professional web designer and developer based in Yaoundé, Cameroon. I build fast, modern websites that rank on Google and convert visitors into clients.",
+      "description": "Professional web designer and developer based in Buea, Cameroon. I build fast, modern websites that rank on Google and convert visitors into clients.",
       "telephone": "+237675126845",
       "email": "blesskimbi10@gmail.com",
       "address": {

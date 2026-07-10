@@ -66,7 +66,7 @@ const ContactSection = () => {
             className="text-muted-foreground text-lg mb-16 max-w-xl mx-auto font-body"
           >
             Ready to build a professional website that ranks on Google? I'm always open to
-            discussing new projects, from web design in Yaoundé to clients across Africa.
+            discussing new projects, from web design in Buea to clients across Africa.
           </p>
 
           {/* Primary CTA */}
@@ -147,7 +147,7 @@ const ContactSection = () => {
             </span>
             <span className="flex items-center gap-1.5">
               <MapPin size={14} className="text-primary shrink-0" />
-              <span>Yaoundé, Cameroon</span>
+              <span>Buea, Cameroon</span>
             </span>
             <a href="tel:+237675126845" className="flex items-center gap-1.5 hover:text-primary transition-colors">
               <Phone size={14} className="text-primary shrink-0" />
@@ -160,7 +160,7 @@ const ContactSection = () => {
           </address>
 
           <div data-animate className="text-muted-foreground text-xs font-body tracking-widest uppercase">
-            © 2026 Bless Kimbi | Web Designer &amp; Developer, Yaoundé, Cameroon
+            © 2026 Bless Kimbi | Web Designer &amp; Developer, Buea, Cameroon
           </div>
         </div>
       </section>

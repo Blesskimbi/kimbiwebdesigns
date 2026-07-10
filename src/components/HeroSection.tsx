@@ -152,7 +152,7 @@ const HeroSection = () => {
           ref={subRef}
           className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-body leading-relaxed md:px-0 px-4"
         >
-          Cameroon's leading web designer &amp; developer, based in Yaoundé. I build
+          Cameroon's leading web designer &amp; developer, based in Buea. I build
           fast, professional websites and web apps that rank on Google and convert
           visitors into paying clients, serving businesses across Cameroon and Africa.
         </p>

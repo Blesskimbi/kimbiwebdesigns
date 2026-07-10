@@ -58,12 +58,12 @@ const AboutSection = () => {
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed font-body mb-6">
               I'm <strong className="text-white">Bless Kimbi</strong>, a professional web designer and
-              developer based in <strong className="text-white">Yaoundé, Cameroon</strong>. I help
+              developer based in <strong className="text-white">Buea, Cameroon</strong>. I help
               businesses across Cameroon and Africa build a strong online presence with fast,
               modern websites that rank on Google and turn visitors into paying clients.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed font-body">
-              From small businesses in Yaoundé to established companies needing e-commerce or web apps,
+              From small businesses in Buea to established companies needing e-commerce or web apps,
               I handle the full stack: design, development, SEO, and launch — 50+ projects delivered
               across Cameroon, South Africa, and beyond. Every site is mobile-first and built to perform.
             </p>
