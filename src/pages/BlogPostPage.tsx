@@ -160,7 +160,7 @@ const BlogPostPage = () => {
     );
   }
 
-  const canonical = `${BASE}/blog/${post.slug}`;
+  const canonical = `${BASE}/blog/${post.slug}/`;
   const ogImage = post.imageUrl || `${BASE}/og-image.png`;
   const cleanContent = post.content
     .replace(/[#*_`[\]()>!]/g, "")

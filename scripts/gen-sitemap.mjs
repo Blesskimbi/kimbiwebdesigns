@@ -27,11 +27,11 @@ const BASE      = "https://everythx.com";
 // ── Route definitions ──────────────────────────────────────────────────────
 
 const STATIC_ROUTES = [
-  { url: "/",           changefreq: "weekly",  priority: 1.0 },
-  { url: "/services",   changefreq: "monthly", priority: 0.8 },
-  { url: "/projects",   changefreq: "monthly", priority: 0.8 },
-  { url: "/blog",       changefreq: "weekly",  priority: 0.8 },
-  { url: "/contact",    changefreq: "monthly", priority: 0.7 },
+  { url: "/",            changefreq: "weekly",  priority: 1.0 },
+  { url: "/services/",   changefreq: "monthly", priority: 0.8 },
+  { url: "/projects/",   changefreq: "monthly", priority: 0.8 },
+  { url: "/blog/",       changefreq: "weekly",  priority: 0.8 },
+  { url: "/contact/",    changefreq: "monthly", priority: 0.7 },
 ];
 
 function getBlogEntries() {
@@ -45,7 +45,7 @@ function getBlogEntries() {
       const { data } = matter(raw);
       const slug = data.slug || f.replace(".md", "");
       const date = data.date ? new Date(data.date).toISOString().split("T")[0] : null;
-      return { url: `/blog/${slug}`, changefreq: "monthly", priority: 0.6, lastmod: date };
+      return { url: `/blog/${slug}/`, changefreq: "monthly", priority: 0.6, lastmod: date };
     })
     .sort((a, b) => a.url.localeCompare(b.url));
 }
@@ -72,7 +72,7 @@ async function getProjectEntries() {
   }
 
   return (data ?? []).map((p) => ({
-    url:        `/projects/${p.slug}`,
+    url:        `/projects/${p.slug}/`,
     changefreq: "monthly",
     priority:   0.6,
     lastmod:    p.created_at ? new Date(p.created_at).toISOString().split("T")[0] : null,

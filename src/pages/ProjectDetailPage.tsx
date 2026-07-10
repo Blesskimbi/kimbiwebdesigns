@@ -116,7 +116,7 @@ const ProjectDetailPage = () => {
     }
 
     const allImages = [project.cover_image, ...(project.images ?? [])].filter(Boolean) as string[];
-    const canonical = `https://everythx.com/projects/${project.slug}`;
+    const canonical = `https://everythx.com/projects/${project.slug}/`;
 
     const suffix = " | Bless Kimbi";
     const maxTitleRaw = 58 - suffix.length - 1;
