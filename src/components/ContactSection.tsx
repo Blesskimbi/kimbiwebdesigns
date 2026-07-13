@@ -145,10 +145,15 @@ const ContactSection = () => {
             <span className="flex items-center gap-2">
               <span className="text-white font-semibold">Bless Kimbi</span>
             </span>
-            <span className="flex items-center gap-1.5">
+            <a
+              href="https://maps.app.goo.gl/bxES9weXquKY1dNq5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-primary transition-colors"
+            >
               <MapPin size={14} className="text-primary shrink-0" />
               <span>Buea, Cameroon</span>
-            </span>
+            </a>
             <a href="tel:+237675126845" className="flex items-center gap-1.5 hover:text-primary transition-colors">
               <Phone size={14} className="text-primary shrink-0" />
               <span>+237 675 126 845</span>

@@ -27,12 +27,17 @@ const BASE      = "https://everythx.com";
 // ── Route definitions ──────────────────────────────────────────────────────
 
 const STATIC_ROUTES = [
-  { url: "/",            changefreq: "weekly",  priority: 1.0 },
-  { url: "/services/",   changefreq: "monthly", priority: 0.8 },
-  { url: "/projects/",   changefreq: "monthly", priority: 0.8 },
-  { url: "/blog/",       changefreq: "weekly",  priority: 0.8 },
-  { url: "/contact/",    changefreq: "monthly", priority: 0.7 },
-  { url: "/community/",  changefreq: "monthly", priority: 0.6 },
+  { url: "/",                                        changefreq: "weekly",  priority: 1.0 },
+  { url: "/services/",                               changefreq: "monthly", priority: 0.8 },
+  { url: "/projects/",                               changefreq: "monthly", priority: 0.8 },
+  { url: "/blog/",                                   changefreq: "weekly",  priority: 0.8 },
+  { url: "/contact/",                                changefreq: "monthly", priority: 0.7 },
+  { url: "/community/",                              changefreq: "monthly", priority: 0.6 },
+  { url: "/seo-company-in-cameroon/",                changefreq: "monthly", priority: 0.8 },
+  { url: "/ecommerce-website-design-in-cameroon/",   changefreq: "monthly", priority: 0.8 },
+  { url: "/social-media-management/",               changefreq: "monthly", priority: 0.8 },
+  { url: "/mobile-app-development/",                changefreq: "monthly", priority: 0.8 },
+  { url: "/ui-ux-design/",                          changefreq: "monthly", priority: 0.8 },
 ];
 
 function getBlogEntries() {

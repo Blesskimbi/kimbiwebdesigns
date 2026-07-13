@@ -144,7 +144,7 @@ const HeroSection = () => {
           </span>
           {/* Line 3: location keyword — own line, no overflow risk */}
           <span className="block w-full text-center text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-muted-foreground font-body font-normal tracking-wide">
-            in Cameroon &amp; Africa
+            Based in Cameroon
           </span>
         </h1>
 
@@ -152,9 +152,8 @@ const HeroSection = () => {
           ref={subRef}
           className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-body leading-relaxed md:px-0 px-4"
         >
-          Cameroon's leading web designer &amp; developer, based in Buea. I build
-          fast, professional websites and web apps that rank on Google and convert
-          visitors into paying clients, serving businesses across Cameroon and Africa.
+          I build fast, professional websites and web apps that rank on Google and convert
+          visitors into paying clients for businesses across Africa and worldwide.
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">

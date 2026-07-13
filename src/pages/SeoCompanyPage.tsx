@@ -1,0 +1,341 @@
+import { Helmet } from "react-helmet-async";
+import { CheckCircle, Search, BarChart2, Globe, Link2, FileText, Star, ChevronRight } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/ContactSection";
+import FloatingChat from "@/components/FloatingChat";
+import ScrollToTop from "@/components/ScrollToTop";
+import LenisSmoothScroll from "@/components/LenisSmoothScroll";
+import ParticleBackground from "@/components/ParticleBackground";
+
+const services = [
+  {
+    icon: Search,
+    title: "Keyword Research & Strategy",
+    desc: "We identify the exact keywords your target customers search for in Cameroon and across Africa — then build your entire SEO strategy around them.",
+  },
+  {
+    icon: FileText,
+    title: "On-Page SEO Optimisation",
+    desc: "Title tags, meta descriptions, heading structure, internal linking, image alt text — every page on your site is fully optimised to rank.",
+  },
+  {
+    icon: Link2,
+    title: "Link Building",
+    desc: "We build high-quality backlinks from relevant, authoritative websites to increase your domain authority and push your rankings higher.",
+  },
+  {
+    icon: Globe,
+    title: "Local SEO for Cameroon",
+    desc: "Dominate local search results in Yaoundé, Douala, Buea, and beyond. We optimise your Google Business Profile and local citations so customers find you first.",
+  },
+  {
+    icon: BarChart2,
+    title: "Technical SEO Audits",
+    desc: "Site speed, Core Web Vitals, mobile-friendliness, crawlability — we fix the technical issues that stop Google from ranking your site.",
+  },
+  {
+    icon: Star,
+    title: "Content SEO",
+    desc: "SEO-optimised blog posts and landing pages that attract organic traffic and convert visitors into paying clients.",
+  },
+];
+
+const reasons = [
+  {
+    title: "We build the websites too",
+    desc: "Unlike agencies that only do SEO, we also design and develop websites. This means your SEO and site performance are handled together — no miscommunication between teams.",
+  },
+  {
+    title: "Real results in Cameroon",
+    desc: "We understand the Cameroonian and African digital market. We know which keywords your local audience actually searches and how to outrank competitors in your city.",
+  },
+  {
+    title: "Transparent reporting",
+    desc: "Monthly reports showing exactly where you rank, how much traffic you're getting, and what we're doing next. No jargon, no surprises.",
+  },
+  {
+    title: "50+ projects delivered",
+    desc: "From small businesses in Buea to e-commerce stores serving all of Africa, we've consistently delivered websites and SEO strategies that generate real results.",
+  },
+  {
+    title: "Google-approved techniques only",
+    desc: "We use only white-hat, Google-compliant SEO methods. No risky shortcuts that could get your site penalised — just sustainable growth.",
+  },
+];
+
+const faqs = [
+  {
+    q: "What is SEO and why does my business in Cameroon need it?",
+    a: "SEO (Search Engine Optimisation) is the process of making your website appear higher in Google search results. If someone in Douala or Yaoundé searches for your product or service, you want to be the first result they see. Without SEO, even a beautiful website can be invisible to potential clients.",
+  },
+  {
+    q: "How long does SEO take to show results?",
+    a: "Most businesses start seeing meaningful improvements in 3–6 months. SEO is a long-term investment — the results compound over time and continue delivering traffic without ongoing ad spend.",
+  },
+  {
+    q: "Do you work with businesses outside Cameroon?",
+    a: "Yes. While we specialise in SEO for businesses in Cameroon and across Africa, we work with clients internationally. Our strategies are tailored to your target market, wherever that is.",
+  },
+  {
+    q: "What's the difference between SEO and paid ads?",
+    a: "Paid ads (Google Ads) stop the moment you stop paying. SEO builds organic rankings that continue to bring traffic for months and years after the work is done. Most growing businesses benefit from both.",
+  },
+  {
+    q: "Can you help if my website was built by someone else?",
+    a: "Absolutely. We can audit and optimise any existing website regardless of who built it. If we find deeper technical issues, we can also rebuild or redesign the site as part of a broader project.",
+  },
+  {
+    q: "How much does SEO cost in Cameroon?",
+    a: "Pricing depends on your goals, competition level, and the scope of work. We offer flexible packages for small businesses and larger retainers for established brands. Contact us for a free quote.",
+  },
+];
+
+const SeoCompanyPage = () => (
+  <LenisSmoothScroll>
+    <Helmet>
+      <title>Best SEO Company in Cameroon | Bless Kimbi</title>
+      <meta
+        name="description"
+        content="Looking for the best SEO company in Cameroon? Bless Kimbi offers expert SEO services in Yaoundé, Douala & Buea — helping businesses rank on Google and grow online."
+      />
+      <link rel="canonical" href="https://everythx.com/seo-company-in-cameroon/" />
+      <meta name="robots" content="index, follow" />
+      <meta property="og:title" content="Best SEO Company in Cameroon | Bless Kimbi" />
+      <meta property="og:description" content="Expert SEO services in Cameroon — keyword research, on-page SEO, local SEO, link building and technical audits. Get found on Google." />
+      <meta property="og:url" content="https://everythx.com/seo-company-in-cameroon/" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="https://everythx.com/og-image.png" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Best SEO Company in Cameroon | Bless Kimbi" />
+      <meta name="twitter:description" content="Expert SEO services in Cameroon — keyword research, on-page SEO, local SEO, link building and technical audits." />
+      <meta name="twitter:image" content="https://everythx.com/og-image.png" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(({ q, a }) => ({
+          "@type": "Question",
+          "name": q,
+          "acceptedAnswer": { "@type": "Answer", "text": a },
+        })),
+      })}</script>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "SEO Services",
+        "name": "SEO Company in Cameroon",
+        "provider": {
+          "@type": "Person",
+          "name": "Bless Kimbi",
+          "url": "https://everythx.com"
+        },
+        "areaServed": ["Cameroon", "Yaoundé", "Douala", "Buea", "Africa"],
+        "url": "https://everythx.com/seo-company-in-cameroon/",
+        "description": "Professional SEO services for businesses in Cameroon and across Africa. Keyword research, on-page SEO, local SEO, and technical audits."
+      })}</script>
+    </Helmet>
+
+    <div className="relative min-h-screen bg-background overflow-x-hidden">
+      <ParticleBackground />
+      <Navbar />
+
+      <main className="pt-32 pb-20 relative z-10">
+
+        {/* ── Hero ─────────────────────────────────────────────────────────── */}
+        <section className="max-w-4xl mx-auto px-6 text-center mb-20">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-widest mb-6">
+            SEO Services — Cameroon
+          </span>
+          <h1 className="font-display font-bold text-3xl sm:text-5xl md:text-6xl text-white leading-[1.1] tracking-tight mb-5">
+            Best <span className="text-gradient-primary">SEO Company</span>{" "}
+            in Cameroon
+          </h1>
+          <p className="text-gray-400 text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
+            We help businesses in Yaoundé, Douala, Buea, and across Africa rank
+            higher on Google, attract more organic traffic, and convert visitors
+            into paying clients — without relying on paid ads.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="/contact/"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-display font-bold text-base hover:bg-primary/90 hover:shadow-[0_0_40px_rgba(79,142,240,0.5)] transition-all duration-300"
+            >
+              Get a Free SEO Audit
+              <ChevronRight size={18} />
+            </a>
+            <a
+              href="/services/"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/10 text-white font-display font-semibold text-base hover:border-primary/40 transition-all duration-300"
+            >
+              View All Services
+            </a>
+          </div>
+        </section>
+
+        {/* ── What We Offer ─────────────────────────────────────────────────── */}
+        <section className="max-w-6xl mx-auto px-6 mb-24">
+          <div className="text-center mb-14">
+            <span className="text-primary font-body text-sm tracking-widest uppercase mb-4 block">
+              What We Offer
+            </span>
+            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">
+              Our SEO Services
+            </h2>
+            <p className="text-gray-400 max-w-xl mx-auto text-base leading-relaxed">
+              A complete SEO service tailored for businesses in Cameroon and Africa — from
+              initial audit to ongoing monthly growth.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="bg-white/3 border border-white/8 rounded-2xl p-6 hover:border-primary/30 transition-colors duration-300 group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <Icon size={20} className="text-primary" />
+                </div>
+                <h3 className="font-display font-bold text-white text-base mb-2">{title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Why Us ────────────────────────────────────────────────────────── */}
+        <section className="max-w-5xl mx-auto px-6 mb-24">
+          <div className="text-center mb-14">
+            <span className="text-primary font-body text-sm tracking-widest uppercase mb-4 block">
+              Why Us
+            </span>
+            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">
+              Why Choose Our SEO Services?
+            </h2>
+            <p className="text-gray-400 max-w-xl mx-auto">
+              There are many agencies claiming to do SEO in Cameroon. Here's what makes us different.
+            </p>
+          </div>
+          <div className="space-y-5">
+            {reasons.map(({ title, desc }) => (
+              <div
+                key={title}
+                className="flex items-start gap-4 bg-white/3 border border-white/8 rounded-2xl p-6 hover:border-primary/20 transition-colors duration-300"
+              >
+                <CheckCircle size={20} className="text-primary mt-0.5 shrink-0" />
+                <div>
+                  <h3 className="font-display font-bold text-white text-base mb-1">{title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── External context ────────────────────────────────────────────── */}
+        <section className="max-w-4xl mx-auto px-6 mb-24">
+          <div className="bg-gradient-to-br from-primary/10 to-blue-900/10 border border-primary/15 rounded-2xl p-6 sm:p-10">
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-white mb-4">
+              SEO in the African context
+            </h2>
+            <p className="text-gray-300 leading-relaxed mb-4">
+              SEO for businesses in Cameroon requires a different approach than a generic
+              global strategy. Internet usage is growing rapidly across Africa, with more
+              people searching on mobile than desktop. Local search intent, language
+              nuances (French and English), and competition levels vary significantly
+              between Yaoundé, Douala, and smaller cities.
+            </p>
+            <p className="text-gray-300 leading-relaxed mb-6">
+              We stay updated on how Google ranks content in the African market. Other
+              respected voices in the African web industry — such as{" "}
+              <a
+                href="https://www.websitedesigner.ng/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                WebsiteDesigner.ng
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://cyprogram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                Cyprogram
+              </a>{" "}
+              — highlight the importance of mobile-first design and local SEO
+              signals for businesses operating across the continent.
+            </p>
+            <p className="text-gray-300 leading-relaxed">
+              Our SEO work is always paired with{" "}
+              <a href="/services/" className="text-primary hover:underline">
+                professional web design
+              </a>{" "}
+              and{" "}
+              <a href="/ecommerce-website-design-in-cameroon/" className="text-primary hover:underline">
+                e-commerce development
+              </a>{" "}
+              — because a fast, well-structured website is the foundation every
+              SEO strategy is built on.
+            </p>
+          </div>
+        </section>
+
+        {/* ── FAQ ───────────────────────────────────────────────────────────── */}
+        <section className="max-w-3xl mx-auto px-6 mb-20">
+          <div className="text-center mb-12">
+            <span className="text-primary font-body text-sm tracking-widest uppercase mb-4 block">
+              Frequently Asked Questions
+            </span>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-white">
+              SEO Services FAQs
+            </h2>
+          </div>
+          <div className="space-y-4">
+            {faqs.map(({ q, a }) => (
+              <details
+                key={q}
+                className="group bg-white/3 border border-white/8 rounded-2xl overflow-hidden"
+              >
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none text-white font-semibold hover:text-primary transition-colors">
+                  {q}
+                  <span className="shrink-0 text-gray-400 group-open:rotate-45 transition-transform duration-200 text-xl leading-none">+</span>
+                </summary>
+                <p className="px-6 pb-5 text-gray-400 leading-relaxed text-sm border-t border-white/5 pt-4">
+                  {a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        {/* ── CTA ───────────────────────────────────────────────────────────── */}
+        <section className="max-w-2xl mx-auto px-6 text-center mb-10">
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-4">
+            Ready to rank on Google?
+          </h2>
+          <p className="text-gray-400 mb-8 leading-relaxed">
+            Get a free SEO audit for your website. We'll identify exactly what's
+            holding you back and show you how to fix it.
+          </p>
+          <a
+            href="/contact/"
+            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-primary text-white font-display font-bold text-base hover:bg-primary/90 hover:shadow-[0_0_40px_rgba(79,142,240,0.5)] transition-all duration-300"
+          >
+            Get Your Free SEO Audit
+            <ChevronRight size={18} />
+          </a>
+        </section>
+
+      </main>
+
+      <Footer />
+      <FloatingChat />
+      <ScrollToTop />
+    </div>
+  </LenisSmoothScroll>
+);
+
+export default SeoCompanyPage;

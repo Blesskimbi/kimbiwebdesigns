@@ -8,28 +8,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
-    quote: "Working with Bless was like witnessing magic. The animations and attention to detail were beyond anything I've ever seen.",
-    name: "Sarah Chen",
-    role: "CEO, NovaTech",
-    avatar: "SC",
+    quote: "Super impressed with the design quality. Everything feels modern, responsive, and user-friendly. They also helped me understand how to manage my site after delivery.",
+    name: "FiHof",
+    role: "CEO, FiHof Foundation",
+    avatar: "FH",
   },
   {
-    quote: "They transformed our vision into a living, breathing digital experience. Every interaction feels intentional and beautiful.",
-    name: "Marcus Rivera",
-    role: "Creative Director, Flux Studio",
-    avatar: "MR",
+    quote: "I've worked with a few designers before, but this was by far the smoothest experience. Great communication and even better results.",
+    name: "Vibecraftstudios",
+    role: "MC & Event Host",
+    avatar: "VC",
   },
   {
-    quote: "The level of craft is extraordinary. Our conversion rate doubled after the redesign. Users just can't stop exploring.",
-    name: "Elena Volkov",
-    role: "Head of Product, Orbit Labs",
-    avatar: "EV",
-  },
-  {
-    quote: "Pure artistry combined with technical excellence. This is what happens when a developer truly cares about the craft.",
-    name: "James Okafor",
-    role: "Founder, Prism Digital",
-    avatar: "JO",
+    quote: "My online presence completely changed after they re-built my E-commerce store. It now looks like a real brand, not just a small business page.",
+    name: "Shopfluxx",
+    role: "Owner, Shopfluxx",
+    avatar: "SF",
   },
 ];
 
@@ -138,6 +132,24 @@ const TestimonialsSection = () => {
           >
             <ChevronRight size={20} />
           </button>
+        </div>
+
+        {/* Google Reviews link */}
+        <div className="flex justify-center mt-10">
+          <a
+            href="https://www.google.com/maps/place/Bless+Kimbi+Web+Developer/@7.3493886,6.9938171,2861775m/data=!3m1!1e3!4m16!1m7!3m6!1s0x2bbd72378f7a550b:0xdddc2079f054ced9!2sBless+Kimbi+Web+Developer!8m2!3d7.3696175!4d12.2940041!16s%2Fg%2F11zck5qn46!3m7!1s0x2bbd72378f7a550b:0xdddc2079f054ced9!8m2!3d7.3696175!4d12.2940041!9m1!1b1!16s%2Fg%2F11zck5qn46!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300 font-body text-sm group"
+          >
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" className="text-primary shrink-0">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            <span className="group-hover:underline underline-offset-4">See more reviews on Google</span>
+          </a>
         </div>
 
         {/* Dots + mobile arrows */}

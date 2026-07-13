@@ -8,45 +8,51 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     icon: Globe,
-    title: "Web Design & Development in Cameroon",
+    title: "Web Design & Development",
     description:
-      "Custom, responsive websites built for businesses in Cameroon and across Africa. From landing pages to full web applications, every site is fast, mobile-first, and built to convert visitors into clients.",
+      "Custom, responsive websites built for businesses worldwide. From landing pages to full web applications, every site is fast, mobile-first, and built to convert visitors into clients.",
     features: ["Custom Design", "Responsive Layouts", "Fast Loading"],
+    href: "/services/",
   },
   {
     icon: TrendingUp,
     title: "SEO Optimization: Rank #1 on Google",
     description:
-      "Get your business found on Google. I implement on-page SEO, technical SEO, and content strategies that drive real organic traffic to businesses in Yaoundé, Cameroon, and the wider African market.",
+      "Get your business found on Google. I implement on-page SEO, technical SEO, and content strategies that drive real organic traffic — wherever your customers are searching.",
     features: ["On-Page SEO", "Technical SEO", "Google Ranking"],
+    href: "/seo-company-in-cameroon/",
   },
   {
     icon: Share2,
     title: "Social Media Management",
     description:
-      "Grow your brand online with consistent, engaging content. Strategy, design, scheduling, and analytics for all major platforms, tailored for the Cameroonian and African market.",
+      "Grow your brand online with consistent, engaging content. Strategy, design, scheduling, and analytics for all major platforms, tailored to your audience and market.",
     features: ["Content Strategy", "Post Design", "Analytics Reports"],
+    href: "/social-media-management/",
   },
   {
     icon: Smartphone,
     title: "Mobile App Development",
     description:
-      "Cross-platform mobile apps built with React Native. Smooth, native-feeling experiences for both iOS and Android, deployed for businesses across Cameroon and Africa.",
+      "Cross-platform mobile apps built with React Native. Smooth, native-feeling experiences for both iOS and Android — for startups and established businesses alike.",
     features: ["iOS & Android", "React Native", "App Store Launch"],
+    href: "/mobile-app-development/",
   },
   {
     icon: Layers,
     title: "UI/UX Design",
     description:
-      "User-centred interfaces that look stunning and work intuitively. Wireframes, prototypes, and pixel-perfect designs delivered in Figma, for startups and businesses in Cameroon and beyond.",
+      "User-centred interfaces that look stunning and work intuitively. Wireframes, prototypes, and pixel-perfect designs delivered in Figma — for startups and growing businesses.",
     features: ["Figma Prototypes", "User Research", "Design Systems"],
+    href: "/ui-ux-design/",
   },
   {
     icon: ShoppingCart,
     title: "E-commerce Solutions",
     description:
-      "Full online stores with product management, secure checkout, and payment integration including Mobile Money. Built for Cameroonian businesses to sell online 24/7.",
+      "Full online stores with product management, secure checkout, and flexible payment integration. Built for businesses ready to sell online 24/7 and scale globally.",
     features: ["Stripe / MoMo Pay", "Product Management", "Order Dashboard"],
+    href: "/ecommerce-website-design-in-cameroon/",
   },
 ];
 
@@ -89,12 +95,12 @@ const ServicesSection = () => {
             What I Do
           </span>
           <h2 className="font-display font-bold text-3xl xs:text-4xl md:text-6xl">
-            Web Design Services in{" "}
-            <span className="text-gradient-primary">Cameroon & Africa</span>
+            Web Design &amp;{" "}
+            <span className="text-gradient-primary">Development Services</span>
           </h2>
           <p className="text-muted-foreground text-lg font-body mt-6 max-w-2xl">
-            From web design in Yaoundé to SEO and e-commerce solutions across Africa,
-            every service is built to help your business grow online.
+            From web design and SEO to e-commerce and mobile apps — every service is
+            built to help your business grow online, wherever you are.
           </p>
         </div>
 
@@ -132,6 +138,13 @@ const ServicesSection = () => {
                       </div>
                     ))}
                   </div>
+
+                  <a
+                    href={service.href}
+                    className="inline-flex items-center gap-1 mt-5 text-sm text-primary font-semibold hover:underline underline-offset-4 transition-colors"
+                  >
+                    Learn more →
+                  </a>
                 </div>
 
                 {/* Border glow */}
@@ -144,14 +157,23 @@ const ServicesSection = () => {
         {/* CTA below services */}
         <div className="text-center mt-16">
           <p className="text-muted-foreground font-body mb-6">
-            Need a professional website in Cameroon? Let's talk about your project.
+            Ready to start your project? Let's talk.
           </p>
           <a
-            href="/contact"
+            href="/contact/"
             className="inline-flex items-center px-8 py-4 rounded-full bg-primary text-white font-display font-bold hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(79,142,240,0.4)] transition-all duration-300"
           >
             Get a Free Quote
           </a>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-8 text-sm font-body text-muted-foreground">
+            <a href="/seo-company-in-cameroon/" className="hover:text-primary transition-colors underline underline-offset-4">
+              SEO company in Cameroon
+            </a>
+            <span className="text-white/20 hidden sm:inline">·</span>
+            <a href="/ecommerce-website-design-in-cameroon/" className="hover:text-primary transition-colors underline underline-offset-4">
+              E-commerce website design in Cameroon
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -21,8 +21,13 @@ const ProjectDetailPage = lazy(() => import("./pages/ProjectDetailPage.tsx"));
 const BlogPage          = lazy(() => import("./pages/BlogPage.tsx"));
 const BlogPostPage      = lazy(() => import("./pages/BlogPostPage.tsx"));
 const ContactPage       = lazy(() => import("./pages/ContactPage.tsx"));
-const DashboardLayout   = lazy(() => import("./components/dashboard/DashboardLayout.tsx"));
-const CommunityPage     = lazy(() => import("./pages/CommunityPage.tsx"));
+const DashboardLayout          = lazy(() => import("./components/dashboard/DashboardLayout.tsx"));
+const CommunityPage            = lazy(() => import("./pages/CommunityPage.tsx"));
+const SeoCompanyPage             = lazy(() => import("./pages/SeoCompanyPage.tsx"));
+const EcommerceWebsiteDesignPage = lazy(() => import("./pages/EcommerceWebsiteDesignPage.tsx"));
+const SocialMediaPage            = lazy(() => import("./pages/SocialMediaPage.tsx"));
+const MobileAppPage              = lazy(() => import("./pages/MobileAppPage.tsx"));
+const UiUxDesignPage             = lazy(() => import("./pages/UiUxDesignPage.tsx"));
 
 // Minimal fallback: matches site background so prerendered HTML is preserved
 // without any flash. Playwright's networkidle waits until lazy chunks load.
@@ -47,6 +52,11 @@ const App = () => (
             <Route path="/blog/:slug"     element={<BlogPostPage />} />
             <Route path="/contact"        element={<ContactPage />} />
             <Route path="/community"      element={<CommunityPage />} />
+            <Route path="/seo-company-in-cameroon" element={<SeoCompanyPage />} />
+            <Route path="/ecommerce-website-design-in-cameroon" element={<EcommerceWebsiteDesignPage />} />
+            <Route path="/social-media-management" element={<SocialMediaPage />} />
+            <Route path="/mobile-app-development" element={<MobileAppPage />} />
+            <Route path="/ui-ux-design" element={<UiUxDesignPage />} />
             <Route path="/dashboard/*"    element={<DashboardLayout />} />
             <Route path="*"               element={<NotFound />} />
           </Routes>
