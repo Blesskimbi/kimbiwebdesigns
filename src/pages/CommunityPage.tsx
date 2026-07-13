@@ -74,7 +74,7 @@ const CommunityPage = () => (
         name="description"
         content="Join Bless Kimbi's free software development community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for web and mobile developers worldwide."
       />
-      <link rel="canonical" href="https://everythx.com/community" />
+      <link rel="canonical" href="https://everythx.com/community/" />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="Free Dev Mentorship Community | Bless Kimbi" />
       <meta

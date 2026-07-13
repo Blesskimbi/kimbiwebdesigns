@@ -110,8 +110,8 @@ async function getRoutes() {
 }
 
 function expectedCanonical(route) {
-  if (route === "/") return "https://everythx.com";
-  return `https://everythx.com${route}`;
+  if (route === "/") return "https://everythx.com/";
+  return `https://everythx.com${route}/`;
 }
 
 function writeRouteHtml(route, html) {

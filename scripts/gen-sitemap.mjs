@@ -32,6 +32,7 @@ const STATIC_ROUTES = [
   { url: "/projects/",   changefreq: "monthly", priority: 0.8 },
   { url: "/blog/",       changefreq: "weekly",  priority: 0.8 },
   { url: "/contact/",    changefreq: "monthly", priority: 0.7 },
+  { url: "/community/",  changefreq: "monthly", priority: 0.6 },
 ];
 
 function getBlogEntries() {
@@ -84,7 +85,7 @@ async function getProjectEntries() {
 function buildXml(entries) {
   const today = new Date().toISOString().split("T")[0];
   const urls  = entries.map(({ url, changefreq, priority, lastmod }) => {
-    const loc  = url === "/" ? BASE : `${BASE}${url}`;
+    const loc  = `${BASE}${url}`;
     const lm   = lastmod ?? today;
     return [
       "  <url>",
