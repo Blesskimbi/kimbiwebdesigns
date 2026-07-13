@@ -18,7 +18,7 @@ const ProfileImage = () => {
         { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
         { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },
         { name: "GitHub", icon: "https://cdn.simpleicons.org/github/FFFFFF" },
-        { name: "Canva", icon: "https://img.icons8.com/ios-filled/50/FFFFFF/canva.png" },
+        { name: "Flutter", icon: "https://cdn.simpleicons.org/flutter/54C5F8" },
         { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E" },
         { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
 
