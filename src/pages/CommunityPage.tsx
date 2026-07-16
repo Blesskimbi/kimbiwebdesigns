@@ -7,7 +7,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import ParticleBackground from "@/components/ParticleBackground";
 
-const WHATSAPP_LINK = "https://chat.whatsapp.com/KelcJYaEABL4HAwlo6VP1a";
+const WHATSAPP_LINK = "https://chat.whatsapp.com/EccaSxibk46HzLENqVSjDo";
 
 const benefits = [
   {

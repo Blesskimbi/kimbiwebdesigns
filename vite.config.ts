@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 import viteImagemin from "@vheemstra/vite-plugin-imagemin";
 import imageminWebp from "imagemin-webp";
 import imageminMozjpeg from "imagemin-mozjpeg";
@@ -19,7 +18,6 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === "development" && componentTagger(),
     // ── Image optimisation: auto-convert to WebP on every build ──────────
     // Only run during production builds to keep dev server fast
     mode === "production" && viteImagemin({
