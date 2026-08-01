@@ -28,7 +28,7 @@ const ContactPage = () => (
         <Navbar />
         <div className="relative min-h-screen bg-white overflow-x-clip">
             <div className="pt-24">
-                <ContactSection />
+                <ContactSection isPage />
             </div>
             <FloatingChat />
             <ScrollToTop />

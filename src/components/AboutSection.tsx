@@ -5,7 +5,13 @@ import ProfileImage from "./ProfileImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AboutSection = () => {
+type AboutSectionProps = {
+  /** Use h1 when rendered as the main content of /about */
+  isPage?: boolean;
+};
+
+const AboutSection = ({ isPage = false }: AboutSectionProps) => {
+  const Heading = isPage ? "h1" : "h2";
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
@@ -39,11 +45,11 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div ref={textRef}>
             <span className="section-label">About Me</span>
-            <h2 className="heading-serif text-3xl md:text-5xl mb-6">
+            <Heading className="heading-serif text-3xl md:text-5xl mb-6">
               Bless Kimbi{" "}
               <span className="text-primary">Web Designer</span>
               <br />&amp; Developer
-            </h2>
+            </Heading>
             <p className="text-muted-foreground text-lg leading-relaxed font-body mb-5">
               I'm <strong className="text-navy">Bless Kimbi</strong>, a professional web designer and
               developer based in <strong className="text-navy">Cameroon</strong>. I help

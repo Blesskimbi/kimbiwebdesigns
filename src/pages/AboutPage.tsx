@@ -41,7 +41,7 @@ const AboutPage = () => (
     <div className="relative min-h-screen bg-white overflow-x-clip">
 
       <main>
-        <AboutSection />
+        <AboutSection isPage />
         <ProcessSection />
         <SkillsSection />
         <ExperienceSection />
