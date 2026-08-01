@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 // NotFound is kept eager — tiny, needed on every unmatched URL with no delay
 import NotFound from "./pages/NotFound.tsx";
 import Analytics from "./components/Analytics.tsx";
+import SiteFooterGate from "./components/SiteFooter.tsx";
 
 // All page-level components are lazy so Vite creates separate async chunks.
 // Each chunk only pulls in the vendor libs that page actually imports:
@@ -21,6 +22,7 @@ const ProjectDetailPage = lazy(() => import("./pages/ProjectDetailPage.tsx"));
 const BlogPage          = lazy(() => import("./pages/BlogPage.tsx"));
 const BlogPostPage      = lazy(() => import("./pages/BlogPostPage.tsx"));
 const ContactPage       = lazy(() => import("./pages/ContactPage.tsx"));
+const AboutPage         = lazy(() => import("./pages/AboutPage.tsx"));
 const DashboardLayout          = lazy(() => import("./components/dashboard/DashboardLayout.tsx"));
 const CommunityPage            = lazy(() => import("./pages/CommunityPage.tsx"));
 const SeoCompanyPage             = lazy(() => import("./pages/SeoCompanyPage.tsx"));
@@ -51,6 +53,7 @@ const App = () => (
             <Route path="/blog"           element={<BlogPage />} />
             <Route path="/blog/:slug"     element={<BlogPostPage />} />
             <Route path="/contact"        element={<ContactPage />} />
+            <Route path="/about"          element={<AboutPage />} />
             <Route path="/community"      element={<CommunityPage />} />
             <Route path="/seo-company-in-cameroon" element={<SeoCompanyPage />} />
             <Route path="/ecommerce-website-design-in-cameroon" element={<EcommerceWebsiteDesignPage />} />
@@ -60,6 +63,7 @@ const App = () => (
             <Route path="/dashboard/*"    element={<DashboardLayout />} />
             <Route path="*"               element={<NotFound />} />
           </Routes>
+          <SiteFooterGate />
         </Suspense>
       </BrowserRouter>
     </TooltipProvider>

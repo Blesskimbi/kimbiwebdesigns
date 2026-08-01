@@ -246,7 +246,7 @@ const LoginPage = ({ onSuccess }: { onSuccess: () => void }) => {
                     <button
                         type="submit"
                         disabled={loading || isLocked}
-                        className="w-full bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 rounded-xl transition-all shadow-[0_0_20px_rgba(79,142,240,0.3)] hover:shadow-[0_0_30px_rgba(79,142,240,0.5)]"
+                        className="w-full bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 rounded-xl transition-all shadow-pro hover:shadow-pro"
                     >
                         {loading ? "Verifying…" : isLocked ? `Locked — ${fmtMs(lockRemaining)}` : "Sign In"}
                     </button>

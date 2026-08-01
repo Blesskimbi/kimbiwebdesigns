@@ -1,16 +1,13 @@
 import { Helmet } from "react-helmet-async";
-import ParticleBackground from "@/components/ParticleBackground";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import MarqueeSection from "@/components/MarqueeSection";
-import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
+import ValuePropsSection from "@/components/ValuePropsSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import ProcessSection from "@/components/ProcessSection";
-import SkillsSection from "@/components/SkillsSection";
-import ExperienceSection from "@/components/ExperienceSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import StatsBarSection from "@/components/StatsBarSection";
 import PricingSection from "@/components/PricingSection";
+import CTABannerSection from "@/components/CTABannerSection";
 import ContactSection from "@/components/ContactSection";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import FloatingChat from "@/components/FloatingChat";
@@ -54,19 +51,16 @@ const Index = () => {
         <meta name="twitter:image" content="https://everythx.com/og-image.png" />
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       </Helmet>
-      <div className="relative min-h-screen bg-background overflow-x-hidden border-x border-transparent">
-        <ParticleBackground />
-        <Navbar />
+      <Navbar />
+      <div className="relative min-h-screen bg-white overflow-x-clip">
         <HeroSection />
-        <MarqueeSection />
-        <AboutSection />
         <ServicesSection />
+        <ValuePropsSection />
+        <StatsBarSection />
         <ProjectsSection />
-        <div className="hidden sm:block"><ProcessSection /></div>
-        <SkillsSection />
-        <div className="hidden sm:block"><ExperienceSection /></div>
         <TestimonialsSection />
         <PricingSection />
+        <CTABannerSection />
         <ContactSection />
         <FloatingChat />
         <ScrollToTop />

@@ -5,7 +5,6 @@ import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
-import ParticleBackground from "@/components/ParticleBackground";
 
 const services = [
   {
@@ -136,10 +135,8 @@ const SeoCompanyPage = () => (
       })}</script>
     </Helmet>
 
-    <div className="relative min-h-screen bg-background overflow-x-hidden">
-      <ParticleBackground />
-      <Navbar />
-
+    <Navbar />
+    <div className="relative min-h-screen bg-background overflow-x-clip">
       <main className="pt-32 pb-20 relative z-10">
 
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
@@ -147,11 +144,11 @@ const SeoCompanyPage = () => (
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-widest mb-6">
             SEO Services — Cameroon
           </span>
-          <h1 className="font-display font-bold text-3xl sm:text-5xl md:text-6xl text-white leading-[1.1] tracking-tight mb-5">
+          <h1 className="heading-serif text-3xl sm:text-5xl md:text-6xl mb-5">
             Best <span className="text-gradient-primary">SEO Company</span>{" "}
             in Cameroon
           </h1>
-          <p className="text-gray-400 text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
+          <p className="text-muted-foreground font-body text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
             We help businesses in Yaoundé, Douala, Buea, and across Africa rank
             higher on Google, attract more organic traffic, and convert visitors
             into paying clients — without relying on paid ads.
@@ -159,14 +156,14 @@ const SeoCompanyPage = () => (
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="/contact/"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-display font-bold text-base hover:bg-primary/90 hover:shadow-[0_0_40px_rgba(79,142,240,0.5)] transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-display font-bold text-base hover:bg-primary/90 hover:shadow-pro transition-all duration-300"
             >
               Get a Free SEO Audit
               <ChevronRight size={18} />
             </a>
             <a
               href="/services/"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/10 text-white font-display font-semibold text-base hover:border-primary/40 transition-all duration-300"
+              className="btn-outline-navy inline-flex items-center gap-2 px-8 py-4 rounded-full font-display font-semibold text-base"
             >
               View All Services
             </a>
@@ -179,10 +176,10 @@ const SeoCompanyPage = () => (
             <span className="text-primary font-body text-sm tracking-widest uppercase mb-4 block">
               What We Offer
             </span>
-            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">
+            <h2 className="heading-serif text-3xl md:text-5xl mb-4">
               Our SEO Services
             </h2>
-            <p className="text-gray-400 max-w-xl mx-auto text-base leading-relaxed">
+            <p className="text-muted-foreground font-body max-w-xl mx-auto text-base leading-relaxed">
               A complete SEO service tailored for businesses in Cameroon and Africa — from
               initial audit to ongoing monthly growth.
             </p>
@@ -191,13 +188,13 @@ const SeoCompanyPage = () => (
             {services.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="bg-white/3 border border-white/8 rounded-2xl p-6 hover:border-primary/30 transition-colors duration-300 group"
+                className="internal-card hover:border-primary/30 transition-colors duration-300 group"
               >
                 <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                   <Icon size={20} className="text-primary" />
                 </div>
-                <h3 className="font-display font-bold text-white text-base mb-2">{title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
+                <h3 className="internal-card-title">{title}</h3>
+                <p className="internal-card-text">{desc}</p>
               </div>
             ))}
           </div>
@@ -209,10 +206,10 @@ const SeoCompanyPage = () => (
             <span className="text-primary font-body text-sm tracking-widest uppercase mb-4 block">
               Why Us
             </span>
-            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">
+            <h2 className="heading-serif text-3xl md:text-5xl mb-4">
               Why Choose Our SEO Services?
             </h2>
-            <p className="text-gray-400 max-w-xl mx-auto">
+            <p className="text-muted-foreground font-body max-w-xl mx-auto">
               There are many agencies claiming to do SEO in Cameroon. Here's what makes us different.
             </p>
           </div>
@@ -220,12 +217,12 @@ const SeoCompanyPage = () => (
             {reasons.map(({ title, desc }) => (
               <div
                 key={title}
-                className="flex items-start gap-4 bg-white/3 border border-white/8 rounded-2xl p-6 hover:border-primary/20 transition-colors duration-300"
+                className="flex items-start gap-4 internal-card hover:border-primary/20 transition-colors duration-300"
               >
                 <CheckCircle size={20} className="text-primary mt-0.5 shrink-0" />
                 <div>
-                  <h3 className="font-display font-bold text-white text-base mb-1">{title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
+                  <h3 className="internal-card-title mb-1">{title}</h3>
+                  <p className="internal-card-text">{desc}</p>
                 </div>
               </div>
             ))}
@@ -235,17 +232,17 @@ const SeoCompanyPage = () => (
         {/* ── External context ────────────────────────────────────────────── */}
         <section className="max-w-4xl mx-auto px-6 mb-24">
           <div className="bg-gradient-to-br from-primary/10 to-blue-900/10 border border-primary/15 rounded-2xl p-6 sm:p-10">
-            <h2 className="font-display font-bold text-2xl md:text-3xl text-white mb-4">
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-navy mb-4">
               SEO in the African context
             </h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
+            <p className="text-muted-foreground font-body leading-relaxed mb-4">
               SEO for businesses in Cameroon requires a different approach than a generic
               global strategy. Internet usage is growing rapidly across Africa, with more
               people searching on mobile than desktop. Local search intent, language
               nuances (French and English), and competition levels vary significantly
               between Yaoundé, Douala, and smaller cities.
             </p>
-            <p className="text-gray-300 leading-relaxed mb-6">
+            <p className="text-muted-foreground font-body leading-relaxed mb-6">
               We stay updated on how Google ranks content in the African market. Other
               respected voices in the African web industry — such as{" "}
               <a
@@ -268,7 +265,7 @@ const SeoCompanyPage = () => (
               — highlight the importance of mobile-first design and local SEO
               signals for businesses operating across the continent.
             </p>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-muted-foreground font-body leading-relaxed">
               Our SEO work is always paired with{" "}
               <a href="/services/" className="text-primary hover:underline">
                 professional web design
@@ -289,7 +286,7 @@ const SeoCompanyPage = () => (
             <span className="text-primary font-body text-sm tracking-widest uppercase mb-4 block">
               Frequently Asked Questions
             </span>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-white">
+            <h2 className="heading-serif text-3xl md:text-4xl">
               SEO Services FAQs
             </h2>
           </div>
@@ -297,13 +294,13 @@ const SeoCompanyPage = () => (
             {faqs.map(({ q, a }) => (
               <details
                 key={q}
-                className="group bg-white/3 border border-white/8 rounded-2xl overflow-hidden"
+                className="group internal-card !p-0 overflow-hidden"
               >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none text-white font-semibold hover:text-primary transition-colors">
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none text-navy font-semibold font-body hover:text-primary transition-colors">
                   {q}
-                  <span className="shrink-0 text-gray-400 group-open:rotate-45 transition-transform duration-200 text-xl leading-none">+</span>
+                  <span className="shrink-0 text-muted-foreground group-open:rotate-45 transition-transform duration-200 text-xl leading-none">+</span>
                 </summary>
-                <p className="px-6 pb-5 text-gray-400 leading-relaxed text-sm border-t border-white/5 pt-4">
+                <p className="px-6 pb-5 text-muted-foreground font-body leading-relaxed text-sm border-t border-border pt-4">
                   {a}
                 </p>
               </details>
@@ -313,16 +310,16 @@ const SeoCompanyPage = () => (
 
         {/* ── CTA ───────────────────────────────────────────────────────────── */}
         <section className="max-w-2xl mx-auto px-6 text-center mb-10">
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-4">
+          <h2 className="heading-serif text-3xl md:text-4xl mb-4">
             Ready to rank on Google?
           </h2>
-          <p className="text-gray-400 mb-8 leading-relaxed">
+          <p className="text-muted-foreground font-body mb-8 leading-relaxed">
             Get a free SEO audit for your website. We'll identify exactly what's
             holding you back and show you how to fix it.
           </p>
           <a
             href="/contact/"
-            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-primary text-white font-display font-bold text-base hover:bg-primary/90 hover:shadow-[0_0_40px_rgba(79,142,240,0.5)] transition-all duration-300"
+            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-primary text-white font-display font-bold text-base hover:bg-primary/90 hover:shadow-pro transition-all duration-300"
           >
             Get Your Free SEO Audit
             <ChevronRight size={18} />
@@ -330,8 +327,6 @@ const SeoCompanyPage = () => (
         </section>
 
       </main>
-
-      <Footer />
       <FloatingChat />
       <ScrollToTop />
     </div>

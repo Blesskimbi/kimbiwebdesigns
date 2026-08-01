@@ -79,8 +79,8 @@ const MarqueeSection = () => {
         key={i}
         className={`inline-block mx-4 md:mx-8 font-display font-bold text-5xl md:text-7xl lg:text-8xl whitespace-nowrap select-none ${
           outlined
-            ? "text-transparent [-webkit-text-stroke:1px_hsl(var(--primary)/0.3)]"
-            : "text-foreground/5"
+            ? "text-transparent [-webkit-text-stroke:1.5px_hsl(var(--primary)/0.25)]"
+            : "text-white/[0.04]"
         }`}
       >
         {word}
@@ -88,7 +88,7 @@ const MarqueeSection = () => {
     ));
 
   return (
-    <section ref={sectionRef} className="relative py-20 overflow-hidden">
+    <section ref={sectionRef} className="section py-20 overflow-hidden border-t border-white/[0.06]">
       {/* Track 1 — right to left */}
       <div className="mb-4">
         <div ref={track1Ref} className="flex w-max will-change-transform">

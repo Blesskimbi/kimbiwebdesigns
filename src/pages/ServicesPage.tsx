@@ -7,7 +7,6 @@ import ContactSection from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
-import ParticleBackground from "@/components/ParticleBackground";
 
 const ServicesPage = () => (
     <LenisSmoothScroll>
@@ -51,12 +50,12 @@ const ServicesPage = () => (
             })}</script>
         </Helmet>
 
-        <div className="relative min-h-screen bg-background overflow-x-hidden">
-            <ParticleBackground />
-            <Navbar />
+        <Navbar />
+        <div className="relative min-h-screen bg-background overflow-x-clip">
             <div className="pt-20">
                 <div className="max-w-6xl mx-auto px-6 pt-12 pb-2 text-center">
-                    <h1 className="font-display font-bold text-4xl md:text-6xl text-white mb-4">
+                    <span className="section-label">Services</span>
+                    <h1 className="heading-serif text-4xl md:text-6xl mb-4">
                         Web Design <span className="text-gradient-primary">Services</span>
                     </h1>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

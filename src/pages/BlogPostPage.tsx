@@ -11,7 +11,6 @@ import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
-import ParticleBackground from "@/components/ParticleBackground";
 import BlogSidebar from "@/components/BlogSidebar";
 import BlogImageCarousel from "@/components/BlogImageCarousel";
 import { getPostBySlug, BlogPost } from "@/lib/blog";
@@ -25,15 +24,15 @@ const FaqAccordion = ({ faqs }: { faqs: FaqItem[] }) => {
   const [open, setOpen] = useState<number | null>(null);
   return (
     <section className="mt-10 md:mt-14">
-      <h2 className="font-display font-bold text-xl md:text-2xl text-white mb-6">
+      <h2 className="font-display font-bold text-xl md:text-2xl text-navy mb-6">
         Frequently Asked Questions
       </h2>
       <div className="space-y-3">
         {faqs.map((faq, i) => (
-          <div key={i} className="border border-white/10 rounded-xl overflow-hidden">
+          <div key={i} className="internal-card !p-0 overflow-hidden">
             <button
               onClick={() => setOpen(open === i ? null : i)}
-              className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left text-white font-semibold text-sm md:text-base hover:bg-white/5 transition-colors"
+              className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left text-navy font-semibold text-sm md:text-base hover:bg-muted/50 transition-colors font-body"
               aria-expanded={open === i}
             >
               <span>{faq.q}</span>
@@ -43,7 +42,7 @@ const FaqAccordion = ({ faqs }: { faqs: FaqItem[] }) => {
               />
             </button>
             {open === i && (
-              <div className="px-5 pb-5 text-gray-300 text-sm md:text-base leading-relaxed border-t border-white/8 pt-4">
+              <div className="px-5 pb-5 text-muted-foreground text-sm md:text-base leading-relaxed border-t border-border pt-4 font-body">
                 {faq.a}
               </div>
             )}
@@ -58,27 +57,27 @@ const FaqAccordion = ({ faqs }: { faqs: FaqItem[] }) => {
 const mdComponents = {
   // Demote markdown # headings to h2 — the page title is already the only h1
   h1: ({ children }: { children?: React.ReactNode }) => (
-    <h2 className="font-display font-bold text-xl md:text-2xl lg:text-3xl text-white mt-8 mb-4 border-b border-white/10 pb-2">
+    <h2 className="font-display font-bold text-xl md:text-2xl lg:text-3xl text-navy mt-8 mb-4 border-b border-border pb-2">
       {children}
     </h2>
   ),
   table: ({ children }: { children?: React.ReactNode }) => (
     <div className="overflow-x-auto my-4 md:my-6">
-      <table className="w-full text-sm border-collapse border border-white/10 rounded-xl overflow-hidden">
+      <table className="w-full text-sm border-collapse border border-border rounded-xl overflow-hidden">
         {children}
       </table>
     </div>
   ),
   thead: ({ children }: { children?: React.ReactNode }) => (
-    <thead className="bg-white/5">{children}</thead>
+    <thead className="bg-muted">{children}</thead>
   ),
   th: ({ children }: { children?: React.ReactNode }) => (
-    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-white font-semibold border-b border-white/10">
+    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-navy font-semibold border-b border-border bg-muted">
       {children}
     </th>
   ),
   td: ({ children }: { children?: React.ReactNode }) => (
-    <td className="px-2 md:px-4 py-2 md:py-3 text-gray-200 whitespace-nowrap">{children}</td>
+    <td className="px-2 md:px-4 py-2 md:py-3 text-muted-foreground whitespace-nowrap font-body">{children}</td>
   ),
   /* Image carousel for image-only paragraphs, plain img elsewhere */
   p: ({ children }: { children?: React.ReactNode }) => {
@@ -137,26 +136,32 @@ const BlogPostPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
-      </div>
+      <>
+        <Navbar />
+        <div className="min-h-screen bg-background flex items-center justify-center pt-20">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
+        </div>
+      </>
     );
   }
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <>
+        <Navbar />
+        <div className="min-h-screen bg-background flex items-center justify-center px-6">
         <Helmet>
           <title>Post Not Found | Bless Kimbi</title>
           <meta name="robots" content="noindex, nofollow" />
         </Helmet>
-        <div className="text-center">
-          <h1 className="text-2xl font-display font-bold text-white mb-4">Post Not Found</h1>
-          <Link to="/blog" className="text-primary hover:underline">
+        <div className="text-center pt-24 px-6">
+          <h1 className="text-2xl font-display font-bold text-navy mb-4">Post Not Found</h1>
+          <Link to="/blog" className="text-primary font-semibold hover:text-gold transition-colors font-body">
             Back to Blog
           </Link>
         </div>
-      </div>
+        </div>
+      </>
     );
   }
 
@@ -259,39 +264,31 @@ const BlogPostPage = () => {
         )}
       </Helmet>
 
-      <div className="relative min-h-screen bg-background">
-        <ParticleBackground />
         <Navbar />
+        <div className="relative min-h-screen bg-background overflow-x-clip">
 
-        <main className="pt-20 md:pt-32 pb-12 md:pb-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <main className="pt-28 md:pt-32 pb-12 md:pb-20 px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-[1400px] mx-auto">
-            {/* Breadcrumbs */}
             <nav
-              className="flex items-center gap-2 text-xs font-medium text-gray-400 mb-6 md:mb-8 overflow-x-auto whitespace-nowrap pb-2"
+              className="flex items-center gap-2 text-xs font-medium mb-6 md:mb-8 overflow-x-auto whitespace-nowrap pb-2 font-body"
               aria-label="Breadcrumb"
             >
-              <Link
-                to="/"
-                className="flex items-center gap-1 hover:text-primary transition-colors"
-              >
+              <Link to="/" className="breadcrumb-link flex items-center gap-1">
                 <Home size={14} />
                 <span>Home</span>
               </Link>
-              <ChevronRight size={14} className="opacity-40" />
-              <Link to="/blog" className="hover:text-primary transition-colors">
-                Blog
-              </Link>
-              <ChevronRight size={14} className="opacity-40" />
-              <span className="text-white/80 truncate max-w-[240px] md:max-w-none">
+              <ChevronRight size={14} className="text-muted-foreground/50" />
+              <Link to="/blog" className="breadcrumb-link">Blog</Link>
+              <ChevronRight size={14} className="text-muted-foreground/50" />
+              <span className="breadcrumb-current max-w-[240px] md:max-w-none">
                 {post.title}
               </span>
             </nav>
 
             <div className="grid xl:grid-cols-[1fr_320px] gap-8 lg:gap-12">
-              {/* Article */}
               <article className="min-w-0">
                 <header className="mb-6 md:mb-10">
-                  <div className="flex flex-wrap items-center gap-3 md:gap-4 text-xs text-gray-400 mb-4 md:mb-6 font-medium uppercase tracking-widest">
+                  <div className="flex flex-wrap items-center gap-3 md:gap-4 text-xs text-muted-foreground mb-4 md:mb-6 font-medium uppercase tracking-widest font-body">
                     <span className="px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">
                       {post.category}
                     </span>
@@ -301,63 +298,45 @@ const BlogPostPage = () => {
                     </span>
                   </div>
 
-                  <h1 className="font-display font-bold text-2xl md:text-4xl lg:text-5xl text-white mb-6 md:mb-8 leading-tight">
+                  <h1 className="heading-serif text-2xl md:text-4xl lg:text-5xl mb-6 md:mb-8 leading-tight">
                     {post.title}
                   </h1>
 
-                  <div className="flex flex-wrap items-center gap-4 md:gap-8 py-4 md:py-5 border-y border-white/8">
+                  <div className="flex flex-wrap items-center gap-4 md:gap-8 py-4 md:py-5 border-y border-border">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm font-body">
                         BK
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-white">{post.author}</div>
-                        <div className="text-xs text-gray-400">Author</div>
+                        <div className="text-sm font-bold text-navy font-body">{post.author}</div>
+                        <div className="text-xs text-muted-foreground font-body">Author</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-300">
+                      <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground">
                         <Clock size={18} />
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-white">
+                        <div className="text-sm font-bold text-navy font-body">
                           {readingTime} min read
                         </div>
-                        <div className="text-xs text-gray-400">Reading Time</div>
+                        <div className="text-xs text-muted-foreground font-body">Reading Time</div>
                       </div>
                     </div>
                   </div>
                 </header>
 
-                {/* Featured Image */}
-                <div className="relative aspect-[16/9] rounded-xl md:rounded-2xl overflow-hidden mb-6 md:mb-10 shadow-2xl border border-white/8">
+                <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-6 md:mb-10 shadow-pro border border-border">
                   <img
                     src={post.imageUrl}
                     alt={post.title}
                     className="w-full h-full object-cover"
                     loading="eager"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
                 </div>
 
-                {/* Content */}
-                <div className="bg-[#0A0C10]/60 backdrop-blur-xl border border-white/8 rounded-2xl md:rounded-3xl p-5 sm:p-8 lg:p-10 shadow-xl">
-                  <div
-                    className="prose prose-invert max-w-none prose-sm md:prose-base
-                      prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-white prose-headings:mb-3 md:prose-headings:mb-4 prose-headings:mt-6 md:prose-headings:mt-8
-                      prose-h2:text-xl md:prose-h2:text-2xl lg:prose-h2:text-3xl prose-h2:border-b prose-h2:border-white/10 prose-h2:pb-2 md:prose-h2:pb-3
-                      prose-h3:text-lg md:prose-h3:text-xl lg:prose-h3:text-2xl
-                      prose-p:text-gray-200 prose-p:leading-[1.75] md:prose-p:leading-[1.85] prose-p:text-[0.95rem] md:prose-p:text-[1.05rem] prose-p:text-justify
-                      prose-li:text-gray-200 prose-li:text-[0.95rem] md:prose-li:text-[1.05rem] prose-li:leading-[1.75] md:prose-li:leading-[1.85] prose-li:my-1
-                      prose-ul:my-4 md:prose-ul:my-5 prose-ol:my-4 md:prose-ol:my-5
-                      prose-strong:text-white prose-strong:font-semibold
-                      prose-em:text-gray-100
-                      prose-a:text-primary prose-a:font-medium prose-a:no-underline hover:prose-a:underline prose-a:break-words
-                      prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:py-2 md:prose-blockquote:py-3 prose-blockquote:px-4 md:prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:text-gray-200 prose-blockquote:text-sm md:prose-blockquote:text-base prose-blockquote:text-justify
-                      prose-code:text-primary prose-code:bg-white/8 prose-code:rounded prose-code:px-1 md:prose-code:px-1.5 prose-code:py-0.5 prose-code:text-xs md:prose-code:text-sm prose-code:break-words
-                      prose-img:rounded-xl md:prose-img:rounded-2xl prose-img:border prose-img:border-white/10
-                    "
-                  >
+                <div className="internal-card !p-5 sm:!p-8 lg:!p-10">
+                  <div className="prose-blog">
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       rehypePlugins={[rehypeRaw]}
@@ -372,17 +351,17 @@ const BlogPostPage = () => {
                     <FaqAccordion faqs={post.faqs} />
                   )}
 
-                  <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <button
                       onClick={handleShare}
-                      className="flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                      className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-navy transition-colors font-body"
                     >
                       <Share2 size={18} />
                       {shared ? "Link Copied!" : "Share Article"}
                     </button>
                     <Link
                       to="/blog"
-                      className="text-sm font-bold text-primary hover:underline underline-offset-4"
+                      className="text-sm font-bold text-primary hover:text-gold transition-colors font-body"
                     >
                       Read more articles →
                     </Link>
@@ -402,8 +381,6 @@ const BlogPostPage = () => {
             </div>
           </div>
         </main>
-
-        <Footer />
         <FloatingChat />
         <ScrollToTop />
       </div>

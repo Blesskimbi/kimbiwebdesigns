@@ -5,7 +5,6 @@ import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
-import ParticleBackground from "@/components/ParticleBackground";
 
 const WHATSAPP_LINK = "https://chat.whatsapp.com/EccaSxibk46HzLENqVSjDo";
 
@@ -104,10 +103,8 @@ const CommunityPage = () => (
       })}</script>
     </Helmet>
 
-    <div className="relative min-h-screen bg-background overflow-x-hidden">
-      <ParticleBackground />
-      <Navbar />
-
+    <Navbar />
+    <div className="relative min-h-screen bg-background overflow-x-clip">
       <main className="pt-32 pb-20 relative z-10">
 
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
@@ -115,12 +112,12 @@ const CommunityPage = () => (
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] text-xs font-semibold uppercase tracking-widest mb-6">
             Free Community
           </span>
-          <h1 className="font-display font-bold text-3xl sm:text-5xl md:text-6xl text-white leading-[1.1] tracking-tight mb-5">
+          <h1 className="heading-serif text-3xl sm:text-5xl md:text-6xl mb-5">
             Free Software Development{" "}
             <span className="text-gradient-primary">Mentorship</span>{" "}
             Community
           </h1>
-          <p className="text-gray-400 text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
+          <p className="text-muted-foreground font-body text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
             A free WhatsApp community for beginners, aspiring developers, and
             professionals who want to learn web and mobile development,
             collaborate on projects, and grow together — no matter where you
@@ -136,16 +133,16 @@ const CommunityPage = () => (
             <MessageCircle size={22} className="hidden sm:block" />
             Join the Community
           </a>
-          <p className="text-gray-500 text-sm mt-4">Free to join · No sign-up form · Open now</p>
+          <p className="text-muted-foreground font-body text-sm mt-4">Free to join · No sign-up form · Open now</p>
         </section>
 
         {/* ── Who it's for ─────────────────────────────────────────────────── */}
         <section className="max-w-4xl mx-auto px-6 mb-20">
-          <div className="bg-white/3 border border-white/8 rounded-2xl p-5 sm:p-8 md:p-10">
-            <h2 className="font-display font-bold text-2xl md:text-3xl text-white mb-4">
+          <div className="internal-card p-5 sm:p-8 md:p-10">
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-navy mb-4">
               Who is this community for?
             </h2>
-            <p className="text-gray-300 text-base leading-relaxed mb-6">
+            <p className="text-muted-foreground font-body text-base leading-relaxed mb-6">
               This community is for anyone who wants to get into software
               development — web, mobile, or both — but doesn't know where to
               start, or has started but feels stuck. It's also for experienced
@@ -162,7 +159,7 @@ const CommunityPage = () => (
                 "Anyone who wants to build a website, web app, or mobile app",
                 "TikTok followers who want to go beyond watching and start building",
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-gray-300">
+                <li key={item} className="flex items-start gap-3 text-muted-foreground font-body">
                   <CheckCircle size={18} className="text-[#25D366] mt-0.5 shrink-0" />
                   {item}
                 </li>
@@ -174,10 +171,10 @@ const CommunityPage = () => (
         {/* ── What members get ─────────────────────────────────────────────── */}
         <section className="max-w-6xl mx-auto px-6 mb-20">
           <div className="text-center mb-12">
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-4">
+            <h2 className="heading-serif text-3xl md:text-4xl mb-4">
               What you get as a member
             </h2>
-            <p className="text-gray-400 max-w-xl mx-auto">
+            <p className="text-muted-foreground font-body max-w-xl mx-auto">
               {/* TODO: confirm with Bless whether any of these are aspirational vs. already running */}
               Everything below is free, ongoing, and available from the moment
               you join.
@@ -187,13 +184,13 @@ const CommunityPage = () => (
             {benefits.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="bg-white/3 border border-white/8 rounded-2xl p-6 hover:border-primary/30 transition-colors duration-300"
+                className="internal-card hover:border-primary/30 transition-colors duration-300"
               >
                 <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
                   <Icon size={20} className="text-primary" />
                 </div>
-                <h3 className="font-display font-bold text-white text-base mb-2">{title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
+                <h3 className="internal-card-title">{title}</h3>
+                <p className="internal-card-text">{desc}</p>
               </div>
             ))}
           </div>
@@ -202,35 +199,35 @@ const CommunityPage = () => (
         {/* ── About the mentor ─────────────────────────────────────────────── */}
         <section className="max-w-4xl mx-auto px-6 mb-20">
           <div className="bg-gradient-to-br from-primary/10 to-blue-900/10 border border-primary/15 rounded-2xl p-5 sm:p-8 md:p-10">
-            <h2 className="font-display font-bold text-2xl md:text-3xl text-white mb-6">
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-navy mb-6">
               Your mentor — Bless Kimbi
             </h2>
             <div className="flex flex-col sm:flex-row gap-6 items-start">
               <img
                 src="/blesskimbi.png"
                 alt="Bless Kimbi — web designer, developer, and mentor based in Yaoundé, Cameroon"
-                className="w-24 h-24 rounded-2xl object-cover shrink-0 border border-white/10"
+                className="w-24 h-24 rounded-2xl object-cover shrink-0 border border-border"
               />
               <div>
-                <p className="text-gray-300 leading-relaxed mb-4">
-                  I'm <strong className="text-white">Bless Kimbi</strong>, a
+                <p className="text-muted-foreground font-body leading-relaxed mb-4">
+                  I'm <strong className="text-navy">Bless Kimbi</strong>, a
                   professional software developer based in{" "}
-                  <strong className="text-white">Yaoundé, Cameroon</strong>. I've
+                  <strong className="text-navy">Yaoundé, Cameroon</strong>. I've
                   delivered 50+ projects — websites, web apps, and mobile apps —
                   for businesses across Cameroon, South Africa, and internationally.
                 </p>
-                <p className="text-gray-300 leading-relaxed mb-4">
+                <p className="text-muted-foreground font-body leading-relaxed mb-4">
                   I started this community because I know how hard it is to learn
                   to code without guidance.                   I want to create a space where anyone, regardless of background
                   or location, can get real support, honest feedback, and the
                   motivation to keep building.
                 </p>
                 <div className="flex flex-wrap gap-3 mt-4">
-                  <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">React &amp; TypeScript</span>
-                  <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Mobile App Development</span>
-                  <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">SEO &amp; Web Performance</span>
-                  <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Freelancing</span>
-                  <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">50+ Projects Delivered</span>
+                  <span className="px-3 py-1 rounded-full bg-muted border border-border text-sm text-navy font-body">React &amp; TypeScript</span>
+                  <span className="px-3 py-1 rounded-full bg-muted border border-border text-sm text-navy font-body">Mobile App Development</span>
+                  <span className="px-3 py-1 rounded-full bg-muted border border-border text-sm text-navy font-body">SEO &amp; Web Performance</span>
+                  <span className="px-3 py-1 rounded-full bg-muted border border-border text-sm text-navy font-body">Freelancing</span>
+                  <span className="px-3 py-1 rounded-full bg-muted border border-border text-sm text-navy font-body">50+ Projects Delivered</span>
                 </div>
               </div>
             </div>
@@ -239,10 +236,10 @@ const CommunityPage = () => (
 
         {/* ── Main CTA ─────────────────────────────────────────────────────── */}
         <section className="max-w-2xl mx-auto px-6 text-center mb-24">
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-4">
+          <h2 className="heading-serif text-3xl md:text-4xl mb-4">
             Ready to start learning?
           </h2>
-          <p className="text-gray-400 mb-8 leading-relaxed">
+          <p className="text-muted-foreground font-body mb-8 leading-relaxed">
             Join a growing community of developers and builders. It's free,
             it's on WhatsApp, and it takes 10 seconds to join.
           </p>
@@ -256,25 +253,25 @@ const CommunityPage = () => (
             <MessageCircle size={22} className="hidden sm:block" />
             Join the Community
           </a>
-          <p className="text-gray-500 text-sm mt-4">Free to join · No sign-up form · Open now</p>
+          <p className="text-muted-foreground font-body text-sm mt-4">Free to join · No sign-up form · Open now</p>
         </section>
 
         {/* ── FAQ ──────────────────────────────────────────────────────────── */}
         <section className="max-w-3xl mx-auto px-6 mb-20">
-          <h2 className="font-display font-bold text-2xl md:text-3xl text-white text-center mb-10">
+          <h2 className="heading-serif text-2xl md:text-3xl text-center mb-10">
             Frequently asked questions
           </h2>
           <div className="space-y-4">
             {faqs.map(({ q, a }) => (
               <details
                 key={q}
-                className="group bg-white/3 border border-white/8 rounded-2xl overflow-hidden"
+                className="group internal-card !p-0 overflow-hidden"
               >
-                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none text-white font-semibold hover:text-primary transition-colors">
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none text-navy font-semibold font-body hover:text-primary transition-colors">
                   {q}
-                  <span className="shrink-0 text-gray-400 group-open:rotate-45 transition-transform duration-200 text-xl leading-none">+</span>
+                  <span className="shrink-0 text-muted-foreground group-open:rotate-45 transition-transform duration-200 text-xl leading-none">+</span>
                 </summary>
-                <p className="px-6 pb-5 text-gray-400 leading-relaxed text-sm border-t border-white/5 pt-4">
+                <p className="px-6 pb-5 text-muted-foreground font-body leading-relaxed text-sm border-t border-border pt-4">
                   {a}
                 </p>
               </details>
@@ -283,8 +280,6 @@ const CommunityPage = () => (
         </section>
 
       </main>
-
-      <Footer />
       <FloatingChat />
       <ScrollToTop />
     </div>

@@ -358,7 +358,7 @@ const ProjectForm = ({ initial, onSave, onCancel, saving }: {
                             Cancel
                         </button>
                         <button type="submit" disabled={saving}
-                            className="px-6 py-2.5 rounded-xl text-sm font-bold bg-primary hover:bg-primary/90 disabled:opacity-60 text-white transition-colors shadow-[0_0_15px_rgba(79,142,240,0.3)]">
+                            className="px-6 py-2.5 rounded-xl text-sm font-bold bg-primary hover:bg-primary/90 disabled:opacity-60 text-white transition-colors shadow-pro">
                             {saving ? "Saving…" : initial ? "Save Changes" : "Create Project"}
                         </button>
                     </div>
@@ -467,7 +467,7 @@ const DashboardProjects = () => {
                         <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
                     </button>
                     <button onClick={() => { setEditing(null); setShowForm(true); }}
-                        className="bg-primary hover:bg-primary/90 text-white px-4 py-2.5 rounded-lg font-medium text-sm transition-all shadow-[0_0_15px_rgba(79,142,240,0.3)] flex items-center gap-2">
+                        className="bg-primary hover:bg-primary/90 text-white px-4 py-2.5 rounded-lg font-medium text-sm transition-all shadow-pro flex items-center gap-2">
                         <Plus size={18} /> Add New Project
                     </button>
                 </div>

@@ -22,59 +22,33 @@ const SkillsSection = () => {
         if (!bar) return;
         const fill = bar.querySelector<HTMLDivElement>("[data-fill]");
         if (!fill) return;
-
-        gsap.fromTo(
-          fill,
-          { scaleX: 0 },
-          {
-            scaleX: 1,
-            duration: 1.2,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: bar,
-              start: "top 85%",
-            },
-          }
-        );
+        gsap.fromTo(fill, { scaleX: 0 }, {
+          scaleX: 1, duration: 1.2, ease: "power3.out",
+          scrollTrigger: { trigger: bar, start: "top 85%" },
+        });
       });
     }, sectionRef);
-
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 px-6 overflow-hidden">
+    <section ref={sectionRef} className="section-white border-t border-border">
       <div className="max-w-4xl mx-auto">
-        <div className="mb-16">
-          <span className="text-primary font-body text-sm tracking-widest uppercase mb-4 block">
-            Expertise
-          </span>
-          <h2 className="font-display font-bold text-3xl xs:text-4xl md:text-6xl">
-            Skills &{" "}
-            <span className="text-gradient-primary">Technologies</span>
+        <div className="text-center mb-12">
+          <span className="section-label">Expertise</span>
+          <h2 className="heading-serif text-3xl md:text-5xl">
+            Skills & <span className="text-primary">Technologies</span>
           </h2>
         </div>
-
-        <div className="space-y-8">
+        <div className="marsha-card p-8 space-y-6">
           {skills.map((skill, i) => (
-            <div
-              key={skill.name}
-              ref={(el) => { barsRef.current[i] = el; }}
-            >
+            <div key={skill.name} ref={(el) => { barsRef.current[i] = el; }}>
               <div className="flex justify-between mb-2">
-                <span className="font-display font-semibold text-sm">
-                  {skill.name}
-                </span>
-                <span className="text-muted-foreground text-sm font-body">
-                  {skill.level}%
-                </span>
+                <span className="font-body font-semibold text-sm text-navy">{skill.name}</span>
+                <span className="text-muted-foreground text-sm">{skill.level}%</span>
               </div>
               <div className="h-2 rounded-full bg-muted overflow-hidden">
-                <div
-                  data-fill
-                  className="h-full rounded-full bg-gradient-to-r from-primary to-secondary origin-left"
-                  style={{ width: `${skill.level}%` }}
-                />
+                <div data-fill className="h-full rounded-full bg-primary origin-left" style={{ width: `${skill.level}%` }} />
               </div>
             </div>
           ))}

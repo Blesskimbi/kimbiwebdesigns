@@ -32,6 +32,7 @@ const STATIC_ROUTES = [
   { url: "/projects/",                               changefreq: "monthly", priority: 0.8 },
   { url: "/blog/",                                   changefreq: "weekly",  priority: 0.8 },
   { url: "/contact/",                                changefreq: "monthly", priority: 0.7 },
+  { url: "/about/",                                  changefreq: "monthly", priority: 0.8 },
   { url: "/community/",                              changefreq: "monthly", priority: 0.6 },
   { url: "/seo-company-in-cameroon/",                changefreq: "monthly", priority: 0.8 },
   { url: "/ecommerce-website-design-in-cameroon/",   changefreq: "monthly", priority: 0.8 },
