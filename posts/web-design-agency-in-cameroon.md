@@ -120,7 +120,7 @@ Below are real websites delivered to clients — responsive, fast, and built aro
 - Social media integration
 - Mobile app development
 
-Visit our [services page](https://everythx.com/services) for full details, or read about [affordable web development for small businesses in Cameroon](https://everythx.com/blog/affordable-web-developer-cameroon-small-business).
+Visit our [services page](https://everythx.com/services) for full details, or read about [affordable web development for small businesses in Cameroon](https://everythx.com/blog/affordable-web-developer-cameroon-small-business). For a full pricing breakdown, see [How Much Does a Website Cost in Cameroon in 2026?](/blog/website-cost-cameroon-2025)
 
 For a broader view of what professional web development agencies deliver across Africa, [Website Designer NG](https://www.websitedesigner.ng/) and [Front to Back Dev](https://fronttobackdev.com/) are strong references worth exploring.
 

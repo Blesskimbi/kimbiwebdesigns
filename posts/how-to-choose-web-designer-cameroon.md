@@ -118,4 +118,6 @@ As a **web designer in Buea**, I've built a reputation for delivering websites t
 
 I serve clients across Cameroon, including businesses in Buea, Douala, and internationally. Whether you need a simple professional site, an e-commerce store, or a complex web application — I build it right, the first time.
 
+Not sure yet what a project will cost? Read my full breakdown in [How Much Does a Website Cost in Cameroon in 2026?](/blog/website-cost-cameroon-2025) Or if you want to compare agencies more broadly first, see [10 Best Web Design Agencies in Cameroon in 2026](/blog/web-design-agency-in-cameroon).
+
 **Need a website? [Contact Bless Kimbi today](/contact)** — Cameroon's leading web designer. Get a free quote within 24 hours, with no obligation.
