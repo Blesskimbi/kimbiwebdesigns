@@ -1,17 +1,15 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Globe, TrendingUp, Share2, Smartphone, Layers, ShoppingCart } from "lucide-react";
+import { Globe, TrendingUp, Share2, Smartphone, Layers, ShoppingCart, ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const headerGradients = ["service-header-navy", "service-header-teal", "service-header-gold"] as const;
-const btnStyles = ["btn-outline-primary", "btn-outline-gold", "btn-outline-primary"] as const;
 
 const services = [
   {
     icon: Globe,
     title: "Web Design & Development",
+    short: "Web Development",
     description:
       "Custom, responsive websites built for businesses worldwide. From landing pages to full web applications, every site is fast, mobile-first, and built to convert visitors into clients.",
     href: "/services/",
@@ -19,6 +17,7 @@ const services = [
   {
     icon: TrendingUp,
     title: "SEO Optimization: Rank #1 on Google",
+    short: "SEO Strategy",
     description:
       "Get your business found on Google. I implement on-page SEO, technical SEO, and content strategies that drive real organic traffic — wherever your customers are searching.",
     href: "/seo-company-in-cameroon/",
@@ -26,6 +25,7 @@ const services = [
   {
     icon: Share2,
     title: "Social Media Management",
+    short: "Social Media",
     description:
       "Grow your brand online with consistent, engaging content. Strategy, design, scheduling, and analytics for all major platforms, tailored to your audience and market.",
     href: "/social-media-management/",
@@ -33,6 +33,7 @@ const services = [
   {
     icon: Smartphone,
     title: "Mobile App Development",
+    short: "Mobile Apps",
     description:
       "Cross-platform mobile apps built with React Native. Smooth, native-feeling experiences for both iOS and Android — for startups and established businesses alike.",
     href: "/mobile-app-development/",
@@ -40,6 +41,7 @@ const services = [
   {
     icon: Layers,
     title: "UI/UX Design",
+    short: "UI/UX Design",
     description:
       "User-centred interfaces that look stunning and work intuitively. Wireframes, prototypes, and pixel-perfect designs delivered in Figma — for startups and growing businesses.",
     href: "/ui-ux-design/",
@@ -47,6 +49,7 @@ const services = [
   {
     icon: ShoppingCart,
     title: "E-commerce Solutions",
+    short: "E-commerce",
     description:
       "Full online stores with product management, secure checkout, and flexible payment integration. Built for businesses ready to sell online 24/7 and scale globally.",
     href: "/ecommerce-website-design-in-cameroon/",
@@ -90,21 +93,23 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => {
             const Icon = service.icon;
-            const grad = headerGradients[i % 3];
-            const btn = btnStyles[i % 3];
             return (
-              <div key={service.title} ref={(el) => { cardsRef.current[i] = el; }} className="marsha-card overflow-hidden flex flex-col group">
-                <div className={`${grad} h-44 flex items-center justify-center transition-transform duration-300 group-hover:scale-[1.02]`}>
-                  <Icon size={64} className="text-white/90" strokeWidth={1.2} />
+              <div
+                key={service.title}
+                ref={(el) => { cardsRef.current[i] = el; }}
+                className="marsha-card p-7 flex flex-col group"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-105">
+                  <Icon size={26} className="text-gold" strokeWidth={1.75} />
                 </div>
-                <div className="p-6 flex flex-col flex-1 text-center">
-                  <h3 className="font-display font-bold text-lg text-navy mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm font-body leading-relaxed mb-6 flex-1">{service.description}</p>
-                  <a href={service.href} className={`${btn} mx-auto`}>Learn more →</a>
-                </div>
+                <h3 className="font-display font-bold text-lg text-navy mb-3">{service.title}</h3>
+                <p className="text-muted-foreground text-sm font-body leading-relaxed mb-6 flex-1">{service.description}</p>
+                <a href={service.href} className="btn-outline-primary self-start !px-5 !py-2.5">
+                  Talk {service.short} <ArrowRight size={14} />
+                </a>
               </div>
             );
           })}

@@ -8,6 +8,8 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import StatsBarSection from "@/components/StatsBarSection";
 import PricingSection from "@/components/PricingSection";
 import CTABannerSection from "@/components/CTABannerSection";
+import BlogPreviewSection from "@/components/BlogPreviewSection";
+import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import FloatingChat from "@/components/FloatingChat";
@@ -58,9 +60,11 @@ const Index = () => {
         <ValuePropsSection />
         <StatsBarSection />
         <ProjectsSection />
-        <TestimonialsSection />
         <PricingSection />
         <CTABannerSection />
+        <BlogPreviewSection />
+        <TestimonialsSection />
+        <FaqSection />
         <ContactSection />
         <FloatingChat />
         <ScrollToTop />

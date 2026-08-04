@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import LocationMap from "@/components/LocationMap";
 
 type ContactSectionProps = {
   /** Use h1 when rendered as the main content of /contact */
@@ -46,6 +47,14 @@ const ContactSection = ({ isPage = false }: ContactSectionProps) => {
       <Link to="/contact" className="btn-green inline-flex items-center gap-2">
         Send a Message <ArrowRight size={16} />
       </Link>
+
+      {/* Full-size map — only on the dedicated /contact page; the homepage shows a compact
+          version next to the Testimonials section instead. */}
+      {isPage && (
+        <div className="mt-12">
+          <LocationMap heightClassName="h-[380px] md:h-[480px]" />
+        </div>
+      )}
     </div>
   </section>
   );

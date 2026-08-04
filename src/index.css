@@ -4,24 +4,24 @@
 
 @layer base {
   :root {
-    /* Professional palette — deep navy, warm gold, refined teal */
-    --background: 40 20% 99%;
-    --foreground: 220 26% 14%;
+    /* Akotech-inspired palette — deep navy (#111a45) + vivid orange (#ff5100) */
+    --background: 0 0% 100%;
+    --foreground: 228 55% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 26% 14%;
+    --card-foreground: 228 55% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 26% 14%;
+    --popover-foreground: 228 55% 12%;
 
-    --primary: 220 45% 22%;
+    --primary: 228 58% 17%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 32 85% 44%;
-    --secondary-foreground: 220 26% 10%;
+    --secondary: 19 100% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 12% 38%;
+    --muted: 216 30% 96%;
+    --muted-foreground: 218 21% 33%;
 
     --accent: 168 45% 32%;
     --accent-dark: 168 45% 24%;
@@ -30,19 +30,19 @@
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 14% 88%;
-    --input: 220 14% 88%;
-    --ring: 220 45% 22%;
+    --border: 216 21% 89%;
+    --input: 216 21% 89%;
+    --ring: 228 58% 17%;
 
     --radius: 0.75rem;
 
-    --navy: 220 26% 14%;
-    --navy-light: 220 35% 22%;
-    --gold: 32 85% 44%;
-    --gold-dark: 32 85% 36%;
-    --gold-light: 38 90% 55%;
+    --navy: 228 58% 17%;
+    --navy-light: 228 40% 28%;
+    --gold: 19 100% 50%;
+    --gold-dark: 19 90% 42%;
+    --gold-light: 22 100% 58%;
     --teal: 168 45% 32%;
-    --section-muted: 40 15% 96%;
+    --section-muted: 216 30% 97%;
 
     --sidebar-background: 220 14% 98%;
     --sidebar-foreground: 220 26% 14%;
@@ -149,13 +149,13 @@
 }
 
 @layer components {
-  /* ── Typography (WDN-style: Inter throughout) ── */
+  /* ── Typography (Akotech-style: Space Grotesk throughout) ── */
   .font-display {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
   }
 
   .font-body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
   }
 
   .text-navy { color: hsl(var(--navy)); }
@@ -194,7 +194,7 @@
   .section-muted  { @apply section; background: hsl(var(--section-muted)); }
   .section-navy   { @apply section text-white; background: hsl(var(--navy)); }
   .section-purple { @apply section-navy; }
-  .section-cta    { @apply section; background: hsl(40 25% 97%); }
+  .section-cta    { @apply section; background: hsl(216 30% 97%); }
 
   .section-label {
     @apply font-body text-xs font-semibold uppercase tracking-[0.2em] text-gold mb-3 block;
@@ -203,9 +203,9 @@
   .hero-marsha {
     background: linear-gradient(
       135deg,
-      hsl(220 35% 10%) 0%,
-      hsl(220 40% 16%) 50%,
-      hsl(220 35% 22%) 100%
+      hsl(228 55% 8%) 0%,
+      hsl(228 58% 14%) 50%,
+      hsl(228 45% 24%) 100%
     );
   }
 
@@ -213,7 +213,7 @@
   .marsha-card,
   .pro-card {
     @apply bg-white relative overflow-hidden;
-    border-radius: 1.25rem;
+    border-radius: 1.5rem;
     border: 1px solid hsl(var(--border) / 0.8);
     background: linear-gradient(145deg, #ffffff 0%, hsl(var(--section-muted)) 100%);
     box-shadow:
@@ -268,9 +268,9 @@
 
   /* ── 3D Buttons (WDN-style depth + shimmer) ── */
   .btn-base {
-    @apply inline-flex items-center justify-center font-body font-semibold uppercase tracking-wide
+    @apply inline-flex items-center justify-center gap-2 font-body font-semibold uppercase tracking-wide
       relative overflow-hidden select-none;
-    border-radius: 12px;
+    border-radius: 9999px;
     letter-spacing: 0.04em;
     transition: transform 0.25s var(--ease-smooth),
       box-shadow 0.25s var(--ease-smooth),
@@ -297,22 +297,22 @@
 
   .btn-green {
     @apply btn-base px-8 py-3.5 text-sm text-white;
-    background: linear-gradient(180deg, hsl(168 45% 36%) 0%, hsl(var(--accent)) 100%);
+    background: linear-gradient(180deg, hsl(var(--gold-light)) 0%, hsl(var(--gold)) 100%);
     box-shadow:
-      0 4px 0 hsl(var(--accent-dark)),
-      0 8px 24px hsl(var(--accent) / 0.35);
+      0 4px 0 hsl(var(--gold-dark)),
+      0 8px 24px hsl(var(--gold) / 0.35);
   }
   .btn-green:hover {
     transform: translateY(-2px);
     box-shadow:
-      0 6px 0 hsl(var(--accent-dark)),
-      0 12px 32px hsl(var(--accent) / 0.42);
+      0 6px 0 hsl(var(--gold-dark)),
+      0 12px 32px hsl(var(--gold) / 0.42);
   }
   .btn-green:active {
     transform: translateY(2px);
     box-shadow:
-      0 2px 0 hsl(var(--accent-dark)),
-      0 4px 12px hsl(var(--accent) / 0.28);
+      0 2px 0 hsl(var(--gold-dark)),
+      0 4px 12px hsl(var(--gold) / 0.28);
   }
 
   .btn-outline-navy {
@@ -466,7 +466,7 @@
 
   /* Compact flat CTA for navbar — no 3D lift (avoids layout clipping) */
   .btn-nav-cta {
-    @apply inline-flex items-center justify-center px-5 py-2 text-xs font-semibold uppercase tracking-wide rounded-lg;
+    @apply inline-flex items-center justify-center px-5 py-2 text-xs font-semibold uppercase tracking-wide rounded-full;
     border: 2px solid hsl(var(--primary));
     color: hsl(var(--primary));
     background: white;
@@ -504,7 +504,8 @@
     @apply text-primary font-medium hover:text-gold hover:underline underline-offset-4;
   }
   .prose-blog blockquote {
-    @apply border-l-4 border-primary bg-primary/5 py-3 px-5 rounded-r-xl text-muted-foreground my-6;
+    @apply border-l-4 border-primary bg-primary/5 py-3 px-5 rounded-r-xl text-muted-foreground my-6 italic;
+    font-family: 'Libre Baskerville', Georgia, serif;
   }
   .prose-blog code {
     @apply text-primary bg-muted rounded px-1.5 py-0.5 text-sm;

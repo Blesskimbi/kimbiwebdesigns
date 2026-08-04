@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { staticProjects } from "@/data/projects";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -10,19 +10,25 @@ gsap.registerPlugin(ScrollTrigger);
 const categories = ["All", ...Array.from(new Set(staticProjects.map(p => p.category)))];
 
 const ProjectCard = ({ project }: { project: (typeof staticProjects)[0] }) => (
-  <div className="marsha-card overflow-hidden group">
+  <Link to={`/projects/${project.slug}`} className="marsha-card overflow-hidden group block hover:no-underline">
     <div className="h-48 overflow-hidden relative">
       <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover object-top pan-on-hover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <span className="absolute top-3 left-3 px-3 py-1 bg-white/95 backdrop-blur-sm text-primary text-[11px] font-semibold uppercase tracking-wide rounded-full">
+        {project.category}
+      </span>
+      <span className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-gold flex items-center justify-center text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+        <ArrowUpRight size={16} />
+      </span>
     </div>
     <div className="p-5">
-      <span className="text-xs font-body font-semibold text-primary uppercase tracking-wide">{project.category}</span>
-      <h3 className="font-display font-bold text-lg text-navy mt-1 mb-2 group-hover:text-gold transition-colors duration-300">{project.title}</h3>
+      <h3 className="font-display font-bold text-lg text-navy mb-2 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
       <p className="text-muted-foreground text-sm font-body line-clamp-2 mb-4">{project.shortDescription}</p>
-      <Link to={`/projects/${project.slug}`} className="text-sm font-semibold text-primary hover:underline underline-offset-4">
+      <span className="text-sm font-semibold text-primary group-hover:underline underline-offset-4">
         View Project →
-      </Link>
+      </span>
     </div>
-  </div>
+  </Link>
 );
 
 const ProjectsSection = () => {

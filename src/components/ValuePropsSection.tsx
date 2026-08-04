@@ -18,10 +18,10 @@ const ValuePropsSection = () => (
       </h2>
     </div>
     <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-      {props.map(({ icon: Icon, label }) => (
+      {props.map(({ icon: Icon, label }, i) => (
         <div key={label} className="flex flex-col items-center gap-2 text-center">
-          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-            <Icon size={20} className="text-primary" />
+          <div className={`w-12 h-12 rounded-full flex items-center justify-center ${i % 2 === 0 ? "bg-primary/10" : "bg-gold/10"}`}>
+            <Icon size={20} className={i % 2 === 0 ? "text-primary" : "text-gold"} />
           </div>
           <span className="font-body text-xs font-semibold text-navy">{label}</span>
         </div>
