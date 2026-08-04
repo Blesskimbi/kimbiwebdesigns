@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
@@ -7,24 +7,39 @@ import { staticProjects } from "@/data/projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const categories = ["All", ...Array.from(new Set(staticProjects.map(p => p.category)))];
+const featured = staticProjects.slice(0, 4);
 
-const ProjectCard = ({ project }: { project: (typeof staticProjects)[0] }) => (
-  <Link to={`/projects/${project.slug}`} className="marsha-card overflow-hidden group block hover:no-underline">
-    <div className="h-48 overflow-hidden relative">
-      <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover object-top pan-on-hover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-      <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <span className="absolute top-3 left-3 px-3 py-1 bg-white/95 backdrop-blur-sm text-primary text-[11px] font-semibold uppercase tracking-wide rounded-full">
-        {project.category}
-      </span>
+const FeaturedCard = ({
+  project,
+  className = "",
+  imageClassName = "h-56",
+}: {
+  project: (typeof staticProjects)[0];
+  className?: string;
+  imageClassName?: string;
+}) => (
+  <Link
+    to={`/projects/${project.slug}`}
+    className={`marsha-card overflow-hidden group flex flex-col hover:no-underline ${className}`}
+  >
+    <div className={`relative overflow-hidden ${imageClassName}`}>
+      <img
+        src={project.imageUrl}
+        alt={project.title}
+        className="w-full h-full object-cover object-top pan-on-hover group-hover:scale-105 transition-transform duration-500"
+        loading="lazy"
+      />
       <span className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-gold flex items-center justify-center text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
         <ArrowUpRight size={16} />
       </span>
     </div>
-    <div className="p-5">
-      <h3 className="font-display font-bold text-lg text-navy mb-2 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
+    <div className="p-6 flex flex-col flex-1">
+      <span className="text-primary text-xs font-semibold uppercase tracking-wide mb-2">{project.category}</span>
+      <h3 className="font-display font-bold text-lg text-navy mb-2 group-hover:text-primary transition-colors duration-300">
+        {project.title}
+      </h3>
       <p className="text-muted-foreground text-sm font-body line-clamp-2 mb-4">{project.shortDescription}</p>
-      <span className="text-sm font-semibold text-primary group-hover:underline underline-offset-4">
+      <span className="text-sm font-semibold text-primary group-hover:underline underline-offset-4 mt-auto">
         View Project →
       </span>
     </div>
@@ -34,11 +49,6 @@ const ProjectCard = ({ project }: { project: (typeof staticProjects)[0] }) => (
 const ProjectsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const filtered = activeFilter === "All"
-    ? staticProjects.slice(0, 6)
-    : staticProjects.filter(p => p.category === activeFilter).slice(0, 6);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -53,36 +63,52 @@ const ProjectsSection = () => {
   return (
     <section ref={sectionRef} id="projects" className="section-white border-t border-border">
       <div className="max-w-6xl mx-auto">
-        <div ref={headingRef} className="text-center mb-10">
+        <div ref={headingRef} className="text-center mb-12">
           <span className="section-label">Selected Work</span>
-          <h2 className="heading-serif text-3xl md:text-5xl heading-underline">
-            Projects that <span className="text-gold">push boundaries</span>
+          <h2 className="heading-serif text-3xl md:text-5xl mb-4 heading-underline">
+            A Collection of <span className="text-gold">My Work</span>
           </h2>
+          <p className="text-muted-foreground text-base md:text-lg font-body max-w-2xl mx-auto">
+            A few case studies that show the type of solutions and services I provide across my client base.
+          </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
-              className={activeFilter === cat ? "filter-pill-active" : "filter-pill-inactive"}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {(filtered.length > 0 ? filtered : staticProjects.slice(0, 6)).map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
+        {/* Asymmetric portfolio grid — one tall featured project + a big one and two small ones */}
+        {featured.length >= 4 && (
+          <div className="grid md:grid-cols-2 gap-6">
+            <FeaturedCard project={featured[0]} className="h-full" imageClassName="h-full min-h-[280px] md:min-h-[520px]" />
+            <div className="grid gap-6">
+              <FeaturedCard project={featured[1]} imageClassName="h-48 md:h-60" />
+              <div className="grid grid-cols-2 gap-6">
+                <FeaturedCard project={featured[2]} imageClassName="h-40 md:h-48" />
+                <FeaturedCard project={featured[3]} imageClassName="h-40 md:h-48" />
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="mt-10 text-center">
           <Link to="/projects" className="btn-outline-primary inline-flex items-center gap-2">
-            View All {staticProjects.length} Projects
+            View All My Work
             <ArrowRight size={16} />
           </Link>
+        </div>
+
+        {/* Trusted-by strip, echoing the reference's brand bar */}
+        <div className="mt-16 pt-10 border-t border-border flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+          <p className="font-body text-sm font-semibold text-navy uppercase tracking-wide">
+            Trusted by businesses across:
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {["Cameroon", "Nigeria", "South Africa", "Worldwide"].map((place) => (
+              <span
+                key={place}
+                className="px-4 py-1.5 rounded-full bg-muted text-navy text-xs font-body font-semibold"
+              >
+                {place}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

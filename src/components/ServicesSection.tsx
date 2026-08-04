@@ -81,11 +81,22 @@ const ServicesSection = () => {
   return (
     <section ref={sectionRef} id="services" className="section-white">
       <div className="max-w-6xl mx-auto">
+        {/* Text-editor line + divider, echoing the reference's intro strip */}
+        <div className="text-center mb-10">
+          <p className="text-muted-foreground font-body text-sm md:text-base">
+            I Serve My Clients&apos; Best Interests with the Best Digital Solutions.{" "}
+            <a href="/services/" className="text-primary font-semibold hover:underline underline-offset-4">
+              Find Out More
+            </a>
+          </p>
+          <div className="h-px bg-border w-full max-w-4xl mx-auto mt-8" />
+        </div>
+
         <div ref={headingRef} className="text-center mb-14">
           <span className="section-label">What I Do</span>
           <h2 className="heading-serif text-3xl md:text-5xl mb-4 heading-underline">
-            Web Design &amp;{" "}
-            <span className="text-gold">Development Services</span>
+            I Believe in Building Strong Brands{" "}
+            <span className="text-gold">and Integrated Strategies</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg font-body max-w-2xl mx-auto">
             From web design and SEO to e-commerce and mobile apps — every service is
@@ -100,19 +111,27 @@ const ServicesSection = () => {
               <div
                 key={service.title}
                 ref={(el) => { cardsRef.current[i] = el; }}
-                className="marsha-card p-7 flex flex-col group"
+                className="marsha-card p-8 flex flex-col items-center text-center group"
               >
-                <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-105">
-                  <Icon size={26} className="text-gold" strokeWidth={1.75} />
+                <div className="mb-6">
+                  <h3 className="font-display font-bold text-lg text-navy mb-3 min-h-[3rem] flex items-center justify-center">{service.title}</h3>
+                  <p className="text-muted-foreground text-sm font-body leading-relaxed line-clamp-4">{service.description}</p>
                 </div>
-                <h3 className="font-display font-bold text-lg text-navy mb-3">{service.title}</h3>
-                <p className="text-muted-foreground text-sm font-body leading-relaxed mb-6 flex-1">{service.description}</p>
-                <a href={service.href} className="btn-outline-primary self-start !px-5 !py-2.5">
+                <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-6 mt-auto transition-transform duration-300 group-hover:scale-105">
+                  <Icon size={28} className="text-gold" strokeWidth={1.75} />
+                </div>
+                <a href={service.href} className="btn-outline-primary">
                   Talk {service.short} <ArrowRight size={14} />
                 </a>
               </div>
             );
           })}
+        </div>
+
+        <div className="text-center mt-12">
+          <a href="/services/" className="btn-outline-primary inline-flex items-center gap-2">
+            View All Services <ArrowRight size={16} />
+          </a>
         </div>
       </div>
     </section>

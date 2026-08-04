@@ -2,15 +2,12 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
-import ValuePropsSection from "@/components/ValuePropsSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
+import ValuePropsSection from "@/components/ValuePropsSection";
 import StatsBarSection from "@/components/StatsBarSection";
-import PricingSection from "@/components/PricingSection";
-import CTABannerSection from "@/components/CTABannerSection";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import FaqSection from "@/components/FaqSection";
-import ContactSection from "@/components/ContactSection";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -57,15 +54,12 @@ const Index = () => {
       <div className="relative min-h-screen bg-white overflow-x-clip">
         <HeroSection />
         <ServicesSection />
+        <ProjectsSection />
         <ValuePropsSection />
         <StatsBarSection />
-        <ProjectsSection />
-        <PricingSection />
-        <CTABannerSection />
         <BlogPreviewSection />
         <TestimonialsSection />
         <FaqSection />
-        <ContactSection />
         <FloatingChat />
         <ScrollToTop />
       </div>

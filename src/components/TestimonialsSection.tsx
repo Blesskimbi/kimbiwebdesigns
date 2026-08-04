@@ -59,9 +59,9 @@ const TestimonialsSection = () => {
     <section ref={sectionRef} className="section-muted border-t border-border">
       <div className="max-w-6xl mx-auto">
         <div ref={headingRef} className="text-center mb-12">
-          <span className="section-label">Testimonials</span>
+          <span className="section-label">feedbacks</span>
           <h2 className="heading-serif text-3xl md:text-5xl mb-4 heading-underline">
-            Words that <span className="text-gold">inspire</span>
+            What My <span className="text-gold">Clients Say</span>
           </h2>
           <div className="inline-flex items-center gap-2.5 bg-white rounded-full border border-border px-5 py-2 shadow-pro">
             <div className="flex gap-0.5">
@@ -76,26 +76,25 @@ const TestimonialsSection = () => {
           <div ref={emblaRef} className="overflow-hidden">
             <div className="flex gap-5">
               {testimonials.map((t) => (
-                <div key={t.name} className="flex-none w-full md:w-[calc(50%-10px)] marsha-card p-8 relative">
-                  <span className="absolute top-4 right-6 font-display text-6xl leading-none text-primary/10 select-none" aria-hidden="true">
-                    &rdquo;
-                  </span>
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={14} className="fill-amber-400 text-amber-400" />)}
-                  </div>
-                  <p className="text-navy font-body leading-relaxed mb-6 italic relative z-10">"{t.quote}"</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center font-display font-bold text-sm text-white shrink-0">
-                      {t.avatar}
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="font-body font-semibold text-navy text-sm">{t.name}</span>
-                        <BadgeCheck size={14} className="text-primary" />
+                <div key={t.name} className="flex-none w-full md:w-[calc(50%-10px)] marsha-card p-7">
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center font-display font-bold text-sm text-white shrink-0">
+                        {t.avatar}
                       </div>
-                      <div className="text-muted-foreground text-xs">{t.role}</div>
+                      <div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-body font-semibold text-navy text-sm">{t.name}</span>
+                          <BadgeCheck size={14} className="text-primary" />
+                        </div>
+                        <div className="text-muted-foreground text-xs">{t.role}</div>
+                      </div>
+                    </div>
+                    <div className="flex gap-0.5 shrink-0">
+                      {[...Array(5)].map((_, i) => <Star key={i} size={12} className="fill-amber-400 text-amber-400" />)}
                     </div>
                   </div>
+                  <p className="text-navy font-body leading-relaxed text-sm">{t.quote}</p>
                 </div>
               ))}
             </div>

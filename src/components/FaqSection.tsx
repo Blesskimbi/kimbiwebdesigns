@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ChevronRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,29 +50,30 @@ const FaqSection = () => {
   return (
     <section ref={sectionRef} className="section-muted border-t border-border">
       <div className="max-w-3xl mx-auto">
-        <div ref={headingRef} className="text-center mb-12">
+        <div ref={headingRef} className="text-center mb-6">
           <span className="section-label">FAQ</span>
           <h2 className="heading-serif text-3xl md:text-5xl mb-4 heading-underline">
             Frequently Asked <span className="text-gold">Questions</span>
           </h2>
           <p className="text-muted-foreground text-base font-body max-w-xl mx-auto">
-            Answers to the questions I get asked most often by clients — if yours isn't here,{" "}
+            I&apos;ve compiled this list based on the questions I&apos;m often asked by clients and the
+            questions commonly asked online — if yours isn&apos;t here,{" "}
             <Link to="/contact" className="text-primary font-semibold hover:underline underline-offset-4">
               just ask
             </Link>.
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3 mt-10">
           {faqs.map(({ q, a }) => (
             <details key={q} className="group marsha-card !p-0 overflow-hidden">
-              <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none text-navy font-semibold font-body hover:text-primary transition-colors">
-                {q}
-                <span className="shrink-0 w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center group-open:rotate-45 transition-transform duration-200 text-lg leading-none">
-                  +
+              <summary className="flex items-center gap-3 px-6 py-5 cursor-pointer list-none hover:text-primary transition-colors">
+                <span className="shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center group-open:rotate-90 transition-transform duration-200">
+                  <ChevronRight size={13} />
                 </span>
+                <span className="text-navy font-semibold font-body">{q}</span>
               </summary>
-              <p className="px-6 pb-5 text-muted-foreground font-body leading-relaxed text-sm border-t border-border pt-4">
+              <p className="pl-[60px] pr-6 pb-5 text-muted-foreground font-body leading-relaxed text-sm border-t border-border pt-4 ml-0">
                 {a}
               </p>
             </details>
