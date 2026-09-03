@@ -291,13 +291,23 @@ console.log(`[prerender] Static server on http://localhost:${PORT}`);
 const routes = await getRoutes();
 console.log(`[prerender] Rendering ${routes.length} routes…`);
 
+// The sandbox and /dev/shm flags are what let Chromium start inside a build
+// container. Vercel's image reports as unsupported and gets Playwright's
+// ubuntu24.04 fallback build, which dies on launch without these.
 let browser;
 try {
-  browser = await chromium.launch();
+  browser = await chromium.launch({
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+    ],
+  });
 } catch (err) {
   server.close();
   console.error("\n[prerender] Could not launch Chromium.\n");
-  console.error(`  ${err.message.split("\n")[0]}\n`);
+  console.error(`${err.message}\n`);
   console.error("  Prerendering produces the per-route HTML that carries this site's");
   console.error("  titles, canonicals and JSON-LD, so the build stops rather than ship");
   console.error("  a client-only bundle that crawlers see as empty.\n");
