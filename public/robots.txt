@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /dashboard/
 
-Sitemap: https://everythx.com/sitemap.xml
+Sitemap: https://blesskimbi.com/sitemap.xml

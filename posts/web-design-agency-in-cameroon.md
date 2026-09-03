@@ -19,7 +19,7 @@ Choosing the right **web design agency in Cameroon** could be the most important
 With more agencies and freelancers competing for your attention in Douala, Yaoundé, Bafoussam, and across Cameroon, how do you separate the professionals from the amateurs? This guide gives you everything you need to make the right choice.
 
 <div class="tldr">
-<strong>TL;DR:</strong> A great web design agency in Cameroon should have a strong portfolio, clear pricing, mobile-first design expertise, and proven SEO knowledge. Bless Kimbi ticks every box — <a href="https://everythx.com/contact">get a free consultation today</a>.
+<strong>TL;DR:</strong> A great web design agency in Cameroon should have a strong portfolio, clear pricing, mobile-first design expertise, and proven SEO knowledge. Bless Kimbi ticks every box — <a href="https://blesskimbi.com/contact">get a free consultation today</a>.
 </div>
 
 ## Why Your Business Needs a Professional Web Design Agency in Cameroon
@@ -47,7 +47,7 @@ Any agency worth hiring should have a portfolio of completed projects. Ask to se
 - Clear calls to action (contact forms, buy buttons, WhatsApp links)
 - Properly functioning pages
 
-[View the Bless Kimbi portfolio](https://everythx.com/projects) to see real examples of websites built for Cameroonian and African businesses. You can also see the standard set by tech-forward companies in the space: [Cyprogram](https://cyprogram.com) is a great example of what a professionally built agency website looks like in Cameroon.
+[View the Bless Kimbi portfolio](https://blesskimbi.com/projects) to see real examples of websites built for Cameroonian and African businesses. You can also see the standard set by tech-forward companies in the space: [Cyprogram](https://cyprogram.com) is a great example of what a professionally built agency website looks like in Cameroon.
 
 ### Mobile-First Design Expertise
 
@@ -120,7 +120,7 @@ Below are real websites delivered to clients — responsive, fast, and built aro
 - Social media integration
 - Mobile app development
 
-Visit our [services page](https://everythx.com/services) for full details, or read about [affordable web development for small businesses in Cameroon](https://everythx.com/blog/affordable-web-developer-cameroon-small-business). For a full pricing breakdown, see [How Much Does a Website Cost in Cameroon in 2026?](/blog/website-cost-cameroon-2025)
+Visit our [services page](https://blesskimbi.com/services) for full details, or read about [affordable web development for small businesses in Cameroon](https://blesskimbi.com/blog/affordable-web-developer-cameroon-small-business). For a full pricing breakdown, see [How Much Does a Website Cost in Cameroon in 2026?](/blog/website-cost-cameroon-2025)
 
 For a broader view of what professional web development agencies deliver across Africa, [Website Designer NG](https://www.websitedesigner.ng/) and [Front to Back Dev](https://fronttobackdev.com/) are strong references worth exploring.
 
@@ -172,7 +172,7 @@ Yes. Bless Kimbi builds websites with easy-to-use content management, and includ
 
 Your Cameroonian business deserves a website that works as hard as you do. Stop losing customers to competitors who have a professional online presence.
 
-**[Contact Bless Kimbi Web Design today](https://everythx.com/contact)** — free consultation, clear pricing, and results you can see.
+**[Contact Bless Kimbi Web Design today](https://blesskimbi.com/contact)** — free consultation, clear pricing, and results you can see.
 
 ### Connect With Bless Kimbi
 

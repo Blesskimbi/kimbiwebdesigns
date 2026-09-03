@@ -152,19 +152,19 @@ const MobileAppPage = () => (
         name="description"
         content="Professional mobile app development with React Native — iOS and Android apps built by Bless Kimbi. Cross-platform, fast, and ready for App Store launch."
       />
-      <link rel="canonical" href="https://everythx.com/mobile-app-development/" />
+      <link rel="canonical" href="https://blesskimbi.com/mobile-app-development/" />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="Mobile App Development Services | Bless Kimbi" />
       <meta property="og:description" content="Cross-platform iOS and Android app development with React Native. Full-stack capability, App Store publishing, and post-launch support." />
-      <meta property="og:url" content="https://everythx.com/mobile-app-development/" />
+      <meta property="og:url" content="https://blesskimbi.com/mobile-app-development/" />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://everythx.com/og-image.png" />
+      <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Mobile App Development Services | Bless Kimbi" />
       <meta name="twitter:description" content="iOS and Android app development with React Native. Fast, native-feeling apps built to launch." />
-      <meta name="twitter:image" content="https://everythx.com/og-image.png" />
+      <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -182,9 +182,9 @@ const MobileAppPage = () => (
         "provider": {
           "@type": "Person",
           "name": "Bless Kimbi",
-          "url": "https://everythx.com",
+          "url": "https://blesskimbi.com",
         },
-        "url": "https://everythx.com/mobile-app-development/",
+        "url": "https://blesskimbi.com/mobile-app-development/",
         "description": "Cross-platform mobile app development with React Native for iOS and Android. UI/UX design, backend integration, and App Store publishing.",
       })}</script>
     </Helmet>

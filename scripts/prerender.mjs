@@ -110,8 +110,8 @@ async function getRoutes() {
 }
 
 function expectedCanonical(route) {
-  if (route === "/") return "https://everythx.com/";
-  return `https://everythx.com${route}/`;
+  if (route === "/") return "https://blesskimbi.com/";
+  return `https://blesskimbi.com${route}/`;
 }
 
 function writeRouteHtml(route, html) {
@@ -291,7 +291,23 @@ console.log(`[prerender] Static server on http://localhost:${PORT}`);
 const routes = await getRoutes();
 console.log(`[prerender] Rendering ${routes.length} routes…`);
 
-const browser = await chromium.launch();
+let browser;
+try {
+  browser = await chromium.launch();
+} catch (err) {
+  server.close();
+  console.error("\n[prerender] Could not launch Chromium.\n");
+  console.error(`  ${err.message.split("\n")[0]}\n`);
+  console.error("  Prerendering produces the per-route HTML that carries this site's");
+  console.error("  titles, canonicals and JSON-LD, so the build stops rather than ship");
+  console.error("  a client-only bundle that crawlers see as empty.\n");
+  console.error("  Install the browser before building:");
+  console.error("    npx playwright install chromium\n");
+  console.error("  On Vercel this is the buildCommand in vercel.json. If Chromium cannot");
+  console.error("  run in the build image at all, move the build to CI and deploy the");
+  console.error("  prebuilt output instead (vercel deploy --prebuilt).\n");
+  process.exit(1);
+}
 const context = await browser.newContext();
 let failed = 0;
 

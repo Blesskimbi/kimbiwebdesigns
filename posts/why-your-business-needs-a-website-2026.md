@@ -21,7 +21,7 @@ The question for Nigerian entrepreneurs is no longer *"Should I have a website?"
 This post answers that question honestly, and gives you a clear picture of why a professional website is the single most important investment your Nigerian business can make in 2026.
 
 <div class="tldr">
-<strong>TL;DR:</strong> Nigeria has over 109 million internet users. Without a website, you are invisible to them. A professional website builds credibility, generates leads 24/7, and outperforms social media. Bless Kimbi builds websites for Nigerian businesses that actually drive results. <a href="https://everythx.com/contact">Start today</a>.
+<strong>TL;DR:</strong> Nigeria has over 109 million internet users. Without a website, you are invisible to them. A professional website builds credibility, generates leads 24/7, and outperforms social media. Bless Kimbi builds websites for Nigerian businesses that actually drive results. <a href="https://blesskimbi.com/contact">Start today</a>.
 </div>
 
 ## Nigeria's Digital Economy Is Booming — Are You Part of It?
@@ -138,7 +138,7 @@ Not all websites are equal. A high-performing website for a Nigerian business mu
 - Local currency pricing (NGN)
 - Flutterwave or Paystack payment integration for e-commerce
 
-Visit our [services page](https://everythx.com/services) to see exactly what Bless Kimbi includes in every Nigerian business website project. You can also explore what leading Nigerian web professionals like [Website Designer NG](https://www.websitedesigner.ng/) deliver as a benchmark for quality.
+Visit our [services page](https://blesskimbi.com/services) to see exactly what Bless Kimbi includes in every Nigerian business website project. You can also explore what leading Nigerian web professionals like [Website Designer NG](https://www.websitedesigner.ng/) deliver as a benchmark for quality.
 
 ## What Does a Professional Website Cost for a Nigerian Business in 2026?
 
@@ -149,7 +149,7 @@ Visit our [services page](https://everythx.com/services) to see exactly what Ble
 | E-commerce store with payment gateway | ₦700,000 – ₦1,500,000 | $465 – $1,000 |
 | Custom web application | ₦1,500,000+ | $1,000+ |
 
-For more detail on pricing and what is included, read our guide: [What an affordable web developer charges and what to expect](https://everythx.com/blog/affordable-web-developer-cameroon-small-business).
+For more detail on pricing and what is included, read our guide: [What an affordable web developer charges and what to expect](https://blesskimbi.com/blog/affordable-web-developer-cameroon-small-business).
 
 ## Frequently Asked Questions
 
@@ -185,7 +185,7 @@ Every month your Nigerian business operates without a professional website is a 
 
 The best time to build your business website was five years ago. The second best time is today.
 
-**[Contact Bless Kimbi now](https://everythx.com/contact)** — we will build you a professional website that works as hard as you do, specifically designed for the Nigerian market.
+**[Contact Bless Kimbi now](https://blesskimbi.com/contact)** — we will build you a professional website that works as hard as you do, specifically designed for the Nigerian market.
 
 ### Connect With Bless Kimbi
 

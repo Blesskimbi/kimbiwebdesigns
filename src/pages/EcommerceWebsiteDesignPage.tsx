@@ -93,19 +93,19 @@ const EcommerceWebsiteDesignPage = () => (
         name="description"
         content="Professional e-commerce website design in Cameroon. Mobile Money integration, custom design & SEO built-in. Serving businesses in Yaoundé, Douala & Buea."
       />
-      <link rel="canonical" href="https://everythx.com/ecommerce-website-design-in-cameroon/" />
+      <link rel="canonical" href="https://blesskimbi.com/ecommerce-website-design-in-cameroon/" />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="E-commerce Website Design in Cameroon | Bless Kimbi" />
       <meta property="og:description" content="Custom e-commerce websites for businesses in Cameroon — Mobile Money, PayPal, Stripe integration, mobile-first design and built-in SEO." />
-      <meta property="og:url" content="https://everythx.com/ecommerce-website-design-in-cameroon/" />
+      <meta property="og:url" content="https://blesskimbi.com/ecommerce-website-design-in-cameroon/" />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://everythx.com/og-image.png" />
+      <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="E-commerce Website Design in Cameroon | Bless Kimbi" />
       <meta name="twitter:description" content="Custom e-commerce websites for businesses in Cameroon — Mobile Money integration, mobile-first design and built-in SEO." />
-      <meta name="twitter:image" content="https://everythx.com/og-image.png" />
+      <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -123,10 +123,10 @@ const EcommerceWebsiteDesignPage = () => (
         "provider": {
           "@type": "Person",
           "name": "Bless Kimbi",
-          "url": "https://everythx.com"
+          "url": "https://blesskimbi.com"
         },
         "areaServed": ["Cameroon", "Yaoundé", "Douala", "Buea", "Africa"],
-        "url": "https://everythx.com/ecommerce-website-design-in-cameroon/",
+        "url": "https://blesskimbi.com/ecommerce-website-design-in-cameroon/",
         "description": "Custom e-commerce website design for businesses in Cameroon. Mobile Money integration, SEO, and mobile-first development."
       })}</script>
     </Helmet>

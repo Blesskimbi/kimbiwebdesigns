@@ -22,7 +22,7 @@ import { fileURLToPath } from "url";
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const rootDir   = resolve(__dirname, "..");
 const outFile   = resolve(rootDir, "dist", "sitemap.xml");
-const BASE      = "https://everythx.com";
+const BASE      = "https://blesskimbi.com";
 
 // ── Route definitions ──────────────────────────────────────────────────────
 

@@ -1,8 +1,0 @@
-ErrorDocument 404 /project-not-found.html
-
-# Missing slug (no prerendered subfolder) → real 404 with noindex static page
-RewriteEngine On
-RewriteBase /projects/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^.+$ - [R=404,L]

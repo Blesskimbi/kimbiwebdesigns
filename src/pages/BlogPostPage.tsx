@@ -15,7 +15,7 @@ import BlogSidebar from "@/components/BlogSidebar";
 import BlogImageCarousel from "@/components/BlogImageCarousel";
 import { getPostBySlug, BlogPost } from "@/lib/blog";
 
-const BASE = "https://everythx.com";
+const BASE = "https://blesskimbi.com";
 
 /* FAQ Accordion ------------------------------------------------------------- */
 interface FaqItem { q: string; a: string; }

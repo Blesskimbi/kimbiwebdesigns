@@ -152,19 +152,19 @@ const UiUxDesignPage = () => (
         name="description"
         content="Professional UI/UX design services — user research, wireframing, visual design, design systems, and Figma handoff. Designs that convert and developers can build."
       />
-      <link rel="canonical" href="https://everythx.com/ui-ux-design/" />
+      <link rel="canonical" href="https://blesskimbi.com/ui-ux-design/" />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="UI/UX Design Services | Bless Kimbi" />
       <meta property="og:description" content="User-centred UI/UX design — wireframes, prototypes, visual design, and scalable design systems delivered in Figma." />
-      <meta property="og:url" content="https://everythx.com/ui-ux-design/" />
+      <meta property="og:url" content="https://blesskimbi.com/ui-ux-design/" />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://everythx.com/og-image.png" />
+      <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="UI/UX Design Services | Bless Kimbi" />
       <meta name="twitter:description" content="User-centred UI/UX design — wireframes, visual design, and Figma handoff for web and mobile products." />
-      <meta name="twitter:image" content="https://everythx.com/og-image.png" />
+      <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -182,9 +182,9 @@ const UiUxDesignPage = () => (
         "provider": {
           "@type": "Person",
           "name": "Bless Kimbi",
-          "url": "https://everythx.com",
+          "url": "https://blesskimbi.com",
         },
-        "url": "https://everythx.com/ui-ux-design/",
+        "url": "https://blesskimbi.com/ui-ux-design/",
         "description": "Professional UI/UX design services — user research, wireframing, visual UI design, design systems, and Figma developer handoff.",
       })}</script>
     </Helmet>

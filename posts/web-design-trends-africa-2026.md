@@ -21,7 +21,7 @@ Whether you run a startup in Westlands, a retail brand in Mombasa, or a professi
 This post breaks down the most important **web design trends for Kenya in 2026** — and what Kenyan business owners must do to stay ahead.
 
 <div class="tldr">
-<strong>TL;DR:</strong> Kenyan businesses in 2026 must prioritise mobile-first design, fast loading speeds, local SEO, M-Pesa payment integration, and AI-enhanced user experiences. A professional website built around these trends is now a competitive necessity. <a href="https://everythx.com/contact">Get yours built by Bless Kimbi today</a>.
+<strong>TL;DR:</strong> Kenyan businesses in 2026 must prioritise mobile-first design, fast loading speeds, local SEO, M-Pesa payment integration, and AI-enhanced user experiences. A professional website built around these trends is now a competitive necessity. <a href="https://blesskimbi.com/contact">Get yours built by Bless Kimbi today</a>.
 </div>
 
 ## Kenya's Digital Landscape: The Numbers That Matter
@@ -74,7 +74,7 @@ In addition to M-Pesa, leading Kenyan e-commerce sites in 2026 also integrate:
 - **Buy Now Pay Later** options via platforms like Lipa Later
 - **International payments** via Stripe or PayPal for global customers
 
-At **[Bless Kimbi Web Design](https://everythx.com)**, we integrate M-Pesa and all major Kenyan payment gateways as standard for e-commerce projects. Visit our [services page](https://everythx.com/services) for full details.
+At **[Bless Kimbi Web Design](https://blesskimbi.com)**, we integrate M-Pesa and all major Kenyan payment gateways as standard for e-commerce projects. Visit our [services page](https://blesskimbi.com/services) for full details.
 
 ## Trend 4: Local SEO Dominates in Kenyan Markets
 
@@ -139,7 +139,7 @@ If you want your website to compete in 2026, here is your immediate action plan:
 4. **Review your payment options** — Does your site accept M-Pesa?
 5. **Audit your website content** — Does every page have a clear call to action?
 
-If your site is failing on any of these, it is time to invest in a professional rebuild. For context on what a modern business website should cost, see our guide on [affordable web development for small businesses](https://everythx.com/blog/affordable-web-developer-cameroon-small-business).
+If your site is failing on any of these, it is time to invest in a professional rebuild. For context on what a modern business website should cost, see our guide on [affordable web development for small businesses](https://blesskimbi.com/blog/affordable-web-developer-cameroon-small-business).
 
 ## Frequently Asked Questions
 
@@ -167,7 +167,7 @@ Nairobi has Africa's most sophisticated tech ecosystem — high smartphone penet
 
 The Kenyan digital market in 2026 rewards businesses that invest in quality web design. If your website is outdated, slow, or not mobile-optimised, you are already losing ground to competitors who have made the investment.
 
-**[Contact Bless Kimbi today](https://everythx.com/contact)** — we design and develop websites specifically built to perform in the Kenyan and broader African market.
+**[Contact Bless Kimbi today](https://blesskimbi.com/contact)** — we design and develop websites specifically built to perform in the Kenyan and broader African market.
 
 ### Connect With Bless Kimbi
 

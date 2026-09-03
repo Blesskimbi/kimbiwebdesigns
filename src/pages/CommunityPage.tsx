@@ -73,16 +73,16 @@ const CommunityPage = () => (
         name="description"
         content="Join Bless Kimbi's free software development community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for web and mobile developers worldwide."
       />
-      <link rel="canonical" href="https://everythx.com/community/" />
+      <link rel="canonical" href="https://blesskimbi.com/community/" />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="Free Dev Mentorship Community | Bless Kimbi" />
       <meta
         property="og:description"
         content="Join Bless Kimbi's free software development community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for web and mobile developers worldwide."
       />
-      <meta property="og:url" content="https://everythx.com/community" />
+      <meta property="og:url" content="https://blesskimbi.com/community" />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://everythx.com/og-image.png" />
+      <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -91,7 +91,7 @@ const CommunityPage = () => (
         name="twitter:description"
         content="Join Bless Kimbi's free software development community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for web and mobile developers worldwide."
       />
-      <meta name="twitter:image" content="https://everythx.com/og-image.png" />
+      <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",

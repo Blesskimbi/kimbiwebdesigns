@@ -17,7 +17,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Bless Kimbi",
-    "url": "https://everythx.com",
+    "url": "https://blesskimbi.com",
     "telephone": "+237675126845",
     "address": {
       "@type": "PostalAddress",
@@ -39,15 +39,15 @@ const Index = () => {
         <title>Bless Kimbi — Best Web Designer &amp; Developer in Cameroon</title>
         <meta name="description" content="I design and build professional websites that rank on Google and convert visitors into clients. Based in Buea, serving businesses across Cameroon and Africa." />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <link rel="canonical" href="https://everythx.com/" />
+        <link rel="canonical" href="https://blesskimbi.com/" />
         <meta property="og:title" content="Bless Kimbi — Best Web Designer &amp; Developer in Cameroon" />
         <meta property="og:description" content="I design and build professional websites that rank on Google and convert visitors into clients. Based in Buea, serving businesses across Cameroon and Africa." />
-        <meta property="og:url" content="https://everythx.com/" />
+        <meta property="og:url" content="https://blesskimbi.com/" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://everythx.com/og-image.png" />
+        <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
         <meta name="twitter:title" content="Bless Kimbi — Best Web Designer &amp; Developer in Cameroon" />
         <meta name="twitter:description" content="I design and build professional websites that rank on Google and convert visitors into clients. Based in Buea, serving businesses across Cameroon and Africa." />
-        <meta name="twitter:image" content="https://everythx.com/og-image.png" />
+        <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       </Helmet>
       <Navbar />

@@ -241,7 +241,7 @@ const ProjectForm = ({ initial, onSave, onCancel, saving }: {
                                         <input required type="text" value={data.slug ?? ""} onChange={e => handleSlug(e.target.value)}
                                             className={fieldClass} placeholder="auto-generated" />
                                         <p className="text-xs text-gray-500 mt-1">
-                                            <span className="text-primary">everythx.com/projects/{data.slug || "your-slug"}</span>
+                                            <span className="text-primary">blesskimbi.com/projects/{data.slug || "your-slug"}</span>
                                         </p>
                                     </div>
                                     <div>

@@ -103,7 +103,7 @@ const ProjectDetailPage = () => {
     }
 
     const allImages = [project.cover_image, ...(project.images ?? [])].filter(Boolean) as string[];
-    const canonical = `https://everythx.com/projects/${project.slug}/`;
+    const canonical = `https://blesskimbi.com/projects/${project.slug}/`;
 
     const suffix = " | Bless Kimbi";
     const maxTitleRaw = 58 - suffix.length - 1;
@@ -139,7 +139,7 @@ const ProjectDetailPage = () => {
                     <meta property="og:image" content={
                         project.cover_image.startsWith("http")
                             ? project.cover_image
-                            : `https://everythx.com${project.cover_image}`
+                            : `https://blesskimbi.com${project.cover_image}`
                     } />
                 )}
                 <meta property="og:type" content="website" />

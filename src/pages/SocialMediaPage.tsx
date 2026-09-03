@@ -152,19 +152,19 @@ const SocialMediaPage = () => (
         name="description"
         content="Professional social media management services — content strategy, post design, community management, and paid campaigns. Grow your brand online with Bless Kimbi."
       />
-      <link rel="canonical" href="https://everythx.com/social-media-management/" />
+      <link rel="canonical" href="https://blesskimbi.com/social-media-management/" />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="Social Media Management Services | Bless Kimbi" />
       <meta property="og:description" content="Grow your brand with expert social media management — content strategy, graphic design, scheduling, community management, and analytics." />
-      <meta property="og:url" content="https://everythx.com/social-media-management/" />
+      <meta property="og:url" content="https://blesskimbi.com/social-media-management/" />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://everythx.com/og-image.png" />
+      <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Social Media Management Services | Bless Kimbi" />
       <meta name="twitter:description" content="Expert social media management — strategy, design, scheduling, and analytics for your brand." />
-      <meta name="twitter:image" content="https://everythx.com/og-image.png" />
+      <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -182,9 +182,9 @@ const SocialMediaPage = () => (
         "provider": {
           "@type": "Person",
           "name": "Bless Kimbi",
-          "url": "https://everythx.com",
+          "url": "https://blesskimbi.com",
         },
-        "url": "https://everythx.com/social-media-management/",
+        "url": "https://blesskimbi.com/social-media-management/",
         "description": "Professional social media management — content strategy, post design, scheduling, community management, analytics, and paid campaigns.",
       })}</script>
     </Helmet>

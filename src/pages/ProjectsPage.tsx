@@ -43,28 +43,28 @@ const ProjectsPage = () => {
                 <title>Web Design Portfolio | Bless Kimbi — Cameroon & Africa</title>
                 <meta name="description" content="Browse Bless Kimbi's portfolio of web design and development projects. Real websites built for clients in Cameroon, South Africa, Nigeria and across Africa." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://everythx.com/projects/" />
+                <link rel="canonical" href="https://blesskimbi.com/projects/" />
                 <meta property="og:title" content="Web Design Portfolio | Bless Kimbi" />
                 <meta property="og:description" content="Browse Bless Kimbi's portfolio of web design and development projects. Real websites built for clients in Cameroon, South Africa, Nigeria and across Africa." />
-                <meta property="og:url" content="https://everythx.com/projects/" />
+                <meta property="og:url" content="https://blesskimbi.com/projects/" />
                 <meta property="og:type" content="website" />
-                <meta property="og:image" content="https://everythx.com/og-image.png" />
+                <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Web Design Portfolio | Bless Kimbi" />
                 <meta name="twitter:description" content="Browse Bless Kimbi's portfolio of web design and development projects for clients in Cameroon, South Africa, Nigeria and beyond." />
-                <meta name="twitter:image" content="https://everythx.com/og-image.png" />
+                <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
                 <script type="application/ld+json">{JSON.stringify({
                     "@context": "https://schema.org",
                     "@type": "CollectionPage",
                     "name": "Web Design Portfolio — Bless Kimbi",
                     "description": "Portfolio of web design and development projects by Bless Kimbi for businesses across Cameroon and Africa.",
-                    "url": "https://everythx.com/projects",
+                    "url": "https://blesskimbi.com/projects",
                     "author": {
                         "@type": "Person",
                         "name": "Bless Kimbi",
-                        "url": "https://everythx.com"
+                        "url": "https://blesskimbi.com"
                     }
                 })}</script>
             </Helmet>

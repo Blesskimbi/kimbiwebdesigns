@@ -21,7 +21,7 @@ But here is what most small business owners worry about: **"Can I actually affor
 The answer is yes — and in this guide, we break down exactly what an affordable web developer in Cameroon looks like, what you should expect to pay, and how to avoid wasting your money on the wrong person.
 
 <div class="tldr">
-<strong>TL;DR:</strong> Professional websites for Cameroonian small businesses start from around 150,000 FCFA. Look for a developer who offers mobile-first design, basic SEO, and post-launch support. Bless Kimbi Web Design offers transparent pricing with no hidden fees — <a href="https://everythx.com/contact">get a free quote here</a>.
+<strong>TL;DR:</strong> Professional websites for Cameroonian small businesses start from around 150,000 FCFA. Look for a developer who offers mobile-first design, basic SEO, and post-launch support. Bless Kimbi Web Design offers transparent pricing with no hidden fees — <a href="https://blesskimbi.com/contact">get a free quote here</a>.
 </div>
 
 ## Why Small Businesses in Cameroon Need a Website in 2026
@@ -117,7 +117,7 @@ Here are screenshots of websites built by Bless Kimbi for real businesses — cl
 
 ## Why Bless Kimbi Web Design Is the Right Choice
 
-At **[Bless Kimbi Web Design](https://everythx.com)**, we specialise in building conversion-focused websites for small businesses in Cameroon and across Africa. We combine clean, modern design with solid SEO foundations so your website does not just look good — it brings in real business.
+At **[Bless Kimbi Web Design](https://blesskimbi.com)**, we specialise in building conversion-focused websites for small businesses in Cameroon and across Africa. We combine clean, modern design with solid SEO foundations so your website does not just look good — it brings in real business.
 
 Here is what makes us different:
 
@@ -127,11 +127,11 @@ Here is what makes us different:
 - **Ongoing support** after your site goes live
 - **Deep understanding** of the Cameroonian and African market
 
-We have helped business owners in Douala, Yaoundé, Bafoussam, and beyond establish a powerful online presence. You can [view our portfolio here](https://everythx.com/projects) to see our work.
+We have helped business owners in Douala, Yaoundé, Bafoussam, and beyond establish a powerful online presence. You can [view our portfolio here](https://blesskimbi.com/projects) to see our work.
 
-For more on what services we offer, visit our [web design services page](https://everythx.com/services).
+For more on what services we offer, visit our [web design services page](https://blesskimbi.com/services).
 
-If you are also wondering which agency to choose, read our guide: [How to Choose a Web Design Agency in 2026](https://everythx.com/blog/choose-a-web-design-agency-in-2026).
+If you are also wondering which agency to choose, read our guide: [How to Choose a Web Design Agency in 2026](https://blesskimbi.com/blog/choose-a-web-design-agency-in-2026).
 
 For additional context on what great agency-level work looks like across Africa, see [Website Designer NG](https://www.websitedesigner.ng/) for the Nigerian market perspective.
 
@@ -161,7 +161,7 @@ Yes. A properly built website with SEO foundations can help you rank for local s
 
 You do not need a massive budget to have a professional website that works hard for your business. You just need the right partner.
 
-**[Contact Bless Kimbi today](https://everythx.com/contact)** for a free consultation — no pressure, no obligation. Let us build something great together.
+**[Contact Bless Kimbi today](https://blesskimbi.com/contact)** for a free consultation — no pressure, no obligation. Let us build something great together.
 
 ### Connect With Bless Kimbi
 

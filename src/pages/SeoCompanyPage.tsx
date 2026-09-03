@@ -97,19 +97,19 @@ const SeoCompanyPage = () => (
         name="description"
         content="Looking for the best SEO company in Cameroon? Bless Kimbi offers expert SEO services in Yaoundé, Douala & Buea — helping businesses rank on Google and grow online."
       />
-      <link rel="canonical" href="https://everythx.com/seo-company-in-cameroon/" />
+      <link rel="canonical" href="https://blesskimbi.com/seo-company-in-cameroon/" />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="Best SEO Company in Cameroon | Bless Kimbi" />
       <meta property="og:description" content="Expert SEO services in Cameroon — keyword research, on-page SEO, local SEO, link building and technical audits. Get found on Google." />
-      <meta property="og:url" content="https://everythx.com/seo-company-in-cameroon/" />
+      <meta property="og:url" content="https://blesskimbi.com/seo-company-in-cameroon/" />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://everythx.com/og-image.png" />
+      <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Best SEO Company in Cameroon | Bless Kimbi" />
       <meta name="twitter:description" content="Expert SEO services in Cameroon — keyword research, on-page SEO, local SEO, link building and technical audits." />
-      <meta name="twitter:image" content="https://everythx.com/og-image.png" />
+      <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -127,10 +127,10 @@ const SeoCompanyPage = () => (
         "provider": {
           "@type": "Person",
           "name": "Bless Kimbi",
-          "url": "https://everythx.com"
+          "url": "https://blesskimbi.com"
         },
         "areaServed": ["Cameroon", "Yaoundé", "Douala", "Buea", "Africa"],
-        "url": "https://everythx.com/seo-company-in-cameroon/",
+        "url": "https://blesskimbi.com/seo-company-in-cameroon/",
         "description": "Professional SEO services for businesses in Cameroon and across Africa. Keyword research, on-page SEO, local SEO, and technical audits."
       })}</script>
     </Helmet>

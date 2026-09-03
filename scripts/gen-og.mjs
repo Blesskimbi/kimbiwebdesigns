@@ -32,7 +32,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
   <text x="116" y="318" font-family="Arial,sans-serif" font-size="72" font-weight="800" fill="#ffffff" letter-spacing="-2">Bless Kimbi</text>
   <text x="116" y="368" font-family="Arial,sans-serif" font-size="30" font-weight="400" fill="#94a3b8">Web Designer &amp; Developer — Buea, Cameroon</text>
   <text x="116" y="430" font-family="Arial,sans-serif" font-size="22" fill="#64748b">Fast · Modern · SEO-Optimised Websites for Businesses in Africa</text>
-  <text x="116" y="540" font-family="Arial,sans-serif" font-size="22" font-weight="600" fill="#4f8ef0">everythx.com</text>
+  <text x="116" y="540" font-family="Arial,sans-serif" font-size="22" font-weight="600" fill="#4f8ef0">blesskimbi.com</text>
   <circle cx="1060" cy="315" r="190" fill="none" stroke="#4f8ef0" stroke-width="1" opacity="0.12"/>
   <circle cx="1060" cy="315" r="130" fill="none" stroke="#4f8ef0" stroke-width="1" opacity="0.08"/>
   <circle cx="1060" cy="315" r="70"  fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.18"/>

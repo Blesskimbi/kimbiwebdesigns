@@ -19,7 +19,7 @@ South Africa's digital economy is one of the most dynamic on the continent. From
 This guide breaks down everything South African businesses need to know about choosing the right web design service in 2026 — including what to pay, what to expect, and what red flags to avoid.
 
 <div class="tldr">
-<strong>TL;DR:</strong> The best web design services for South African businesses combine mobile-first design, proven SEO, fast load times, and measurable results. Bless Kimbi Web Design offers all of this with transparent pricing. <a href="https://everythx.com/contact">Get a free quote today</a>.
+<strong>TL;DR:</strong> The best web design services for South African businesses combine mobile-first design, proven SEO, fast load times, and measurable results. Bless Kimbi Web Design offers all of this with transparent pricing. <a href="https://blesskimbi.com/contact">Get a free quote today</a>.
 </div>
 
 ## South Africa's Digital Landscape in 2026
@@ -99,7 +99,7 @@ The most successful South African businesses are not just using their websites a
 
 **Hospitality Businesses** (restaurants, guesthouses, lodges) use **booking integration** and Google My Business optimisation to reduce reliance on expensive platforms like Booking.com.
 
-At **[Bless Kimbi Web Design](https://everythx.com)**, we have worked with businesses across Africa to achieve these outcomes. Visit our [services page](https://everythx.com/services) to see the full range of what we offer South African businesses. For additional reference, [Website Designer NG](https://www.websitedesigner.ng/) demonstrates what results-driven web design looks like for African businesses at scale, and [Cyprogram](https://cyprogram.com) shows the standard in the Central African tech space.
+At **[Bless Kimbi Web Design](https://blesskimbi.com)**, we have worked with businesses across Africa to achieve these outcomes. Visit our [services page](https://blesskimbi.com/services) to see the full range of what we offer South African businesses. For additional reference, [Website Designer NG](https://www.websitedesigner.ng/) demonstrates what results-driven web design looks like for African businesses at scale, and [Cyprogram](https://cyprogram.com) shows the standard in the Central African tech space.
 
 ## Real Results: Websites Delivered by Bless Kimbi
 
@@ -121,7 +121,7 @@ Before you commit to any web design service, evaluate them on these criteria:
 
 **Contract and ownership:** Will you own your website and domain after launch? (The answer should always be yes.)
 
-For a step-by-step guide to evaluating agencies, see our post: [How to Choose a Web Design Agency in 2026](https://everythx.com/blog/choose-a-web-design-agency-in-2026).
+For a step-by-step guide to evaluating agencies, see our post: [How to Choose a Web Design Agency in 2026](https://blesskimbi.com/blog/choose-a-web-design-agency-in-2026).
 
 ## The Cost of Bad Web Design for South African Businesses
 
@@ -157,7 +157,7 @@ Absolutely yes. Social media platforms are **rented space** — you do not own y
 
 A professionally designed, SEO-optimised website is the single best investment you can make for your South African business in 2026. Every day without one is a day your competitors are winning the customers you could be serving.
 
-**[Contact Bless Kimbi today](https://everythx.com/contact)** — free consultation, transparent pricing, and a website that actually grows your business.
+**[Contact Bless Kimbi today](https://blesskimbi.com/contact)** — free consultation, transparent pricing, and a website that actually grows your business.
 
 ### Connect With Bless Kimbi
 
