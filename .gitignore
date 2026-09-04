@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 backups/
 videos/
+
+# Contains a real deploy hook URL — the .example template is the committed one
+supabase/migrations/set_deploy_hook.sql

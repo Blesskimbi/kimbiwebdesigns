@@ -1,0 +1,25 @@
+-- Stores the Vercel deploy hook that notify_deploy_hook() calls.
+--
+-- Copy the line below into the Supabase SQL editor with your real hook URL.
+-- Do NOT commit the filled-in version: this repository is public, and a hook
+-- URL committed here once already had to be revoked. This file is the template;
+-- set_deploy_hook.sql (without .example) is gitignored.
+--
+-- Get a hook from: Vercel → kimbiwebdesigns → Settings → Git → Deploy Hooks
+-- Create one on branch `main`.
+--
+-- Rotating the hook later is just this statement again with the new URL —
+-- no code change, no deploy.
+
+INSERT INTO app_config (key, value)
+VALUES ('deploy_hook_url', 'PASTE_YOUR_DEPLOY_HOOK_URL_HERE')
+ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value;
+
+-- Confirm it landed (this only works as the table owner — the anon and
+-- authenticated roles cannot read this table at all):
+--
+--   SELECT key, left(value, 48) || '…' FROM app_config;
+--
+-- To disable rebuilds without dropping the triggers, blank it:
+--
+--   UPDATE app_config SET value = '' WHERE key = 'deploy_hook_url';
