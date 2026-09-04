@@ -24,7 +24,7 @@ faqs:
 
 If you've been searching "how much does a website cost in Cameroon" or asking around for a quote from a **web designer in Cameroon**, you've probably gotten wildly different answers. Some freelancers quote 50,000 FCFA. Agencies quote 5,000,000 FCFA. Who's right? What do you actually need?
 
-In this guide, I — **Bless Kimbi**, a professional web designer and developer based in **Yaoundé, Cameroon** — break down exactly what drives website costs in 2026, what you get at each price point, and how to avoid paying too much (or too little) for your next site.
+In this guide, I — **Bless Kimbi**, a professional web designer and developer based in **Molyko, Buea, Cameroon** — break down exactly what drives website costs in 2026, what you get at each price point, and how to avoid paying too much (or too little) for your next site.
 
 ## Why Website Prices Vary So Much in Cameroon
 
@@ -98,7 +98,7 @@ For a business in Yaoundé that wants to actually grow online, a professionally 
 
 ## What Does Bless Kimbi Charge?
 
-As a **web designer in Yaoundé, Cameroon**, my pricing is transparent and structured around the value I deliver — not arbitrary day rates. You can view my full pricing on the [Pricing section](/#pricing) of this site.
+As a **web designer in Buea, Cameroon**, my pricing is transparent and structured around the value I deliver — not arbitrary day rates. You can view my full pricing on the [Pricing section](/#pricing) of this site.
 
 Every site I build is:
 - Custom designed (no templates)
@@ -115,4 +115,4 @@ Invest in your online presence the right way. Build with a professional who unde
 
 Still comparing options? Read [How to Choose the Best Web Designer in Cameroon](/blog/how-to-choose-web-designer-cameroon) for the exact checklist to use before you hire anyone, and see [why every Cameroonian business needs a website](/blog/why-cameroonian-business-needs-website) in the first place.
 
-**Need a website? [Contact Bless Kimbi today](/contact)** — Yaoundé's leading web designer and developer. Get a free quote within 24 hours.
+**Need a website? [Contact Bless Kimbi today](/contact)** — Cameroon's leading web designer and developer. Get a free quote within 24 hours.

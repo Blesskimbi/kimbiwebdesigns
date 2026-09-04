@@ -24,7 +24,7 @@ faqs:
 
 If your business in Cameroon is only on WhatsApp or Facebook, you're invisible to the majority of your potential customers. In 2026, over 9 million Cameroonians are online and most of them start their search for products and services on **Google**, not on Facebook groups.
 
-I'm **Bless Kimbi**, a professional web designer based in **Yaoundé, Cameroon**. I've built websites for businesses across Cameroon, South Africa, and beyond. And the single most common thing I hear from clients after we launch their site is: *"I wish I had done this two years ago."*
+I'm **Bless Kimbi**, a professional web designer based in **Molyko, Buea, Cameroon**. I've built websites for businesses across Cameroon, South Africa, and beyond. And the single most common thing I hear from clients after we launch their site is: *"I wish I had done this two years ago."*
 
 Here's why your Cameroonian business needs a **professional website** in 2026 and why every day without one is costing you money.
 

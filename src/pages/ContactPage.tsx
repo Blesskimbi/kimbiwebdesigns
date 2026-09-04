@@ -9,11 +9,11 @@ const ContactPage = () => (
     <LenisSmoothScroll>
         <Helmet>
             <title>Contact Bless Kimbi | Web Designer in Cameroon</title>
-            <meta name="description" content="Ready to start your project? Contact Bless Kimbi, web designer based in Yaoundé, Cameroon. Get a free quote for your website within 24 hours." />
+            <meta name="description" content="Ready to start your project? Contact Bless Kimbi, web designer based in Buea, Cameroon. Get a free quote for your website within 24 hours." />
             <meta name="robots" content="index, follow" />
             <link rel="canonical" href="https://blesskimbi.com/contact/" />
             <meta property="og:title" content="Contact Bless Kimbi | Web Designer in Cameroon" />
-            <meta property="og:description" content="Ready to start your project? Contact Bless Kimbi, web designer based in Yaoundé, Cameroon. Get a free quote within 24 hours." />
+            <meta property="og:description" content="Ready to start your project? Contact Bless Kimbi, web designer based in Buea, Cameroon. Get a free quote within 24 hours." />
             <meta property="og:url" content="https://blesskimbi.com/contact/" />
             <meta property="og:type" content="website" />
             <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
@@ -21,7 +21,7 @@ const ContactPage = () => (
             <meta property="og:image:height" content="630" />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content="Contact Bless Kimbi | Web Designer in Cameroon" />
-            <meta name="twitter:description" content="Ready to start your project? Contact Bless Kimbi, web designer based in Yaoundé, Cameroon. Get a free quote within 24 hours." />
+            <meta name="twitter:description" content="Ready to start your project? Contact Bless Kimbi, web designer based in Buea, Cameroon. Get a free quote within 24 hours." />
             <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
         </Helmet>
 

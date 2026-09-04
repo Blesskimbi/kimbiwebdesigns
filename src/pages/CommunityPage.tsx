@@ -205,7 +205,7 @@ const CommunityPage = () => (
             <div className="flex flex-col sm:flex-row gap-6 items-start">
               <img
                 src="/blesskimbi.png"
-                alt="Bless Kimbi — web designer, developer, and mentor based in Yaoundé, Cameroon"
+                alt="Bless Kimbi — web designer, developer, and mentor based in Buea, Cameroon"
                 className="w-24 h-24 rounded-2xl object-cover shrink-0 border border-border"
               />
               <div>

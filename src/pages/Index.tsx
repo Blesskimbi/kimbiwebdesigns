@@ -21,7 +21,9 @@ const Index = () => {
     "telephone": "+237675126845",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Molyko",
       "addressLocality": "Buea",
+      "addressRegion": "South West",
       "addressCountry": "CM"
     },
     "geo": {
