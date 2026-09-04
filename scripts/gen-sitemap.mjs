@@ -41,7 +41,41 @@ const STATIC_ROUTES = [
   { url: "/ui-ux-design/",                          changefreq: "monthly", priority: 0.8 },
 ];
 
-function getBlogEntries() {
+/**
+ * Posts come from the database, with posts/*.md as a fallback so a Supabase
+ * outage during a build cannot silently drop every blog URL from the sitemap.
+ */
+async function getBlogEntries() {
+  const url = process.env.VITE_SUPABASE_URL;
+  const key = process.env.VITE_SUPABASE_ANON_KEY;
+
+  if (url && key) {
+    const supabase = createClient(url, key);
+    const { data, error } = await supabase
+      .from("posts")
+      .select("slug, published_at, updated_at")
+      .eq("status", "published");
+
+    if (!error && data?.length) {
+      return data
+        .map((p) => ({
+          url: `/blog/${p.slug}/`,
+          changefreq: "monthly",
+          priority: 0.6,
+          // lastmod reflects the last edit, which is what tells Google to recrawl.
+          lastmod: (p.updated_at || p.published_at)
+            ? new Date(p.updated_at || p.published_at).toISOString().split("T")[0]
+            : null,
+        }))
+        .sort((a, b) => a.url.localeCompare(b.url));
+    }
+    console.warn(
+      `[gen-sitemap] Falling back to posts/*.md — ${error ? error.message : "no published posts returned"}`,
+    );
+  } else {
+    console.warn("[gen-sitemap] Supabase env not set — falling back to posts/*.md");
+  }
+
   const postsDir = join(rootDir, "posts");
   if (!existsSync(postsDir)) return [];
 
@@ -113,7 +147,7 @@ function buildXml(entries) {
 
 // ── Main ───────────────────────────────────────────────────────────────────
 
-const blogEntries    = getBlogEntries();
+const blogEntries    = await getBlogEntries();
 const projectEntries = await getProjectEntries();
 
 const allEntries = [...STATIC_ROUTES, ...blogEntries, ...projectEntries];

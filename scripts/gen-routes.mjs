@@ -67,7 +67,38 @@ function getStaticRoutes() {
   return routes;
 }
 
-function getBlogRoutes() {
+/**
+ * Posts come from the database. The posts/*.md files are kept as a fallback
+ * so a Supabase outage during a build degrades to the last committed content
+ * rather than dropping every blog URL out of the site.
+ */
+async function getBlogRoutes() {
+  const url = process.env.VITE_SUPABASE_URL;
+  const key = process.env.VITE_SUPABASE_ANON_KEY;
+
+  if (url && key) {
+    const supabase = createClient(url, key);
+    const { data, error } = await supabase
+      .from("posts")
+      .select("slug, title, seo_title, meta_description, excerpt, image_url")
+      .eq("status", "published");
+
+    if (!error && data?.length) {
+      return data.map((p) => ({
+        path: `/blog/${p.slug}/`,
+        title: esc(p.seo_title || p.title || p.slug),
+        description: esc(p.meta_description || p.excerpt || ""),
+        image: p.image_url ? `${BASE}${p.image_url}` : OG_IMAGE,
+        source: "supabase",
+      }));
+    }
+    console.warn(
+      `[gen-routes] Falling back to posts/*.md — ${error ? error.message : "no published posts returned"}`,
+    );
+  } else {
+    console.warn("[gen-routes] Supabase env not set — falling back to posts/*.md");
+  }
+
   const postsDir = join(rootDir, "posts");
   if (!existsSync(postsDir)) return [];
 
@@ -157,7 +188,7 @@ const template = readFileSync(templatePath, "utf-8");
 
 const routes = [
   ...getStaticRoutes(),
-  ...getBlogRoutes(),
+  ...(await getBlogRoutes()),
   ...(await getProjectRoutes()),
 ].filter((r) => r.path !== "/"); // the homepage template is already correct
 
