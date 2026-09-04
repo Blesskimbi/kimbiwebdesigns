@@ -561,3 +561,54 @@
     @apply text-navy font-medium truncate font-body;
   }
 }
+
+/* ── Code blocks (rehype-highlight / highlight.js token classes) ──────────
+   A tech blog is mostly code, so these are styled to match the site's navy
+   and gold rather than dropping in highlight.js's stock theme. */
+@layer components {
+  .prose-blog pre {
+    background: hsl(228 55% 10%);
+    color: #e6edf3;
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    border: 1px solid hsl(228 40% 22%);
+  }
+  .prose-blog pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  /* Inline code keeps the light treatment. */
+  .prose-blog :not(pre) > code {
+    background: hsl(var(--muted));
+    color: hsl(var(--navy));
+    padding: 0.15em 0.4em;
+    border-radius: 5px;
+    font-size: 0.88em;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  .hljs-comment, .hljs-quote            { color: #8b949e; font-style: italic; }
+  .hljs-keyword, .hljs-selector-tag,
+  .hljs-literal, .hljs-type             { color: #ff7b72; }
+  .hljs-string, .hljs-meta .hljs-string { color: #a5d6ff; }
+  .hljs-number, .hljs-symbol            { color: #79c0ff; }
+  .hljs-title, .hljs-title.function_,
+  .hljs-section                         { color: #d2a8ff; }
+  .hljs-attr, .hljs-attribute,
+  .hljs-variable, .hljs-template-variable { color: #ffa657; }
+  .hljs-built_in, .hljs-class .hljs-title { color: #ffa657; }
+  .hljs-name, .hljs-selector-id,
+  .hljs-selector-class                  { color: #7ee787; }
+  .hljs-tag                             { color: #7ee787; }
+  .hljs-regexp, .hljs-link              { color: #a5d6ff; }
+  .hljs-deletion                        { color: #ffdcd7; background: #67060c; }
+  .hljs-addition                        { color: #aff5b4; background: #033a16; }
+  .hljs-emphasis                        { font-style: italic; }
+  .hljs-strong                          { font-weight: 600; }
+}

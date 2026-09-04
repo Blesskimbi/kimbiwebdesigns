@@ -47,7 +47,10 @@ export default defineConfig(({ mode }) => ({
           "vendor-gsap":     ["gsap"],
           // Deferred — only pulled in when the matching lazy route loads
           "vendor-supabase": ["@supabase/supabase-js"],
-          "vendor-md":       ["react-markdown", "remark-gfm", "rehype-raw", "gray-matter"],
+          "vendor-md":       ["react-markdown", "remark-gfm", "rehype-raw"],
+          // Highlighter is heavy and only blog posts need it; keeping it in its
+          // own chunk means it is cached once and shared across every post.
+          "vendor-hl":       ["rehype-highlight", "highlight.js", "lowlight"],
           "vendor-embla":    ["embla-carousel-react"],
           "vendor-query":    ["@tanstack/react-query"],
           // Radix UI — used by dashboard; kept separate from public-page bundles

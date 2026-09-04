@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, ChevronRight, Clock, Home, Share2, ChevronDown } from "lucide-react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/ContactSection";
@@ -12,7 +9,7 @@ import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import BlogSidebar from "@/components/BlogSidebar";
-import BlogImageCarousel from "@/components/BlogImageCarousel";
+import MarkdownContent from "@/components/MarkdownContent";
 import { getPostBySlug, BlogPost } from "@/lib/blog";
 
 const BASE = "https://blesskimbi.com";
@@ -51,55 +48,6 @@ const FaqAccordion = ({ faqs }: { faqs: FaqItem[] }) => {
       </div>
     </section>
   );
-};
-
-/* Custom markdown components ------------------------------------------------ */
-const mdComponents = {
-  // Demote markdown # headings to h2 — the page title is already the only h1
-  h1: ({ children }: { children?: React.ReactNode }) => (
-    <h2 className="font-display font-bold text-xl md:text-2xl lg:text-3xl text-navy mt-8 mb-4 border-b border-border pb-2">
-      {children}
-    </h2>
-  ),
-  table: ({ children }: { children?: React.ReactNode }) => (
-    <div className="overflow-x-auto my-4 md:my-6">
-      <table className="w-full text-sm border-collapse border border-border rounded-xl overflow-hidden">
-        {children}
-      </table>
-    </div>
-  ),
-  thead: ({ children }: { children?: React.ReactNode }) => (
-    <thead className="bg-muted">{children}</thead>
-  ),
-  th: ({ children }: { children?: React.ReactNode }) => (
-    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-navy font-semibold border-b border-border bg-muted">
-      {children}
-    </th>
-  ),
-  td: ({ children }: { children?: React.ReactNode }) => (
-    <td className="px-2 md:px-4 py-2 md:py-3 text-muted-foreground whitespace-nowrap font-body">{children}</td>
-  ),
-  /* Image carousel for image-only paragraphs, plain img elsewhere */
-  p: ({ children }: { children?: React.ReactNode }) => {
-    const arr = React.Children.toArray(children);
-    const imgElements = arr.filter(
-      (c): c is React.ReactElement =>
-        React.isValidElement(c) && (c as React.ReactElement).type === "img"
-    );
-    const nonImg = arr.filter(
-      (c) =>
-        !(React.isValidElement(c) && (c as React.ReactElement).type === "img") &&
-        !(typeof c === "string" && c.trim() === "")
-    );
-    if (imgElements.length > 0 && nonImg.length === 0) {
-      const images = imgElements.map((img) => ({
-        src: (img.props as { src: string }).src,
-        alt: (img.props as { alt?: string }).alt || "",
-      }));
-      return <BlogImageCarousel images={images} />;
-    }
-    return <p>{children}</p>;
-  },
 };
 
 /* Component ----------------------------------------------------------------- */
@@ -336,15 +284,7 @@ const BlogPostPage = () => {
                 </div>
 
                 <div className="internal-card !p-5 sm:!p-8 lg:!p-10">
-                  <div className="prose-blog">
-                    <ReactMarkdown
-                      remarkPlugins={[remarkGfm]}
-                      rehypePlugins={[rehypeRaw]}
-                      components={mdComponents as object}
-                    >
-                      {post.content}
-                    </ReactMarkdown>
-                  </div>
+                  <MarkdownContent>{post.content}</MarkdownContent>
 
                   {/* FAQ Section */}
                   {post.faqs && post.faqs.length > 0 && (
