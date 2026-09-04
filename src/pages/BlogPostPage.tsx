@@ -10,7 +10,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import BlogSidebar from "@/components/BlogSidebar";
 import MarkdownContent from "@/components/MarkdownContent";
-import { getPostBySlug, BlogPost } from "@/lib/blog";
+import { getPostBySlug, BlogPost , formatPostDate} from "@/lib/blog";
 
 const BASE = "https://blesskimbi.com";
 
@@ -193,6 +193,7 @@ const BlogPostPage = () => {
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={absoluteOgImage} />
+        {/* Machine-readable ISO 8601, not the formatted display date. */}
         <meta property="article:published_time" content={post.date} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} | Bless Kimbi`} />
@@ -242,7 +243,7 @@ const BlogPostPage = () => {
                     </span>
                     <span className="flex items-center gap-1.5">
                       <Calendar size={14} />
-                      {post.date}
+                      {formatPostDate(post.date)}
                     </span>
                   </div>
 

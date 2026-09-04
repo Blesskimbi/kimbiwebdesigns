@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Calendar, ArrowRight } from "lucide-react";
-import { getRecentPosts, BlogPost } from "@/lib/blog";
+import { getRecentPosts, BlogPost , formatPostDate} from "@/lib/blog";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,7 +87,7 @@ const BlogPreviewSection = () => {
                 <div className="p-6 flex flex-col flex-1">
                   <span className="flex items-center gap-1.5 text-xs text-muted-foreground font-body mb-3">
                     <Calendar size={13} className="text-primary" />
-                    {featured.date}
+                    {formatPostDate(featured.date)}
                   </span>
                   <h3 className="font-display font-bold text-xl text-navy mb-3 leading-snug group-hover:text-primary transition-colors">
                     <Link to={`/blog/${featured.slug}`}>{featured.title}</Link>
@@ -123,7 +123,7 @@ const BlogPreviewSection = () => {
                     </h4>
                     <span className="flex items-center gap-1 text-[11px] text-muted-foreground font-body mt-auto">
                       <Calendar size={11} className="text-primary" />
-                      {post.date}
+                      {formatPostDate(post.date)}
                     </span>
                   </div>
                 </article>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getRecentPosts, getCategories, BlogPost } from "@/lib/blog";
+import { getRecentPosts, getCategories, BlogPost , formatPostDate} from "@/lib/blog";
 import { ArrowRight, Tag, BookOpen } from "lucide-react";
 
 const BlogSidebar = () => {
@@ -31,7 +31,7 @@ const BlogSidebar = () => {
                                 <h4 className="text-sm font-semibold text-navy group-hover:text-primary transition-colors line-clamp-2 mb-1 leading-snug font-body">
                                     {post.title}
                                 </h4>
-                                <span className="text-xs text-muted-foreground font-body">{post.date}</span>
+                                <span className="text-xs text-muted-foreground font-body">{formatPostDate(post.date)}</span>
                             </Link>
                         </div>
                     ))}

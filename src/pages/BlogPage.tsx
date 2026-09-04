@@ -7,7 +7,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import { Calendar, User, ArrowRight, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { getAllPosts, BlogPost } from "@/lib/blog";
+import { getAllPosts, BlogPost , formatPostDate} from "@/lib/blog";
 
 const BlogPage = () => {
     const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -144,7 +144,7 @@ const BlogPage = () => {
                                         <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4 font-medium font-body">
                                             <span className="flex items-center gap-1.5">
                                                 <Calendar size={14} className="text-primary" />
-                                                {post.date}
+                                                {formatPostDate(post.date)}
                                             </span>
                                             <span className="flex items-center gap-1.5">
                                                 <User size={14} className="text-primary" />

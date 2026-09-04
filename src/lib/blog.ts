@@ -115,3 +115,18 @@ export const getRecentPosts = async (limit = 5): Promise<BlogPost[]> =>
 
 export const getCategories = async (): Promise<string[]> =>
     Array.from(new Set((await getAllPosts()).map((p) => p.category)));
+
+/**
+ * Human-readable date for display.
+ *
+ * post.date is the raw ISO timestamp from published_at, which is what
+ * datePublished and article:published_time need — so it stays raw on the
+ * record and is formatted only where it is shown to a reader.
+ */
+export const formatPostDate = (iso: string): string => {
+    if (!iso) return "";
+    const d = new Date(iso);
+    return Number.isNaN(d.getTime())
+        ? iso
+        : d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+};
