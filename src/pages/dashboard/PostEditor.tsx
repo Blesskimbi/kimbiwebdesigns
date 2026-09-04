@@ -6,7 +6,7 @@ import {
 import MarkdownEditor from "@/components/dashboard/MarkdownEditor";
 import {
     PostRecord, PostDraft, emptyPost, slugify, slugTaken, readingTime,
-    createPost, updatePost, deletePost, uploadImage, triggerRebuild,
+    createPost, updatePost, deletePost, uploadImage, REBUILD_ESTIMATE,
 } from "@/lib/posts-admin";
 
 const BASE = "https://blesskimbi.com";
@@ -60,6 +60,7 @@ const PostEditor = ({ post, onClose }: Props) => {
     const [dirty, setDirty] = useState(false);
     const [tagInput, setTagInput] = useState("");
     const [uploadingCover, setUploadingCover] = useState(false);
+    const [notice, setNotice] = useState("");
 
     const originalSlug = useRef(post?.slug ?? "");
     const set = <K extends keyof PostDraft>(k: K, v: PostDraft[K]) => {
@@ -123,9 +124,13 @@ const PostEditor = ({ post, onClose }: Props) => {
             setDirty(false);
             originalSlug.current = saved.slug;
 
-            // Only a published post changes what crawlers see, so only that
-            // is worth a rebuild.
-            if (publish || saved.status === "published") void triggerRebuild();
+            if (publish) {
+                setNotice(
+                    `Published. Readers see it now; it becomes crawlable in ${REBUILD_ESTIMATE} once the site finishes rebuilding.`,
+                );
+                setTimeout(() => setNotice(""), 12_000);
+            }
+
             return true;
         } catch (err) {
             setError((err as Error).message);
@@ -139,7 +144,6 @@ const PostEditor = ({ post, onClose }: Props) => {
         if (!id) return onClose(false);
         if (!confirm(`Delete "${draft.title}"? This cannot be undone.`)) return;
         await deletePost(id);
-        if (draft.status === "published") void triggerRebuild();
         onClose(true);
     };
 
@@ -205,6 +209,12 @@ const PostEditor = ({ post, onClose }: Props) => {
             {error && (
                 <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3">
                     {error}
+                </p>
+            )}
+
+            {notice && (
+                <p className="text-green-300 text-sm bg-green-500/10 border border-green-500/20 rounded-lg px-4 py-3">
+                    {notice}
                 </p>
             )}
 

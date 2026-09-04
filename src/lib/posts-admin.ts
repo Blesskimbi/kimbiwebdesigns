@@ -141,27 +141,16 @@ export async function duplicatePost(post: PostRecord): Promise<PostRecord> {
 /* ── Publishing ─────────────────────────────────────────────────────────── */
 
 /**
- * Asks Vercel to rebuild, so the new post gets its own static HTML with the
- * right canonical and lands in the sitemap. Without this the post is live to
- * visitors but, to a crawler, still carries the homepage's metadata.
+ * Rebuilds are triggered by a database trigger, not from here.
  *
- * Fire-and-forget: a failed hook must not lose the author's work, and the
- * post is already saved by the time this runs.
+ * Calling the Vercel deploy hook from the browser meant shipping its URL in
+ * the bundle, where anyone could read it and spam builds. The trigger in
+ * supabase/migrations/deploy_hook_webhook.sql fires on any change to a
+ * published post, so it also covers edits made directly in Supabase.
+ *
+ * Roughly how long that rebuild takes, for messaging in the UI.
  */
-export async function triggerRebuild(): Promise<boolean> {
-    const hook = import.meta.env.VITE_DEPLOY_HOOK_URL as string | undefined;
-    if (!hook) {
-        console.warn("[posts] VITE_DEPLOY_HOOK_URL not set — skipping rebuild");
-        return false;
-    }
-    try {
-        await fetch(hook, { method: "POST", mode: "no-cors" });
-        return true;
-    } catch (err) {
-        console.error("[posts] Deploy hook failed:", err);
-        return false;
-    }
-}
+export const REBUILD_ESTIMATE = "about 2 minutes";
 
 /* ── Media ──────────────────────────────────────────────────────────────── */
 
