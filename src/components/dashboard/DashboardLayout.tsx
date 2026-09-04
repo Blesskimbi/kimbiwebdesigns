@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Eye, EyeOff, Lock, LogOut } from "lucide-react";
+import { Eye, EyeOff, Lock, LogOut, FileText, FolderKanban } from "lucide-react";
 import type { Session } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
 import DashboardProjects from "@/pages/dashboard/DashboardProjects";
+import DashboardPosts from "@/pages/dashboard/DashboardPosts";
 
 /**
  * Auth is handled by Supabase, not by this bundle.
@@ -128,6 +129,12 @@ const LoginPage = ({ onSuccess }: { onSuccess: () => void }) => {
 const DashboardLayout = () => {
     // undefined = still restoring the session, null = signed out
     const [session, setSession] = useState<Session | null | undefined>(undefined);
+    // Remembered so a refresh does not bounce you back to Posts mid-task.
+    const [tab, setTab] = useState<"posts" | "projects">(
+        () => (localStorage.getItem("bk_tab") as "posts" | "projects") || "posts",
+    );
+
+    useEffect(() => { localStorage.setItem("bk_tab", tab); }, [tab]);
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data }) => setSession(data.session));
@@ -172,8 +179,28 @@ const DashboardLayout = () => {
                     </button>
                 </div>
             </header>
+
+            <nav className="sticky top-[57px] z-20 bg-[#0A0C10] border-b border-white/5 px-6 flex gap-1">
+                {([
+                    ["posts", "Posts", FileText],
+                    ["projects", "Projects", FolderKanban],
+                ] as const).map(([key, label, Icon]) => (
+                    <button
+                        key={key}
+                        onClick={() => setTab(key)}
+                        className={`flex items-center gap-2 px-4 py-3 text-sm border-b-2 -mb-px transition-colors ${
+                            tab === key
+                                ? "border-primary text-white"
+                                : "border-transparent text-gray-500 hover:text-gray-300"
+                        }`}
+                    >
+                        <Icon size={15} /> {label}
+                    </button>
+                ))}
+            </nav>
+
             <main className="p-6 lg:p-10">
-                <DashboardProjects />
+                {tab === "posts" ? <DashboardPosts /> : <DashboardProjects />}
             </main>
         </div>
     );
