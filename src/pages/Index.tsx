@@ -21,7 +21,7 @@ const Index = () => {
     "telephone": "+237675126845",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Molyko",
+      "streetAddress": "Buea",
       "addressLocality": "Buea",
       "addressRegion": "South West",
       "addressCountry": "CM"
@@ -31,7 +31,7 @@ const Index = () => {
       "latitude": 4.155,
       "longitude": 9.241
     },
-    "areaServed": ["Cameroon", "Africa", "Worldwide"],
+    "areaServed": ["Cameroon", "Africa", "Europe", "Worldwide"],
     "serviceType": ["Web Design", "Web Development", "SEO", "Mobile App Development"]
   };
 

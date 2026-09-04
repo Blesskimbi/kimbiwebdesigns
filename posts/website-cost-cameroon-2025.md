@@ -24,7 +24,7 @@ faqs:
 
 If you've been searching "how much does a website cost in Cameroon" or asking around for a quote from a **web designer in Cameroon**, you've probably gotten wildly different answers. Some freelancers quote 50,000 FCFA. Agencies quote 5,000,000 FCFA. Who's right? What do you actually need?
 
-In this guide, I — **Bless Kimbi**, a professional web designer and developer based in **Molyko, Buea, Cameroon** — break down exactly what drives website costs in 2026, what you get at each price point, and how to avoid paying too much (or too little) for your next site.
+In this guide, I — **Bless Kimbi**, a professional web designer and developer based in **Buea, Cameroon** — break down exactly what drives website costs in 2026, what you get at each price point, and how to avoid paying too much (or too little) for your next site.
 
 ## Why Website Prices Vary So Much in Cameroon
 

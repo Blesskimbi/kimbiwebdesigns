@@ -35,7 +35,7 @@ const ServicesPage = () => (
                     "name": "Bless Kimbi",
                     "url": "https://blesskimbi.com"
                 },
-                "areaServed": ["Cameroon", "Africa", "Worldwide"],
+                "areaServed": ["Cameroon", "Africa", "Europe", "Worldwide"],
                 "hasOfferCatalog": {
                     "@type": "OfferCatalog",
                     "name": "Web Design Services",

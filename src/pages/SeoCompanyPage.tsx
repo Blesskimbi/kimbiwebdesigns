@@ -129,7 +129,7 @@ const SeoCompanyPage = () => (
           "name": "Bless Kimbi",
           "url": "https://blesskimbi.com"
         },
-        "areaServed": ["Cameroon", "Yaoundé", "Douala", "Buea", "Africa"],
+        "areaServed": ["Cameroon", "Yaoundé", "Douala", "Buea", "Africa", "Europe"],
         "url": "https://blesskimbi.com/seo-company-in-cameroon/",
         "description": "Professional SEO services for businesses in Cameroon and across Africa. Keyword research, on-page SEO, local SEO, and technical audits."
       })}</script>

@@ -125,7 +125,7 @@ const EcommerceWebsiteDesignPage = () => (
           "name": "Bless Kimbi",
           "url": "https://blesskimbi.com"
         },
-        "areaServed": ["Cameroon", "Yaoundé", "Douala", "Buea", "Africa"],
+        "areaServed": ["Cameroon", "Yaoundé", "Douala", "Buea", "Africa", "Europe"],
         "url": "https://blesskimbi.com/ecommerce-website-design-in-cameroon/",
         "description": "Custom e-commerce website design for businesses in Cameroon. Mobile Money integration, SEO, and mobile-first development."
       })}</script>
