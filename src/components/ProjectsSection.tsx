@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { staticProjects } from "@/data/projects";
+import OptimisedImage from "@/components/OptimisedImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,7 +24,7 @@ const FeaturedCard = ({
     className={`marsha-card overflow-hidden group flex flex-col hover:no-underline ${className}`}
   >
     <div className={`relative overflow-hidden ${imageClassName}`}>
-      <img
+      <OptimisedImage
         src={project.imageUrl}
         alt={project.title}
         className="w-full h-full object-cover object-top pan-on-hover group-hover:scale-105 transition-transform duration-500"

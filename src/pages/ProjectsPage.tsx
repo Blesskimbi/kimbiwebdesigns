@@ -8,6 +8,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import { ExternalLink } from "lucide-react";
 import { supabase, SupabaseProject } from "@/lib/supabase";
+import OptimisedImage from "@/components/OptimisedImage";
 
 const ProjectsPage = () => {
     const [projects, setProjects] = useState<SupabaseProject[]>([]);
@@ -129,7 +130,7 @@ const ProjectsPage = () => {
                                     {/* Image with pan animation */}
                                     <div className="h-56 relative overflow-hidden shrink-0">
                                         {project.cover_image ? (
-                                            <img
+                                            <OptimisedImage
                                                 src={project.cover_image}
                                             alt={`${project.title} web design project by Bless Kimbi`}
                                                 className="w-full h-full object-cover object-top pan-on-hover"

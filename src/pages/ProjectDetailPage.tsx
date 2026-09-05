@@ -11,6 +11,7 @@ import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import { supabase, SupabaseProject } from "@/lib/supabase";
+import OptimisedImage from "@/components/OptimisedImage";
 
 const WHATSAPP = "https://wa.me/237675126845?text=Hi%20Bless%2C%20I%20saw%20your%20project%20and%20would%20like%20to%20discuss%20a%20similar%20one.";
 
@@ -369,7 +370,7 @@ const ProjectDetailPage = () => {
                                     >
                                         <div className="h-40 overflow-hidden">
                                             {rel.cover_image ? (
-                                                <img
+                                                <OptimisedImage
                                                     src={rel.cover_image}
                                                     alt={rel.title}
                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

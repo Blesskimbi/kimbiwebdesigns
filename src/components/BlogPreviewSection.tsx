@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Calendar, ArrowRight } from "lucide-react";
 import { getRecentPosts, BlogPost , formatPostDate} from "@/lib/blog";
+import OptimisedImage from "@/components/OptimisedImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,7 +75,7 @@ const BlogPreviewSection = () => {
             {featured && (
               <article className="marsha-card overflow-hidden flex flex-col group h-full">
                 <div className="h-56 md:h-72 overflow-hidden relative">
-                  <img
+                  <OptimisedImage
                     src={featured.imageUrl}
                     alt={featured.title}
                     className="w-full h-full object-cover pan-on-hover group-hover:scale-105 transition-transform duration-500"
@@ -110,7 +111,7 @@ const BlogPreviewSection = () => {
               {rest.map((post) => (
                 <article key={post.id} className="marsha-card overflow-hidden flex flex-col group">
                   <div className="h-28 md:h-32 overflow-hidden relative">
-                    <img
+                    <OptimisedImage
                       src={post.imageUrl}
                       alt={post.title}
                       className="w-full h-full object-cover pan-on-hover group-hover:scale-105 transition-transform duration-500"

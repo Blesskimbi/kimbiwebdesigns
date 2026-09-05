@@ -8,6 +8,7 @@ import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import { Calendar, User, ArrowRight, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { getAllPosts, BlogPost , formatPostDate} from "@/lib/blog";
+import OptimisedImage from "@/components/OptimisedImage";
 
 const BlogPage = () => {
     const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -126,7 +127,7 @@ const BlogPage = () => {
                                 >
                                     {/* Image Area */}
                                     <div className="relative h-64 overflow-hidden">
-                                        <img
+                                        <OptimisedImage
                                             src={post.imageUrl}
                                             alt={post.title}
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

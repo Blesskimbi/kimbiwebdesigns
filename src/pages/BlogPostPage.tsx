@@ -11,6 +11,7 @@ import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import BlogSidebar from "@/components/BlogSidebar";
 import MarkdownContent from "@/components/MarkdownContent";
 import { getPostBySlug, BlogPost , formatPostDate} from "@/lib/blog";
+import OptimisedImage from "@/components/OptimisedImage";
 
 const BASE = "https://blesskimbi.com";
 
@@ -226,7 +227,7 @@ const BlogPostPage = () => {
                 </header>
 
                 <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-6 md:mb-10 shadow-pro border border-border">
-                  <img
+                  <OptimisedImage
                     src={post.imageUrl}
                     alt={post.title}
                     className="w-full h-full object-cover"

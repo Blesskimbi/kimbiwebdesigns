@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ExternalLink, Quote, TrendingUp, Wrench, AlertCircle, CheckCircle2 } from "lucide-react";
 import { caseStudyProjects } from "@/data/projects";
+import OptimisedImage from "@/components/OptimisedImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -134,7 +135,7 @@ const CaseStudiesSection = () => {
 
             <div className="flex flex-col gap-6">
               <div className="relative rounded-2xl overflow-hidden border border-border aspect-[4/3] shadow-pro">
-                <img
+                <OptimisedImage
                   src={active.imageUrl}
                   alt={`${active.title}, web design by Bless Kimbi`}
                   className="w-full h-full object-cover object-top"
