@@ -136,7 +136,7 @@ const CaseStudiesSection = () => {
               <div className="relative rounded-2xl overflow-hidden border border-border aspect-[4/3] shadow-pro">
                 <img
                   src={active.imageUrl}
-                  alt={`${active.title} — web design by Bless Kimbi`}
+                  alt={`${active.title}, web design by Bless Kimbi`}
                   className="w-full h-full object-cover object-top"
                   loading="lazy"
                 />

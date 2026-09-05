@@ -97,7 +97,7 @@ export const STATIC_SCHEMAS = {
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      name: "Web Design Portfolio — Bless Kimbi",
+      name: "Web Design Portfolio by Bless Kimbi",
       description:
         "Portfolio of web design and development projects by Bless Kimbi for businesses across Cameroon and Africa.",
       url: `${BASE}/projects/`,
@@ -126,7 +126,7 @@ export const STATIC_SCHEMAS = {
       name: "About Bless Kimbi",
       url: `${BASE}/about/`,
       description:
-        "The process, skills and experience behind Bless Kimbi — web designer and developer based in Buea, Cameroon.",
+        "The process, skills and experience behind Bless Kimbi, web designer and developer based in Buea, Cameroon.",
       inLanguage: "en",
       mainEntity: {
         ...provider,
@@ -203,7 +203,7 @@ export const STATIC_SCHEMAS = {
       name: "Social Media Management Services",
       path: "/social-media-management/",
       description:
-        "Professional social media management — content strategy, post design, scheduling, community management, analytics, and paid campaigns.",
+        "Professional social media management: content strategy, post design, scheduling, community management, analytics, and paid campaigns.",
     }),
   ],
 
@@ -225,7 +225,7 @@ export const STATIC_SCHEMAS = {
       name: "UI/UX Design Services",
       path: "/ui-ux-design/",
       description:
-        "Professional UI/UX design services — user research, wireframing, visual UI design, design systems, and Figma developer handoff.",
+        "Professional UI/UX design services: user research, wireframing, visual UI design, design systems, and Figma developer handoff.",
     }),
   ],
 };

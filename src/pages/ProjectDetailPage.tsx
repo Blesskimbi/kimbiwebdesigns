@@ -189,8 +189,8 @@ const ProjectDetailPage = () => {
                         <div className="flex gap-3 mb-12 overflow-x-auto pb-2">
                             {allImages.map((img, i) => {
                                 const label = i === 0
-                                    ? `${project.title} — cover image`
-                                    : `${project.title} — screenshot ${i + 1}`;
+                                    ? `${project.title} cover image`
+                                    : `${project.title} screenshot ${i + 1}`;
                                 return (
                                     <button
                                         key={i}

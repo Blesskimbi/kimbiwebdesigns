@@ -23,7 +23,7 @@ const benefits = [
   {
     icon: MessageCircle,
     title: "Direct Q&A",
-    desc: "Ask questions and get real answers — no gatekeeping, no judgment.",
+    desc: "Ask questions and get real answers. No gatekeeping, no judgment.",
   },
   {
     icon: Lightbulb,
@@ -90,7 +90,7 @@ const CommunityPage = () => (
           <p className="text-muted-foreground font-body text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
             A free WhatsApp community for beginners, aspiring developers, and
             professionals who want to learn web and mobile development,
-            collaborate on projects, and grow together — no matter where you
+            collaborate on projects, and grow together, no matter where you
             are in the world.
           </p>
           <a
@@ -114,7 +114,7 @@ const CommunityPage = () => (
             </h2>
             <p className="text-muted-foreground font-body text-base leading-relaxed mb-6">
               This community is for anyone who wants to get into software
-              development — web, mobile, or both — but doesn't know where to
+              development (web, mobile, or both) but doesn't know where to
               start, or has started but feels stuck. It's also for experienced
               developers who want to collaborate, share knowledge, and connect
               with like-minded builders. If you want a space to actually build
@@ -170,12 +170,12 @@ const CommunityPage = () => (
         <section className="max-w-4xl mx-auto px-6 mb-20">
           <div className="bg-gradient-to-br from-primary/10 to-blue-900/10 border border-primary/15 rounded-2xl p-5 sm:p-8 md:p-10">
             <h2 className="font-display font-bold text-2xl md:text-3xl text-navy mb-6">
-              Your mentor — Bless Kimbi
+              Your mentor: Bless Kimbi
             </h2>
             <div className="flex flex-col sm:flex-row gap-6 items-start">
               <img
                 src="/blesskimbi.png"
-                alt="Bless Kimbi — web designer, developer, and mentor based in Buea, Cameroon"
+                alt="Bless Kimbi, web designer, developer, and mentor based in Buea, Cameroon"
                 className="w-24 h-24 rounded-2xl object-cover shrink-0 border border-border"
               />
               <div>
@@ -183,7 +183,7 @@ const CommunityPage = () => (
                   I'm <strong className="text-navy">Bless Kimbi</strong>, a
                   professional software developer based in{" "}
                   <strong className="text-navy">Buea, Cameroon</strong>. I've
-                  delivered 50+ projects — websites, web apps, and mobile apps —
+                  delivered 50+ projects, including websites, web apps, and mobile apps,
                   for businesses across Cameroon, South Africa, and internationally.
                 </p>
                 <p className="text-muted-foreground font-body leading-relaxed mb-4">

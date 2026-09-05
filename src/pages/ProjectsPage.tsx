@@ -40,7 +40,7 @@ const ProjectsPage = () => {
     return (
         <LenisSmoothScroll>
             <Helmet>
-                <title>Web Design Portfolio | Bless Kimbi — Cameroon & Africa</title>
+                <title>Web Design Portfolio | Bless Kimbi, Cameroon & Africa</title>
                 <meta name="description" content="Browse Bless Kimbi's portfolio of web design and development projects. Real websites built for clients in Cameroon, South Africa, Nigeria and across Africa." />
                 <meta name="robots" content="index, follow" />
                 <link rel="canonical" href="https://blesskimbi.com/projects/" />

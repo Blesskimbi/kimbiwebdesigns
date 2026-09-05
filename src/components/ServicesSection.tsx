@@ -19,7 +19,7 @@ const services = [
     title: "SEO Optimization: Rank #1 on Google",
     short: "SEO Strategy",
     description:
-      "Get your business found on Google. I implement on-page SEO, technical SEO, and content strategies that drive real organic traffic — wherever your customers are searching.",
+      "Get your business found on Google. I implement on-page SEO, technical SEO, and content strategies that drive real organic traffic, wherever your customers are searching.",
     href: "/seo-company-in-cameroon/",
   },
   {
@@ -35,7 +35,7 @@ const services = [
     title: "Mobile App Development",
     short: "Mobile Apps",
     description:
-      "Cross-platform mobile apps built with React Native. Smooth, native-feeling experiences for both iOS and Android — for startups and established businesses alike.",
+      "Cross-platform mobile apps built with React Native. Smooth, native-feeling experiences for both iOS and Android, for startups and established businesses alike.",
     href: "/mobile-app-development/",
   },
   {
@@ -43,7 +43,7 @@ const services = [
     title: "UI/UX Design",
     short: "UI/UX Design",
     description:
-      "User-centred interfaces that look stunning and work intuitively. Wireframes, prototypes, and pixel-perfect designs delivered in Figma — for startups and growing businesses.",
+      "User-centred interfaces that look stunning and work intuitively. Wireframes, prototypes, and pixel-perfect designs delivered in Figma, for startups and growing businesses.",
     href: "/ui-ux-design/",
   },
   {
@@ -99,7 +99,7 @@ const ServicesSection = () => {
             <span className="text-gold">and Integrated Strategies</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg font-body max-w-2xl mx-auto">
-            From web design and SEO to e-commerce and mobile apps — every service is
+            From web design and SEO to e-commerce and mobile apps, every service is
             built to help your business grow online, wherever you are.
           </p>
         </div>

@@ -45,7 +45,7 @@ const BlogPage = () => {
     return (
         <LenisSmoothScroll>
             <Helmet>
-                <title>Web Design &amp; SEO Blog | Bless Kimbi — Cameroon</title>
+                <title>Web Design &amp; SEO Blog | Bless Kimbi, Cameroon</title>
                 <meta name="description" content="Practical tips, guides and insights on web design, SEO, and digital marketing for businesses in Cameroon and Africa. Written by Bless Kimbi, web designer based in Buea." />
                 <link rel="canonical" href="https://blesskimbi.com/blog/" />
                 {categoryFilter ? (

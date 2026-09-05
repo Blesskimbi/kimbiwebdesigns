@@ -11,12 +11,12 @@ const services = [
   {
     icon: Search,
     title: "Keyword Research & Strategy",
-    desc: "We identify the exact keywords your target customers search for in Cameroon and across Africa — then build your entire SEO strategy around them.",
+    desc: "We identify the exact keywords your target customers search for in Cameroon and across Africa, then build your entire SEO strategy around them.",
   },
   {
     icon: FileText,
     title: "On-Page SEO Optimisation",
-    desc: "Title tags, meta descriptions, heading structure, internal linking, image alt text — every page on your site is fully optimised to rank.",
+    desc: "Title tags, meta descriptions, heading structure, internal linking, image alt text. Every page on your site is fully optimised to rank.",
   },
   {
     icon: Link2,
@@ -31,7 +31,7 @@ const services = [
   {
     icon: BarChart2,
     title: "Technical SEO Audits",
-    desc: "Site speed, Core Web Vitals, mobile-friendliness, crawlability — we fix the technical issues that stop Google from ranking your site.",
+    desc: "Site speed, Core Web Vitals, mobile-friendliness, crawlability. We fix the technical issues that stop Google from ranking your site.",
   },
   {
     icon: Star,
@@ -43,7 +43,7 @@ const services = [
 const reasons = [
   {
     title: "We build the websites too",
-    desc: "Unlike agencies that only do SEO, we also design and develop websites. This means your SEO and site performance are handled together — no miscommunication between teams.",
+    desc: "Unlike agencies that only do SEO, we also design and develop websites. This means your SEO and site performance are handled together, with no miscommunication between teams.",
   },
   {
     title: "Real results in Cameroon",
@@ -59,7 +59,7 @@ const reasons = [
   },
   {
     title: "Google-approved techniques only",
-    desc: "We use only white-hat, Google-compliant SEO methods. No risky shortcuts that could get your site penalised — just sustainable growth.",
+    desc: "We use only white-hat, Google-compliant SEO methods. No risky shortcuts that could get your site penalised, just sustainable growth.",
   },
 ];
 
@@ -71,12 +71,12 @@ const SeoCompanyPage = () => (
       <title>Best SEO Company in Cameroon | Bless Kimbi</title>
       <meta
         name="description"
-        content="Looking for the best SEO company in Cameroon? Bless Kimbi offers expert SEO services in Yaoundé, Douala & Buea — helping businesses rank on Google and grow online."
+        content="Looking for the best SEO company in Cameroon? Bless Kimbi offers expert SEO services in Yaoundé, Douala & Buea, helping businesses rank on Google and grow online."
       />
       <link rel="canonical" href="https://blesskimbi.com/seo-company-in-cameroon/" />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="Best SEO Company in Cameroon | Bless Kimbi" />
-      <meta property="og:description" content="Expert SEO services in Cameroon — keyword research, on-page SEO, local SEO, link building and technical audits. Get found on Google." />
+      <meta property="og:description" content="Expert SEO services in Cameroon: keyword research, on-page SEO, local SEO, link building and technical audits. Get found on Google." />
       <meta property="og:url" content="https://blesskimbi.com/seo-company-in-cameroon/" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
@@ -84,7 +84,7 @@ const SeoCompanyPage = () => (
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Best SEO Company in Cameroon | Bless Kimbi" />
-      <meta name="twitter:description" content="Expert SEO services in Cameroon — keyword research, on-page SEO, local SEO, link building and technical audits." />
+      <meta name="twitter:description" content="Expert SEO services in Cameroon: keyword research, on-page SEO, local SEO, link building and technical audits." />
       <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
     </Helmet>
 
@@ -95,7 +95,7 @@ const SeoCompanyPage = () => (
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
         <section className="max-w-4xl mx-auto px-6 text-center mb-20">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-widest mb-6">
-            SEO Services — Cameroon
+            SEO Services in Cameroon
           </span>
           <h1 className="heading-serif text-3xl sm:text-5xl md:text-6xl mb-5">
             Best <span className="text-gradient-primary">SEO Company</span>{" "}
@@ -104,7 +104,7 @@ const SeoCompanyPage = () => (
           <p className="text-muted-foreground font-body text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
             We help businesses in Yaoundé, Douala, Buea, and across Africa rank
             higher on Google, attract more organic traffic, and convert visitors
-            into paying clients — without relying on paid ads.
+            into paying clients, without relying on paid ads.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -133,7 +133,7 @@ const SeoCompanyPage = () => (
               Our SEO Services
             </h2>
             <p className="text-muted-foreground font-body max-w-xl mx-auto text-base leading-relaxed">
-              A complete SEO service tailored for businesses in Cameroon and Africa — from
+              A complete SEO service tailored for businesses in Cameroon and Africa, from
               initial audit to ongoing monthly growth.
             </p>
           </div>
@@ -197,7 +197,7 @@ const SeoCompanyPage = () => (
             </p>
             <p className="text-muted-foreground font-body leading-relaxed mb-6">
               We stay updated on how Google ranks content in the African market. Other
-              respected voices in the African web industry — such as{" "}
+              respected voices in the African web industry, such as{" "}
               <a
                 href="https://www.websitedesigner.ng/"
                 target="_blank"
@@ -214,8 +214,8 @@ const SeoCompanyPage = () => (
                 className="text-primary hover:underline"
               >
                 Cyprogram
-              </a>{" "}
-              — highlight the importance of mobile-first design and local SEO
+              </a>{", "}
+              highlight the importance of mobile-first design and local SEO
               signals for businesses operating across the continent.
             </p>
             <p className="text-muted-foreground font-body leading-relaxed">
@@ -227,7 +227,7 @@ const SeoCompanyPage = () => (
               <a href="/ecommerce-website-design-in-cameroon/" className="text-primary hover:underline">
                 e-commerce development
               </a>{" "}
-              — because a fast, well-structured website is the foundation every
+              because a fast, well-structured website is the foundation every
               SEO strategy is built on.
             </p>
           </div>

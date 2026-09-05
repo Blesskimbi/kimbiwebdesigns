@@ -11,12 +11,12 @@ import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 const ServicesPage = () => (
     <LenisSmoothScroll>
         <Helmet>
-            <title>Web Design &amp; Development Services | Bless Kimbi — Cameroon</title>
-            <meta name="description" content="Professional web design, SEO, social media management &amp; mobile app development. Based in Buea — helping businesses across Cameroon and Africa grow online." />
+            <title>Web Design &amp; Development Services | Bless Kimbi, Cameroon</title>
+            <meta name="description" content="Professional web design, SEO, social media management &amp; mobile app development. Based in Buea, helping businesses across Cameroon and Africa grow online." />
             <meta name="robots" content="index, follow" />
             <link rel="canonical" href="https://blesskimbi.com/services/" />
             <meta property="og:title" content="Web Design &amp; Development Services | Bless Kimbi" />
-            <meta property="og:description" content="Professional web design, SEO, social media management &amp; mobile app development. Based in Buea — helping businesses across Cameroon and Africa grow online." />
+            <meta property="og:description" content="Professional web design, SEO, social media management &amp; mobile app development. Based in Buea, helping businesses across Cameroon and Africa grow online." />
             <meta property="og:url" content="https://blesskimbi.com/services/" />
             <meta property="og:type" content="website" />
             <meta property="og:image" content="https://blesskimbi.com/og-image.png" />

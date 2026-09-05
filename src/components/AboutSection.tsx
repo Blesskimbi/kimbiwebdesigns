@@ -58,7 +58,7 @@ const AboutSection = ({ isPage = false }: AboutSectionProps) => {
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed font-body">
               From small startups to established companies needing e-commerce or web apps,
-              I handle the full stack: design, development, SEO, and launch — 50+ projects delivered
+              I handle the full stack: design, development, SEO, and launch, with 50+ projects delivered
               across Africa and internationally. Every site is mobile-first and built to perform.
             </p>
           </div>

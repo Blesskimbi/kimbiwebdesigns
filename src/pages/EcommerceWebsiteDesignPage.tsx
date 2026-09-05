@@ -11,7 +11,7 @@ const services = [
   {
     icon: ShoppingCart,
     title: "Custom E-commerce Design",
-    desc: "Fully custom storefronts built to match your brand — not generic templates. Every element is designed to guide visitors toward buying.",
+    desc: "Fully custom storefronts built to match your brand, not generic templates. Every element is designed to guide visitors toward buying.",
   },
   {
     icon: CreditCard,
@@ -21,12 +21,12 @@ const services = [
   {
     icon: Smartphone,
     title: "Mobile-First Shopping Experience",
-    desc: "Over 80% of shoppers in Cameroon browse on mobile. Your store is built mobile-first — fast, thumb-friendly, and optimised for small screens.",
+    desc: "Over 80% of shoppers in Cameroon browse on mobile. Your store is built mobile-first: fast, thumb-friendly, and optimised for small screens.",
   },
   {
     icon: Zap,
     title: "Performance Optimisation",
-    desc: "Slow stores lose customers. We optimise every page for speed — fast load times mean more sales and better Google rankings.",
+    desc: "Slow stores lose customers. We optimise every page for speed. Fast load times mean more sales and better Google rankings.",
   },
   {
     icon: BarChart2,
@@ -43,7 +43,7 @@ const services = [
 const reasons = [
   {
     title: "We handle design, development, and SEO",
-    desc: "Most agencies hand you a store and leave. We deliver a complete package — design, development, product setup, and SEO — so you launch with everything ready.",
+    desc: "Most agencies hand you a store and leave. We deliver a complete package (design, development, product setup, and SEO) so you launch with everything ready.",
   },
   {
     title: "Real e-commerce experience",
@@ -55,7 +55,7 @@ const reasons = [
   },
   {
     title: "No lock-in, you own everything",
-    desc: "Your store, your code, your data. We don't lock you into proprietary systems — you own everything and can move or expand freely.",
+    desc: "Your store, your code, your data. We don't lock you into proprietary systems. You own everything and can move or expand freely.",
   },
 ];
 
@@ -72,7 +72,7 @@ const EcommerceWebsiteDesignPage = () => (
       <link rel="canonical" href="https://blesskimbi.com/ecommerce-website-design-in-cameroon/" />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="E-commerce Website Design in Cameroon | Bless Kimbi" />
-      <meta property="og:description" content="Custom e-commerce websites for businesses in Cameroon — Mobile Money, PayPal, Stripe integration, mobile-first design and built-in SEO." />
+      <meta property="og:description" content="Custom e-commerce websites for businesses in Cameroon, with Mobile Money, PayPal, Stripe integration, mobile-first design and built-in SEO." />
       <meta property="og:url" content="https://blesskimbi.com/ecommerce-website-design-in-cameroon/" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
@@ -80,7 +80,7 @@ const EcommerceWebsiteDesignPage = () => (
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="E-commerce Website Design in Cameroon | Bless Kimbi" />
-      <meta name="twitter:description" content="Custom e-commerce websites for businesses in Cameroon — Mobile Money integration, mobile-first design and built-in SEO." />
+      <meta name="twitter:description" content="Custom e-commerce websites for businesses in Cameroon, with Mobile Money integration, mobile-first design and built-in SEO." />
       <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
     </Helmet>
 
@@ -91,7 +91,7 @@ const EcommerceWebsiteDesignPage = () => (
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
         <section className="max-w-4xl mx-auto px-6 text-center mb-20">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-widest mb-6">
-            E-commerce — Cameroon
+            E-commerce in Cameroon
           </span>
           <h1 className="heading-serif text-3xl sm:text-5xl md:text-6xl mb-5">
             E-commerce Website Design{" "}
@@ -99,7 +99,7 @@ const EcommerceWebsiteDesignPage = () => (
           </h1>
           <p className="text-muted-foreground font-body text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
             We build fast, beautiful online stores for businesses in Yaoundé, Douala, Buea,
-            and across Africa — with Mobile Money, PayPal, and Stripe integration built in
+            and across Africa, with Mobile Money, PayPal, and Stripe integration built in
             from day one.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -129,7 +129,7 @@ const EcommerceWebsiteDesignPage = () => (
               Our E-commerce Services
             </h2>
             <p className="text-muted-foreground font-body max-w-xl mx-auto text-base leading-relaxed">
-              Everything you need to launch and grow a profitable online store in Cameroon —
+              Everything you need to launch and grow a profitable online store in Cameroon,
               from design and development to payments and SEO.
             </p>
           </div>
@@ -192,7 +192,7 @@ const EcommerceWebsiteDesignPage = () => (
               will have a significant head start.
             </p>
             <p className="text-muted-foreground font-body leading-relaxed mb-6">
-              Leading web professionals across the continent — including{" "}
+              Leading web professionals across the continent, including{" "}
               <a
                 href="https://www.websitedesigner.ng/"
                 target="_blank"
@@ -209,8 +209,8 @@ const EcommerceWebsiteDesignPage = () => (
                 className="text-primary hover:underline"
               >
                 Cyprogram
-              </a>{" "}
-              — consistently emphasise that mobile-first, fast-loading stores are non-negotiable
+              </a>{", "}
+              consistently emphasise that mobile-first, fast-loading stores are non-negotiable
               for capturing the African market.
             </p>
             <p className="text-muted-foreground font-body leading-relaxed">
@@ -223,7 +223,7 @@ const EcommerceWebsiteDesignPage = () => (
               <a href="/services/" className="text-primary hover:underline">
                 full web design services
               </a>{" "}
-              — so your store ranks, loads fast, and converts visitors into customers.
+              so your store ranks, loads fast, and converts visitors into customers.
             </p>
           </div>
         </section>

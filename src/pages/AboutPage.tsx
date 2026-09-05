@@ -16,14 +16,14 @@ const AboutPage = () => (
       <title>About Bless Kimbi | Web Designer & Developer in Cameroon</title>
       <meta
         name="description"
-        content="Learn about Bless Kimbi — web designer and developer based in Cameroon. My process, skills, experience, and the free dev mentorship community I run."
+        content="Learn about Bless Kimbi, web designer and developer based in Cameroon. My process, skills, experience, and the free dev mentorship community I run."
       />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://blesskimbi.com/about/" />
       <meta property="og:title" content="About Bless Kimbi | Web Designer & Developer in Cameroon" />
       <meta
         property="og:description"
-        content="Learn about Bless Kimbi — web designer and developer based in Cameroon. My process, skills, experience, and the free dev mentorship community I run."
+        content="Learn about Bless Kimbi, web designer and developer based in Cameroon. My process, skills, experience, and the free dev mentorship community I run."
       />
       <meta property="og:url" content="https://blesskimbi.com/about/" />
       <meta property="og:type" content="website" />
@@ -32,7 +32,7 @@ const AboutPage = () => (
       <meta name="twitter:title" content="About Bless Kimbi | Web Designer & Developer in Cameroon" />
       <meta
         name="twitter:description"
-        content="Learn about Bless Kimbi — web designer and developer based in Cameroon. My process, skills, experience, and the free dev mentorship community I run."
+        content="Learn about Bless Kimbi, web designer and developer based in Cameroon. My process, skills, experience, and the free dev mentorship community I run."
       />
       <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
     </Helmet>

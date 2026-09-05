@@ -6,10 +6,10 @@ import { Search, Palette, Code2, Rocket } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
-  { num: "01", title: "Discover", description: "Deep dive into your vision, goals, and audience. I research, ask questions, and map the full picture before a single line of code.", icon: Search },
+  { num: "01", title: "Discover", description: "I get to know your vision, goals, and audience. I research, ask questions, and map the full picture before a single line of code.", icon: Search },
   { num: "02", title: "Design", description: "Crafting wireframes and high-fidelity mockups that balance aesthetics with function. Every pixel has purpose.", icon: Palette },
   { num: "03", title: "Develop", description: "Building with modern tools, clean architecture, and performance-first thinking. Animations and interactions are baked in from day one.", icon: Code2 },
-  { num: "04", title: "Deliver", description: "Rigorous testing, optimization, and seamless deployment. The result: a polished experience that exceeds expectations.", icon: Rocket },
+  { num: "04", title: "Deliver", description: "Rigorous testing, optimization, and a clean deployment. You get a polished site that works properly from day one.", icon: Rocket },
 ];
 
 const ProcessSection = () => {

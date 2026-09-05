@@ -17,7 +17,7 @@ const services = [
   {
     icon: PenTool,
     title: "Content Strategy & Planning",
-    desc: "We build a clear content calendar aligned with your brand goals — deciding what to post, when to post, and why each piece matters for your audience.",
+    desc: "We build a clear content calendar aligned with your brand goals, deciding what to post, when to post, and why each piece matters for your audience.",
   },
   {
     icon: Share2,
@@ -27,7 +27,7 @@ const services = [
   {
     icon: Calendar,
     title: "Scheduling & Publishing",
-    desc: "We handle the posting — at the right time, on the right platform, every week. No more missed days or inconsistent schedules holding back your growth.",
+    desc: "We handle the posting, at the right time, on the right platform, every week. No more missed days or inconsistent schedules holding back your growth.",
   },
   {
     icon: Users,
@@ -61,7 +61,7 @@ const reasons = [
   },
   {
     title: "Data-driven growth",
-    desc: "We track performance metrics every month and adjust the strategy based on what the numbers tell us — not guesswork.",
+    desc: "We track performance metrics every month and adjust the strategy based on what the numbers tell us, not guesswork.",
   },
 ];
 
@@ -130,12 +130,12 @@ const SocialMediaPage = () => (
       <title>Social Media Management Services | Bless Kimbi</title>
       <meta
         name="description"
-        content="Professional social media management services — content strategy, post design, community management, and paid campaigns. Grow your brand online with Bless Kimbi."
+        content="Professional social media management services: content strategy, post design, community management, and paid campaigns. Grow your brand online with Bless Kimbi."
       />
       <link rel="canonical" href="https://blesskimbi.com/social-media-management/" />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="Social Media Management Services | Bless Kimbi" />
-      <meta property="og:description" content="Grow your brand with expert social media management — content strategy, graphic design, scheduling, community management, and analytics." />
+      <meta property="og:description" content="Grow your brand with expert social media management: content strategy, graphic design, scheduling, community management, and analytics." />
       <meta property="og:url" content="https://blesskimbi.com/social-media-management/" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
@@ -143,7 +143,7 @@ const SocialMediaPage = () => (
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Social Media Management Services | Bless Kimbi" />
-      <meta name="twitter:description" content="Expert social media management — strategy, design, scheduling, and analytics for your brand." />
+      <meta name="twitter:description" content="Expert social media management: strategy, design, scheduling, and analytics for your brand." />
       <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
     </Helmet>
 
@@ -161,7 +161,7 @@ const SocialMediaPage = () => (
             <span className="text-gradient-primary">Management Services</span>
           </h1>
           <p className="text-muted-foreground font-body text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
-            We build and manage your brand's presence across every major platform —
+            We build and manage your brand's presence across every major platform, with
             consistent content, engaging visuals, and data-backed strategies that turn
             followers into loyal customers.
           </p>
@@ -194,7 +194,7 @@ const SocialMediaPage = () => (
               Our Social Media Services
             </h2>
             <p className="text-muted-foreground font-body max-w-xl mx-auto text-base leading-relaxed">
-              Everything your brand needs to show up consistently and grow on social media — from strategy to execution.
+              Everything your brand needs to show up consistently and grow on social media, from strategy to execution.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -250,7 +250,7 @@ const SocialMediaPage = () => (
               Transparent <span className="text-gold">Pricing</span>
             </h2>
             <p className="text-muted-foreground font-body max-w-xl mx-auto">
-              Flexible monthly plans for every stage of your business. All prices are placeholders — contact us for your exact quote.
+              Flexible monthly plans for every stage of your business. All prices are placeholders. Contact us for your exact quote.
             </p>
           </div>
           <div className="grid sm:grid-cols-3 gap-6 items-stretch">

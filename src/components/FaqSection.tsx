@@ -9,15 +9,15 @@ gsap.registerPlugin(ScrollTrigger);
 const faqs = [
   {
     q: "What services does Bless Kimbi offer?",
-    a: "I offer a full range of digital services: web design & development, SEO optimization, social media management, mobile app development, UI/UX design, and e-commerce solutions — everything a growing business needs to build a strong online presence.",
+    a: "I offer a full range of digital services: web design & development, SEO optimization, social media management, mobile app development, UI/UX design, and e-commerce solutions. Everything a growing business needs to build a strong online presence.",
   },
   {
     q: "How long does it take to build a website?",
-    a: "Most landing pages are delivered in 5–7 days, while full multi-page websites typically take 2–3 weeks depending on scope, content readiness, and revisions. I'll give you a clear timeline before we start.",
+    a: "Most landing pages are delivered in 5 to 7 days, while full multi-page websites typically take 2 to 3 weeks depending on scope, content readiness, and revisions. I'll give you a clear timeline before we start.",
   },
   {
     q: "How much does a website cost?",
-    a: "Pricing depends on complexity — see the Pricing section above for starting rates on landing pages, full websites, and e-commerce stores. Every quote is tailored to your business goals and budget.",
+    a: "Pricing depends on complexity. See the Pricing section above for starting rates on landing pages, full websites, and e-commerce stores. Every quote is tailored to your business goals and budget.",
   },
   {
     q: "Can you redesign my existing website?",
@@ -25,11 +25,11 @@ const faqs = [
   },
   {
     q: "Will my website rank on Google?",
-    a: "Every website I build includes on-page SEO fundamentals — fast load times, mobile optimisation, proper metadata, and clean structure. For businesses that want to actively rank for competitive keywords, I also offer dedicated SEO packages.",
+    a: "Every website I build includes on-page SEO fundamentals: fast load times, mobile optimisation, proper metadata, and clean structure. For businesses that want to actively rank for competitive keywords, I also offer dedicated SEO packages.",
   },
   {
     q: "Do you offer support after the site is live?",
-    a: "Yes. I offer ongoing maintenance and support packages so your site stays secure, updated, and running smoothly long after launch — plus I'm always reachable on WhatsApp for quick questions.",
+    a: "Yes. I offer ongoing maintenance and support packages so your site stays secure, updated, and running smoothly long after launch. I'm also always reachable on WhatsApp for quick questions.",
   },
 ];
 
@@ -57,7 +57,7 @@ const FaqSection = () => {
           </h2>
           <p className="text-muted-foreground text-base font-body max-w-xl mx-auto">
             I&apos;ve compiled this list based on the questions I&apos;m often asked by clients and the
-            questions commonly asked online — if yours isn&apos;t here,{" "}
+            questions commonly asked online. If yours isn&apos;t here,{" "}
             <Link to="/contact" className="text-primary font-semibold hover:underline underline-offset-4">
               just ask
             </Link>.

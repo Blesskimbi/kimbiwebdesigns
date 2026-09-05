@@ -17,7 +17,7 @@ const services = [
   {
     icon: Search,
     title: "User Research & Discovery",
-    desc: "We start by understanding your users — their goals, frustrations, and behaviours. Interviews, competitor analysis, and user journey mapping inform every design decision.",
+    desc: "We start by understanding your users: their goals, frustrations, and behaviours. Interviews, competitor analysis, and user journey mapping inform every design decision.",
   },
   {
     icon: Layout,
@@ -27,7 +27,7 @@ const services = [
   {
     icon: Paintbrush,
     title: "Visual UI Design",
-    desc: "Polished, pixel-perfect screens that bring your brand to life. Every detail — typography, colour, spacing, micro-interactions — is designed to feel intentional and cohesive.",
+    desc: "Polished, pixel-perfect screens that bring your brand to life. Every detail, from typography and colour to spacing and micro-interactions, is designed to feel intentional and cohesive.",
   },
   {
     icon: Grid,
@@ -42,14 +42,14 @@ const services = [
   {
     icon: FileCode,
     title: "Figma Handoff for Developers",
-    desc: "Detailed Figma files with documented components, spacing specs, interaction notes, and assets — everything developers need to build with precision and confidence.",
+    desc: "Detailed Figma files with documented components, spacing specs, interaction notes, and assets. Everything developers need to build with precision and confidence.",
   },
 ];
 
 const reasons = [
   {
     title: "Design that's grounded in user behaviour",
-    desc: "We don't design based on trends or personal taste. Every decision is backed by research, user goals, and conversion principles — so the product actually works for the people using it.",
+    desc: "We don't design based on trends or personal taste. Every decision is backed by research, user goals, and conversion principles, so the product actually works for the people using it.",
   },
   {
     title: "Pixel-perfect Figma files",
@@ -61,7 +61,7 @@ const reasons = [
   },
   {
     title: "Fast turnaround without sacrificing quality",
-    desc: "We move quickly. Most projects ship initial designs within 1–2 weeks. We achieve speed through clear scoping, structured processes, and focused communication — not by cutting corners.",
+    desc: "We move quickly. Most projects ship initial designs within 1 to 2 weeks. We achieve speed through clear scoping, structured processes, and focused communication, not by cutting corners.",
   },
 ];
 
@@ -130,12 +130,12 @@ const UiUxDesignPage = () => (
       <title>UI/UX Design Services | Bless Kimbi</title>
       <meta
         name="description"
-        content="Professional UI/UX design services — user research, wireframing, visual design, design systems, and Figma handoff. Designs that convert and developers can build."
+        content="Professional UI/UX design services: user research, wireframing, visual design, design systems, and Figma handoff. Designs that convert and developers can build."
       />
       <link rel="canonical" href="https://blesskimbi.com/ui-ux-design/" />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="UI/UX Design Services | Bless Kimbi" />
-      <meta property="og:description" content="User-centred UI/UX design — wireframes, prototypes, visual design, and scalable design systems delivered in Figma." />
+      <meta property="og:description" content="User-centred UI/UX design: wireframes, prototypes, visual design, and scalable design systems delivered in Figma." />
       <meta property="og:url" content="https://blesskimbi.com/ui-ux-design/" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
@@ -143,7 +143,7 @@ const UiUxDesignPage = () => (
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="UI/UX Design Services | Bless Kimbi" />
-      <meta name="twitter:description" content="User-centred UI/UX design — wireframes, visual design, and Figma handoff for web and mobile products." />
+      <meta name="twitter:description" content="User-centred UI/UX design: wireframes, visual design, and Figma handoff for web and mobile products." />
       <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
     </Helmet>
 
@@ -162,7 +162,7 @@ const UiUxDesignPage = () => (
           </h1>
           <p className="text-muted-foreground font-body text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
             User-centred design that looks stunning and works intuitively. From research
-            and wireframes to pixel-perfect Figma files — we design products that people
+            and wireframes to pixel-perfect Figma files, we design products that people
             actually enjoy using.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -194,7 +194,7 @@ const UiUxDesignPage = () => (
               Our UI/UX Design Services
             </h2>
             <p className="text-muted-foreground font-body max-w-xl mx-auto text-base leading-relaxed">
-              From the first user interview to the final handoff file — a complete design
+              From the first user interview to the final handoff file, a complete design
               process that bridges the gap between user needs and great products.
             </p>
           </div>

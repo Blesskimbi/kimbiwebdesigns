@@ -13,7 +13,7 @@
 export const communityFaqs = [
   {
     q: "Is this completely free?",
-    a: "Yes — 100% free, no hidden fees, no paid tiers. The WhatsApp group is open to anyone who wants to learn or collaborate on software development.",
+    a: "Yes. 100% free, no hidden fees, no paid tiers. The WhatsApp group is open to anyone who wants to learn or collaborate on software development.",
   },
   {
     q: "Do I need prior coding experience to join?",
@@ -30,7 +30,7 @@ export const communityFaqs = [
   },
   {
     q: "How do I join?",
-    a: "Click the 'Join the Community' button on this page. It links directly to the WhatsApp group — no sign-up form, no waiting list.",
+    a: "Click the 'Join the Community' button on this page. It links directly to the WhatsApp group. No sign-up form, no waiting list.",
   },
 ];
 
@@ -45,15 +45,15 @@ export const ecommerceFaqs = [
   },
   {
     q: "How long does it take to build an e-commerce website?",
-    a: "A standard e-commerce store typically takes 3–6 weeks from brief to launch, depending on complexity. We work efficiently and keep you updated at every stage.",
+    a: "A standard e-commerce store typically takes 3 to 6 weeks from brief to launch, depending on complexity. We work efficiently and keep you updated at every stage.",
   },
   {
     q: "Do I need technical knowledge to manage my store after launch?",
-    a: "No. We build your store with a user-friendly admin panel and provide training so you can add products, manage orders, and update content yourself — no coding required.",
+    a: "No. We build your store with a user-friendly admin panel and provide training so you can add products, manage orders, and update content yourself. No coding required.",
   },
   {
     q: "Will my e-commerce store rank on Google?",
-    a: "Yes, if SEO is included in your project. We structure every store with SEO best practices — optimised product pages, fast load times, and proper schema markup. For deeper SEO work, see our dedicated SEO services in Cameroon.",
+    a: "Yes, if SEO is included in your project. We structure every store with SEO best practices: optimised product pages, fast load times, and proper schema markup. For deeper SEO work, see our dedicated SEO services in Cameroon.",
   },
   {
     q: "Can you redesign my existing online store?",
@@ -63,16 +63,16 @@ export const ecommerceFaqs = [
 
 export const mobileAppFaqs = [
   {
-    q: "React Native vs native development — which is better?",
-    a: "For most businesses, React Native is the smarter choice. It delivers native-feeling performance while sharing a single codebase across iOS and Android — meaning you get to market faster and spend significantly less on development. Pure native development (Swift for iOS, Kotlin for Android) only makes sense for apps with very specific hardware requirements or extreme performance demands.",
+    q: "React Native vs native development: which is better?",
+    a: "For most businesses, React Native is the smarter choice. It delivers native-feeling performance while sharing a single codebase across iOS and Android, meaning you get to market faster and spend significantly less on development. Pure native development (Swift for iOS, Kotlin for Android) only makes sense for apps with very specific hardware requirements or extreme performance demands.",
   },
   {
     q: "How long does it take to build an app?",
-    a: "A basic app with 4–5 screens typically takes 4–6 weeks. A standard app with custom design and integrations takes 8–12 weeks. Complex or enterprise apps are scoped individually. We provide a detailed timeline at the start of every project.",
+    a: "A basic app with 4 to 5 screens typically takes 4 to 6 weeks. A standard app with custom design and integrations takes 8 to 12 weeks. Complex or enterprise apps are scoped individually. We provide a detailed timeline at the start of every project.",
   },
   {
     q: "Do you handle App Store submission?",
-    a: "Yes. App Store publishing is included in Standard and Custom packages. We prepare all required assets — screenshots, app description, keywords, privacy policy links — and manage the review process with both Apple and Google on your behalf.",
+    a: "Yes. App Store publishing is included in Standard and Custom packages. We prepare all required assets, including screenshots, app description, keywords and privacy policy links, and manage the review process with both Apple and Google on your behalf.",
   },
   {
     q: "Can you add features after launch?",
@@ -91,7 +91,7 @@ export const seoCompanyFaqs = [
   },
   {
     q: "How long does SEO take to show results?",
-    a: "Most businesses start seeing meaningful improvements in 3–6 months. SEO is a long-term investment — the results compound over time and continue delivering traffic without ongoing ad spend.",
+    a: "Most businesses start seeing meaningful improvements in 3 to 6 months. SEO is a long-term investment. The results compound over time and continue delivering traffic without ongoing ad spend.",
   },
   {
     q: "Do you work with businesses outside Cameroon?",
@@ -114,19 +114,19 @@ export const seoCompanyFaqs = [
 export const socialMediaFaqs = [
   {
     q: "What platforms do you manage?",
-    a: "We manage Instagram, Facebook, LinkedIn, TikTok, X (Twitter), and Pinterest. The platforms we focus on depend on where your target audience spends their time — we'll recommend the best combination for your business during our initial consultation.",
+    a: "We manage Instagram, Facebook, LinkedIn, TikTok, X (Twitter), and Pinterest. The platforms we focus on depend on where your target audience spends their time. We'll recommend the best combination for your business during our initial consultation.",
   },
   {
     q: "How long before I see results?",
-    a: "Organic social media growth takes time. Most clients start seeing consistent engagement improvements within 4–8 weeks, and meaningful follower growth within 3 months of a consistent strategy. Paid campaigns can produce faster visibility and traffic.",
+    a: "Organic social media growth takes time. Most clients start seeing consistent engagement improvements within 4 to 8 weeks, and meaningful follower growth within 3 months of a consistent strategy. Paid campaigns can produce faster visibility and traffic.",
   },
   {
     q: "Do you create the graphics too?",
-    a: "Yes. Post design is included in all packages. We create branded graphics, carousels, story templates, and any other visual assets your accounts need — everything is aligned to your brand colours, fonts, and tone.",
+    a: "Yes. Post design is included in all packages. We create branded graphics, carousels, story templates, and any other visual assets your accounts need. Everything is aligned to your brand colours, fonts, and tone.",
   },
   {
     q: "Can I approve posts before they go live?",
-    a: "Absolutely. We share the content calendar and all posts with you in advance for review and approval. Nothing goes live without your sign-off if that's your preference — we can also work with a delegated approval workflow if you'd prefer less back-and-forth.",
+    a: "Absolutely. We share the content calendar and all posts with you in advance for review and approval. Nothing goes live without your sign-off if that's your preference. We can also work with a delegated approval workflow if you'd prefer less back-and-forth.",
   },
   {
     q: "Do you run paid ads?",
@@ -137,11 +137,11 @@ export const socialMediaFaqs = [
 export const uiUxFaqs = [
   {
     q: "What tools do you use?",
-    a: "Figma is our primary design tool for everything — wireframes, visual UI, prototypes, and design systems. We also use FigJam for user flows and collaborative workshops. All deliverables are shared as Figma files so you and your team have full access.",
+    a: "Figma is our primary design tool for everything: wireframes, visual UI, prototypes, and design systems. We also use FigJam for user flows and collaborative workshops. All deliverables are shared as Figma files so you and your team have full access.",
   },
   {
     q: "Do you do development too or just design?",
-    a: "Both. We offer standalone UI/UX design, but we also build what we design. If you need a full website or app built after the design is finalised, we can handle the development too — which means zero friction between design and implementation.",
+    a: "Both. We offer standalone UI/UX design, but we also build what we design. If you need a full website or app built after the design is finalised, we can handle the development too, which means zero friction between design and implementation.",
   },
   {
     q: "What's included in a design handoff?",
@@ -149,10 +149,10 @@ export const uiUxFaqs = [
   },
   {
     q: "How many revisions are included?",
-    a: "The number of revision rounds depends on the package — typically 2–3 rounds for most projects. A revision round means a full review cycle where you share feedback and we incorporate all changes. We find that 2–3 well-structured rounds is enough to get any project to a great place.",
+    a: "The number of revision rounds depends on the package, typically 2 to 3 rounds for most projects. A revision round means a full review cycle where you share feedback and we incorporate all changes. We find that 2 to 3 well-structured rounds is enough to get any project to a great place.",
   },
   {
     q: "Can you redesign an existing product?",
-    a: "Yes. Redesigns are a big part of what we do. We start with a review of your current product to identify usability problems, conversion gaps, and visual inconsistencies — then redesign with clear improvements backed by user-centred principles rather than just aesthetic preferences.",
+    a: "Yes. Redesigns are a big part of what we do. We start with a review of your current product to identify usability problems, conversion gaps, and visual inconsistencies, then redesign with clear improvements backed by user-centred principles rather than just aesthetic preferences.",
   },
 ];

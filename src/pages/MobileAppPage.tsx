@@ -17,7 +17,7 @@ const services = [
   {
     icon: Monitor,
     title: "Cross-Platform Development (React Native)",
-    desc: "One codebase, two platforms. We build apps with React Native so your product ships on both iOS and Android simultaneously — saving time and budget without sacrificing quality.",
+    desc: "One codebase, two platforms. We build apps with React Native so your product ships on both iOS and Android simultaneously, saving time and budget without sacrificing quality.",
   },
   {
     icon: Tablet,
@@ -32,12 +32,12 @@ const services = [
   {
     icon: Palette,
     title: "App UI/UX Design",
-    desc: "Great apps start with great design. We create intuitive, beautiful interfaces in Figma before a single line of code is written — so the build phase is fast and focused.",
+    desc: "Great apps start with great design. We create intuitive, beautiful interfaces in Figma before a single line of code is written, so the build phase is fast and focused.",
   },
   {
     icon: Server,
     title: "API & Backend Integration",
-    desc: "We connect your app to the backend systems, third-party APIs, and databases it needs — from authentication and payments to real-time data and push notifications.",
+    desc: "We connect your app to the backend systems, third-party APIs, and databases it needs, from authentication and payments to real-time data and push notifications.",
   },
   {
     icon: Upload,
@@ -48,12 +48,12 @@ const services = [
 
 const reasons = [
   {
-    title: "One codebase, two platforms — saves time and budget",
+    title: "One codebase, two platforms, saving time and budget",
     desc: "React Native lets us build once and deploy to both iOS and Android. That means roughly half the development time and cost compared to building two separate native apps.",
   },
   {
     title: "Native-feeling performance",
-    desc: "React Native compiles to actual native components — not a web view. Your users get the smooth, responsive experience they expect from a premium app.",
+    desc: "React Native compiles to actual native components, not a web view. Your users get the smooth, responsive experience they expect from a premium app.",
   },
   {
     title: "Full-stack capability (frontend + backend)",
@@ -130,7 +130,7 @@ const MobileAppPage = () => (
       <title>Mobile App Development Services | Bless Kimbi</title>
       <meta
         name="description"
-        content="Professional mobile app development with React Native — iOS and Android apps built by Bless Kimbi. Cross-platform, fast, and ready for App Store launch."
+        content="Professional mobile app development with React Native. iOS and Android apps built by Bless Kimbi. Cross-platform, fast, and ready for App Store launch."
       />
       <link rel="canonical" href="https://blesskimbi.com/mobile-app-development/" />
       <meta name="robots" content="index, follow" />
@@ -161,7 +161,7 @@ const MobileAppPage = () => (
             <span className="text-gradient-primary">Development</span>
           </h1>
           <p className="text-muted-foreground font-body text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
-            We build cross-platform iOS and Android apps with React Native — native-feeling
+            We build cross-platform iOS and Android apps with React Native, delivering native-feeling
             performance, a single codebase, and full-stack delivery from design to App Store launch.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -193,7 +193,7 @@ const MobileAppPage = () => (
               Our Mobile App Services
             </h2>
             <p className="text-muted-foreground font-body max-w-xl mx-auto text-base leading-relaxed">
-              End-to-end mobile app development — from initial concept and UI design through to
+              End-to-end mobile app development, from initial concept and UI design through to
               store submission and ongoing updates.
             </p>
           </div>
@@ -250,7 +250,7 @@ const MobileAppPage = () => (
               Transparent <span className="text-gold">Pricing</span>
             </h2>
             <p className="text-muted-foreground font-body max-w-xl mx-auto">
-              Project-based pricing to fit your scope. All figures are starting rates — contact us for an accurate quote.
+              Project-based pricing to fit your scope. All figures are starting rates. Contact us for an accurate quote.
             </p>
           </div>
           <div className="grid sm:grid-cols-3 gap-6 items-stretch">

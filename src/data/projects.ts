@@ -31,7 +31,7 @@ export const staticProjects: StaticProject[] = [
         slug: "cyprograms",
         title: "Cyprograms",
         shortDescription: "App development agency website for Cyprograms, showcasing mobile and web app services.",
-        description: "Cyprograms is a professional app development agency based in Cameroon. We built their website to clearly communicate their mobile and web development services, attract business clients, and establish credibility in a competitive tech market. The site features a bold, modern design with service breakdowns, a portfolio section, and a seamless contact flow.",
+        description: "Cyprograms is a professional app development agency based in Cameroon. We built their website to clearly communicate their mobile and web development services, attract business clients, and establish credibility in a competitive tech market. The site features a bold, modern design with service breakdowns, a portfolio section, and a straightforward contact flow.",
         category: "App Development",
         tags: ["App Development", "Agency", "Tech"],
         technologies: ["React", "TypeScript", "Tailwind CSS", "EmailJS"],
@@ -42,7 +42,7 @@ export const staticProjects: StaticProject[] = [
             client: "Cyprograms",
             industry: "Tech / App Development Agency",
             problem: "Cyprograms had no professional online presence. They were losing potential business clients to competitors who appeared more credible online. Their only channel was word of mouth and WhatsApp, which severely limited growth.",
-            solution: "I designed and built a bold, modern agency website from scratch — complete with a clear services breakdown, a portfolio section showcasing their work, team profiles, and a contact flow optimised for lead generation. The site was built with React and TypeScript for speed and reliability, with EmailJS powering the contact form for instant lead notifications.",
+            solution: "I designed and built a bold, modern agency website from scratch, complete with a clear services breakdown, a portfolio section showcasing their work, team profiles, and a contact flow optimised for lead generation. The site was built with React and TypeScript for speed and reliability, with EmailJS powering the contact form for instant lead notifications.",
             results: [
                 "Launched in under 3 weeks from brief to live",
                 "Inbound enquiries increased within the first month of going live",
@@ -72,12 +72,12 @@ export const staticProjects: StaticProject[] = [
             client: "Inguane Hub",
             industry: "Construction & Engineering",
             problem: "Inguane Hub, a construction and engineering firm in South Africa, needed a corporate website that could help them win larger B2B contracts. Without an online presence, they were invisible to procurement teams searching for qualified contractors.",
-            solution: "I built a full corporate website with a project portfolio, services breakdown, company credentials, and a professional contact flow. The design focused on trust signals — certifications, project photography, and a clean corporate aesthetic that matched the company's positioning.",
+            solution: "I built a full corporate website with a project portfolio, services breakdown, company credentials, and a professional contact flow. The design focused on trust signals: certifications, project photography, and a clean corporate aesthetic that matched the company's positioning.",
             results: [
                 "Full corporate website live within 4 weeks",
                 "Now appears in Google searches for construction services in their region",
                 "Used as a credential piece in contract tender submissions",
-                "Mobile-first — over 70% of their visitors browse on mobile",
+                "Mobile-first, with over 70% of their visitors browsing on mobile",
             ],
             testimonial: {
                 quote: "The website gave us the professional presence we needed to compete for bigger contracts. Our clients now take us far more seriously.",
@@ -101,12 +101,12 @@ export const staticProjects: StaticProject[] = [
         caseStudy: {
             client: "Vibecraftstudios",
             industry: "Events & Media",
-            problem: "As a professional MC and event host, Vibecraftstudios was booking events entirely through referrals and DMs. They had no central platform to showcase their work, communicate their brand, or capture bookings — limiting their reach to their existing network.",
+            problem: "As a professional MC and event host, Vibecraftstudios was booking events entirely through referrals and DMs. They had no central platform to showcase their work, communicate their brand, or capture bookings, which limited their reach to their existing network.",
             solution: "I built a high-energy, visually immersive website with GSAP animations, a services section, video reel integration, testimonials, and a booking enquiry form. The site was designed to convert visitors into booking enquiries within seconds of landing.",
             results: [
                 "Booking enquiries through the site within the first 2 weeks",
                 "Used as a press kit for event organiser pitches",
-                "Average time on site over 2.5 minutes — high engagement",
+                "Average time on site over 2.5 minutes, showing high engagement",
                 "99/100 performance score on Lighthouse",
             ],
             testimonial: {
@@ -131,10 +131,10 @@ export const staticProjects: StaticProject[] = [
         caseStudy: {
             client: "Pendra Packaging",
             industry: "B2B Packaging & Chemical Supplies",
-            problem: "Pendra Packaging was processing all orders manually via phone and WhatsApp — a slow, error-prone process that limited how many orders they could handle per day. They needed an online store that would let businesses browse, select, and order 24/7.",
-            solution: "I built a full B2B e-commerce platform with product categories, search and filtering, a smooth checkout with Stripe integration, order confirmation emails, and an admin view for managing products and orders. The interface was designed for business buyers, not casual shoppers — clean, efficient, and fast.",
+            problem: "Pendra Packaging was processing all orders manually via phone and WhatsApp, a slow, error-prone process that limited how many orders they could handle per day. They needed an online store that would let businesses browse, select, and order 24/7.",
+            solution: "I built a full B2B e-commerce platform with product categories, search and filtering, a smooth checkout with Stripe integration, order confirmation emails, and an admin view for managing products and orders. The interface was designed for business buyers, not casual shoppers: clean, efficient, and fast.",
             results: [
-                "Orders now processed automatically — zero manual intake for online orders",
+                "Orders now processed automatically, with zero manual intake for online orders",
                 "Average order value increased after upsell recommendations were added",
                 "Site handles 100+ product SKUs with no performance issues",
                 "Checkout completion rate above industry average at 74%",
