@@ -84,9 +84,9 @@ Websites break. Plugins need updating. Content needs changing. Your agency shoul
 | Web Design Agency | Professional results, full service, SEO included | Higher cost than DIY | Growing businesses needing quality |
 | Freelancer | More affordable, flexible | Variable quality, limited support | Simple brochure sites on tight budgets |
 | DIY Builder (Wix/Squarespace) | Very cheap, fast to launch | Limited SEO, not custom, looks generic | Hobby sites or temporary pages |
-| Bless Kimbi Web Design | Agency quality at freelancer pricing | Limited to select clients | Small to medium Cameroonian businesses |
+| Bless Kimbi Web Developer | Agency quality at freelancer pricing | Limited to select clients | Small to medium Cameroonian businesses |
 
-For most Cameroonian small and medium businesses, working with a specialist like **Bless Kimbi Web Design** gives you agency-quality results at accessible pricing, the best of both worlds.
+For most Cameroonian small and medium businesses, working with a specialist like **Bless Kimbi Web Developer** gives you agency-quality results at accessible pricing, the best of both worlds.
 
 ## Watch: How to Choose a Web Design Agency
 
@@ -114,7 +114,7 @@ Below are real websites delivered to clients: responsive, fast, and built around
 
 ![E-commerce website built for an African business by Bless Kimbi](/5.png)
 
-## What Bless Kimbi Web Design Offers Cameroonian Businesses
+## What Bless Kimbi Web Developer Offers Cameroonian Businesses
 
 **Bless Kimbi** is a web designer and developer based in Cameroon with a portfolio of websites built for businesses across Africa. Here is what clients receive:
 
@@ -184,7 +184,7 @@ Yes. Bless Kimbi builds websites with easy-to-use content management, and includ
 
 Your Cameroonian business deserves a website that works as hard as you do. Stop losing customers to competitors who have a professional online presence.
 
-**[Contact Bless Kimbi Web Design today](https://blesskimbi.com/contact)**. Free consultation, clear pricing, and results you can see.
+**[Contact Bless Kimbi Web Developer today](https://blesskimbi.com/contact)**. Free consultation, clear pricing, and results you can see.
 
 ### Connect With Bless Kimbi
 

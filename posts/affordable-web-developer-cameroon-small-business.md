@@ -35,7 +35,7 @@ But here is what most small business owners worry about: **"Can I actually affor
 The answer is yes, and in this guide we break down exactly what an affordable web developer in Cameroon looks like, what you should expect to pay, and how to avoid wasting your money on the wrong person.
 
 <div class="tldr">
-<strong>TL;DR:</strong> Professional websites for Cameroonian small businesses start from around 150,000 FCFA. Look for a developer who offers mobile-first design, basic SEO, and post-launch support. Bless Kimbi Web Design offers transparent pricing with no hidden fees. <a href="https://blesskimbi.com/contact">get a free quote here</a>.
+<strong>TL;DR:</strong> Professional websites for Cameroonian small businesses start from around 150,000 FCFA. Look for a developer who offers mobile-first design, basic SEO, and post-launch support. Bless Kimbi Web Developer offers transparent pricing with no hidden fees. <a href="https://blesskimbi.com/contact">get a free quote here</a>.
 </div>
 
 ## Why Small Businesses in Cameroon Need a Website in 2026
@@ -66,7 +66,7 @@ When we talk about an affordable web developer in Cameroon for small business, w
 - Offers **clear, transparent pricing** with no hidden fees
 - Provides support after the site goes live
 
-At **Bless Kimbi Web Design**, that is the exact standard we hold ourselves to: professional results at pricing that works for Cameroonian small business budgets. You can also see what this standard looks like from other credible developers in the African space: [Front to Back Dev](https://fronttobackdev.com/) and [Cyprogram](https://cyprogram.com) are good reference points for what quality web development looks like at a professional level.
+At **Bless Kimbi Web Developer**, that is the exact standard we hold ourselves to: professional results at pricing that works for Cameroonian small business budgets. You can also see what this standard looks like from other credible developers in the African space: [Front to Back Dev](https://fronttobackdev.com/) and [Cyprogram](https://cyprogram.com) are good reference points for what quality web development looks like at a professional level.
 
 ## What to Expect From a Professional Web Developer in Cameroon
 
@@ -103,7 +103,7 @@ Pricing varies depending on the scope of the project. Here is a realistic breakd
 
 > **Pro tip:** Always ask for a breakdown of what is included before agreeing to any price. Hosting, domain registration, and ongoing maintenance are often separate costs that some developers do not mention upfront.
 
-At Bless Kimbi Web Design, we include clear pricing for everything, from domain registration to the first three months of hosting. No surprises.
+At Bless Kimbi Web Developer, we include clear pricing for everything, from domain registration to the first three months of hosting. No surprises.
 
 ## Watch: How to Build a Business Website That Actually Works
 
@@ -129,9 +129,9 @@ Here are screenshots of websites built by Bless Kimbi for real businesses: clean
 
 ![Mobile-first website design for an African small business](/3.png)
 
-## Why Bless Kimbi Web Design Is the Right Choice
+## Why Bless Kimbi Web Developer Is the Right Choice
 
-At **[Bless Kimbi Web Design](https://blesskimbi.com)**, we specialise in building conversion-focused websites for small businesses in Cameroon and across Africa. We combine clean, modern design with solid SEO foundations so your website does not just look good. It brings in real business.
+At **[Bless Kimbi Web Developer](https://blesskimbi.com)**, we specialise in building conversion-focused websites for small businesses in Cameroon and across Africa. We combine clean, modern design with solid SEO foundations so your website does not just look good. It brings in real business.
 
 Here is what makes us different:
 
@@ -161,7 +161,7 @@ A standard 4 to 5 page business website typically takes **1 to 3 weeks** from st
 
 ### Do I need to manage my own hosting?
 
-No. At Bless Kimbi Web Design, we handle everything, including domain registration, hosting setup and site launch, so you can focus on running your business. We also offer ongoing maintenance plans.
+No. At Bless Kimbi Web Developer, we handle everything, including domain registration, hosting setup and site launch, so you can focus on running your business. We also offer ongoing maintenance plans.
 
 ### Will my website work on mobile phones?
 

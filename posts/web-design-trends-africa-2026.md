@@ -90,7 +90,7 @@ In addition to M-Pesa, leading Kenyan e-commerce sites in 2026 also integrate:
 - **Buy Now Pay Later** options via platforms like Lipa Later
 - **International payments** via Stripe or PayPal for global customers
 
-At **[Bless Kimbi Web Design](https://blesskimbi.com)**, we integrate M-Pesa and all major Kenyan payment gateways as standard for e-commerce projects. Visit our [services page](https://blesskimbi.com/services) for full details.
+At **[Bless Kimbi Web Developer](https://blesskimbi.com)**, we integrate M-Pesa and all major Kenyan payment gateways as standard for e-commerce projects. Visit our [services page](https://blesskimbi.com/services) for full details.
 
 ## Trend 4: Local SEO Dominates in Kenyan Markets
 
