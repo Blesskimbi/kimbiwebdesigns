@@ -13,28 +13,6 @@ import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Bless Kimbi",
-    "url": "https://blesskimbi.com",
-    "telephone": "+237675126845",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Buea",
-      "addressLocality": "Buea",
-      "addressRegion": "South West",
-      "addressCountry": "CM"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 4.155,
-      "longitude": 9.241
-    },
-    "areaServed": ["Cameroon", "Africa", "Europe", "Worldwide"],
-    "serviceType": ["Web Design", "Web Development", "SEO", "Mobile App Development"]
-  };
-
   return (
     <LenisSmoothScroll>
       <Helmet>
@@ -50,7 +28,6 @@ const Index = () => {
         <meta name="twitter:title" content="Bless Kimbi — Best Web Designer &amp; Developer in Cameroon" />
         <meta name="twitter:description" content="I design and build professional websites that rank on Google and convert visitors into clients. Based in Buea, serving businesses across Cameroon and Africa." />
         <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       </Helmet>
       <Navbar />
       <div className="relative min-h-screen bg-white overflow-x-clip">

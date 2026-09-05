@@ -5,6 +5,7 @@ import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
+import { uiUxFaqs as faqs } from "@/data/seo-faqs.mjs";
 
 const WHATSAPP = "https://wa.me/237675126845?text=Hi%20Bless%2C%20I%20am%20interested%20in%20your%20UI%2FAUX%20Design%20service.%20Can%20we%20discuss%3F";
 
@@ -121,28 +122,7 @@ const pricingTiers = [
   },
 ];
 
-const faqs = [
-  {
-    q: "What tools do you use?",
-    a: "Figma is our primary design tool for everything — wireframes, visual UI, prototypes, and design systems. We also use FigJam for user flows and collaborative workshops. All deliverables are shared as Figma files so you and your team have full access.",
-  },
-  {
-    q: "Do you do development too or just design?",
-    a: "Both. We offer standalone UI/UX design, but we also build what we design. If you need a full website or app built after the design is finalised, we can handle the development too — which means zero friction between design and implementation.",
-  },
-  {
-    q: "What's included in a design handoff?",
-    a: "A complete Figma file with organised layers, named components, documented spacing and typography, interaction notes, and exported assets. We also write a brief handoff guide summarising key decisions and any edge cases developers should be aware of.",
-  },
-  {
-    q: "How many revisions are included?",
-    a: "The number of revision rounds depends on the package — typically 2–3 rounds for most projects. A revision round means a full review cycle where you share feedback and we incorporate all changes. We find that 2–3 well-structured rounds is enough to get any project to a great place.",
-  },
-  {
-    q: "Can you redesign an existing product?",
-    a: "Yes. Redesigns are a big part of what we do. We start with a review of your current product to identify usability problems, conversion gaps, and visual inconsistencies — then redesign with clear improvements backed by user-centred principles rather than just aesthetic preferences.",
-  },
-];
+
 
 const UiUxDesignPage = () => (
   <LenisSmoothScroll>
@@ -165,28 +145,6 @@ const UiUxDesignPage = () => (
       <meta name="twitter:title" content="UI/UX Design Services | Bless Kimbi" />
       <meta name="twitter:description" content="User-centred UI/UX design — wireframes, visual design, and Figma handoff for web and mobile products." />
       <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map(({ q, a }) => ({
-          "@type": "Question",
-          "name": q,
-          "acceptedAnswer": { "@type": "Answer", "text": a },
-        })),
-      })}</script>
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "UI/UX Design",
-        "name": "UI/UX Design Services",
-        "provider": {
-          "@type": "Person",
-          "name": "Bless Kimbi",
-          "url": "https://blesskimbi.com",
-        },
-        "url": "https://blesskimbi.com/ui-ux-design/",
-        "description": "Professional UI/UX design services — user research, wireframing, visual UI design, design systems, and Figma developer handoff.",
-      })}</script>
     </Helmet>
 
     <Navbar />

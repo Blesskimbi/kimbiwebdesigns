@@ -5,6 +5,7 @@ import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
+import { ecommerceFaqs as faqs } from "@/data/seo-faqs.mjs";
 
 const services = [
   {
@@ -58,32 +59,7 @@ const reasons = [
   },
 ];
 
-const faqs = [
-  {
-    q: "How much does an e-commerce website cost in Cameroon?",
-    a: "E-commerce website costs in Cameroon vary based on the number of products, required features, and payment integrations needed. A basic store starts from a few hundred dollars, while a fully custom solution with Mobile Money integration and SEO can be more. Contact us for a free quote tailored to your business.",
-  },
-  {
-    q: "Can you integrate Mobile Money payments (MTN & Orange)?",
-    a: "Yes. We integrate MTN Mobile Money and Orange Money alongside international options like PayPal and Stripe, so you can accept payments from customers across Cameroon and beyond.",
-  },
-  {
-    q: "How long does it take to build an e-commerce website?",
-    a: "A standard e-commerce store typically takes 3–6 weeks from brief to launch, depending on complexity. We work efficiently and keep you updated at every stage.",
-  },
-  {
-    q: "Do I need technical knowledge to manage my store after launch?",
-    a: "No. We build your store with a user-friendly admin panel and provide training so you can add products, manage orders, and update content yourself — no coding required.",
-  },
-  {
-    q: "Will my e-commerce store rank on Google?",
-    a: "Yes, if SEO is included in your project. We structure every store with SEO best practices — optimised product pages, fast load times, and proper schema markup. For deeper SEO work, see our dedicated SEO services in Cameroon.",
-  },
-  {
-    q: "Can you redesign my existing online store?",
-    a: "Absolutely. We regularly take over existing stores that aren't converting and rebuild them into professional, high-performing e-commerce sites. We can migrate your products and existing data.",
-  },
-];
+
 
 const EcommerceWebsiteDesignPage = () => (
   <LenisSmoothScroll>
@@ -106,29 +82,6 @@ const EcommerceWebsiteDesignPage = () => (
       <meta name="twitter:title" content="E-commerce Website Design in Cameroon | Bless Kimbi" />
       <meta name="twitter:description" content="Custom e-commerce websites for businesses in Cameroon — Mobile Money integration, mobile-first design and built-in SEO." />
       <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map(({ q, a }) => ({
-          "@type": "Question",
-          "name": q,
-          "acceptedAnswer": { "@type": "Answer", "text": a },
-        })),
-      })}</script>
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "E-commerce Website Design",
-        "name": "E-commerce Website Design in Cameroon",
-        "provider": {
-          "@type": "Person",
-          "name": "Bless Kimbi",
-          "url": "https://blesskimbi.com"
-        },
-        "areaServed": ["Cameroon", "Yaoundé", "Douala", "Buea", "Africa", "Europe"],
-        "url": "https://blesskimbi.com/ecommerce-website-design-in-cameroon/",
-        "description": "Custom e-commerce website design for businesses in Cameroon. Mobile Money integration, SEO, and mobile-first development."
-      })}</script>
     </Helmet>
 
     <Navbar />

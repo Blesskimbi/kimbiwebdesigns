@@ -5,6 +5,7 @@ import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
+import { socialMediaFaqs as faqs } from "@/data/seo-faqs.mjs";
 
 const WHATSAPP = "https://wa.me/237675126845?text=Hi%20Bless%2C%20I%20am%20interested%20in%20your%20Social%20Media%20Management%20service.%20Can%20we%20discuss%3F";
 
@@ -121,28 +122,7 @@ const pricingTiers = [
   },
 ];
 
-const faqs = [
-  {
-    q: "What platforms do you manage?",
-    a: "We manage Instagram, Facebook, LinkedIn, TikTok, X (Twitter), and Pinterest. The platforms we focus on depend on where your target audience spends their time — we'll recommend the best combination for your business during our initial consultation.",
-  },
-  {
-    q: "How long before I see results?",
-    a: "Organic social media growth takes time. Most clients start seeing consistent engagement improvements within 4–8 weeks, and meaningful follower growth within 3 months of a consistent strategy. Paid campaigns can produce faster visibility and traffic.",
-  },
-  {
-    q: "Do you create the graphics too?",
-    a: "Yes. Post design is included in all packages. We create branded graphics, carousels, story templates, and any other visual assets your accounts need — everything is aligned to your brand colours, fonts, and tone.",
-  },
-  {
-    q: "Can I approve posts before they go live?",
-    a: "Absolutely. We share the content calendar and all posts with you in advance for review and approval. Nothing goes live without your sign-off if that's your preference — we can also work with a delegated approval workflow if you'd prefer less back-and-forth.",
-  },
-  {
-    q: "Do you run paid ads?",
-    a: "Paid social campaigns are included in the Pro plan and can be added to any other plan. We handle ad creative, targeting, budgeting, and reporting. Ad spend is billed separately and managed transparently.",
-  },
-];
+
 
 const SocialMediaPage = () => (
   <LenisSmoothScroll>
@@ -165,28 +145,6 @@ const SocialMediaPage = () => (
       <meta name="twitter:title" content="Social Media Management Services | Bless Kimbi" />
       <meta name="twitter:description" content="Expert social media management — strategy, design, scheduling, and analytics for your brand." />
       <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map(({ q, a }) => ({
-          "@type": "Question",
-          "name": q,
-          "acceptedAnswer": { "@type": "Answer", "text": a },
-        })),
-      })}</script>
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Social Media Management",
-        "name": "Social Media Management Services",
-        "provider": {
-          "@type": "Person",
-          "name": "Bless Kimbi",
-          "url": "https://blesskimbi.com",
-        },
-        "url": "https://blesskimbi.com/social-media-management/",
-        "description": "Professional social media management — content strategy, post design, scheduling, community management, analytics, and paid campaigns.",
-      })}</script>
     </Helmet>
 
     <Navbar />

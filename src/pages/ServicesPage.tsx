@@ -12,11 +12,11 @@ const ServicesPage = () => (
     <LenisSmoothScroll>
         <Helmet>
             <title>Web Design &amp; Development Services | Bless Kimbi — Cameroon</title>
-            <meta name="description" content="Professional web design, SEO, social media management &amp; mobile app development. Based in Yaoundé — helping businesses across Cameroon and Africa grow online." />
+            <meta name="description" content="Professional web design, SEO, social media management &amp; mobile app development. Based in Buea — helping businesses across Cameroon and Africa grow online." />
             <meta name="robots" content="index, follow" />
             <link rel="canonical" href="https://blesskimbi.com/services/" />
             <meta property="og:title" content="Web Design &amp; Development Services | Bless Kimbi" />
-            <meta property="og:description" content="Professional web design, SEO, social media management &amp; mobile app development. Based in Yaoundé — helping businesses across Cameroon and Africa grow online." />
+            <meta property="og:description" content="Professional web design, SEO, social media management &amp; mobile app development. Based in Buea — helping businesses across Cameroon and Africa grow online." />
             <meta property="og:url" content="https://blesskimbi.com/services/" />
             <meta property="og:type" content="website" />
             <meta property="og:image" content="https://blesskimbi.com/og-image.png" />
@@ -24,30 +24,8 @@ const ServicesPage = () => (
             <meta property="og:image:height" content="630" />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content="Web Design &amp; Development Services | Bless Kimbi" />
-            <meta name="twitter:description" content="Professional web design, SEO optimization, social media management, mobile app development and more. Based in Yaoundé, serving businesses across Cameroon and Africa." />
+            <meta name="twitter:description" content="Professional web design, SEO optimization, social media management, mobile app development and more. Based in Buea, serving businesses across Cameroon and Africa." />
             <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
-            <script type="application/ld+json">{JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "Service",
-                "serviceType": "Web Design & Development",
-                "provider": {
-                    "@type": "Person",
-                    "name": "Bless Kimbi",
-                    "url": "https://blesskimbi.com"
-                },
-                "areaServed": ["Cameroon", "Africa", "Europe", "Worldwide"],
-                "hasOfferCatalog": {
-                    "@type": "OfferCatalog",
-                    "name": "Web Design Services",
-                    "itemListElement": [
-                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Web Design" } },
-                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Optimisation" } },
-                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-commerce Development" } },
-                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development" } },
-                        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management" } }
-                    ]
-                }
-            })}</script>
         </Helmet>
 
         <Navbar />

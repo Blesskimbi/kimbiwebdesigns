@@ -5,6 +5,7 @@ import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
+import { mobileAppFaqs as faqs } from "@/data/seo-faqs.mjs";
 
 const WHATSAPP = "https://wa.me/237675126845?text=Hi%20Bless%2C%20I%20am%20interested%20in%20Mobile%20App%20Development.%20Can%20we%20discuss%3F";
 
@@ -121,28 +122,7 @@ const pricingTiers = [
   },
 ];
 
-const faqs = [
-  {
-    q: "React Native vs native development — which is better?",
-    a: "For most businesses, React Native is the smarter choice. It delivers native-feeling performance while sharing a single codebase across iOS and Android — meaning you get to market faster and spend significantly less on development. Pure native development (Swift for iOS, Kotlin for Android) only makes sense for apps with very specific hardware requirements or extreme performance demands.",
-  },
-  {
-    q: "How long does it take to build an app?",
-    a: "A basic app with 4–5 screens typically takes 4–6 weeks. A standard app with custom design and integrations takes 8–12 weeks. Complex or enterprise apps are scoped individually. We provide a detailed timeline at the start of every project.",
-  },
-  {
-    q: "Do you handle App Store submission?",
-    a: "Yes. App Store publishing is included in Standard and Custom packages. We prepare all required assets — screenshots, app description, keywords, privacy policy links — and manage the review process with both Apple and Google on your behalf.",
-  },
-  {
-    q: "Can you add features after launch?",
-    a: "Absolutely. Post-launch updates are a normal part of app development. We offer ongoing support and maintenance packages that cover bug fixes, OS compatibility updates, and new feature development as your user base and requirements grow.",
-  },
-  {
-    q: "Do I own the source code?",
-    a: "Yes, 100%. Once the project is complete and payment is finalised, you own all source code, design files, and related assets. There are no licensing fees, lock-in clauses, or ongoing royalties. Your app is yours.",
-  },
-];
+
 
 const MobileAppPage = () => (
   <LenisSmoothScroll>
@@ -165,28 +145,6 @@ const MobileAppPage = () => (
       <meta name="twitter:title" content="Mobile App Development Services | Bless Kimbi" />
       <meta name="twitter:description" content="iOS and Android app development with React Native. Fast, native-feeling apps built to launch." />
       <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map(({ q, a }) => ({
-          "@type": "Question",
-          "name": q,
-          "acceptedAnswer": { "@type": "Answer", "text": a },
-        })),
-      })}</script>
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Mobile App Development",
-        "name": "Mobile App Development",
-        "provider": {
-          "@type": "Person",
-          "name": "Bless Kimbi",
-          "url": "https://blesskimbi.com",
-        },
-        "url": "https://blesskimbi.com/mobile-app-development/",
-        "description": "Cross-platform mobile app development with React Native for iOS and Android. UI/UX design, backend integration, and App Store publishing.",
-      })}</script>
     </Helmet>
 
     <Navbar />

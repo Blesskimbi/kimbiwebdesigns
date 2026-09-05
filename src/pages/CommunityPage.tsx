@@ -5,6 +5,7 @@ import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
+import { communityFaqs as faqs } from "@/data/seo-faqs.mjs";
 
 const WHATSAPP_LINK = "https://chat.whatsapp.com/EccaSxibk46HzLENqVSjDo";
 
@@ -41,29 +42,7 @@ const benefits = [
   },
 ];
 
-const faqs = [
-  {
-    q: "Is this completely free?",
-    a: "Yes — 100% free, no hidden fees, no paid tiers. The WhatsApp group is open to anyone who wants to learn or collaborate on software development.",
-  },
-  {
-    q: "Do I need prior coding experience to join?",
-      a: "No prior experience needed. The community welcomes complete beginners, developers who are still learning, and experienced professionals who want to collaborate and share knowledge.",
-  },
-  {
-    q: "How much time do I need to commit each week?",
-    // TODO: confirm with Bless — update with real expectations once community cadence is decided
-    a: "There's no minimum commitment. Join, learn at your own pace, ask questions when you have them, and contribute when you can. Even checking in once a week is valuable.",
-  },
-  {
-    q: "What technologies and topics does the community cover?",
-    a: "Web development (HTML, CSS, JavaScript, React) and mobile app development are both covered. Topics like freelancing, SEO, getting clients, and building a portfolio come up regularly too.",
-  },
-  {
-    q: "How do I join?",
-    a: "Click the 'Join the Community' button on this page. It links directly to the WhatsApp group — no sign-up form, no waiting list.",
-  },
-];
+
 
 const CommunityPage = () => (
   <LenisSmoothScroll>
@@ -92,15 +71,6 @@ const CommunityPage = () => (
         content="Join Bless Kimbi's free software development community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for web and mobile developers worldwide."
       />
       <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map(({ q, a }) => ({
-          "@type": "Question",
-          "name": q,
-          "acceptedAnswer": { "@type": "Answer", "text": a },
-        })),
-      })}</script>
     </Helmet>
 
     <Navbar />
@@ -212,7 +182,7 @@ const CommunityPage = () => (
                 <p className="text-muted-foreground font-body leading-relaxed mb-4">
                   I'm <strong className="text-navy">Bless Kimbi</strong>, a
                   professional software developer based in{" "}
-                  <strong className="text-navy">Yaoundé, Cameroon</strong>. I've
+                  <strong className="text-navy">Buea, Cameroon</strong>. I've
                   delivered 50+ projects — websites, web apps, and mobile apps —
                   for businesses across Cameroon, South Africa, and internationally.
                 </p>

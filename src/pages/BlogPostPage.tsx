@@ -74,7 +74,9 @@ const BlogPostPage = () => {
     if (navigator.share) {
       try {
         await navigator.share({ title: post?.title, text: post?.excerpt, url });
-      } catch {}
+      } catch {
+        // The user dismissed the share sheet — nothing to recover from.
+      }
     } else {
       await navigator.clipboard.writeText(url);
       setShared(true);
@@ -134,47 +136,7 @@ const BlogPostPage = () => {
     Math.round(post.content.trim().split(/\s+/).length / 200)
   );
 
-  // BlogPosting JSON-LD schema (replaces generic Article)
   const absoluteOgImage = ogImage.startsWith("http") ? ogImage : `${BASE}${ogImage}`;
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "@id": `${canonical}#article`,
-    headline: post.title,
-    description,
-    image: {
-      "@type": "ImageObject",
-      "url": absoluteOgImage,
-      "width": 1200,
-      "height": 630,
-    },
-    url: canonical,
-    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-    author: {
-      "@type": "Person",
-      "@id": `${BASE}/#person`,
-      name: "Bless Kimbi",
-      url: BASE,
-      sameAs: [
-        "https://instagram.com/blesskimbi",
-        "https://www.linkedin.com/in/bless-kimbi-09413936a/",
-      ],
-    },
-    publisher: {
-      "@type": "Organization",
-      "@id": `${BASE}/#localbusiness`,
-      name: "Bless Kimbi",
-      url: BASE,
-      logo: { "@type": "ImageObject", url: `${BASE}/blesskimbi.png`, width: 400, height: 400 },
-    },
-    datePublished: post.date,
-    dateModified: post.date,
-    inLanguage: "en",
-    keywords: (post.tags ?? []).join(", "),
-    wordCount: post.content.trim().split(/\s+/).length,
-    timeRequired: `PT${readingTime}M`,
-  };
-
   const suffix = " | Bless Kimbi";
   const maxTitleRaw = 58 - suffix.length - 1; // -1 for ellipsis if needed
   const titleTag = post.title.length <= 58 - suffix.length
@@ -199,18 +161,6 @@ const BlogPostPage = () => {
         <meta name="twitter:title" content={`${post.title} | Bless Kimbi`} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
-        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-        {post.faqs && post.faqs.length > 0 && (
-          <script type="application/ld+json">{JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": post.faqs.map((f: FaqItem) => ({
-              "@type": "Question",
-              "name": f.q,
-              "acceptedAnswer": { "@type": "Answer", "text": f.a },
-            })),
-          })}</script>
-        )}
       </Helmet>
 
         <Navbar />

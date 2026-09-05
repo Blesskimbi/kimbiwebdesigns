@@ -5,6 +5,7 @@ import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
+import { seoCompanyFaqs as faqs } from "@/data/seo-faqs.mjs";
 
 const services = [
   {
@@ -62,32 +63,7 @@ const reasons = [
   },
 ];
 
-const faqs = [
-  {
-    q: "What is SEO and why does my business in Cameroon need it?",
-    a: "SEO (Search Engine Optimisation) is the process of making your website appear higher in Google search results. If someone in Douala or Yaoundé searches for your product or service, you want to be the first result they see. Without SEO, even a beautiful website can be invisible to potential clients.",
-  },
-  {
-    q: "How long does SEO take to show results?",
-    a: "Most businesses start seeing meaningful improvements in 3–6 months. SEO is a long-term investment — the results compound over time and continue delivering traffic without ongoing ad spend.",
-  },
-  {
-    q: "Do you work with businesses outside Cameroon?",
-    a: "Yes. While we specialise in SEO for businesses in Cameroon and across Africa, we work with clients internationally. Our strategies are tailored to your target market, wherever that is.",
-  },
-  {
-    q: "What's the difference between SEO and paid ads?",
-    a: "Paid ads (Google Ads) stop the moment you stop paying. SEO builds organic rankings that continue to bring traffic for months and years after the work is done. Most growing businesses benefit from both.",
-  },
-  {
-    q: "Can you help if my website was built by someone else?",
-    a: "Absolutely. We can audit and optimise any existing website regardless of who built it. If we find deeper technical issues, we can also rebuild or redesign the site as part of a broader project.",
-  },
-  {
-    q: "How much does SEO cost in Cameroon?",
-    a: "Pricing depends on your goals, competition level, and the scope of work. We offer flexible packages for small businesses and larger retainers for established brands. Contact us for a free quote.",
-  },
-];
+
 
 const SeoCompanyPage = () => (
   <LenisSmoothScroll>
@@ -110,29 +86,6 @@ const SeoCompanyPage = () => (
       <meta name="twitter:title" content="Best SEO Company in Cameroon | Bless Kimbi" />
       <meta name="twitter:description" content="Expert SEO services in Cameroon — keyword research, on-page SEO, local SEO, link building and technical audits." />
       <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map(({ q, a }) => ({
-          "@type": "Question",
-          "name": q,
-          "acceptedAnswer": { "@type": "Answer", "text": a },
-        })),
-      })}</script>
-      <script type="application/ld+json">{JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "SEO Services",
-        "name": "SEO Company in Cameroon",
-        "provider": {
-          "@type": "Person",
-          "name": "Bless Kimbi",
-          "url": "https://blesskimbi.com"
-        },
-        "areaServed": ["Cameroon", "Yaoundé", "Douala", "Buea", "Africa", "Europe"],
-        "url": "https://blesskimbi.com/seo-company-in-cameroon/",
-        "description": "Professional SEO services for businesses in Cameroon and across Africa. Keyword research, on-page SEO, local SEO, and technical audits."
-      })}</script>
     </Helmet>
 
     <Navbar />

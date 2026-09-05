@@ -55,18 +55,6 @@ const ProjectsPage = () => {
                 <meta name="twitter:title" content="Web Design Portfolio | Bless Kimbi" />
                 <meta name="twitter:description" content="Browse Bless Kimbi's portfolio of web design and development projects for clients in Cameroon, South Africa, Nigeria and beyond." />
                 <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
-                <script type="application/ld+json">{JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "CollectionPage",
-                    "name": "Web Design Portfolio — Bless Kimbi",
-                    "description": "Portfolio of web design and development projects by Bless Kimbi for businesses across Cameroon and Africa.",
-                    "url": "https://blesskimbi.com/projects",
-                    "author": {
-                        "@type": "Person",
-                        "name": "Bless Kimbi",
-                        "url": "https://blesskimbi.com"
-                    }
-                })}</script>
             </Helmet>
 
             <Navbar />

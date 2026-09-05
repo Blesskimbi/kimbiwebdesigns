@@ -17,6 +17,7 @@
  * Usage: node scripts/gen-routes.mjs   (runs after vite build)
  */
 import { createClient } from "@supabase/supabase-js";
+import { STATIC_SCHEMAS, blogSchemas, projectSchemas } from "./schema.mjs";
 import matter from "gray-matter";
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from "fs";
 import { join, resolve } from "path";
@@ -35,6 +36,70 @@ const esc = (s) =>
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+
+/** YYYY-MM-DD, which is what schema.org dates and <lastmod> both want. */
+const isoDate = (value) => {
+  const d = new Date(value);
+  return Number.isNaN(d.getTime()) ? null : d.toISOString().split("T")[0];
+};
+
+/** Approximate word count, used for BlogPosting wordCount / timeRequired. */
+const wordCount = (text) => (text ? text.trim().split(/\s+/).length : 0);
+
+/**
+ * Posts store FAQs as [{ q, a }] in both Supabase (JSONB) and frontmatter, but
+ * a hand-edited post can leave the field null or shaped wrong — drop anything
+ * that is not a usable pair rather than emitting broken FAQ markup.
+ */
+const normaliseFaqs = (raw) =>
+  Array.isArray(raw) ? raw.filter((f) => f && typeof f.q === "string" && typeof f.a === "string") : [];
+
+/* ── Breadcrumbs ────────────────────────────────────────────────────────── */
+
+/** Segments whose slug does not titleize into a presentable label. */
+const CRUMB_LABELS = {
+  "seo-company-in-cameroon": "SEO Company in Cameroon",
+  "ecommerce-website-design-in-cameroon": "E-commerce Website Design in Cameroon",
+  "social-media-management": "Social Media Management",
+  "mobile-app-development": "Mobile App Development",
+  "ui-ux-design": "UI/UX Design",
+};
+
+const titleize = (seg) =>
+  CRUMB_LABELS[seg] ??
+  seg.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+
+/**
+ * BreadcrumbList JSON-LD for one route.
+ *
+ * Emitted into the raw HTML rather than through Helmet so crawlers that never
+ * execute JavaScript still see the trail. `crumb` names the leaf where the slug
+ * would not read well on its own — blog posts and projects pass their title.
+ */
+function buildBreadcrumbs(path, crumb) {
+  const segments = path.split("/").filter(Boolean);
+  if (segments.length === 0) return null; // homepage: a one-item trail says nothing
+
+  const crumbs = [{ name: "Home", item: `${BASE}/` }];
+  segments.forEach((seg, i) => {
+    const isLeaf = i === segments.length - 1;
+    crumbs.push({
+      name: isLeaf && crumb ? crumb : titleize(seg),
+      item: `${BASE}/${segments.slice(0, i + 1).join("/")}/`,
+    });
+  });
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      item: c.item,
+    })),
+  };
+}
 
 /* ── Route sources ──────────────────────────────────────────────────────── */
 
@@ -61,7 +126,14 @@ function getStaticRoutes() {
     if (path.includes("${") || path.includes("{")) continue;
 
     const image = src.match(/property="og:image"\s+content="([^"]+)"/)?.[1] ?? OG_IMAGE;
-    routes.push({ path, title, description: description ?? "", image, source: file });
+    routes.push({
+      path,
+      title,
+      description: description ?? "",
+      image,
+      schemas: STATIC_SCHEMAS[path] ?? [],
+      source: file,
+    });
   }
 
   return routes;
@@ -80,17 +152,38 @@ async function getBlogRoutes() {
     const supabase = createClient(url, key);
     const { data, error } = await supabase
       .from("posts")
-      .select("slug, title, seo_title, meta_description, excerpt, image_url")
+      .select(
+        "slug, title, seo_title, meta_description, excerpt, image_url, tags, faqs, content, published_at, updated_at",
+      )
       .eq("status", "published");
 
     if (!error && data?.length) {
-      return data.map((p) => ({
-        path: `/blog/${p.slug}/`,
-        title: esc(p.seo_title || p.title || p.slug),
-        description: esc(p.meta_description || p.excerpt || ""),
-        image: p.image_url ? `${BASE}${p.image_url}` : OG_IMAGE,
-        source: "supabase",
-      }));
+      return data.map((p) => {
+        const path = `/blog/${p.slug}/`;
+        const image = p.image_url ? `${BASE}${p.image_url}` : OG_IMAGE;
+        const date = p.published_at ? isoDate(p.published_at) : null;
+
+        return {
+          path,
+          title: esc(p.seo_title || p.title || p.slug),
+          description: esc(p.meta_description || p.excerpt || ""),
+          image,
+          // Raw, not esc()'d: these go into JSON-LD, not an HTML attribute.
+          crumb: p.title || p.slug,
+          schemas: blogSchemas({
+            path,
+            title: p.title || p.slug,
+            description: p.meta_description || p.excerpt || "",
+            image,
+            date,
+            modified: p.updated_at ? isoDate(p.updated_at) : date,
+            tags: p.tags ?? [],
+            wordCount: wordCount(p.content),
+            faqs: normaliseFaqs(p.faqs),
+          }),
+          source: "supabase",
+        };
+      });
     }
     console.warn(
       `[gen-routes] Falling back to posts/*.md — ${error ? error.message : "no published posts returned"}`,
@@ -105,16 +198,31 @@ async function getBlogRoutes() {
   return readdirSync(postsDir)
     .filter((f) => f.endsWith(".md"))
     .map((f) => {
-      const { data } = matter(readFileSync(join(postsDir, f), "utf-8"));
+      const { data, content } = matter(readFileSync(join(postsDir, f), "utf-8"));
       const slug = data.slug || f.replace(".md", "");
       const title = data.seoTitle || data.title || slug;
       const description = data.metaDescription || data.description || data.excerpt || "";
       const image = data.imageUrl ? `${BASE}${data.imageUrl}` : OG_IMAGE;
+      const path = `/blog/${slug}/`;
+      const date = data.date ? isoDate(data.date) : null;
+
       return {
-        path: `/blog/${slug}/`,
+        path,
         title: esc(title),
         description: esc(description),
         image,
+        crumb: data.title || slug,
+        schemas: blogSchemas({
+          path,
+          title: data.title || slug,
+          description,
+          image,
+          date,
+          modified: date,
+          tags: data.tags ?? [],
+          wordCount: wordCount(content),
+          faqs: normaliseFaqs(data.faqs),
+        }),
         source: f,
       };
     });
@@ -132,7 +240,7 @@ async function getProjectRoutes() {
   const supabase = createClient(url, key);
   const { data, error } = await supabase
     .from("projects")
-    .select("slug, title, description, cover_image")
+    .select("slug, title, description, cover_image, tags")
     .eq("hidden", false);
 
   if (error) {
@@ -140,18 +248,31 @@ async function getProjectRoutes() {
     return [];
   }
 
-  return (data ?? []).map((p) => ({
-    path: `/projects/${p.slug}/`,
-    title: esc(`${p.title} | Web Design Project by Bless Kimbi`),
-    description: esc(p.description ?? ""),
-    image: p.cover_image?.startsWith("http") ? p.cover_image : OG_IMAGE,
-    source: "supabase",
-  }));
+  return (data ?? []).map((p) => {
+    const path = `/projects/${p.slug}/`;
+    const image = p.cover_image?.startsWith("http") ? p.cover_image : OG_IMAGE;
+
+    return {
+      path,
+      title: esc(`${p.title} | Web Design Project by Bless Kimbi`),
+      description: esc(p.description ?? ""),
+      image,
+      crumb: p.title,
+      schemas: projectSchemas({
+        path,
+        title: p.title,
+        description: p.description ?? "",
+        image,
+        tags: p.tags ?? [],
+      }),
+      source: "supabase",
+    };
+  });
 }
 
 /* ── Head rewriting ─────────────────────────────────────────────────────── */
 
-function buildHtml(template, { path, title, description, image }) {
+function buildHtml(template, { path, title, description, image, crumb, schemas }) {
   const url = `${BASE}${path}`;
 
   const swaps = [
@@ -167,7 +288,22 @@ function buildHtml(template, { path, title, description, image }) {
     [/(<meta\s+name="twitter:image"\s+content=")[^"]*(")/i, `$1${image}$2`],
   ];
 
-  return swaps.reduce((html, [re, to]) => html.replace(re, to), template);
+  const html = swaps.reduce((acc, [re, to]) => acc.replace(re, to), template);
+
+  const breadcrumbs = buildBreadcrumbs(path, crumb);
+  const blocks = [...(schemas ?? []), ...(breadcrumbs ? [breadcrumbs] : [])];
+  if (blocks.length === 0) return html;
+
+  // Escaping "<" stops a stray angle bracket in a title or answer from closing
+  // the script element early.
+  const tags = blocks
+    .map((block) => {
+      const json = JSON.stringify(block, null, 2).replace(/</g, "\\u003c");
+      return `  <script type="application/ld+json">\n${json}\n    </script>`;
+    })
+    .join("\n");
+
+  return html.replace("</head>", `${tags}\n  </head>`);
 }
 
 function writeRoute(path, html) {
