@@ -189,7 +189,7 @@ export const STATIC_SCHEMAS = {
       mainEntity: {
         "@type": "LocalBusiness",
         "@id": BUSINESS_ID,
-        name: "Bless Kimbi",
+        name: "Bless Kimbi Web Developer",
         url: BASE,
         telephone: "+237675126845",
         email: "blesskimbi10@gmail.com",
@@ -291,7 +291,7 @@ export function blogSchemas({ path, title, description, image, date, modified, t
     publisher: {
       "@type": "Organization",
       "@id": BUSINESS_ID,
-      name: "Bless Kimbi",
+      name: "Bless Kimbi Web Developer",
       url: BASE,
       logo: { "@type": "ImageObject", url: `${BASE}/blesskimbi.png`, width: 400, height: 400 },
     },
