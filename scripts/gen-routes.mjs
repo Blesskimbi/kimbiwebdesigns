@@ -18,6 +18,7 @@
  */
 import { createClient } from "@supabase/supabase-js";
 import { STATIC_SCHEMAS, blogSchemas, projectSchemas } from "./schema.mjs";
+import { cities, cityPath } from "../src/data/cities.mjs";
 import matter from "gray-matter";
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from "fs";
 import { join, resolve } from "path";
@@ -137,6 +138,26 @@ function getStaticRoutes() {
   }
 
   return routes;
+}
+
+/**
+ * Location pages share one React component, so there is no per-city .tsx file
+ * for getStaticRoutes to read a canonical out of. They are enumerated here from
+ * the same data the pages render.
+ */
+function getCityRoutes() {
+  return cities.map((city) => {
+    const path = cityPath(city.slug);
+    return {
+      path,
+      title: esc(city.title),
+      description: esc(city.description),
+      image: OG_IMAGE,
+      crumb: `Web Designer in ${city.name}`,
+      schemas: STATIC_SCHEMAS[path] ?? [],
+      source: "cities.mjs",
+    };
+  });
 }
 
 /**
@@ -324,6 +345,7 @@ const template = readFileSync(templatePath, "utf-8");
 
 const routes = [
   ...getStaticRoutes(),
+  ...getCityRoutes(),
   ...(await getBlogRoutes()),
   ...(await getProjectRoutes()),
 ].filter((r) => r.path !== "/"); // the homepage template is already correct

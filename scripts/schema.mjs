@@ -20,6 +20,7 @@ import {
   socialMediaFaqs,
   uiUxFaqs,
 } from "../src/data/seo-faqs.mjs";
+import { cities, cityPath } from "../src/data/cities.mjs";
 
 const BASE = "https://blesskimbi.com";
 
@@ -58,6 +59,39 @@ const service = ({ serviceType, name, path, description, areaServed = CM_AREAS, 
   ...extra,
 });
 
+/**
+ * Location pages. Each one gets a Service scoped to that city plus the FAQs
+ * the page actually renders, both built from src/data/cities.mjs so the markup
+ * and the visible page cannot disagree.
+ */
+const CITY_SCHEMAS = Object.fromEntries(
+  cities.map((city) => [
+    cityPath(city.slug),
+    [
+      faqPage(city.faqs),
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        serviceType: "Web Design and Development",
+        name: `Web Design in ${city.name}`,
+        provider,
+        areaServed: {
+          "@type": "City",
+          name: city.name,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: city.name,
+            addressRegion: city.region,
+            addressCountry: "CM",
+          },
+        },
+        url: `${BASE}${cityPath(city.slug)}`,
+        description: city.description,
+      },
+    ],
+  ]),
+);
+
 /* ── Per-route schemas ──────────────────────────────────────────────────── */
 
 /**
@@ -66,6 +100,8 @@ const service = ({ serviceType, name, path, description, areaServed = CM_AREAS, 
  * the page two competing definitions of the same entity.
  */
 export const STATIC_SCHEMAS = {
+  ...CITY_SCHEMAS,
+
   "/services/": [
     service({
       serviceType: "Web Design & Development",

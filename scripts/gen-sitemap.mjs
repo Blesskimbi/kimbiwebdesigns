@@ -15,6 +15,7 @@
 
 import { createClient } from "@supabase/supabase-js";
 import matter from "gray-matter";
+import { cities, cityPath } from "../src/data/cities.mjs";
 import { readFileSync, writeFileSync, readdirSync, existsSync } from "fs";
 import { resolve, join } from "path";
 import { fileURLToPath } from "url";
@@ -39,6 +40,14 @@ const STATIC_ROUTES = [
   { url: "/social-media-management/",               changefreq: "monthly", priority: 0.8 },
   { url: "/mobile-app-development/",                changefreq: "monthly", priority: 0.8 },
   { url: "/ui-ux-design/",                          changefreq: "monthly", priority: 0.8 },
+
+  // Location pages. Same priority as the service pages: these are the terms
+  // with the least competition locally, so they are worth crawling often.
+  ...cities.map((city) => ({
+    url: cityPath(city.slug),
+    changefreq: "monthly",
+    priority: 0.8,
+  })),
 ];
 
 /**

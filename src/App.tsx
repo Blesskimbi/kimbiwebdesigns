@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { cities, cityPath } from "@/data/cities.mjs";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -30,6 +31,7 @@ const EcommerceWebsiteDesignPage = lazy(() => import("./pages/EcommerceWebsiteDe
 const SocialMediaPage            = lazy(() => import("./pages/SocialMediaPage.tsx"));
 const MobileAppPage              = lazy(() => import("./pages/MobileAppPage.tsx"));
 const UiUxDesignPage             = lazy(() => import("./pages/UiUxDesignPage.tsx"));
+const CityPage                   = lazy(() => import("./pages/CityPage.tsx"));
 
 // Minimal fallback: matches site background so prerendered HTML is preserved
 // without any flash. Playwright's networkidle waits until lazy chunks load.
@@ -60,6 +62,16 @@ const App = () => (
             <Route path="/social-media-management" element={<SocialMediaPage />} />
             <Route path="/mobile-app-development" element={<MobileAppPage />} />
             <Route path="/ui-ux-design" element={<UiUxDesignPage />} />
+            {/* Location pages. Listed one by one because a React Router
+                dynamic segment has to be a whole segment, and these URLs put
+                the city in the same segment as the keyword. */}
+            {cities.map(({ slug }) => (
+              <Route
+                key={slug}
+                path={cityPath(slug).slice(0, -1)}
+                element={<CityPage slug={slug} />}
+              />
+            ))}
             <Route path="/dashboard/*"    element={<DashboardLayout />} />
             <Route path="*"               element={<NotFound />} />
           </Routes>

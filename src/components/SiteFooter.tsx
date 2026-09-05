@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { cities, cityPath } from "@/data/cities.mjs";
 import {
   Phone, Mail, MapPin, ArrowRight, MessageCircle, ArrowUp,
   Instagram, Github, Linkedin,
@@ -157,6 +158,24 @@ export const SiteFooter = () => (
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* Areas served. Every page links to every location page from here,
+              so none of them depends on being found through the sitemap alone. */}
+          <div className="mb-10">
+            <FooterColumnTitle>Areas I Work In</FooterColumnTitle>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2.5">
+              {cities.map(({ slug, name }) => (
+                <li key={slug}>
+                  <Link
+                    to={cityPath(slug)}
+                    className="text-white/75 hover:text-gold text-sm font-body transition-colors"
+                  >
+                    Web designer in {name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Info box — echoing the reference's phone / email callouts */}
