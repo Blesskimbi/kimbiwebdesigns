@@ -414,6 +414,19 @@ for (const route of routes) {
     issues.push(`${route.path} — no description (from ${route.source})`);
   }
 
+  // A post can name an image that has not been committed yet. Publishing writes
+  // to the database, which fires the deploy hook immediately, so the build can
+  // run before the file lands and the page ships a broken image. Catch it here
+  // rather than in someone's browser.
+  if (route.image && route.image.startsWith(BASE)) {
+    const asset = join(distDir, route.image.slice(BASE.length));
+    if (!existsSync(asset)) {
+      issues.push(
+        `${route.path} — image not found: ${route.image.slice(BASE.length)} (from ${route.source})`,
+      );
+    }
+  }
+
   writeRoute(route.path, html);
   written += 1;
   console.log(`  ✓ ${route.path}`);
