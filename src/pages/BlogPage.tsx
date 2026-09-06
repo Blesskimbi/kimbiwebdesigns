@@ -5,7 +5,7 @@ import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
-import { Calendar, User, ArrowRight, X } from "lucide-react";
+import { Calendar, User, ArrowRight, X, Inbox } from "lucide-react";
 import { useState, useEffect } from "react";
 import { getAllPosts, BlogPost , formatPostDate} from "@/lib/blog";
 import OptimisedImage from "@/components/OptimisedImage";
@@ -101,7 +101,7 @@ const BlogPage = () => {
                         </div>
                     ) : filteredPosts.length === 0 ? (
                         <div className="flex flex-col items-center justify-center py-24 text-center">
-                            <div className="text-5xl mb-6">📭</div>
+                            <Inbox size={48} className="text-muted-foreground/50 mb-6" strokeWidth={1.5} />
                             <h2 className="font-display font-bold text-2xl text-navy mb-3">No posts found</h2>
                             <p className="text-muted-foreground mb-8">
                                 {categoryFilter

@@ -486,8 +486,8 @@ const DashboardProjects = () => {
                         <button key={f} onClick={() => setFilter(f)}
                             className={`px-3 py-2 rounded-lg text-xs font-medium transition-colors capitalize ${filter === f ? "bg-primary/20 text-primary border border-primary/30" : "bg-white/5 text-gray-400 border border-white/10 hover:text-white"}`}>
                             {f === "all" ? `All (${projects.length})` :
-                             f === "featured" ? `⭐ Featured (${projects.filter(p => p.featured).length})` :
-                             `🙈 Hidden (${projects.filter(p => p.hidden).length})`}
+                             f === "featured" ? <span className="inline-flex items-center gap-1"><Star size={12} className="fill-current" />{`Featured (${projects.filter(p => p.featured).length})`}</span> :
+                             <span className="inline-flex items-center gap-1"><EyeOff size={12} />{`Hidden (${projects.filter(p => p.hidden).length})`}</span>}
                         </button>
                     ))}
                 </div>

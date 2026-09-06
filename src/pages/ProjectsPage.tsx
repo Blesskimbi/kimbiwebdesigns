@@ -6,7 +6,7 @@ import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Star } from "lucide-react";
 import { supabase, SupabaseProject } from "@/lib/supabase";
 import OptimisedImage from "@/components/OptimisedImage";
 
@@ -141,8 +141,9 @@ const ProjectsPage = () => {
                                         )}
                                         <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent opacity-60" />
                                         {project.featured && (
-                                            <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-gold/90 text-white text-[11px] font-semibold">
-                                                ★ Featured
+                                            <span className="absolute top-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gold/90 text-white text-[11px] font-semibold">
+                                                <Star size={11} className="fill-current" />
+                                                Featured
                                             </span>
                                         )}
                                         {(project.tags ?? []).length > 0 && (

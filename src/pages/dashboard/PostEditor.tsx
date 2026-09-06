@@ -429,9 +429,19 @@ const PostEditor = ({ post, onClose }: Props) => {
                             />
                             {draft.focus_keyword && (
                                 <p className="text-[11px] mt-1.5 text-gray-500">
-                                    In title: {draft.title.toLowerCase().includes(draft.focus_keyword.toLowerCase()) ? "✅" : "❌"}
+                                    <span className="inline-flex items-center gap-1 align-middle">
+                                        In title:
+                                        {draft.title.toLowerCase().includes(draft.focus_keyword.toLowerCase())
+                                            ? <Check size={12} className="text-green-600" />
+                                            : <X size={12} className="text-red-500" />}
+                                    </span>
                                     {"  ·  "}
-                                    In content: {draft.content.toLowerCase().includes(draft.focus_keyword.toLowerCase()) ? "✅" : "❌"}
+                                    <span className="inline-flex items-center gap-1 align-middle">
+                                        In content:
+                                        {draft.content.toLowerCase().includes(draft.focus_keyword.toLowerCase())
+                                            ? <Check size={12} className="text-green-600" />
+                                            : <X size={12} className="text-red-500" />}
+                                    </span>
                                 </p>
                             )}
                         </div>

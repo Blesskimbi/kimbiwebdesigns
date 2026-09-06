@@ -101,12 +101,12 @@ For global perspective on how professional web agencies approach these challenge
 
 Watch out for these warning signs when hiring a **web design agency in Cameroon** or a freelancer:
 
-❌ **No portfolio or only mockup screenshots**
-❌ **Unrealistically low prices** (a complete professional site for 50,000 FCFA is not realistic)
-❌ **No contract or written scope of work**
-❌ **"I'll launch it in 3 days"**: quality custom websites take time
-❌ **Ownership of your domain/hosting stays with the designer**: you should always own your domain
-❌ **No mention of SEO, speed, or mobile optimisation**
+- ❌ **No portfolio or only mockup screenshots**
+- ❌ **Unrealistically low prices** (a complete professional site for 50,000 FCFA is not realistic)
+- ❌ **No contract or written scope of work**
+- ❌ **"I'll launch it in 3 days"**: quality custom websites take time
+- ❌ **Ownership of your domain/hosting stays with the designer**: you should always own your domain
+- ❌ **No mention of SEO, speed, or mobile optimisation**
 
 ## 6. Ask for Client References
 

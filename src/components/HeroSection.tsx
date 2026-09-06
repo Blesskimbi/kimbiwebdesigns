@@ -83,20 +83,6 @@ const HeroSection = () => {
 
         <div ref={contentRef} className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-16 md:py-24">
           <div className="max-w-2xl text-left">
-            {/* Badge row — two clean pills side by side */}
-            <div className="flex items-center flex-wrap gap-2 mb-7">
-              <span
-                className="inline-flex items-center rounded-full bg-white text-[#0D0D2B] font-['Rubik'] font-semibold text-xs py-[6px] px-[14px] whitespace-nowrap"
-              >
-                Bless Kimbi
-              </span>
-              <span
-                className="inline-flex items-center rounded-full bg-white/15 text-white font-['Rubik'] font-normal text-xs py-[6px] px-[14px] whitespace-nowrap"
-              >
-                Professional Web Design Services
-              </span>
-            </div>
-
             <h1 className="font-['Poppins'] font-semibold text-[34px] md:text-[54px] text-white leading-[1.15] mb-6">
               Hi, I&apos;m Bless Kimbi
               <br />

@@ -173,14 +173,14 @@ Use this checklist before hiring any web design agency in South Africa:
 
 Watch for these warning signs when evaluating web design agencies in South Africa:
 
-🚩 **No portfolio or refusal to show past work**
-🚩 **Promises that sound too good** ("Full website for R999 in 24 hours")
-🚩 **Asking for 100% payment upfront**
-🚩 **They own your domain, not you**
-🚩 **No written contract or proposal**
-🚩 **Cannot explain their SEO process**
-🚩 **No response to enquiries for more than 48 hours**
-🚩 **They disappear after launch, with no support offered**
+- 🚩 **No portfolio or refusal to show past work**
+- 🚩 **Promises that sound too good** ("Full website for R999 in 24 hours")
+- 🚩 **Asking for 100% payment upfront**
+- 🚩 **They own your domain, not you**
+- 🚩 **No written contract or proposal**
+- 🚩 **Cannot explain their SEO process**
+- 🚩 **No response to enquiries for more than 48 hours**
+- 🚩 **They disappear after launch, with no support offered**
 
 If you encounter any of these, move on. There are many excellent agencies and designers in South Africa who operate professionally.
 

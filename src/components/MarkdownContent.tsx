@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import BlogImageCarousel from "@/components/BlogImageCarousel";
+import { Flag, X, Check, AlertTriangle, Info } from "lucide-react";
 
 
 /**
@@ -115,6 +116,57 @@ const heading = (Tag: "h2" | "h3", className: string) =>
         );
     };
 
+/**
+ * Emoji that older posts use as bullets, and the icon each becomes.
+ *
+ * Posts were written with characters like a red flag or a cross at the start of
+ * a line. They render as whatever emoji font the reader's device happens to
+ * ship, which is a sticker on one phone and a flat glyph on another, and they
+ * never match the rest of the page. Swapping them for the icon set the site
+ * already uses keeps a line looking the same everywhere.
+ *
+ * Done at render rather than by rewriting the posts, so it covers anything
+ * written later without another pass over the database.
+ */
+const EMOJI_ICONS: Record<string, { Icon: typeof Flag; className: string; label: string }> = {
+    "🚩": { Icon: Flag, className: "text-red-500", label: "Warning sign" },
+    "❌": { Icon: X, className: "text-red-500", label: "Not this" },
+    "✅": { Icon: Check, className: "text-green-600", label: "Yes" },
+    "⚠️": { Icon: AlertTriangle, className: "text-amber-500", label: "Caution" },
+    "ℹ️": { Icon: Info, className: "text-primary", label: "Note" },
+};
+
+/**
+ * Replaces a leading emoji marker with the matching icon.
+ *
+ * Only the first text node is examined, and only its start, so an emoji used
+ * mid-sentence is left alone. Returns the children unchanged when there is no
+ * marker, which is the common case.
+ */
+const withLeadingIcon = (children: React.ReactNode): React.ReactNode => {
+    const nodes = React.Children.toArray(children);
+    const first = nodes[0];
+    if (typeof first !== "string") return children;
+
+    const trimmed = first.trimStart();
+    const key = Object.keys(EMOJI_ICONS).find((emoji) => trimmed.startsWith(emoji));
+    if (!key) return children;
+
+    const { Icon, className, label } = EMOJI_ICONS[key];
+    const remainder = trimmed.slice(key.length).trimStart();
+
+    return [
+        <Icon
+            key="marker"
+            size={16}
+            className={`inline-block shrink-0 mr-2 -mt-0.5 align-text-bottom ${className}`}
+            aria-label={label}
+        />,
+        remainder,
+        ...nodes.slice(1),
+    ];
+};
+
 const components = {
     // Markdown # is demoted to h2 — the page title is already the only h1.
     h1: heading("h2", "font-display font-bold text-xl md:text-2xl lg:text-3xl text-navy mt-8 mb-4 border-b border-border pb-2"),
@@ -159,8 +211,10 @@ const components = {
                 />
             );
         }
-        return <p>{children}</p>;
+        return <p>{withLeadingIcon(children)}</p>;
     },
+
+    li: ({ children }: MdProps) => <li>{withLeadingIcon(children)}</li>,
 };
 
 interface MarkdownContentProps {
