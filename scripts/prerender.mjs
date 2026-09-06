@@ -224,15 +224,23 @@ const main = async () => {
     return;
   }
 
-  const page = await browser.newPage();
-  await page.setViewport({ width: 1280, height: 900 });
-  page.setDefaultTimeout(NAV_TIMEOUT);
-
   let done = 0;
   const issues = [];
 
-  for (const route of routes) {
+  /**
+   * Renders one route in its own page.
+   *
+   * A page per route rather than one shared across all of them. Chromium can
+   * drop a page under load, and with a single shared page every route after
+   * that point failed with the same "detached Frame" id: one crash 28 routes in
+   * silently cost the remaining 8 their body markup.
+   */
+  const renderRoute = async (route) => {
+    const page = await browser.newPage();
     try {
+      await page.setViewport({ width: 1280, height: 900 });
+      page.setDefaultTimeout(NAV_TIMEOUT);
+
       await page.goto(`http://127.0.0.1:${port}${route.path}`, {
         waitUntil: "domcontentloaded",
         timeout: NAV_TIMEOUT,
@@ -253,7 +261,22 @@ const main = async () => {
 
       await revealAll(page);
 
-      const html = await page.evaluate(() => document.getElementById("root").innerHTML);
+      return await page.evaluate(() => document.getElementById("root").innerHTML);
+    } finally {
+      await page.close().catch(() => {});
+    }
+  };
+
+  for (const route of routes) {
+    try {
+      let html;
+      try {
+        html = await renderRoute(route);
+      } catch (first) {
+        // One retry on a fresh page. A crash is usually transient, and the cost
+        // of retrying is far below the cost of shipping a page with no body.
+        html = await renderRoute(route);
+      }
 
       if (!html || html.length < 500) {
         issues.push(`${route.path} — rendered only ${html ? html.length : 0} chars`);

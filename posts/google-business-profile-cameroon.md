@@ -145,4 +145,4 @@ The order matters more than the effort. Get the location settings right, choose 
 
 If you have not created a profile yet, start at [Google Business Profile](https://www.google.com/business/). If you want the website side to match, the profile works best pointing at pages that back it up. I write about that in my [SEO services for Cameroon](/seo-company-in-cameroon/), and if you are local, on my [web design in Buea](/web-designer-in-buea/) page.
 
-**Need help setting this up properly? [Get in touch](/contact)** and I will look at your profile and tell you what is actually holding it back.
+**Need help setting this up properly? [Get in touch](/contact/)** and I will look at your profile and tell you what is actually holding it back.

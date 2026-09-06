@@ -39,6 +39,18 @@ const esc = (s) =>
     .replace(/"/g, "&quot;");
 
 /**
+ * Turns a stored image reference into an absolute URL, or falls back.
+ *
+ * Covers arrive two ways: a site-relative path typed into the editor, and a
+ * full Supabase storage URL when the cover is uploaded through the dashboard.
+ * Only the first needs the domain in front of it.
+ */
+function absoluteImage(value) {
+  if (!value) return OG_IMAGE;
+  return /^https?:\/\//i.test(value) ? value : `${BASE}${value}`;
+}
+
+/**
  * Real pixel dimensions of a built image, read from its header.
  *
  * index.html hardcodes og:image:width 1200 and height 630 for the site's own
@@ -46,6 +58,9 @@ const esc = (s) =>
  * 1200x630, so those tags were describing a different file. Scrapers that trust
  * the declared size lay the card out wrong. PNG and JPEG cover everything in
  * public/.
+ *
+ * Returns null for anything not served from this domain, such as a cover in
+ * Supabase storage, because there is no local file to measure.
  */
 function imageSize(url) {
   const local = url.startsWith(BASE) ? url.slice(BASE.length) : null;
@@ -221,7 +236,12 @@ async function getBlogRoutes() {
     if (!error && data?.length) {
       return data.map((p) => {
         const path = `/blog/${p.slug}/`;
-        const image = p.image_url ? `${BASE}${p.image_url}` : OG_IMAGE;
+        // image_url holds either a site-relative path (/blog-post.png) or a
+        // full URL, because the dashboard uploads covers to Supabase storage
+        // and stores the absolute link. Prefixing the domain unconditionally
+        // turned those into https://blesskimbi.com/https://xyz.supabase.co/...
+        // and every share preview fell back to the generic OG image.
+        const image = absoluteImage(p.image_url);
         const date = p.published_at ? isoDate(p.published_at) : null;
 
         return {
@@ -236,6 +256,7 @@ async function getBlogRoutes() {
             title: p.title || p.slug,
             description: p.meta_description || p.excerpt || "",
             image,
+            imageSize: imageSize(image),
             date,
             modified: p.updated_at ? isoDate(p.updated_at) : date,
             tags: p.tags ?? [],
@@ -311,7 +332,9 @@ async function getProjectRoutes() {
 
   return (data ?? []).map((p) => {
     const path = `/projects/${p.slug}/`;
-    const image = p.cover_image?.startsWith("http") ? p.cover_image : OG_IMAGE;
+    // Same two shapes as post covers. This previously discarded a relative
+    // path and fell back to the generic OG image instead of prefixing it.
+    const image = absoluteImage(p.cover_image);
 
     return {
       path,
@@ -345,12 +368,19 @@ function buildHtml(template, { path, title, description, image, crumb, schemas }
     [/(<meta\s+property="og:title"\s+content=")[^"]*(")/i, `$1${title}$2`],
     [/(<meta\s+property="og:description"\s+content=")[^"]*(")/i, `$1${description}$2`],
     [/(<meta\s+property="og:image"\s+content=")[^"]*(")/i, `$1${image}$2`],
+    // When the size is known, state it. When it is not, delete the tags rather
+    // than leaving the template's 1200x630 behind: those numbers describe the
+    // site's own card, and inheriting them for a Supabase-hosted cover of some
+    // other shape tells scrapers a size the file does not have.
     ...(size
       ? [
           [/(<meta\s+property="og:image:width"\s+content=")[^"]*(")/i, `$1${size.width}$2`],
           [/(<meta\s+property="og:image:height"\s+content=")[^"]*(")/i, `$1${size.height}$2`],
         ]
-      : []),
+      : [
+          [/\s*<meta\s+property="og:image:width"\s+content="[^"]*"\s*\/?>/i, ""],
+          [/\s*<meta\s+property="og:image:height"\s+content="[^"]*"\s*\/?>/i, ""],
+        ]),
     [/(<meta\s+name="twitter:title"\s+content=")[^"]*(")/i, `$1${title}$2`],
     [/(<meta\s+name="twitter:description"\s+content=")[^"]*(")/i, `$1${description}$2`],
     [/(<meta\s+name="twitter:image"\s+content=")[^"]*(")/i, `$1${image}$2`],

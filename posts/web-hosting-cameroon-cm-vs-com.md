@@ -148,4 +148,4 @@ Put the effort where the seconds are. Use a host with a CDN, keep your pages lig
 
 If you want a second opinion on a host or a domain before you commit, that is a five minute conversation and I am happy to have it. I write more about the technical side in my [SEO services for Cameroon](/seo-company-in-cameroon/), and if you are nearby, on my [web design in Buea](/web-designer-in-buea/) page.
 
-**Thinking about a new site or a rebuild? [Get in touch](/contact)** and I will tell you what I would do in your position, including when the answer is that you do not need me.
+**Thinking about a new site or a rebuild? [Get in touch](/contact/)** and I will tell you what I would do in your position, including when the answer is that you do not need me.

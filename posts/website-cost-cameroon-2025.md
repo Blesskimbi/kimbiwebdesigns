@@ -9,6 +9,9 @@ category: Web Design
 author: Bless Kimbi
 date: '2026-06-01'
 imageUrl: /blog-website-cost-cameroon-2025.png
+metaDescription: >-
+  What a professional website really costs in Cameroon: every tier from a basic
+  brochure site to full e-commerce, so you know what to budget for.
 tags:
   - web design Cameroon
   - website cost
@@ -135,6 +138,6 @@ The real question isn't "how cheap can I get a website?". It's "what return will
 
 Invest in your online presence the right way. Build with a professional who understands both the technical and business sides of web design in Cameroon.
 
-Still comparing options? Read [How to Choose the Best Web Designer in Cameroon](/blog/how-to-choose-web-designer-cameroon) for the exact checklist to use before you hire anyone, and see [why every Cameroonian business needs a website](/blog/why-cameroonian-business-needs-website) in the first place.
+Still comparing options? Read [How to Choose the Best Web Designer in Cameroon](/blog/how-to-choose-web-designer-cameroon/) for the exact checklist to use before you hire anyone, and see [why every Cameroonian business needs a website](/blog/why-cameroonian-business-needs-website/) in the first place.
 
-**Need a website? [Contact Bless Kimbi today](/contact)**, Cameroon's leading web designer and developer. Get a free quote within 24 hours.
+**Need a website? [Contact Bless Kimbi today](/contact/)**, Cameroon's leading web designer and developer. Get a free quote within 24 hours.

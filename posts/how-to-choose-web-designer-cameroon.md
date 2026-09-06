@@ -9,6 +9,9 @@ category: Web Design
 author: Bless Kimbi
 date: '2026-06-10'
 imageUrl: /blog-how-to-choose-web-designer-cameroon-2026.png
+metaDescription: >-
+  Not every web designer in Cameroon delivers the same result. The checklist to
+  run before you hire anyone, so your budget buys a site that performs.
 tags:
   - web designer Cameroon
   - Bless Kimbi
@@ -58,7 +61,7 @@ The first thing to look at is the designer's portfolio. But don't just look at s
 - Is the navigation easy to use?
 - Would you trust this site with your own money or contact details?
 
-A genuine **web designer in Cameroon** will have a portfolio of real, live client projects, not just mockups or concepts. You can [view my live portfolio here](/projects). Every project listed is a real site I built for a real client. You can also see what strong agency-level work looks like from peers such as [Cyprogram](https://cyprogram.com) and [Website Designer NG](https://www.websitedesigner.ng/) to calibrate your expectations.
+A genuine **web designer in Cameroon** will have a portfolio of real, live client projects, not just mockups or concepts. You can [view my live portfolio here](/projects/). Every project listed is a real site I built for a real client. You can also see what strong agency-level work looks like from peers such as [Cyprogram](https://cyprogram.com) and [Website Designer NG](https://www.websitedesigner.ng/) to calibrate your expectations.
 
 ## 2. Ask Directly: "Will My Website Rank on Google?"
 
@@ -141,6 +144,6 @@ As a **web designer in Buea**, I've built a reputation for delivering websites t
 
 I serve clients across Cameroon, including businesses in Buea, Douala, and internationally. Whether you need a simple professional site, an e-commerce store, or a complex web application, I build it right, the first time.
 
-Not sure yet what a project will cost? Read my full breakdown in [How Much Does a Website Cost in Cameroon in 2026?](/blog/website-cost-cameroon-2025) Or if you want to compare agencies more broadly first, see [10 Best Web Design Agencies in Cameroon in 2026](/blog/web-design-agency-in-cameroon).
+Not sure yet what a project will cost? Read my full breakdown in [How Much Does a Website Cost in Cameroon in 2026?](/blog/website-cost-cameroon-2025/) Or if you want to compare agencies more broadly first, see [10 Best Web Design Agencies in Cameroon in 2026](/blog/web-design-agency-in-cameroon/).
 
-**Need a website? [Contact Bless Kimbi today](/contact)**, Cameroon's leading web designer. Get a free quote within 24 hours, with no obligation.
+**Need a website? [Contact Bless Kimbi today](/contact/)**, Cameroon's leading web designer. Get a free quote within 24 hours, with no obligation.

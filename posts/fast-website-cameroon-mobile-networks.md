@@ -136,4 +136,4 @@ Fix the images first, because that is where the megabytes are. Then remove what 
 
 If you want to know where the weight is on your current site, that is a quick thing for me to look at. I write more about the technical side in my [SEO services for Cameroon](/seo-company-in-cameroon/), and there is more on how I build in [web design in Buea](/web-designer-in-buea/).
 
-**Site feeling slow? [Get in touch](/contact)** and I will tell you what is making it slow and whether it is worth fixing or rebuilding.
+**Site feeling slow? [Get in touch](/contact/)** and I will tell you what is making it slow and whether it is worth fixing or rebuilding.

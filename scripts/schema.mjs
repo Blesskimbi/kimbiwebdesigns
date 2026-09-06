@@ -269,7 +269,7 @@ export const STATIC_SCHEMAS = {
 /* ── Detail pages ───────────────────────────────────────────────────────── */
 
 /** BlogPosting, plus a FAQPage when the post defines FAQs, for one blog route. */
-export function blogSchemas({ path, title, description, image, date, modified, tags, wordCount, faqs }) {
+export function blogSchemas({ path, title, description, image, imageSize, date, modified, tags, wordCount, faqs }) {
   const url = `${BASE}${path}`;
 
   const article = {
@@ -278,7 +278,11 @@ export function blogSchemas({ path, title, description, image, date, modified, t
     "@id": `${url}#article`,
     headline: title,
     description,
-    image: { "@type": "ImageObject", url: image, width: 1200, height: 630 },
+    // Dimensions only when they were actually read off the file. A cover
+    // uploaded to Supabase storage is not measurable at build time, and
+    // declaring 1200x630 for an image that is not those dimensions is a
+    // false statement in structured data.
+    image: { "@type": "ImageObject", url: image, ...(imageSize ?? {}) },
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     author: {
