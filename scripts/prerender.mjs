@@ -13,29 +13,28 @@
  * and only ever replaces the contents of #root. The head that gen-routes
  * produced is left exactly as it is.
  *
- * A failure here is deliberately not fatal. The pages remain valid and the
- * deploy still goes out with head metadata intact; it just goes out without the
- * body, which is what happened every build before this script existed.
+ * ON THE BROWSER — Vercel's build image is missing the shared libraries a
+ * stock Chromium links against (libnspr4 among them), so Playwright's download
+ * fetches 110 MB and then dies the instant it launches. That is why the earlier
+ * prerender here was reverted in "Drop prerendering so the site builds on
+ * Vercel", and why gen-routes exists to write the <head> without a browser.
  *
- * KNOWN LIMIT — this step does not run on Vercel. Vercel's build image has no
- * libnspr4, so Chromium cannot start there no matter which flags it is given;
- * a missing shared library is not something a launch argument can work around.
- * An earlier prerender in this repo was reverted for exactly this reason (see
- * "Drop prerendering so the site builds on Vercel"), which is why gen-routes
- * exists to write the <head> without a browser.
+ * A launch flag cannot supply a missing library, but a differently built binary
+ * can: @sparticuz/chromium ships a Chromium compiled for exactly this image
+ * with those libraries carried alongside it. So the browser is resolved rather
+ * than assumed — that build on Linux, and the one Playwright already manages
+ * when developing locally. Both are driven through puppeteer-core, which is
+ * what the Lambda build is built to pair with.
  *
- * So on a Vercel build this warns and skips, and the deploy is unaffected. To
- * actually ship prerendered bodies the build has to happen somewhere Chromium
- * runs — GitHub Actions, say — and the output deployed with
- * `vercel deploy --prebuilt`. Until then this step earns its keep locally, as
- * the way to check what a crawler would receive before shipping.
+ * If neither resolves, this warns and skips. The deploy still goes out with its
+ * head metadata intact; it just goes out without the body, which is what
+ * happened on every build before this script existed.
  */
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join, resolve, relative, sep } from "path";
 import { fileURLToPath } from "url";
 import { createServer } from "http";
 import { readdir, stat } from "fs/promises";
-import { execSync } from "child_process";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const distDir = resolve(__dirname, "..", "dist");
@@ -43,6 +42,15 @@ const distDir = resolve(__dirname, "..", "dist");
 const PORT = Number(process.env.PRERENDER_PORT || 0);
 const NAV_TIMEOUT = 30_000;
 const SETTLE_TIMEOUT = 6_000;
+
+// What lets Chromium start inside a build container at all. Carried over from
+// the earlier prerender in this repo.
+const CONTAINER_ARGS = [
+  "--no-sandbox",
+  "--disable-setuid-sandbox",
+  "--disable-dev-shm-usage",
+  "--disable-gpu",
+];
 
 const ROOT_OPEN = '<div id="root">';
 const ROOT_CLOSE = "</div>";
@@ -142,51 +150,82 @@ async function revealAll(page) {
   });
 }
 
+/**
+ * Finds a Chromium this machine can actually start, and the flags it needs.
+ *
+ * Order matters: the Lambda build is tried first because it is the one that
+ * works in a build container, and it only exists for Linux. Locally that import
+ * is skipped and Playwright's managed browser is borrowed instead, which avoids
+ * a second 110 MB download for a binary already on disk.
+ */
+async function resolveBrowser() {
+  if (process.platform === "linux") {
+    try {
+      const sparticuz = (await import("@sparticuz/chromium")).default;
+      const executablePath = await sparticuz.executablePath();
+      if (executablePath && existsSync(executablePath)) {
+        return { executablePath, args: sparticuz.args, source: "@sparticuz/chromium" };
+      }
+    } catch {
+      // Not installed, or could not unpack. Fall through to the local browser.
+    }
+  }
+
+  try {
+    const { chromium } = await import("playwright");
+    const executablePath = chromium.executablePath();
+    if (executablePath && existsSync(executablePath)) {
+      return { executablePath, args: CONTAINER_ARGS, source: "playwright chromium" };
+    }
+  } catch {
+    // Playwright absent. Nothing left to try.
+  }
+
+  return null;
+}
+
 const main = async () => {
   if (!existsSync(join(distDir, "index.html"))) {
     console.error("[prerender] dist/index.html not found — run vite build first.");
     process.exit(1);
   }
 
-  let chromium;
+  let puppeteer;
   try {
-    ({ chromium } = await import("playwright"));
+    puppeteer = (await import("puppeteer-core")).default;
   } catch {
-    console.warn("[prerender] playwright not installed — skipping. Pages ship without body markup.");
+    console.warn("[prerender] puppeteer-core not installed — skipping. Pages ship without body markup.");
     return;
   }
+
+  const resolved = await resolveBrowser();
+  if (!resolved) {
+    console.warn("[prerender] no runnable chromium found — skipping.");
+    console.warn("[prerender] pages will ship with head metadata but no body markup.");
+    return;
+  }
+  console.log(`[prerender] using ${resolved.source}`);
 
   const routes = await findRoutes();
   const server = await serveDist();
   const port = server.address().port;
 
-  // A CI image installs node_modules but not the browser binaries Playwright
-  // downloads on demand, so the first launch there fails on a missing
-  // executable. Fetch it once and retry rather than making every deploy depend
-  // on someone remembering an extra build step.
-  // The sandbox and /dev/shm flags are what let Chromium start inside a build
-  // container at all. Carried over from the earlier prerender in this repo.
-  const launchOptions = {
-    args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
-  };
-
   let browser;
   try {
-    browser = await chromium.launch(launchOptions);
-  } catch (first) {
-    console.log("[prerender] chromium not present, installing it...");
-    try {
-      execSync("npx --yes playwright install chromium", { stdio: "inherit" });
-      browser = await chromium.launch(launchOptions);
-    } catch (second) {
-      console.warn(`[prerender] could not launch chromium (${second.message.split("\n")[0]}) — skipping.`);
-      console.warn("[prerender] pages will ship with head metadata but no body markup.");
-      server.close();
-      return;
-    }
+    browser = await puppeteer.launch({
+      executablePath: resolved.executablePath,
+      args: resolved.args,
+      headless: true,
+    });
+  } catch (err) {
+    console.warn(`[prerender] could not launch chromium (${err.message.split("\n")[0]}) — skipping.`);
+    console.warn("[prerender] pages will ship with head metadata but no body markup.");
+    server.close();
+    return;
   }
 
-  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  const page = await browser.newPage();
+  await page.setViewport({ width: 1280, height: 900 });
   page.setDefaultTimeout(NAV_TIMEOUT);
 
   let done = 0;
@@ -198,19 +237,19 @@ const main = async () => {
         waitUntil: "domcontentloaded",
         timeout: NAV_TIMEOUT,
       });
-      // "attached", not the default "visible". The first child of #root is the
-      // toast notification region, which is permanently invisible until a toast
-      // fires, so waiting for visibility waits for something that never happens.
-      await page.waitForSelector("#root > *", { state: "attached", timeout: 15_000 });
+      // Presence, not visibility: the first child of #root is the toast
+      // region, which stays invisible until a toast fires, so a visibility wait
+      // would wait for something that never happens. puppeteer waits for
+      // presence by default, which is what is wanted here.
+      await page.waitForSelector("#root > *", { timeout: 15_000 });
 
       // The real signal that the page rendered rather than merely mounted.
-      await page.waitForSelector("#root h1", { state: "attached", timeout: 10_000 }).catch(() => {});
+      await page.waitForSelector("#root h1", { timeout: 10_000 }).catch(() => {});
 
-      // Best effort only. Waiting on networkidle as the navigation condition
-      // stalls every page for the full timeout, because the Supabase client
-      // holds a connection open and the network therefore never goes quiet.
-      // Give the data fetches a window to land, then carry on regardless.
-      await page.waitForLoadState("networkidle", { timeout: SETTLE_TIMEOUT }).catch(() => {});
+      // The data fetches are not covered by any load event, and waiting for the
+      // network to fall quiet never returns because the Supabase client holds a
+      // connection open. Give them a fixed window instead.
+      await new Promise((r) => setTimeout(r, SETTLE_TIMEOUT));
 
       await revealAll(page);
 
