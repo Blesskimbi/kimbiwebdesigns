@@ -38,6 +38,46 @@ const esc = (s) =>
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 
+/**
+ * Real pixel dimensions of a built image, read from its header.
+ *
+ * index.html hardcodes og:image:width 1200 and height 630 for the site's own
+ * card. Every blog post overrides og:image with its own artwork, which is not
+ * 1200x630, so those tags were describing a different file. Scrapers that trust
+ * the declared size lay the card out wrong. PNG and JPEG cover everything in
+ * public/.
+ */
+function imageSize(url) {
+  const local = url.startsWith(BASE) ? url.slice(BASE.length) : null;
+  if (!local) return null;
+
+  const path = join(distDir, local);
+  if (!existsSync(path)) return null;
+
+  const b = readFileSync(path);
+
+  // PNG: IHDR width/height are big-endian at bytes 16 and 20.
+  if (b.length > 24 && b.slice(1, 4).toString() === "PNG") {
+    return { width: b.readUInt32BE(16), height: b.readUInt32BE(20) };
+  }
+
+  // JPEG: walk the segment markers to the frame header that carries the size.
+  if (b.length > 4 && b[0] === 0xff && b[1] === 0xd8) {
+    let i = 2;
+    while (i < b.length - 9) {
+      if (b[i] !== 0xff) { i += 1; continue; }
+      const marker = b[i + 1];
+      // SOF0..SOF15, excluding the non-frame markers in that range.
+      if (marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker)) {
+        return { height: b.readUInt16BE(i + 5), width: b.readUInt16BE(i + 7) };
+      }
+      i += 2 + b.readUInt16BE(i + 2);
+    }
+  }
+
+  return null;
+}
+
 /** YYYY-MM-DD, which is what schema.org dates and <lastmod> both want. */
 const isoDate = (value) => {
   const d = new Date(value);
@@ -295,6 +335,7 @@ async function getProjectRoutes() {
 
 function buildHtml(template, { path, title, description, image, crumb, schemas }) {
   const url = `${BASE}${path}`;
+  const size = imageSize(image);
 
   const swaps = [
     [/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`],
@@ -304,6 +345,12 @@ function buildHtml(template, { path, title, description, image, crumb, schemas }
     [/(<meta\s+property="og:title"\s+content=")[^"]*(")/i, `$1${title}$2`],
     [/(<meta\s+property="og:description"\s+content=")[^"]*(")/i, `$1${description}$2`],
     [/(<meta\s+property="og:image"\s+content=")[^"]*(")/i, `$1${image}$2`],
+    ...(size
+      ? [
+          [/(<meta\s+property="og:image:width"\s+content=")[^"]*(")/i, `$1${size.width}$2`],
+          [/(<meta\s+property="og:image:height"\s+content=")[^"]*(")/i, `$1${size.height}$2`],
+        ]
+      : []),
     [/(<meta\s+name="twitter:title"\s+content=")[^"]*(")/i, `$1${title}$2`],
     [/(<meta\s+name="twitter:description"\s+content=")[^"]*(")/i, `$1${description}$2`],
     [/(<meta\s+name="twitter:image"\s+content=")[^"]*(")/i, `$1${image}$2`],

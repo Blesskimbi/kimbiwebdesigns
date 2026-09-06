@@ -7,7 +7,7 @@ excerpt: >-
 category: Web Development
 author: Bless Kimbi
 date: '2026-09-05'
-imageUrl: ''
+imageUrl: /blog-fast-website-cameroon-mobile-networks.png
 readTime: 5 min read
 focusKeyword: website speed cameroon
 seoTitle: Fast Websites on Cameroon Mobile Networks

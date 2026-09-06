@@ -10,7 +10,7 @@ excerpt: >-
 category: SEO
 author: Bless Kimbi
 date: '2026-09-05'
-imageUrl: ''
+imageUrl: /blog-google-business-profile-cameroon.png
 readTime: 6 min read
 focusKeyword: google business profile cameroon
 seoTitle: 'Google Business Profile Cameroon: Setup Guide'

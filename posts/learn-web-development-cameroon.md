@@ -7,7 +7,7 @@ excerpt: >-
 category: Web Development
 author: Bless Kimbi
 date: '2026-09-05'
-imageUrl: ''
+imageUrl: /blog-learn-web-development-cameroon.png
 readTime: 5 min read
 focusKeyword: learn web development cameroon
 seoTitle: 'Learn Web Development in Cameroon: 2026 Guide'

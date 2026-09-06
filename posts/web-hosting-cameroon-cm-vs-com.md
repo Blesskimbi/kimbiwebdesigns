@@ -8,7 +8,7 @@ excerpt: >-
 category: Web Development
 author: Bless Kimbi
 date: '2026-09-05'
-imageUrl: ''
+imageUrl: /blog-web-hosting-cameroon-cm-vs-com.png
 readTime: 6 min read
 focusKeyword: web hosting cameroon
 seoTitle: 'Web Hosting Cameroon: .cm vs .com Explained'
