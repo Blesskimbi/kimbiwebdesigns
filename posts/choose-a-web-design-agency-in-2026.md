@@ -25,6 +25,38 @@ tags:
   - web agency Johannesburg
   - web design checklist South Africa
   - website development South Africa 2026
+faqs:
+  - a: >-
+      South African web agencies typically charge **R5,000 to R15,000** for a
+      professional 5-page business website, and **R15,000 to R60,000+** for
+      e-commerce. Budget options at R2,000 to R4,000 generally produce
+      template-based results with no SEO.
+    q: >-
+      What is the average cost of a website from a South African web agency in
+      2026?
+  - a: >-
+      If your website is older than 3 years, loads slowly on mobile (below 60 on
+      PageSpeed Insights), or has no SSL certificate (HTTPS), a rebuild is
+      almost certainly the better investment.
+    q: How do I know if my website needs rebuilding or just updating?
+  - a: >-
+      Yes, if SEO is part of their service. Proper on-page SEO, local SEO
+      (Google My Business), and a content strategy can help any South African
+      business rank for relevant local searches within 3 to 6 months.
+    q: Can a web design agency help my South African business rank on Google?
+  - a: >-
+      At minimum: **PayFast** (South Africa's most popular gateway), **Yoco**
+      (point-of-sale integration), **SnapScan**, and **EFT**. Bless Kimbi
+      integrates all of these as standard for South African e-commerce clients.
+    q: What South African payment methods should my e-commerce website support?
+  - a: >-
+      A local agency with knowledge of the South African market (local SEO,
+      payment gateways, business culture) typically delivers better results for
+      SA-focused businesses. However, Bless Kimbi operates internationally and
+      brings a global perspective to every South African project.
+    q: >-
+      Is it better to choose a local South African agency or an international
+      one?
 ---
 
 Choosing the wrong **web design agency in South Africa** is one of the most expensive mistakes a business can make. South African entrepreneurs from Cape Town to Johannesburg have been through it. They paid for a website that was never finished, looked terrible on mobile, or disappeared along with the "developer" who built it.
@@ -91,7 +123,7 @@ If they cannot answer these confidently and specifically, their "SEO included" p
 
 Before signing anything, get clarity on:
 
-**Ownership:** You should **always own your domain name and website files.** Some agencies use proprietary platforms that lock you in. Walk away if this is the case.
+**Ownership:** You should **always own your domain name and website files.** I explain why this matters, and how it goes wrong, in [web hosting and the .cm versus .com decision](/blog/web-hosting-cameroon-cm-vs-com/). Some agencies use proprietary platforms that lock you in. Walk away if this is the case.
 
 **Payment terms:** Standard professional terms are 50% upfront and 50% on delivery. Be very cautious of anyone asking for 100% upfront.
 
@@ -172,28 +204,6 @@ Here is a sample of websites delivered by Bless Kimbi. Judge the quality for you
 We also work alongside respected peers in the African web space. Developers like [Front to Back Dev](https://fronttobackdev.com/) are raising the standard for what professional web development looks like across the continent, and we hold ourselves to that same bar.
 
 Visit our [services page](https://blesskimbi.com/services) for full details on what we offer South African businesses.
-
-## Frequently Asked Questions
-
-### What is the average cost of a website from a South African web agency in 2026?
-
-South African web agencies typically charge **R5,000 to R15,000** for a professional 5-page business website, and **R15,000 to R60,000+** for e-commerce. Budget options at R2,000 to R4,000 generally produce template-based results with no SEO.
-
-### How do I know if my website needs rebuilding or just updating?
-
-If your website is older than 3 years, loads slowly on mobile (below 60 on PageSpeed Insights), or has no SSL certificate (HTTPS), a rebuild is almost certainly the better investment.
-
-### Can a web design agency help my South African business rank on Google?
-
-Yes, if SEO is part of their service. Proper on-page SEO, local SEO (Google My Business), and a content strategy can help any South African business rank for relevant local searches within 3 to 6 months.
-
-### What South African payment methods should my e-commerce website support?
-
-At minimum: **PayFast** (South Africa's most popular gateway), **Yoco** (point-of-sale integration), **SnapScan**, and **EFT**. Bless Kimbi integrates all of these as standard for South African e-commerce clients.
-
-### Is it better to choose a local South African agency or an international one?
-
-A local agency with knowledge of the South African market (local SEO, payment gateways, business culture) typically delivers better results for SA-focused businesses. However, Bless Kimbi operates internationally and brings a global perspective to every South African project.
 
 ## Make the Right Choice for Your South African Business
 

@@ -26,6 +26,39 @@ tags:
   - Nigerian small business online
   - digital marketing Nigeria
   - website for Nigerian business
+faqs:
+  - a: >-
+      Yes. Instagram's algorithm can change at any time, reducing your reach
+      overnight. Your website is a permanent digital asset you own. Instagram is
+      rented space. The most successful Nigerian brands use both, with Instagram
+      driving awareness and the website converting that awareness into sales.
+    q: Do I really need a website if my business is doing well on Instagram?
+  - a: >-
+      A properly optimised website with local SEO, including a Google My
+      Business profile, location-specific pages and consistent NAP (Name,
+      Address, Phone) information, can rank your Lagos business for searches
+      like "interior designer Lagos" or "accountant Victoria Island" within 3 to
+      6 months.
+    q: How can a website help my Lagos-based business rank on Google?
+  - a: >-
+      For serious Nigerian businesses, custom-coded websites or professional CMS
+      platforms (WordPress, Webflow) outperform drag-and-drop builders (Wix,
+      Weebly) in speed, SEO, and customisation. Bless Kimbi builds custom
+      websites that are specifically optimised for Nigerian business needs.
+    q: What is the best website builder for Nigerian businesses?
+  - a: >-
+      Absolutely. Bless Kimbi integrates **Paystack** and **Flutterwave**,
+      Nigeria's leading payment gateways, for all e-commerce projects,
+      supporting Naira payments via bank cards, bank transfer, and USSD.
+    q: Can I accept payments in Naira on my website?
+  - a: >-
+      With proper SEO, most websites begin generating organic leads within **2
+      to 4 months**. Paid advertising (Google Ads or Facebook Ads) can generate
+      leads within **24 to 48 hours** of launch. Local SEO results are often the
+      fastest, at 4 to 8 weeks for Google My Business rankings.
+    q: >-
+      How quickly can a website start generating business for my Nigerian
+      company?
 ---
 
 If your business in Nigeria does not have a website in 2026, you do not exist, at least not to the **109 million internet users** who search Google before they spend a single Naira. From Lagos Island to Abuja's CBD, from Port Harcourt to Kano, Nigerian consumers now research businesses online before they ever make contact.
@@ -84,7 +117,7 @@ Think about the revenue potential. If your business generates 10 serious enquiri
 
 Many Nigerian entrepreneurs have built impressive Instagram or Facebook followings and assume that is sufficient. It is not. Here is why:
 
-**You do not own your social media audience.** Meta can change the algorithm, restrict your reach, or delete your account at any moment, and this has happened to Nigerian businesses. In contrast, your website and your email list are assets you own completely.
+**You do not own your social media audience.** Meta can change the algorithm, restrict your reach, or delete your account at any moment, and this has happened to Nigerian businesses. In contrast, your website and your email list are assets you own completely, provided the domain is registered in your name, which is covered in [web hosting and the .cm versus .com decision](/blog/web-hosting-cameroon-cm-vs-com/).
 
 **Social media reach is declining.** Organic reach on Instagram and Facebook has dropped significantly. Unless you are paying for ads, only a tiny percentage of your followers see each post.
 
@@ -164,28 +197,6 @@ Visit our [services page](https://blesskimbi.com/services) to see exactly what B
 | Custom web application | ₦1,500,000+ | $1,000+ |
 
 For more detail on pricing and what is included, read our guide: [What an affordable web developer charges and what to expect](https://blesskimbi.com/blog/affordable-web-developer-cameroon-small-business).
-
-## Frequently Asked Questions
-
-### Do I really need a website if my business is doing well on Instagram?
-
-Yes. Instagram's algorithm can change at any time, reducing your reach overnight. Your website is a permanent digital asset you own. Instagram is rented space. The most successful Nigerian brands use both, with Instagram driving awareness and the website converting that awareness into sales.
-
-### How can a website help my Lagos-based business rank on Google?
-
-A properly optimised website with local SEO, including a Google My Business profile, location-specific pages and consistent NAP (Name, Address, Phone) information, can rank your Lagos business for searches like "interior designer Lagos" or "accountant Victoria Island" within 3 to 6 months.
-
-### What is the best website builder for Nigerian businesses?
-
-For serious Nigerian businesses, custom-coded websites or professional CMS platforms (WordPress, Webflow) outperform drag-and-drop builders (Wix, Weebly) in speed, SEO, and customisation. Bless Kimbi builds custom websites that are specifically optimised for Nigerian business needs.
-
-### Can I accept payments in Naira on my website?
-
-Absolutely. Bless Kimbi integrates **Paystack** and **Flutterwave**, Nigeria's leading payment gateways, for all e-commerce projects, supporting Naira payments via bank cards, bank transfer, and USSD.
-
-### How quickly can a website start generating business for my Nigerian company?
-
-With proper SEO, most websites begin generating organic leads within **2 to 4 months**. Paid advertising (Google Ads or Facebook Ads) can generate leads within **24 to 48 hours** of launch. Local SEO results are often the fastest, at 4 to 8 weeks for Google My Business rankings.
 
 ## See What a Professional Website Looks Like
 
