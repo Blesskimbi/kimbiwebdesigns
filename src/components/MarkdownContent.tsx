@@ -57,6 +57,45 @@ export const extractHeadings = (markdown: string): Heading[] => {
     return out;
 };
 
+/**
+ * Splits a post in two at the h2 nearest its middle, so a call to action can
+ * sit in the flow of the article rather than only in a sidebar a phone never
+ * shows.
+ *
+ * Returns the whole post and an empty tail when there is no sensible break:
+ * short posts, or posts whose only headings are bunched at one end. A CTA
+ * wedged two paragraphs from the end is worse than none.
+ */
+export const splitAtMidHeading = (markdown: string): [string, string] => {
+    const MIN_LENGTH = 3000;
+    if (markdown.length < MIN_LENGTH) return [markdown, ""];
+
+    const lines = markdown.split("\n");
+    const total = markdown.length;
+    let inFence = false;
+    let chars = 0;
+    let bestLine = -1;
+    let bestDistance = Infinity;
+
+    lines.forEach((line, i) => {
+        if (/^\s*```/.test(line)) inFence = !inFence;
+
+        if (!inFence && /^##\s+/.test(line)) {
+            const distance = Math.abs(chars - total / 2);
+            if (distance < bestDistance) {
+                bestDistance = distance;
+                bestLine = i;
+            }
+        }
+        chars += line.length + 1;
+    });
+
+    // Refuse a break that lands in the first or last quarter of the post.
+    if (bestLine <= 0 || bestDistance > total * 0.25) return [markdown, ""];
+
+    return [lines.slice(0, bestLine).join("\n").trimEnd(), lines.slice(bestLine).join("\n")];
+};
+
 type MdProps = { children?: React.ReactNode };
 
 const heading = (Tag: "h2" | "h3", className: string) =>

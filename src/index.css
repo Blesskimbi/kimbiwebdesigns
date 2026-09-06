@@ -68,7 +68,11 @@
 
   html, body {
     @apply bg-background text-foreground font-body antialiased;
-    overflow-x: hidden;
+    /* clip, not hidden: setting one axis to hidden forces the other to compute
+       as auto, which turns html and body into scroll containers and silently
+       disables position: sticky everywhere on the site. clip stops the
+       horizontal overflow without that side effect. */
+    overflow-x: clip;
     width: 100%;
   }
 

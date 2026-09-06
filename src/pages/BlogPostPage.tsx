@@ -9,9 +9,11 @@ import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import BlogSidebar from "@/components/BlogSidebar";
-import MarkdownContent from "@/components/MarkdownContent";
+import MarkdownContent, { extractHeadings, splitAtMidHeading } from "@/components/MarkdownContent";
 import { getPostBySlug, BlogPost , formatPostDate} from "@/lib/blog";
 import OptimisedImage from "@/components/OptimisedImage";
+import TableOfContents from "@/components/TableOfContents";
+import InlineCta from "@/components/InlineCta";
 
 const BASE = "https://blesskimbi.com";
 
@@ -138,6 +140,11 @@ const BlogPostPage = () => {
   );
 
   const absoluteOgImage = ogImage.startsWith("http") ? ogImage : `${BASE}${ogImage}`;
+  // Both derived from the markdown, so they are correct on first paint rather
+  // than after the article has mounted and been measured.
+  const headings = extractHeadings(post.content);
+  const [beforeCta, afterCta] = splitAtMidHeading(post.content);
+
   const suffix = " | Bless Kimbi";
   const maxTitleRaw = 58 - suffix.length - 1; // -1 for ellipsis if needed
   const titleTag = post.title.length <= 58 - suffix.length
@@ -235,8 +242,20 @@ const BlogPostPage = () => {
                   />
                 </div>
 
+                {/* Collapsed contents panel for phones, which never see the sidebar. */}
+                <div className="xl:hidden mb-6">
+                  <TableOfContents headings={headings} collapsible />
+                </div>
+
                 <div className="internal-card !p-5 sm:!p-8 lg:!p-10">
-                  <MarkdownContent>{post.content}</MarkdownContent>
+                  <MarkdownContent>{beforeCta}</MarkdownContent>
+
+                  {afterCta && (
+                    <>
+                      <InlineCta variant="work" />
+                      <MarkdownContent>{afterCta}</MarkdownContent>
+                    </>
+                  )}
 
                   {/* FAQ Section */}
                   {post.faqs && post.faqs.length > 0 && (
@@ -261,9 +280,14 @@ const BlogPostPage = () => {
                 </div>
               </article>
 
-              {/* Sidebar */}
+              {/* Sidebar. Sticky so the contents and the calls to action stay
+                  reachable through a long article, which is the whole point of
+                  putting them beside the text rather than under it. */}
               <aside className="hidden xl:block">
-                <BlogSidebar />
+                <div className="sticky top-24 space-y-6 md:space-y-8">
+                  <TableOfContents headings={headings} />
+                  <BlogSidebar />
+                </div>
               </aside>
             </div>
 
