@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { Eye, EyeOff, Lock, LogOut, FileText, FolderKanban } from "lucide-react";
+import { Eye, EyeOff, Lock, LogOut, FileText, FolderKanban, MessageSquare } from "lucide-react";
 import type { Session } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
 import DashboardProjects from "@/pages/dashboard/DashboardProjects";
 import DashboardPosts from "@/pages/dashboard/DashboardPosts";
+import DashboardComments from "@/pages/dashboard/DashboardComments";
 
 /**
  * Auth is handled by Supabase, not by this bundle.
@@ -130,8 +131,8 @@ const DashboardLayout = () => {
     // undefined = still restoring the session, null = signed out
     const [session, setSession] = useState<Session | null | undefined>(undefined);
     // Remembered so a refresh does not bounce you back to Posts mid-task.
-    const [tab, setTab] = useState<"posts" | "projects">(
-        () => (localStorage.getItem("bk_tab") as "posts" | "projects") || "posts",
+    const [tab, setTab] = useState<"posts" | "projects" | "comments">(
+        () => (localStorage.getItem("bk_tab") as "posts" | "projects" | "comments") || "posts",
     );
 
     useEffect(() => { localStorage.setItem("bk_tab", tab); }, [tab]);
@@ -184,6 +185,7 @@ const DashboardLayout = () => {
                 {([
                     ["posts", "Posts", FileText],
                     ["projects", "Projects", FolderKanban],
+                    ["comments", "Comments", MessageSquare],
                 ] as const).map(([key, label, Icon]) => (
                     <button
                         key={key}
@@ -200,7 +202,9 @@ const DashboardLayout = () => {
             </nav>
 
             <main className="p-6 lg:p-10">
-                {tab === "posts" ? <DashboardPosts /> : <DashboardProjects />}
+                {tab === "posts" ? <DashboardPosts />
+                    : tab === "projects" ? <DashboardProjects />
+                    : <DashboardComments />}
             </main>
         </div>
     );

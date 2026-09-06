@@ -15,6 +15,7 @@ import OptimisedImage from "@/components/OptimisedImage";
 import TableOfContents from "@/components/TableOfContents";
 import InlineCta from "@/components/InlineCta";
 import PostLikes from "@/components/PostLikes";
+import PostComments from "@/components/PostComments";
 
 const BASE = "https://blesskimbi.com";
 
@@ -282,6 +283,8 @@ const BlogPostPage = () => {
                     </Link>
                   </div>
                 </div>
+
+                <PostComments slug={post.slug} />
               </article>
 
               {/* Sidebar. Sticky so the contents and the calls to action stay
