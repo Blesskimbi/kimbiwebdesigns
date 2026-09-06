@@ -14,6 +14,7 @@ import { getPostBySlug, BlogPost , formatPostDate} from "@/lib/blog";
 import OptimisedImage from "@/components/OptimisedImage";
 import TableOfContents from "@/components/TableOfContents";
 import InlineCta from "@/components/InlineCta";
+import PostLikes from "@/components/PostLikes";
 
 const BASE = "https://blesskimbi.com";
 
@@ -263,6 +264,8 @@ const BlogPostPage = () => {
                   )}
 
                   <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <PostLikes slug={post.slug} />
                     <button
                       onClick={handleShare}
                       className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-navy transition-colors font-body"
@@ -270,6 +273,7 @@ const BlogPostPage = () => {
                       <Share2 size={18} />
                       {shared ? "Link Copied!" : "Share Article"}
                     </button>
+                    </div>
                     <Link
                       to="/blog"
                       className="text-sm font-bold text-primary hover:text-gold transition-colors font-body"
