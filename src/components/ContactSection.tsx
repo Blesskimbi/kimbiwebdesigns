@@ -44,7 +44,7 @@ const ContactSection = ({ isPage = false }: ContactSectionProps) => {
         ))}
       </div>
 
-      <Link to="/contact" className="btn-green inline-flex items-center gap-2">
+      <Link to="/contact/" className="btn-green inline-flex items-center gap-2">
         Send a Message <ArrowRight size={16} />
       </Link>
 

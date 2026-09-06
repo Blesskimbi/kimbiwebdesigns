@@ -47,7 +47,7 @@ const BlogPage = () => {
         <LenisSmoothScroll>
             <Helmet>
                 <title>Web Design &amp; SEO Blog | Bless Kimbi, Cameroon</title>
-                <meta name="description" content="Practical tips, guides and insights on web design, SEO, and digital marketing for businesses in Cameroon and Africa. Written by Bless Kimbi, web designer based in Buea." />
+                <meta name="description" content="Practical guides on web design, SEO and digital marketing for businesses in Cameroon and Africa, written by Bless Kimbi, a web designer based in Buea." />
                 <link rel="canonical" href="https://blesskimbi.com/blog/" />
                 {categoryFilter ? (
                     <meta name="robots" content="noindex, follow" />
@@ -154,7 +154,7 @@ const BlogPage = () => {
                                         </div>
 
                                         <h2 className="font-display font-bold text-2xl mb-4 text-navy group-hover:text-primary transition-colors leading-tight">
-                                            <Link to={`/blog/${post.slug}`} className="hover:underline decoration-primary/30 underline-offset-4">
+                                            <Link to={`/blog/${post.slug}/`} className="hover:underline decoration-primary/30 underline-offset-4">
                                                 {post.title}
                                             </Link>
                                         </h2>
@@ -164,7 +164,7 @@ const BlogPage = () => {
                                         </p>
 
                                         <Link
-                                            to={`/blog/${post.slug}`}
+                                            to={`/blog/${post.slug}/`}
                                             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-gold transition-colors group/link mt-auto font-body"
                                         >
                                             Read Article

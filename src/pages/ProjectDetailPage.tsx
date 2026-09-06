@@ -97,7 +97,7 @@ const ProjectDetailPage = () => {
                 <div className="text-center pt-24">
                     <h1 className="text-3xl font-display font-bold text-navy mb-4">Project Not Found</h1>
                     <p className="text-muted-foreground mb-6 font-body">This project doesn't exist or has been removed.</p>
-                    <Link to="/projects" className="text-primary font-semibold hover:text-gold transition-colors font-body">← Back to Projects</Link>
+                    <Link to="/projects/" className="text-primary font-semibold hover:text-gold transition-colors font-body">← Back to Projects</Link>
                 </div>
             </div>
         );
@@ -156,7 +156,7 @@ const ProjectDetailPage = () => {
                             <Home size={13} />Home
                         </Link>
                         <ChevronRight size={13} className="text-muted-foreground/50" />
-                        <Link to="/projects" className="breadcrumb-link">Projects</Link>
+                        <Link to="/projects/" className="breadcrumb-link">Projects</Link>
                         <ChevronRight size={13} className="text-muted-foreground/50" />
                         <span className="breadcrumb-current">{project.title}</span>
                     </nav>
@@ -275,7 +275,7 @@ const ProjectDetailPage = () => {
                                 >
                                     <MessageCircle size={18} /> Discuss a Similar Project
                                 </a>
-                                <Link to="/contact" className="btn-outline-primary inline-flex items-center gap-2 !py-3 !px-6">
+                                <Link to="/contact/" className="btn-outline-primary inline-flex items-center gap-2 !py-3 !px-6">
                                     Contact Me
                                 </Link>
                             </div>
@@ -343,7 +343,7 @@ const ProjectDetailPage = () => {
                             Have a project in mind? I'd love to hear about it. Let's turn your idea into reality.
                         </p>
                         <div className="flex flex-wrap items-center justify-center gap-4">
-                            <Link to="/contact" className="btn-green inline-flex items-center gap-2 !py-3 !px-8">
+                            <Link to="/contact/" className="btn-green inline-flex items-center gap-2 !py-3 !px-8">
                                 Get In Touch
                             </Link>
                             <a
@@ -365,7 +365,7 @@ const ProjectDetailPage = () => {
                                 {related.map((rel) => (
                                     <Link
                                         key={rel.id}
-                                        to={`/projects/${rel.slug}`}
+                                        to={`/projects/${rel.slug}/`}
                                         className="group marsha-card overflow-hidden transition-all duration-300 hover:-translate-y-1"
                                     >
                                         <div className="h-40 overflow-hidden">

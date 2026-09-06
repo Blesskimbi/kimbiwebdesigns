@@ -15,10 +15,10 @@ const socialLinks = [
 const navLinks: NavLink[] = [
   { label: "Home", href: "/", isPage: true },
   { label: "Services", href: "/services/", isPage: true },
-  { label: "Projects", href: "/projects", isPage: true },
-  { label: "About Us", href: "/about", isPage: true },
-  { label: "Blog", href: "/blog", isPage: true },
-  { label: "Contact", href: "/contact", isPage: true },
+  { label: "Projects", href: "/projects/", isPage: true },
+  { label: "About Us", href: "/about/", isPage: true },
+  { label: "Blog", href: "/blog/", isPage: true },
+  { label: "Contact", href: "/contact/", isPage: true },
 ];
 
 const serviceDropdownItems = [
@@ -148,7 +148,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          <Link to="/contact" className="hidden lg:inline-flex btn-nav-cta shrink-0">
+          <Link to="/contact/" className="hidden lg:inline-flex btn-nav-cta shrink-0">
             Let's Talk
           </Link>
 
@@ -203,7 +203,7 @@ const Navbar = () => {
               </Link>
             ))}
 
-            <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="btn-green mt-6 text-center">
+            <Link to="/contact/" onClick={() => setIsMenuOpen(false)} className="btn-green mt-6 text-center">
               Let's Talk
             </Link>
 

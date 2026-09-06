@@ -71,7 +71,7 @@ const SeoCompanyPage = () => (
       <title>Best SEO Company in Cameroon | Bless Kimbi</title>
       <meta
         name="description"
-        content="Looking for the best SEO company in Cameroon? Bless Kimbi offers expert SEO services in Yaoundé, Douala & Buea, helping businesses rank on Google and grow online."
+        content="Looking for the best SEO company in Cameroon? Bless Kimbi runs SEO for businesses in Buea, Douala and Yaoundé, and gets them ranking on Google."
       />
       <link rel="canonical" href="https://blesskimbi.com/seo-company-in-cameroon/" />
       <meta name="robots" content="index, follow" />

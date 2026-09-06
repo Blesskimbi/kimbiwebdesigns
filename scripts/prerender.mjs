@@ -1,391 +1,261 @@
 /**
- * Post-build prerender script.
- * Serves dist/ locally, visits each public route with Playwright, and writes
- * fully rendered HTML (including react-helmet-async head tags) into dist/.
+ * Writes the rendered DOM of every route into its static HTML file.
  *
- * Usage: node scripts/prerender.mjs   (runs after vite build)
+ * Without this the site ships `<div id="root"></div>` and nothing else. Google
+ * can execute JavaScript, but it does so in a second pass that is queued
+ * separately and can lag the first crawl by days, and every other crawler that
+ * matters here — Bing, the social scrapers, the AI answer engines, the
+ * directory bots — mostly does not execute it at all. Until the markup is in
+ * the response, a page has no headings, no copy and no outgoing links to
+ * follow, so nothing on the site discovers anything else on the site.
+ *
+ * Runs last in the build, after gen-routes has written the per route <head>,
+ * and only ever replaces the contents of #root. The head that gen-routes
+ * produced is left exactly as it is.
+ *
+ * A failure here is deliberately not fatal. The pages remain valid and the
+ * deploy still goes out with head metadata intact; it just goes out without the
+ * body, which is what happened every build before this script existed.
+ *
+ * KNOWN LIMIT — this step does not run on Vercel. Vercel's build image has no
+ * libnspr4, so Chromium cannot start there no matter which flags it is given;
+ * a missing shared library is not something a launch argument can work around.
+ * An earlier prerender in this repo was reverted for exactly this reason (see
+ * "Drop prerendering so the site builds on Vercel"), which is why gen-routes
+ * exists to write the <head> without a browser.
+ *
+ * So on a Vercel build this warns and skips, and the deploy is unaffected. To
+ * actually ship prerendered bodies the build has to happen somewhere Chromium
+ * runs — GitHub Actions, say — and the output deployed with
+ * `vercel deploy --prebuilt`. Until then this step earns its keep locally, as
+ * the way to check what a crawler would receive before shipping.
  */
-import { chromium } from "playwright";
-import { createClient } from "@supabase/supabase-js";
-import matter from "gray-matter";
-import { createServer } from "http";
-import {
-  readFileSync,
-  writeFileSync,
-  mkdirSync,
-  existsSync,
-  readdirSync,
-  statSync,
-  copyFileSync,
-} from "fs";
-import { join, resolve, extname } from "path";
+import { readFileSync, writeFileSync, existsSync } from "fs";
+import { join, resolve, relative, sep } from "path";
 import { fileURLToPath } from "url";
+import { createServer } from "http";
+import { readdir, stat } from "fs/promises";
+import { execSync } from "child_process";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
-const rootDir = resolve(__dirname, "..");
-const distDir = resolve(rootDir, "dist");
-const PORT = 4177;
+const distDir = resolve(__dirname, "..", "dist");
 
-const STATIC_ROUTES = ["/", "/services", "/projects", "/blog", "/contact", "/about", "/community", "/seo-company-in-cameroon", "/ecommerce-website-design-in-cameroon", "/social-media-management", "/mobile-app-development", "/ui-ux-design"];
+const PORT = Number(process.env.PRERENDER_PORT || 0);
+const NAV_TIMEOUT = 30_000;
+const SETTLE_TIMEOUT = 6_000;
 
-/** Internal-only path that renders NotFound.tsx — written to dist/404.html */
-const NOT_FOUND_PROBE = "/__404_prerender__";
+const ROOT_OPEN = '<div id="root">';
+const ROOT_CLOSE = "</div>";
 
-const mimeMap = {
-  ".html": "text/html",
-  ".js": "application/javascript",
-  ".css": "text/css",
+const MIME = {
+  ".html": "text/html; charset=utf-8",
+  ".js": "text/javascript; charset=utf-8",
+  ".mjs": "text/javascript; charset=utf-8",
+  ".css": "text/css; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
+  ".xml": "application/xml; charset=utf-8",
+  ".txt": "text/plain; charset=utf-8",
+  ".svg": "image/svg+xml",
   ".png": "image/png",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
-  ".svg": "image/svg+xml",
   ".webp": "image/webp",
-  ".txt": "text/plain",
-  ".xml": "application/xml",
-  ".json": "application/json",
+  ".avif": "image/avif",
   ".ico": "image/x-icon",
+  ".woff": "font/woff",
+  ".woff2": "font/woff2",
+  ".ttf": "font/ttf",
 };
 
-function serveStatic(req, res) {
-  const urlPath = req.url.split("?")[0];
-  let filePath = join(distDir, urlPath);
+/** Every route gen-routes wrote, discovered from the files themselves. */
+async function findRoutes(dir = distDir) {
+  const out = [];
+  for (const entry of await readdir(dir, { withFileTypes: true })) {
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      if (entry.name === "assets") continue;
+      out.push(...(await findRoutes(full)));
+    } else if (entry.name === "index.html") {
+      const rel = relative(distDir, dir).split(sep).filter(Boolean).join("/");
+      out.push({ path: rel ? `/${rel}/` : "/", file: full });
+    }
+  }
+  return out;
+}
 
-  if (!existsSync(filePath) || statSync(filePath).isDirectory()) {
-    filePath = join(distDir, "index.html");
+function serveDist() {
+  const server = createServer(async (req, res) => {
+    const urlPath = decodeURIComponent((req.url || "/").split("?")[0]);
+    let file = join(distDir, urlPath);
+
+    try {
+      if ((await stat(file)).isDirectory()) file = join(file, "index.html");
+    } catch {
+      // Unknown path: fall back to the SPA shell so client routing still works.
+      file = join(distDir, "index.html");
+    }
+
+    if (!file.startsWith(distDir) || !existsSync(file)) {
+      res.writeHead(404).end("not found");
+      return;
+    }
+
+    const ext = file.slice(file.lastIndexOf("."));
+    res.writeHead(200, { "content-type": MIME[ext] || "application/octet-stream" });
+    res.end(readFileSync(file));
+  });
+
+  // Port 0 lets the OS pick a free one. A fixed port strands the build when a
+  // previous run died without releasing it, which is the normal outcome of an
+  // interrupted build.
+  return new Promise((ok) => server.listen(PORT, "127.0.0.1", () => ok(server)));
+}
+
+/**
+ * Scrolls the whole page, then clears the inline styles the scroll animations
+ * leave behind.
+ *
+ * Sections animate in on scroll, which means anything below the fold is sitting
+ * at `opacity: 0` when the page first settles. Snapshotting at that moment
+ * captures the copy as invisible. Walking the page fires each trigger, and the
+ * sweep afterwards catches whatever was still mid-tween. Over-revealing is
+ * safe: the browser re-renders from scratch on mount, so only crawlers ever see
+ * this version of the DOM.
+ */
+async function revealAll(page) {
+  await page.evaluate(async () => {
+    const step = Math.round(window.innerHeight * 0.8);
+    for (let y = 0; y < document.body.scrollHeight; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => setTimeout(r, 60));
+    }
+    window.scrollTo(0, 0);
+    await new Promise((r) => setTimeout(r, 250));
+
+    for (const el of document.querySelectorAll("[style]")) {
+      const s = el.style;
+      if (s.opacity !== "" && Number(s.opacity) < 1) s.opacity = "";
+      if (s.visibility === "hidden") s.visibility = "";
+      if (s.transform && s.transform !== "none") s.transform = "";
+      if (s.clipPath) s.clipPath = "";
+    }
+  });
+}
+
+const main = async () => {
+  if (!existsSync(join(distDir, "index.html"))) {
+    console.error("[prerender] dist/index.html not found — run vite build first.");
+    process.exit(1);
   }
 
+  let chromium;
   try {
-    const data = readFileSync(filePath);
-    const ext = extname(filePath);
-    res.writeHead(200, { "Content-Type": mimeMap[ext] ?? "text/plain" });
-    res.end(data);
+    ({ chromium } = await import("playwright"));
   } catch {
-    res.writeHead(404);
-    res.end("Not found");
-  }
-}
-
-function getBlogRoutes() {
-  const postsDir = join(rootDir, "posts");
-  if (!existsSync(postsDir)) return [];
-
-  return readdirSync(postsDir)
-    .filter((f) => f.endsWith(".md"))
-    .map((f) => {
-      const raw = readFileSync(join(postsDir, f), "utf-8");
-      const { data } = matter(raw);
-      const slug = data.slug || f.replace(".md", "");
-      return `/blog/${slug}`;
-    });
-}
-
-async function getProjectRoutes() {
-  const url = process.env.VITE_SUPABASE_URL;
-  const key = process.env.VITE_SUPABASE_ANON_KEY;
-
-  if (!url || !key) {
-    console.warn("[prerender] Supabase env not set — skipping /projects/{slug} routes");
-    return [];
-  }
-
-  const supabase = createClient(url, key);
-  const { data, error } = await supabase
-    .from("projects")
-    .select("slug")
-    .eq("hidden", false);
-
-  if (error) {
-    console.warn("[prerender] Failed to fetch project slugs:", error.message);
-    return [];
-  }
-
-  return (data ?? []).map((p) => `/projects/${p.slug}`);
-}
-
-async function getRoutes() {
-  const [projectRoutes] = await Promise.all([getProjectRoutes()]);
-  const blogRoutes = getBlogRoutes();
-  const routes = [...STATIC_ROUTES, ...projectRoutes, ...blogRoutes];
-  return [...new Set(routes)];
-}
-
-function expectedCanonical(route) {
-  if (route === "/") return "https://blesskimbi.com/";
-  return `https://blesskimbi.com${route}/`;
-}
-
-function writeRouteHtml(route, html) {
-  if (route === "/") {
-    writeFileSync(join(distDir, "index.html"), html);
+    console.warn("[prerender] playwright not installed — skipping. Pages ship without body markup.");
     return;
   }
 
-  const outDir = join(distDir, route);
-  mkdirSync(outDir, { recursive: true });
-  writeFileSync(join(outDir, "index.html"), html);
-}
+  const routes = await findRoutes();
+  const server = await serveDist();
+  const port = server.address().port;
 
-function dedupeInlineStyles(html) {
-  const seen = new Set();
-  return html.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, (block) => {
-    if (seen.has(block)) return "";
-    seen.add(block);
-    return block;
-  });
-}
+  // A CI image installs node_modules but not the browser binaries Playwright
+  // downloads on demand, so the first launch there fails on a missing
+  // executable. Fetch it once and retry rather than making every deploy depend
+  // on someone remembering an extra build step.
+  // The sandbox and /dev/shm flags are what let Chromium start inside a build
+  // container at all. Carried over from the earlier prerender in this repo.
+  const launchOptions = {
+    args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"],
+  };
 
-function cleanPrerenderedHtml(html) {
-  if (!html.includes('data-rh="true"')) return dedupeInlineStyles(html);
+  let browser;
+  try {
+    browser = await chromium.launch(launchOptions);
+  } catch (first) {
+    console.log("[prerender] chromium not present, installing it...");
+    try {
+      execSync("npx --yes playwright install chromium", { stdio: "inherit" });
+      browser = await chromium.launch(launchOptions);
+    } catch (second) {
+      console.warn(`[prerender] could not launch chromium (${second.message.split("\n")[0]}) — skipping.`);
+      console.warn("[prerender] pages will ship with head metadata but no body markup.");
+      server.close();
+      return;
+    }
+  }
 
-  const withHead = html.replace(/<head([^>]*)>([\s\S]*?)<\/head>/i, (_, attrs, head) => {
-    let cleaned = head
-      .replace(/<meta(?![^>]*\bdata-rh)[^>]*(?:name="description"|name="robots"|property="og:[^"]+"|name="twitter:[^"]+")[^>]*\/?>\s*/gi, "")
-      .replace(/<link(?![^>]*\bdata-rh)[^>]*rel="canonical"[^>]*\/?>\s*/gi, "")
-      .replace(/\s+data-rh="true"/g, "");
-    return `<head${attrs}>${cleaned}</head>`;
-  });
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  page.setDefaultTimeout(NAV_TIMEOUT);
 
-  return dedupeInlineStyles(withHead);
-}
-
-/** Move SEO-critical tags to the top of <head> so crawlers see them in the first few KB. */
-function reorderHeadForSeo(html) {
-  return html.replace(/<head([^>]*)>([\s\S]*?)<\/head>/i, (_, attrs, head) => {
-    const extracted = [];
-    const pull = (regex) => {
-      head = head.replace(regex, (match) => {
-        extracted.push(match.trim());
-        return "";
-      });
-    };
-
-    pull(/<title>[\s\S]*?<\/title>\s*/i);
-    pull(/<meta[^>]*name="description"[^>]*\/?>\s*/gi);
-    pull(/<meta[^>]*name="robots"[^>]*\/?>\s*/gi);
-    pull(/<link[^>]*rel="canonical"[^>]*\/?>\s*/gi);
-    pull(/<meta[^>]*property="og:[^"]+"[^>]*\/?>\s*/gi);
-    pull(/<meta[^>]*name="twitter:[^"]+"[^>]*\/?>\s*/gi);
-    pull(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>\s*/gi);
-
-    const essentials = [];
-    head = head.replace(
-      /<(meta charset[^>]*\/?>|meta name="viewport"[^>]*\/?>|meta name="google-site-verification"[^>]*\/?>|link rel="icon"[^>]*\/?>|link rel="apple-touch-icon"[^>]*\/?>)\s*/gi,
-      (match) => {
-        essentials.push(match.trim());
-        return "";
-      },
-    );
-
-    const reordered = [...essentials, ...extracted, head.trim()].filter(Boolean).join("\n    ");
-    return `<head${attrs}>\n    ${reordered}\n  </head>`;
-  });
-}
-
-/** Ensure every indexable prerendered page has an explicit robots meta tag. */
-function ensureRobotsMeta(html, route) {
-  if (route === NOT_FOUND_PROBE) return html;
-
-  const headEnd = html.indexOf("</head>");
-  if (headEnd < 0) return html;
-
-  const head = html.slice(0, headEnd);
-  if (head.includes('name="robots"')) return html;
-
-  return html.replace(
-    /<head([^>]*)>/i,
-    '<head$1>\n    <meta name="robots" content="index, follow">',
-  );
-}
-
-function validateHtml(route, html) {
+  let done = 0;
   const issues = [];
 
-  if (route === NOT_FOUND_PROBE) {
-    if (!html.includes('name="robots"') || !html.includes("noindex")) {
-      issues.push("404 page missing noindex");
+  for (const route of routes) {
+    try {
+      await page.goto(`http://127.0.0.1:${port}${route.path}`, {
+        waitUntil: "domcontentloaded",
+        timeout: NAV_TIMEOUT,
+      });
+      // "attached", not the default "visible". The first child of #root is the
+      // toast notification region, which is permanently invisible until a toast
+      // fires, so waiting for visibility waits for something that never happens.
+      await page.waitForSelector("#root > *", { state: "attached", timeout: 15_000 });
+
+      // The real signal that the page rendered rather than merely mounted.
+      await page.waitForSelector("#root h1", { state: "attached", timeout: 10_000 }).catch(() => {});
+
+      // Best effort only. Waiting on networkidle as the navigation condition
+      // stalls every page for the full timeout, because the Supabase client
+      // holds a connection open and the network therefore never goes quiet.
+      // Give the data fetches a window to land, then carry on regardless.
+      await page.waitForLoadState("networkidle", { timeout: SETTLE_TIMEOUT }).catch(() => {});
+
+      await revealAll(page);
+
+      const html = await page.evaluate(() => document.getElementById("root").innerHTML);
+
+      if (!html || html.length < 500) {
+        issues.push(`${route.path} — rendered only ${html ? html.length : 0} chars`);
+        continue;
+      }
+      if (!/<h1[\s>]/i.test(html)) {
+        issues.push(`${route.path} — rendered without an <h1>`);
+      }
+
+      const source = readFileSync(route.file, "utf-8");
+
+      // Sliced rather than regex-replaced. A lazy match would stop at the first
+      // </div> inside the markup we just injected, and a greedy one depends on
+      // #root holding the document's last </div>; both quietly mangle the file
+      // if this ever runs on an already-filled page.
+      const open = source.indexOf(ROOT_OPEN);
+      const close = source.lastIndexOf(ROOT_CLOSE);
+
+      if (open === -1 || close <= open) {
+        issues.push(`${route.path} — could not find #root to fill`);
+        continue;
+      }
+
+      const replaced = source.slice(0, open + ROOT_OPEN.length) + html + source.slice(close);
+
+      writeFileSync(route.file, replaced);
+      done += 1;
+      console.log(`  ✓ ${route.path.padEnd(52)} ${(html.length / 1024).toFixed(0)} KB`);
+    } catch (err) {
+      issues.push(`${route.path} — ${err.message.split("\n")[0]}`);
     }
-    if (!html.includes("Page Not Found")) {
-      issues.push("404 page missing heading");
-    }
-    return issues;
   }
 
-  const canonical = expectedCanonical(route);
-
-  if (!html.includes("<h1")) {
-    issues.push("missing <h1>");
-  }
-  if (!html.includes('rel="canonical"')) {
-    issues.push("missing canonical link");
-  } else if (!html.includes(canonical)) {
-    issues.push(`canonical mismatch (expected ${canonical})`);
-  } else {
-    const headEnd = html.indexOf("</head>");
-    const headChunk = headEnd > 0 ? html.slice(0, headEnd) : html;
-    const canonPos = headChunk.indexOf('rel="canonical"');
-    if (canonPos < 0 || canonPos > 8192) {
-      issues.push("canonical not in first 8KB of head");
-    }
-  }
-  if (!html.includes('name="robots"')) {
-    issues.push("missing robots meta");
-  } else if (
-    route !== NOT_FOUND_PROBE &&
-    /<meta[^>]*name="robots"[^>]*content="[^"]*noindex/i.test(html)
-  ) {
-    issues.push("unexpected noindex on indexable route");
-  }
-  if (!html.match(/<title>[^<]+<\/title>/)) {
-    issues.push("missing <title>");
-  }
-  if (html.includes('<div id="root"></div>') && !html.includes('<div id="root" data-prerendered')) {
-    // root should contain rendered markup, not be empty
-    const rootMatch = html.match(/<div id="root"[^>]*>([\s\S]*?)<\/div>/);
-    if (!rootMatch || rootMatch[1].trim().length < 50) {
-      issues.push("root appears empty (no rendered content)");
-    }
-  }
-
-  return issues;
-}
-
-async function waitForRouteReady(page, route) {
-  if (route === NOT_FOUND_PROBE) {
-    await page.waitForSelector("h1", { timeout: 25000 });
-    await new Promise((r) => setTimeout(r, 400));
-    return;
-  }
-
-  await page.waitForSelector("h1", { timeout: 25000 });
-
-  await page
-    .waitForFunction(
-      () =>
-        !document.querySelector(".animate-pulse") &&
-        !document.querySelector(".animate-spin"),
-      { timeout: 25000 },
-    )
-    .catch(() => {});
-
-  const canonical = expectedCanonical(route);
-  await page
-    .waitForFunction(
-      (expected) => {
-        const link = document.querySelector('link[rel="canonical"]');
-        if (!link) return false;
-        const href = link.getAttribute("href") ?? "";
-        return href === expected || href === `${expected}/`;
-      },
-      canonical,
-      { timeout: 15000 },
-    )
-    .catch(() => {});
-
-  await new Promise((r) => setTimeout(r, 400));
-}
-
-const server = createServer(serveStatic);
-await new Promise((r) => server.listen(PORT, r));
-console.log(`[prerender] Static server on http://localhost:${PORT}`);
-
-const routes = await getRoutes();
-console.log(`[prerender] Rendering ${routes.length} routes…`);
-
-// The sandbox and /dev/shm flags are what let Chromium start inside a build
-// container. Vercel's image reports as unsupported and gets Playwright's
-// ubuntu24.04 fallback build, which dies on launch without these.
-let browser;
-try {
-  browser = await chromium.launch({
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-dev-shm-usage",
-      "--disable-gpu",
-    ],
-  });
-} catch (err) {
+  await browser.close();
   server.close();
-  console.error("\n[prerender] Could not launch Chromium.\n");
-  console.error(`${err.message}\n`);
-  console.error("  Prerendering produces the per-route HTML that carries this site's");
-  console.error("  titles, canonicals and JSON-LD, so the build stops rather than ship");
-  console.error("  a client-only bundle that crawlers see as empty.\n");
-  console.error("  Install the browser before building:");
-  console.error("    npx playwright install chromium\n");
-  console.error("  On Vercel this is the buildCommand in vercel.json. If Chromium cannot");
-  console.error("  run in the build image at all, move the build to CI and deploy the");
-  console.error("  prebuilt output instead (vercel deploy --prebuilt).\n");
-  process.exit(1);
-}
-const context = await browser.newContext();
-let failed = 0;
 
-for (const route of routes) {
-  const url = `http://localhost:${PORT}${route}`;
-  const page = await context.newPage();
-
-  try {
-    await page.goto(url, { waitUntil: "networkidle", timeout: 45000 });
-    await waitForRouteReady(page, route);
-
-    const html = ensureRobotsMeta(reorderHeadForSeo(cleanPrerenderedHtml(await page.content())), route);
-    const issues = validateHtml(route, html);
-
-    if (issues.length > 0) {
-      console.warn(`  ⚠ ${route} — ${issues.join(", ")}`);
-    } else {
-      console.log(`  ✓ ${route}`);
-    }
-
-    writeRouteHtml(route, html);
-  } catch (err) {
-    failed += 1;
-    console.warn(`  ✗ ${route} — ${err.message}`);
-  } finally {
-    await page.close();
+  console.log(`[prerender] Filled ${done}/${routes.length} routes.`);
+  if (issues.length) {
+    console.warn(`[prerender] ${issues.length} issue(s):`);
+    issues.forEach((i) => console.warn(`  ⚠ ${i}`));
   }
-}
+};
 
-// Prerender NotFound.tsx → dist/404.html for Apache ErrorDocument
-{
-  const page = await context.newPage();
-  try {
-    await page.goto(`http://localhost:${PORT}${NOT_FOUND_PROBE}`, {
-      waitUntil: "networkidle",
-      timeout: 45000,
-    });
-    await waitForRouteReady(page, NOT_FOUND_PROBE);
-    const html = ensureRobotsMeta(reorderHeadForSeo(cleanPrerenderedHtml(await page.content())), NOT_FOUND_PROBE);
-    const issues = validateHtml(NOT_FOUND_PROBE, html);
-    if (issues.length > 0) {
-      console.warn(`  ⚠ 404.html — ${issues.join(", ")}`);
-    } else {
-      console.log("  ✓ 404.html (NotFound)");
-    }
-    writeFileSync(join(distDir, "404.html"), html);
-  } catch (err) {
-    failed += 1;
-    console.warn(`  ✗ 404.html — ${err.message}`);
-  } finally {
-    await page.close();
-  }
-}
-
-// Dashboard SPA shell — physical file so Hostinger CDN doesn't 404 before rewrite
-{
-  const dashboardDir = join(distDir, "dashboard");
-  mkdirSync(dashboardDir, { recursive: true });
-  copyFileSync(join(distDir, "index.html"), join(dashboardDir, "index.html"));
-  console.log("  ✓ dashboard/index.html (SPA shell copy)");
-}
-
-await browser.close();
-server.close();
-
-if (failed > 0) {
-  console.warn(`[prerender] Done with ${failed} failed route(s).`);
-  process.exitCode = 1;
-} else {
-  console.log("[prerender] Done.");
-}
+main();

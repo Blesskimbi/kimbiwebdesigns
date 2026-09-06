@@ -64,7 +64,7 @@ const CityPage = ({ slug }: { slug: string }) => {
                 <ArrowRight className="w-4 h-4" />
               </a>
               <Link
-                to="/projects"
+                to="/projects/"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-border text-navy font-display font-bold text-base hover:border-primary hover:text-primary transition-all duration-300"
               >
                 See recent work

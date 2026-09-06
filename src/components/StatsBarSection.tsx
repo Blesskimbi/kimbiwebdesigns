@@ -76,7 +76,7 @@ const StatsBarSection = () => {
         </p>
 
         <div className="flex flex-wrap gap-4 justify-center mb-14">
-          <Link to="/about" className="btn-green">Get to Know Me Better</Link>
+          <Link to="/about/" className="btn-green">Get to Know Me Better</Link>
           <a href="tel:+237675126845" className="btn-outline-white">Call: +237 675 126 845</a>
         </div>
 

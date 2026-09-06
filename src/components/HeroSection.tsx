@@ -16,14 +16,14 @@ const promoCards = [
     image: "/promo-2.avif",
     title: "Why Choose Me?",
     subtitle: "My Expertise",
-    href: "/about",
+    href: "/about/",
     cta: "What Makes Me Different",
   },
   {
     image: "/promo-3.avif",
     title: "Bring Innovative Thinking",
     subtitle: "For My Clients",
-    href: "/projects",
+    href: "/projects/",
     cta: "View My Work",
   },
 ];
@@ -96,7 +96,7 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 justify-start items-center">
-              <a href="/contact" className="btn-white">
+              <a href="/contact/" className="btn-white">
                 Get a Free Quote <ArrowRight size={16} />
               </a>
               <a href="#projects" className="btn-outline-white">

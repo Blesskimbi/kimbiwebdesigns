@@ -60,7 +60,7 @@ const AboutPage = () => (
                 I run a free WhatsApp community for beginners and aspiring developers who want
                 to learn web and mobile development, get code reviews, and grow together.
               </p>
-              <Link to="/community" className="btn-green inline-flex items-center gap-2">
+              <Link to="/community/" className="btn-green inline-flex items-center gap-2">
                 Explore the Community <ArrowUpRight size={18} />
               </Link>
             </div>

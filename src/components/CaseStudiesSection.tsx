@@ -174,7 +174,7 @@ const CaseStudiesSection = () => {
                     View Live Site
                   </a>
                 )}
-                <a href="/contact" className="btn-outline-navy inline-flex items-center justify-center gap-2 !py-3">
+                <a href="/contact/" className="btn-outline-navy inline-flex items-center justify-center gap-2 !py-3">
                   Get a Similar Site
                 </a>
               </div>

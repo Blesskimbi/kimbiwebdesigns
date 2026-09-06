@@ -58,7 +58,7 @@ const FaqSection = () => {
           <p className="text-muted-foreground text-base font-body max-w-xl mx-auto">
             I&apos;ve compiled this list based on the questions I&apos;m often asked by clients and the
             questions commonly asked online. If yours isn&apos;t here,{" "}
-            <Link to="/contact" className="text-primary font-semibold hover:underline underline-offset-4">
+            <Link to="/contact/" className="text-primary font-semibold hover:underline underline-offset-4">
               just ask
             </Link>.
           </p>

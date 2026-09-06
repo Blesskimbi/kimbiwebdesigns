@@ -111,7 +111,7 @@ const BlogPostPage = () => {
         </Helmet>
         <div className="text-center pt-24 px-6">
           <h1 className="text-2xl font-display font-bold text-navy mb-4">Post Not Found</h1>
-          <Link to="/blog" className="text-primary font-semibold hover:text-gold transition-colors font-body">
+          <Link to="/blog/" className="text-primary font-semibold hover:text-gold transition-colors font-body">
             Back to Blog
           </Link>
         </div>
@@ -187,7 +187,7 @@ const BlogPostPage = () => {
                 <span>Home</span>
               </Link>
               <ChevronRight size={14} className="text-muted-foreground/50" />
-              <Link to="/blog" className="breadcrumb-link">Blog</Link>
+              <Link to="/blog/" className="breadcrumb-link">Blog</Link>
               <ChevronRight size={14} className="text-muted-foreground/50" />
               <span className="breadcrumb-current max-w-[240px] md:max-w-none">
                 {post.title}
@@ -276,7 +276,7 @@ const BlogPostPage = () => {
                     </button>
                     </div>
                     <Link
-                      to="/blog"
+                      to="/blog/"
                       className="text-sm font-bold text-primary hover:text-gold transition-colors font-body"
                     >
                       Read more articles →

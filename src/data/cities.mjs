@@ -123,7 +123,7 @@ export const cities = [
     region: "Centre",
     title: "Website Development in Yaoundé | Bless Kimbi",
     description:
-      "Website development for Yaoundé businesses, institutions and NGOs. Custom builds, French and English, SEO included. Worked remotely from Buea. Free quote in 24 hours.",
+      "Website development for Yaoundé businesses, institutions and NGOs. Custom builds in French and English, SEO included. Free quote in 24 hours.",
     heading: "Website Development in Yaoundé",
     lead: "Yaoundé work tends to look different from Douala work: more institutions, more organisations, and more sites that have to look credible to someone assessing you.",
     body: [
@@ -171,7 +171,7 @@ export const cities = [
     region: "South West",
     title: "Web Designer in Limbe, Cameroon | Bless Kimbi",
     description:
-      "Web designer for Limbe hotels, restaurants and tour operators. Booking enquiries, fast photo-heavy pages and local SEO. Based nearby in Buea. Free quote in 24 hours.",
+      "Web designer for Limbe hotels, restaurants and tour operators. Booking enquiries, fast photo-heavy pages, local SEO. Free quote in 24 hours.",
     heading: "Web Designer in Limbe",
     lead: "Limbe runs on people deciding where to stay, eat and visit, and most of them decide on a phone before they arrive.",
     body: [

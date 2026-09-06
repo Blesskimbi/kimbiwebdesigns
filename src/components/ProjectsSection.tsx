@@ -20,7 +20,7 @@ const FeaturedCard = ({
   imageClassName?: string;
 }) => (
   <Link
-    to={`/projects/${project.slug}`}
+    to={`/projects/${project.slug}/`}
     className={`marsha-card overflow-hidden group flex flex-col hover:no-underline ${className}`}
   >
     <div className={`relative overflow-hidden ${imageClassName}`}>
@@ -89,7 +89,7 @@ const ProjectsSection = () => {
         )}
 
         <div className="mt-10 text-center">
-          <Link to="/projects" className="btn-outline-primary inline-flex items-center gap-2">
+          <Link to="/projects/" className="btn-outline-primary inline-flex items-center gap-2">
             View All My Work
             <ArrowRight size={16} />
           </Link>

@@ -9,16 +9,16 @@ const WHATSAPP = "https://wa.me/237675126845?text=Hi%20Bless%2C%20I%20want%20to%
 
 const companyLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Portfolio", href: "/projects" },
-  { label: "Blog", href: "/blog" },
+  { label: "About", href: "/about/" },
+  { label: "Portfolio", href: "/projects/" },
+  { label: "Blog", href: "/blog/" },
 ];
 
 const communityLinks = [
-  { label: "Community", href: "/community" },
+  { label: "Community", href: "/community/" },
   { label: "Pricing", href: "/#pricing" },
   { label: "FAQ", href: "/#faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/contact/" },
 ];
 
 const serviceLinksA = [

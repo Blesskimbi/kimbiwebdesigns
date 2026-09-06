@@ -91,13 +91,13 @@ const BlogPreviewSection = () => {
                     {formatPostDate(featured.date)}
                   </span>
                   <h3 className="font-display font-bold text-xl text-navy mb-3 leading-snug group-hover:text-primary transition-colors">
-                    <Link to={`/blog/${featured.slug}`}>{featured.title}</Link>
+                    <Link to={`/blog/${featured.slug}/`}>{featured.title}</Link>
                   </h3>
                   <p className="text-muted-foreground text-sm font-body line-clamp-3 mb-5 flex-1">
                     {featured.excerpt}
                   </p>
                   <Link
-                    to={`/blog/${featured.slug}`}
+                    to={`/blog/${featured.slug}/`}
                     className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-gold transition-colors mt-auto"
                   >
                     Read More <ArrowRight size={14} />
@@ -120,7 +120,7 @@ const BlogPreviewSection = () => {
                   </div>
                   <div className="p-4 flex flex-col flex-1">
                     <h4 className="font-display font-bold text-sm text-navy mb-1.5 leading-snug line-clamp-2 group-hover:text-primary transition-colors">
-                      <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                      <Link to={`/blog/${post.slug}/`}>{post.title}</Link>
                     </h4>
                     <span className="flex items-center gap-1 text-[11px] text-muted-foreground font-body mt-auto">
                       <Calendar size={11} className="text-primary" />
@@ -134,7 +134,7 @@ const BlogPreviewSection = () => {
         )}
 
         <div className="mt-10 text-center">
-          <Link to="/blog" className="btn-outline-primary inline-flex items-center gap-2">
+          <Link to="/blog/" className="btn-outline-primary inline-flex items-center gap-2">
             View All Blog Posts <ArrowRight size={16} />
           </Link>
         </div>
