@@ -112,8 +112,13 @@ function withPreloads(html, chunks) {
   const missing = [...new Set(chunks)].filter((c) => !already.has(c)).slice(0, PRELOAD_CAP);
   if (missing.length === 0) return html;
 
+  // fetchpriority="low" because these must not outrank what the first paint is
+  // actually waiting on. At the default priority they compete with the
+  // stylesheet and the LCP image and measurably delay FCP; demoted, they take
+  // the idle bandwidth instead, which was the whole point. Measured over five
+  // alternating runs, the demotion costs nothing in LCP or blank time.
   const tags = missing
-    .map((c) => `    <link rel="modulepreload" crossorigin href="${c}">`)
+    .map((c) => `    <link rel="modulepreload" fetchpriority="low" crossorigin href="${c}">`)
     .join("\n");
 
   return html.replace("</head>", `${tags}\n  </head>`);
