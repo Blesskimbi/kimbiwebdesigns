@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Check, ArrowRight } from "lucide-react";
+import OptimisedImage from "@/components/OptimisedImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,11 +61,14 @@ const ValuePropsSection = () => {
 
         <div ref={imageRef} className="relative">
           <div className="absolute -inset-4 bg-gold/10 rounded-3xl -z-10 hidden md:block" />
-          <img
+          <OptimisedImage
             src="/bless-kimbi-websites-1.png"
             alt="Bless Kimbi web design work"
+            width={1080}
+            height={1350}
             className="w-full rounded-2xl shadow-pro border border-border object-cover"
             loading="lazy"
+            decoding="async"
           />
         </div>
       </div>

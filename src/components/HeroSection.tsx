@@ -61,12 +61,29 @@ const HeroSection = () => {
         {/* Background photo — drop your image at public/hero-bg.jpg and it appears automatically.
             Falls back to the navy gradient below if the file isn't present yet. */}
         <div className="absolute inset-0 z-0">
-          <img
-            src="/hero-bg.jpg"
-            alt=""
-            className="w-full h-full object-cover"
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-          />
+          {/* This is the page's LCP element, so it is fetched as eagerly as the
+              browser allows: the WebP twin the build writes (a fraction of the
+              JPEG), a matching preload in index.html so the request starts
+              before the CSS resolves, high fetch priority, and intrinsic
+              dimensions so nothing reflows once it lands. */}
+          <picture className="contents">
+            <source srcSet="/hero-bg.jpg.webp" type="image/webp" />
+            <img
+              src="/hero-bg.jpg"
+              alt=""
+              width={1536}
+              height={1024}
+              // Lowercase, and spread, on purpose. React 18.3 has no
+              // fetchPriority in its prop list, so the camelCase form trips
+              // "React does not recognize the prop" — a console.error, which
+              // Lighthouse counts against Best Practices. Spreading the
+              // lowercase attribute renders it verbatim and says nothing.
+              {...({ fetchpriority: "high" } as Record<string, string>)}
+              decoding="async"
+              className="w-full h-full object-cover"
+              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+            />
+          </picture>
           {/* Darker over the text (left) side, lighter over the image detail (right) side */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#050b1f]/95 via-[#050b1f]/70 to-[#0d1c4d]/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#050b1f]/60 via-transparent to-transparent" />
@@ -124,8 +141,11 @@ const HeroSection = () => {
                   <img
                     src={card.image}
                     alt=""
+                    width={740}
+                    height={400}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="p-5 flex flex-col flex-1">

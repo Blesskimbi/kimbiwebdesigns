@@ -384,6 +384,10 @@ function buildHtml(template, { path, title, description, image, crumb, schemas }
     [/(<meta\s+name="twitter:title"\s+content=")[^"]*(")/i, `$1${title}$2`],
     [/(<meta\s+name="twitter:description"\s+content=")[^"]*(")/i, `$1${description}$2`],
     [/(<meta\s+name="twitter:image"\s+content=")[^"]*(")/i, `$1${image}$2`],
+    // The hero preload in the template is the homepage's LCP image. Every other
+    // route inherits the template, so without this they would each spend a
+    // high-priority connection on a file they never render.
+    [/\s*<link\s+rel="preload"\s+as="image"\s+href="\/hero-bg\.jpg\.webp"[^>]*>/i, ""],
   ];
 
   const html = swaps.reduce((acc, [re, to]) => acc.replace(re, to), template);

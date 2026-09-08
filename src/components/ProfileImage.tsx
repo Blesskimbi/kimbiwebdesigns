@@ -126,6 +126,10 @@ const ProfileImage = () => {
                         <img
                             src="/blesskimbi.png"
                             alt="Bless Kimbi"
+                            width={1080}
+                            height={1080}
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover rounded-full"
                             onError={(e) => {
                                 e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop";

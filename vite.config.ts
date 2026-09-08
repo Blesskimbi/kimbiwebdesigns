@@ -42,8 +42,15 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks: {
-          // Core — needed by every public route
-          "vendor-react":    ["react", "react-dom", "react-router-dom"],
+          // Core — needed by every public route.
+          // react/jsx-runtime is listed explicitly: it is a separate entry
+          // point, not reachable from react's main one, so without it Rollup
+          // parked the JSX runtime in whichever vendor chunk happened to pull
+          // it first. That was vendor-md, which meant every page imported `jsx`
+          // from a 311 KB chunk of react-markdown/micromark/mdast and paid to
+          // parse and execute all of it — on the homepage, which renders no
+          // markdown at all.
+          "vendor-react":    ["react", "react/jsx-runtime", "react-dom", "react-router-dom"],
           "vendor-gsap":     ["gsap"],
           // Deferred — only pulled in when the matching lazy route loads
           "vendor-supabase": ["@supabase/supabase-js"],
