@@ -42,6 +42,7 @@ const distDir = resolve(__dirname, "..", "dist");
 const PORT = Number(process.env.PRERENDER_PORT || 0);
 const NAV_TIMEOUT = 30_000;
 const SETTLE_TIMEOUT = 6_000;
+const PRELOAD_CAP = 12;
 
 // What lets Chromium start inside a build container at all. Carried over from
 // the earlier prerender in this repo.
@@ -74,6 +75,49 @@ const MIME = {
   ".woff2": "font/woff2",
   ".ttf": "font/ttf",
 };
+
+/**
+ * Adds a <link rel="modulepreload"> for every chunk the route turned out to need.
+ *
+ * Vite preloads the chunks it can see statically — the entry and its vendor
+ * splits — but every page component is behind React.lazy, so the chunk that
+ * actually renders the page is invisible until React has booted and asked for
+ * it. On a throttled phone that produced a two-wave load: the entry bundle
+ * landed around 2s, the connection then sat idle for well over a second, and
+ * the route chunk was not even requested until 3.6s.
+ *
+ * That gap is not just slow, it is blank. createRoot() discards the prerendered
+ * DOM the moment it mounts, and the Suspense fallback behind it is an empty
+ * div, so the markup this script works so hard to produce is wiped off the
+ * screen and replaced with nothing until the route chunk arrives.
+ *
+ * The browser cannot discover these from the HTML, but this script just watched
+ * the page load and knows exactly which ones they were. Declaring them lets
+ * them download in the first wave, in the bandwidth that was going spare, so
+ * the lazy import resolves out of cache and the fallback is never seen.
+ *
+ * Anything Vite already declared is skipped, and the list is capped: past a
+ * point these stop filling idle bandwidth and start competing with the LCP
+ * image for it.
+ */
+function withPreloads(html, chunks) {
+  if (!chunks || chunks.length === 0) return html;
+
+  const already = new Set(
+    [...html.matchAll(/<link[^>]+rel="modulepreload"[^>]+href="([^"]+)"/g)].map((m) => m[1])
+  );
+  // The entry <script> is fetched anyway; naming it again just adds bytes.
+  for (const m of html.matchAll(/<script[^>]+type="module"[^>]+src="([^"]+)"/g)) already.add(m[1]);
+
+  const missing = [...new Set(chunks)].filter((c) => !already.has(c)).slice(0, PRELOAD_CAP);
+  if (missing.length === 0) return html;
+
+  const tags = missing
+    .map((c) => `    <link rel="modulepreload" crossorigin href="${c}">`)
+    .join("\n");
+
+  return html.replace("</head>", `${tags}\n  </head>`);
+}
 
 /** Every route gen-routes wrote, discovered from the files themselves. */
 async function findRoutes(dir = distDir) {
@@ -261,7 +305,16 @@ const main = async () => {
 
       await revealAll(page);
 
-      return await page.evaluate(() => document.getElementById("root").innerHTML);
+      // Which JS this route actually needed, taken from the browser rather than
+      // guessed from the router. See buildPreloads for why it is worth knowing.
+      return await page.evaluate(() => ({
+        html: document.getElementById("root").innerHTML,
+        chunks: performance
+          .getEntriesByType("resource")
+          .filter((r) => /\/assets\/.*\.js$/.test(r.name))
+          .sort((a, b) => a.startTime - b.startTime)
+          .map((r) => new URL(r.name).pathname),
+      }));
     } finally {
       await page.close().catch(() => {});
     }
@@ -269,14 +322,15 @@ const main = async () => {
 
   for (const route of routes) {
     try {
-      let html;
+      let rendered;
       try {
-        html = await renderRoute(route);
+        rendered = await renderRoute(route);
       } catch (first) {
         // One retry on a fresh page. A crash is usually transient, and the cost
         // of retrying is far below the cost of shipping a page with no body.
-        html = await renderRoute(route);
+        rendered = await renderRoute(route);
       }
+      const { html, chunks } = rendered;
 
       if (!html || html.length < 500) {
         issues.push(`${route.path} — rendered only ${html ? html.length : 0} chars`);
@@ -302,7 +356,7 @@ const main = async () => {
 
       const replaced = source.slice(0, open + ROOT_OPEN.length) + html + source.slice(close);
 
-      writeFileSync(route.file, replaced);
+      writeFileSync(route.file, withPreloads(replaced, chunks));
       done += 1;
       console.log(`  ✓ ${route.path.padEnd(52)} ${(html.length / 1024).toFixed(0)} KB`);
     } catch (err) {
