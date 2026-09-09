@@ -33,6 +33,15 @@ const serviceLinksB = [
   { label: "E-commerce Solutions", href: "/ecommerce-website-design-in-cameroon/" },
 ];
 
+// Kept in the bottom bar rather than a column: it is where visitors and
+// AdSense reviewers both look for them, and they do not compete with the links
+// that are meant to sell anything.
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy-policy/" },
+  { label: "Terms of Service", href: "/terms-of-service/" },
+  { label: "Disclaimer", href: "/disclaimer/" },
+];
+
 const socialLinks = [
   { label: "Instagram", href: "https://ig.me/m/blesskimbi", icon: Instagram },
   { label: "WhatsApp", href: "https://wa.me/+237675126845", icon: MessageCircle },
@@ -215,6 +224,17 @@ export const SiteFooter = () => (
           >
             <ArrowUp size={13} /> Go to Top
           </button>
+        </div>
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-5">
+          {legalLinks.map(({ label, href }) => (
+            <Link
+              key={href}
+              to={href}
+              className="text-xs font-body text-white/60 hover:text-gold transition-colors"
+            >
+              {label}
+            </Link>
+          ))}
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-body text-white/55">
           <p>

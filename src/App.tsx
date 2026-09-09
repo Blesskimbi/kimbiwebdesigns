@@ -32,6 +32,9 @@ const SocialMediaPage            = lazy(() => import("./pages/SocialMediaPage.ts
 const MobileAppPage              = lazy(() => import("./pages/MobileAppPage.tsx"));
 const UiUxDesignPage             = lazy(() => import("./pages/UiUxDesignPage.tsx"));
 const CityPage                   = lazy(() => import("./pages/CityPage.tsx"));
+const PrivacyPolicyPage          = lazy(() => import("./pages/PrivacyPolicyPage.tsx"));
+const TermsPage                  = lazy(() => import("./pages/TermsPage.tsx"));
+const DisclaimerPage             = lazy(() => import("./pages/DisclaimerPage.tsx"));
 
 // Minimal fallback: matches site background so prerendered HTML is preserved
 // without any flash. Playwright's networkidle waits until lazy chunks load.
@@ -62,6 +65,11 @@ const App = () => (
             <Route path="/social-media-management" element={<SocialMediaPage />} />
             <Route path="/mobile-app-development" element={<MobileAppPage />} />
             <Route path="/ui-ux-design" element={<UiUxDesignPage />} />
+            {/* Legal. Required for AdSense approval, and linked from the
+                footer on every page so they are one click from anywhere. */}
+            <Route path="/privacy-policy"   element={<PrivacyPolicyPage />} />
+            <Route path="/terms-of-service" element={<TermsPage />} />
+            <Route path="/disclaimer"       element={<DisclaimerPage />} />
             {/* Location pages. Listed one by one because a React Router
                 dynamic segment has to be a whole segment, and these URLs put
                 the city in the same segment as the keyword. */}

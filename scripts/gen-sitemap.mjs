@@ -41,6 +41,12 @@ const STATIC_ROUTES = [
   { url: "/mobile-app-development/",                changefreq: "monthly", priority: 0.8 },
   { url: "/ui-ux-design/",                          changefreq: "monthly", priority: 0.8 },
 
+  // Legal pages. Low priority and rarely changed, but they must be indexable:
+  // AdSense checks that the privacy policy is reachable and crawlable.
+  { url: "/privacy-policy/",                        changefreq: "yearly",  priority: 0.3 },
+  { url: "/terms-of-service/",                      changefreq: "yearly",  priority: 0.3 },
+  { url: "/disclaimer/",                            changefreq: "yearly",  priority: 0.3 },
+
   // Location pages. Same priority as the service pages: these are the terms
   // with the least competition locally, so they are worth crawling often.
   ...cities.map((city) => ({
