@@ -24,11 +24,11 @@ export const AD_CLIENT = "ca-pub-1560258804655026";
 
 export const AD_SLOTS = {
   /** In-article unit. Above the article body, under the cover image. */
-  articleTop: "",
+  articleTop: "1019590666",
   /** In-article unit. After the mid-post call to action. */
-  articleMid: "",
+  articleMid: "9139226018",
   /** Display unit, vertical. Sticky sidebar rail — desktop only. */
-  sidebar: "",
+  sidebar: "7766434594",
   /** Display unit, responsive. On /blog/, after the third card. */
-  feed: "",
+  feed: "3827189589",
 };
