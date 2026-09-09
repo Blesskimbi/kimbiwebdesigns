@@ -19,6 +19,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { STATIC_SCHEMAS, blogSchemas, projectSchemas } from "./schema.mjs";
 import { cities, cityPath } from "../src/data/cities.mjs";
+import { AD_CLIENT } from "../src/data/adsense.mjs";
 import matter from "gray-matter";
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from "fs";
 import { join, resolve } from "path";
@@ -119,6 +120,7 @@ const CRUMB_LABELS = {
   "social-media-management": "Social Media Management",
   "mobile-app-development": "Mobile App Development",
   "ui-ux-design": "UI/UX Design",
+  "terms-of-service": "Terms of Service",
 };
 
 const titleize = (seg) =>
@@ -467,6 +469,20 @@ for (const route of routes) {
 }
 
 console.log(`[gen-routes] Wrote ${written} route pages (+ homepage from vite).`);
+
+/* ── ads.txt ────────────────────────────────────────────────────────────── */
+
+// AdSense refuses to serve on a domain whose /ads.txt does not name the
+// publisher, and reports the site as "unauthorised" until it does. Generated
+// rather than committed as a static file in public/ so the publisher ID has
+// one home — src/data/adsense.mjs, the same one the ad components read — and
+// cannot drift from what the page tags actually claim. The f08c… value is
+// Google's own fixed certification authority ID, identical for every
+// publisher.
+const pub = AD_CLIENT.replace(/^ca-/, "");
+writeFileSync(join(distDir, "ads.txt"), `google.com, ${pub}, DIRECT, f08c47fec0942fa0
+`);
+console.log(`[gen-routes] Wrote ads.txt for ${pub}.`);
 
 if (issues.length > 0) {
   console.warn(`[gen-routes] ${issues.length} issue(s):`);

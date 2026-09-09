@@ -16,6 +16,7 @@ import TableOfContents from "@/components/TableOfContents";
 import InlineCta from "@/components/InlineCta";
 import PostLikes from "@/components/PostLikes";
 import PostComments from "@/components/PostComments";
+import AdSlot from "@/components/AdSlot";
 
 const BASE = "https://blesskimbi.com";
 
@@ -249,12 +250,15 @@ const BlogPostPage = () => {
                   <TableOfContents headings={headings} collapsible />
                 </div>
 
+                <AdSlot placement="article-top" />
+
                 <div className="internal-card !p-5 sm:!p-8 lg:!p-10">
                   <MarkdownContent>{beforeCta}</MarkdownContent>
 
                   {afterCta && (
                     <>
                       <InlineCta variant="work" />
+                      <AdSlot placement="article-mid" />
                       <MarkdownContent>{afterCta}</MarkdownContent>
                     </>
                   )}
@@ -293,6 +297,7 @@ const BlogPostPage = () => {
               <aside className="hidden xl:block">
                 <div className="sticky top-24 space-y-6 md:space-y-8">
                   <TableOfContents headings={headings} />
+                  <AdSlot placement="sidebar" className="!my-0" />
                   <BlogSidebar />
                 </div>
               </aside>

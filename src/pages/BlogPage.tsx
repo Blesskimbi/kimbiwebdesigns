@@ -6,9 +6,10 @@ import FloatingChat from "@/components/FloatingChat";
 import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import { Calendar, User, ArrowRight, X, Inbox } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { getAllPosts, BlogPost , formatPostDate} from "@/lib/blog";
 import OptimisedImage from "@/components/OptimisedImage";
+import AdSlot from "@/components/AdSlot";
 
 const BlogPage = () => {
     const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -120,8 +121,12 @@ const BlogPage = () => {
                     ) : (
                         <div className="grid md:grid-cols-2 gap-10">
                             {filteredPosts.map((post, i) => (
+                              <Fragment key={post.id}>
+                                {/* One unit, after the third card: far enough
+                                    down that the reader has seen real posts
+                                    first, high enough to be seen at all. */}
+                                {i === 3 && <AdSlot placement="feed" className="md:col-span-2 !my-0" />}
                                 <article
-                                    key={post.id}
                                     className="group marsha-card overflow-hidden transition-all duration-300 hover:-translate-y-2 flex flex-col animate-in fade-in zoom-in duration-500"
                                     style={{ animationFillMode: "both", animationDelay: `${i * 100}ms` }}
                                 >
@@ -172,6 +177,7 @@ const BlogPage = () => {
                                         </Link>
                                     </div>
                                 </article>
+                              </Fragment>
                             ))}
                         </div>
                     )}
