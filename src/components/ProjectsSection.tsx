@@ -62,7 +62,7 @@ const ProjectsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="projects" className="section-white border-t border-border">
+    <section ref={sectionRef} id="projects" className="section-white">
       <div className="max-w-6xl mx-auto">
         <div ref={headingRef} className="text-center mb-12">
           <span className="section-label">Selected Work</span>

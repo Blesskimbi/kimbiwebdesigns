@@ -1,13 +1,13 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Globe, TrendingUp, Share2, Smartphone, Layers, ShoppingCart, ArrowRight } from "lucide-react";
+import { AppWindow, Search, Share2, Smartphone, PenTool, ShoppingBag, ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    icon: Globe,
+    icon: AppWindow,
     title: "Web Design & Development",
     short: "Web Development",
     description:
@@ -15,7 +15,7 @@ const services = [
     href: "/services/",
   },
   {
-    icon: TrendingUp,
+    icon: Search,
     title: "SEO Optimization: Rank #1 on Google",
     short: "SEO Strategy",
     description:
@@ -39,7 +39,7 @@ const services = [
     href: "/mobile-app-development/",
   },
   {
-    icon: Layers,
+    icon: PenTool,
     title: "UI/UX Design",
     short: "UI/UX Design",
     description:
@@ -47,7 +47,7 @@ const services = [
     href: "/ui-ux-design/",
   },
   {
-    icon: ShoppingCart,
+    icon: ShoppingBag,
     title: "E-commerce Solutions",
     short: "E-commerce",
     description:
@@ -79,7 +79,7 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="services" className="section-white">
+    <section ref={sectionRef} id="services" className="section-navy">
       <div className="max-w-6xl mx-auto">
         {/* Text-editor line + divider, echoing the reference's intro strip */}
         <div className="text-center mb-10">
@@ -94,7 +94,7 @@ const ServicesSection = () => {
 
         <div ref={headingRef} className="text-center mb-14">
           <span className="section-label">What I Do</span>
-          <h2 className="heading-serif text-3xl md:text-5xl mb-4 heading-underline">
+          <h2 className="heading-serif text-3xl md:text-5xl mb-4">
             I Believe in Building Strong Brands{" "}
             <span className="text-gold">and Integrated Strategies</span>
           </h2>
@@ -111,17 +111,22 @@ const ServicesSection = () => {
               <div
                 key={service.title}
                 ref={(el) => { cardsRef.current[i] = el; }}
-                className="marsha-card p-8 flex flex-col items-center text-center group"
+                className="marsha-card p-7 flex flex-col text-left group"
               >
-                <div className="mb-6">
-                  <h3 className="font-display font-bold text-lg text-navy mb-3 min-h-[3rem] flex items-center justify-center">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm font-body leading-relaxed line-clamp-4">{service.description}</p>
-                </div>
-                <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-6 mt-auto transition-transform duration-300 group-hover:scale-105">
-                  <Icon size={28} className="text-gold" strokeWidth={1.75} />
-                </div>
-                <a href={service.href} className="btn-outline-primary">
-                  Talk {service.short} <ArrowRight size={14} />
+                {/* Bare on the surface, at the top, in the ink colour and a
+                    1.5 stroke. No tile, no fill, no hover scale — an icon
+                    sealed inside a coloured badge reads as a sticker, which is
+                    the one thing none of the reference sites do. */}
+                <Icon size={24} strokeWidth={1.5} className="text-navy mb-5" aria-hidden="true" />
+                <h3 className="font-display text-lg text-navy mb-2.5 min-h-[2.75rem]">{service.title}</h3>
+                <p className="text-muted-foreground text-sm font-body leading-relaxed line-clamp-4 mb-6">
+                  {service.description}
+                </p>
+                <a
+                  href={service.href}
+                  className="mt-auto font-body text-sm font-medium text-gold inline-flex items-center gap-1.5 self-start group-hover:gap-2.5 transition-[gap] duration-300 hover:no-underline"
+                >
+                  Talk {service.short} <ArrowRight size={15} />
                 </a>
               </div>
             );

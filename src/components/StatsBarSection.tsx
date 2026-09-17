@@ -63,8 +63,6 @@ const StatsBarSection = () => {
 
   return (
     <section ref={sectionRef} className="section-navy relative overflow-hidden text-center py-20 md:py-28">
-      <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-gold/10 blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-primary/20 blur-[100px] pointer-events-none" />
 
       <div ref={headingRef} className="max-w-2xl mx-auto px-6 relative z-10">
         <h2 className="font-accent font-bold text-4xl md:text-6xl text-white mb-6 leading-[1.1]">

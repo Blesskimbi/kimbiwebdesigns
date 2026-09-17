@@ -56,7 +56,7 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-muted border-t border-border">
+    <section ref={sectionRef} className="section-navy">
       <div className="max-w-6xl mx-auto">
         <div ref={headingRef} className="text-center mb-12">
           <span className="section-label">feedbacks</span>

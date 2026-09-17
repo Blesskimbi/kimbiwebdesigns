@@ -4,45 +4,53 @@
 
 @layer base {
   :root {
-    /* Akotech-inspired palette — deep navy (#111a45) + vivid orange (#ff5100) */
-    --background: 0 0% 100%;
-    --foreground: 228 55% 12%;
+    /* Warm cream (#FBF8EF) + near-black ink (#130F02) + a single orange
+       accent (#FF550C).
 
-    --card: 0 0% 100%;
-    --card-foreground: 228 55% 12%;
+       The token NAMES below are deliberately left alone. --navy and --teal are
+       referenced by class names across every page (text-navy, bg-navy,
+       .service-header-teal, .prose-blog, the dashboard), so remapping what
+       they resolve to shifts the whole site at once instead of rewriting
+       twenty files. --navy is now the warm ink; --teal no longer introduces a
+       second accent colour at all. */
+    --background: 45 60% 96%;
+    --foreground: 46 81% 4%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 228 55% 12%;
+    --card: 45 60% 96%;
+    --card-foreground: 46 81% 4%;
 
-    --primary: 228 58% 17%;
-    --primary-foreground: 0 0% 100%;
+    --popover: 45 55% 98%;
+    --popover-foreground: 46 81% 4%;
 
-    --secondary: 19 100% 50%;
-    --secondary-foreground: 0 0% 100%;
+    --primary: 46 81% 4%;
+    --primary-foreground: 45 60% 96%;
 
-    --muted: 216 30% 96%;
-    --muted-foreground: 218 21% 33%;
+    --secondary: 18 100% 52%;
+    --secondary-foreground: 45 60% 96%;
 
-    --accent: 168 45% 32%;
-    --accent-dark: 168 45% 24%;
-    --accent-foreground: 0 0% 100%;
+    --muted: 44 38% 93%;
+    --muted-foreground: 46 18% 23%;
+
+    --accent: 18 100% 52%;
+    --accent-dark: 18 92% 44%;
+    --accent-foreground: 45 60% 96%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 216 21% 89%;
-    --input: 216 21% 89%;
-    --ring: 228 58% 17%;
+    --border: 45 22% 87%;
+    --input: 45 22% 87%;
+    --ring: 18 100% 52%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    --navy: 228 58% 17%;
-    --navy-light: 228 40% 28%;
-    --gold: 19 100% 50%;
-    --gold-dark: 19 90% 42%;
-    --gold-light: 22 100% 58%;
-    --teal: 168 45% 32%;
-    --section-muted: 216 30% 97%;
+    --navy: 46 81% 4%;
+    --navy-light: 46 30% 14%;
+    --gold: 18 100% 52%;
+    --gold-dark: 18 92% 44%;
+    --gold-light: 20 100% 60%;
+    --teal: 46 81% 4%;
+    --section-muted: 44 45% 94%;
 
     --sidebar-background: 220 14% 98%;
     --sidebar-foreground: 220 26% 14%;
@@ -78,6 +86,31 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
+    line-height: 1.1;
+  }
+
+  /* Weight is tiered rather than pinned to one value. With a single family
+     doing both display and body, a flat 400 would leave a small heading
+     indistinguishable from the paragraph under it — the face can no longer do
+     that job, so weight has to. Large headings stay at 400 because they have
+     the size to carry themselves; small ones step up.
+
+     !important is load-bearing: font-bold / font-semibold utilities are
+     scattered across the page components, and those 600-700 weights are
+     exactly what made the old headings read as shouty. */
+  h1, h2 {
+    font-weight: 400 !important;
+    letter-spacing: -0.028em;
+  }
+
+  h3, h4 {
+    font-weight: 500 !important;
+    letter-spacing: -0.02em;
+  }
+
+  h5, h6 {
+    font-weight: 500 !important;
+    letter-spacing: -0.01em;
   }
 
   a, button {
@@ -87,7 +120,7 @@
   }
 
   ::selection {
-    background: hsl(var(--gold) / 0.2);
+    background: hsl(var(--gold) / 0.25);
     color: hsl(var(--foreground));
   }
 
@@ -100,7 +133,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary) / 0.35);
+    background: hsl(var(--navy) / 0.3);
     border-radius: 4px;
   }
 }
@@ -153,13 +186,18 @@
 }
 
 @layer components {
-  /* ── Typography (Akotech-style: Space Grotesk throughout) ── */
+  /* ── Typography ──
+     One neutral grotesk across the whole site, the way Vercel and Ramp do it.
+     Headings are never bold — the reference sites all set their headlines
+     between 300 and 480, and that restraint is what reads as expensive. The
+     weight tiers live on the element rules below. */
   .font-display {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.02em;
   }
 
   .font-body {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
   }
 
   .text-navy { color: hsl(var(--navy)); }
@@ -171,22 +209,15 @@
   }
 
   .heading-serif {
-    @apply font-display font-bold text-navy leading-tight tracking-tight;
+    @apply font-display text-navy leading-[1.1] tracking-[-0.028em];
+    font-weight: 400;
   }
 
   .heading-underline {
     @apply relative inline-block;
   }
   .heading-underline::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 56px;
-    height: 4px;
-    border-radius: 2px;
-    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+    content: none;
   }
 
   /* ── Sections ── */
@@ -194,14 +225,68 @@
     @apply relative z-10 py-20 md:py-24 px-6;
   }
 
-  .section-white  { @apply section bg-white; }
+  .section-white  { @apply section; background: hsl(var(--background)); }
   .section-muted  { @apply section; background: hsl(var(--section-muted)); }
-  .section-navy   { @apply section text-white; background: hsl(var(--navy)); }
+  .section-navy   { @apply section; background: hsl(var(--navy)); color: hsl(var(--background)); }
   .section-purple { @apply section-navy; }
-  .section-cta    { @apply section; background: hsl(216 30% 97%); }
+  .section-cta    { @apply section; background: hsl(var(--section-muted)); }
+
+  /* ── Ink mode ──
+     Swapping .section-white for .section-navy is meant to be the only edit a
+     section needs to flip to the dark ground. Everything inside it, though,
+     was coloured for cream: text-navy is the ink itself, muted-foreground is a
+     dark warm grey, and the cards are near-white. On an ink ground all of that
+     renders ink-on-ink.
+
+     So the ground owns its contents. These rules retarget each of those
+     tokens inside a dark section, which keeps the flip to one class per
+     section instead of a per-component dark variant — and means any section
+     added later inherits the behaviour for free.
+
+     Specificity note: each is (0,2,0) — a class plus a descendant class — so
+     it beats the (0,1,0) Tailwind utility it overrides without !important. */
+  .section-navy .text-navy,
+  .section-navy .text-primary,
+  .section-navy .text-foreground {
+    color: hsl(var(--background));
+  }
+
+  .section-navy .text-muted-foreground {
+    /* Warm, desaturated cream rather than a grey: a neutral grey against the
+       brown-black ink reads as a colour mistake. */
+    color: hsl(45 20% 68%);
+  }
+
+  .section-navy .border-border { border-color: hsl(var(--background) / 0.14); }
+  .section-navy .bg-border     { background-color: hsl(var(--background) / 0.14); }
+
+  .section-navy .marsha-card,
+  .section-navy .pro-card,
+  .section-navy .internal-card {
+    /* One step up from the ground, not a lighter grey — same hue, more
+       lightness, so the card reads as the same material. */
+    background: hsl(46 24% 9%);
+    border-color: hsl(var(--background) / 0.12);
+  }
+  .section-navy .marsha-card:hover,
+  .section-navy .pro-card:hover {
+    border-color: hsl(var(--background) / 0.3);
+  }
+
+  .section-navy .btn-outline-primary,
+  .section-navy .btn-outline-navy {
+    border-color: hsl(var(--background) / 0.35);
+    color: hsl(var(--background));
+  }
+  .section-navy .btn-outline-primary:hover,
+  .section-navy .btn-outline-navy:hover {
+    background: hsl(var(--background));
+    color: hsl(var(--navy));
+    border-color: hsl(var(--background));
+  }
 
   .section-label {
-    @apply font-body text-xs font-semibold uppercase tracking-[0.2em] text-gold mb-3 block;
+    @apply font-body text-xs font-medium uppercase tracking-[0.18em] text-gold mb-4 block;
   }
 
   .hero-marsha {
@@ -213,207 +298,143 @@
     );
   }
 
-  /* ── 3D Cards (WDN-inspired lift + rounded corners) ── */
+  /* ── Cards ──
+     Flat and quiet: a hairline border on a slightly lifted cream, a 32px
+     radius, and nothing else. The previous card had a gradient fill, a
+     two-layer drop shadow, an 8px hover lift and an orange bar that wiped
+     across the top on hover — four effects competing for the same job. */
   .marsha-card,
   .pro-card {
-    @apply bg-white relative overflow-hidden;
-    border-radius: 1.5rem;
-    border: 1px solid hsl(var(--border) / 0.8);
-    background: linear-gradient(145deg, #ffffff 0%, hsl(var(--section-muted)) 100%);
-    box-shadow:
-      0 1px 0 hsl(var(--navy) / 0.04),
-      0 8px 32px hsl(var(--navy) / 0.08);
-    transition: transform 0.35s var(--ease-smooth),
-      box-shadow 0.35s var(--ease-smooth),
-      border-color 0.35s var(--ease-smooth);
+    @apply relative overflow-hidden;
+    border-radius: 2rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--popover));
+    box-shadow: none;
+    transition: border-color 0.3s var(--ease-smooth),
+      background-color 0.3s var(--ease-smooth);
   }
 
   .marsha-card::before,
   .pro-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s var(--ease-smooth);
+    content: none;
   }
 
   .marsha-card:hover,
   .pro-card:hover {
-    transform: translateY(-8px);
-    border-color: hsl(var(--gold) / 0.25);
-    box-shadow:
-      0 1px 0 hsl(var(--navy) / 0.04),
-      0 20px 48px hsl(var(--navy) / 0.14);
+    border-color: hsl(var(--navy) / 0.28);
   }
 
-  .marsha-card:hover::before,
-  .pro-card:hover::before {
-    transform: scaleX(1);
-  }
-
-  /* Stat cards on dark sections */
+  /* Stat cards — solid orange blocks, the one place the accent is allowed
+     to cover a large area. */
   .stat-card {
-    @apply text-center p-6;
-    border-radius: 1rem;
-    background: hsl(var(--navy-light) / 0.5);
-    border: 1px solid hsl(0 0% 100% / 0.1);
-    box-shadow: 0 8px 32px hsl(0 0% 0% / 0.2);
-    transition: transform 0.35s var(--ease-smooth), box-shadow 0.35s var(--ease-smooth);
+    @apply text-left p-8;
+    border-radius: 2rem;
+    background: hsl(var(--gold));
+    border: none;
+    color: hsl(var(--background));
+    box-shadow: none;
+    transition: background-color 0.3s var(--ease-smooth);
   }
   .stat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px hsl(0 0% 0% / 0.28);
+    background: hsl(var(--gold-dark));
   }
 
-  /* ── 3D Buttons (WDN-style depth + shimmer) ── */
+  /* ── Buttons ──
+     Pills at a single radius, filled or outlined, and that is the whole
+     system. Gone: the stacked "0 4px 0" ledge that faked depth, the white
+     gradient sweeping across on hover, and the translateY lift/press. Hover
+     is a colour change, which is all it needs to be. */
   .btn-base {
-    @apply inline-flex items-center justify-center gap-2 font-body font-semibold uppercase tracking-wide
-      relative overflow-hidden select-none;
+    @apply inline-flex items-center justify-center gap-2 font-body font-medium
+      relative select-none;
     border-radius: 9999px;
-    letter-spacing: 0.04em;
-    transition: transform 0.25s var(--ease-smooth),
-      box-shadow 0.25s var(--ease-smooth),
-      background 0.25s var(--ease-smooth),
+    text-transform: none;
+    letter-spacing: 0;
+    transition: background-color 0.25s var(--ease-smooth),
       color 0.25s var(--ease-smooth),
-      border-color 0.25s var(--ease-smooth);
+      border-color 0.25s var(--ease-smooth),
+      opacity 0.25s var(--ease-smooth);
   }
 
   .btn-base::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.18), transparent);
-    transition: left 0.55s var(--ease-smooth);
-    pointer-events: none;
+    content: none;
   }
 
-  .btn-base:hover::before {
-    left: 100%;
-  }
-
+  /* Primary: solid orange. */
   .btn-green {
-    @apply btn-base px-8 py-3.5 text-sm text-white;
-    background: linear-gradient(180deg, hsl(var(--gold-light)) 0%, hsl(var(--gold)) 100%);
-    box-shadow:
-      0 4px 0 hsl(var(--gold-dark)),
-      0 8px 24px hsl(var(--gold) / 0.35);
+    @apply btn-base px-7 py-3 text-[15px];
+    background: hsl(var(--gold));
+    color: hsl(var(--background));
+    box-shadow: none;
   }
-  .btn-green:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 6px 0 hsl(var(--gold-dark)),
-      0 12px 32px hsl(var(--gold) / 0.42);
-  }
-  .btn-green:active {
-    transform: translateY(2px);
-    box-shadow:
-      0 2px 0 hsl(var(--gold-dark)),
-      0 4px 12px hsl(var(--gold) / 0.28);
-  }
+  .btn-green:hover { background: hsl(var(--gold-dark)); }
+  .btn-green:active { background: hsl(var(--gold-dark)); }
 
+  /* On ink backgrounds: solid cream. */
   .btn-white {
-    @apply btn-base px-8 py-3.5 text-sm;
-    background: white;
+    @apply btn-base px-7 py-3 text-[15px];
+    background: hsl(var(--background));
     color: hsl(var(--navy));
-    box-shadow:
-      0 4px 0 hsl(0 0% 85%),
-      0 8px 24px hsl(0 0% 0% / 0.2);
+    box-shadow: none;
   }
-  .btn-white:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 6px 0 hsl(0 0% 85%),
-      0 12px 32px hsl(0 0% 0% / 0.28);
-  }
-  .btn-white:active {
-    transform: translateY(2px);
-    box-shadow:
-      0 2px 0 hsl(0 0% 85%),
-      0 4px 12px hsl(0 0% 0% / 0.18);
-  }
+  .btn-white:hover { background: hsl(var(--muted)); }
+  .btn-white:active { background: hsl(var(--muted)); }
 
   .btn-outline-navy {
-    @apply btn-base px-8 py-3.5 text-sm;
-    border: 2px solid hsl(var(--navy));
+    @apply btn-base px-7 py-3 text-[15px];
+    border: 1px solid hsl(var(--navy) / 0.35);
     color: hsl(var(--navy));
     background: transparent;
-    box-shadow: 0 4px 0 hsl(var(--navy) / 0.15), 0 6px 20px hsl(var(--navy) / 0.08);
+    box-shadow: none;
   }
   .btn-outline-navy:hover {
     background: hsl(var(--navy));
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 0 hsl(var(--navy) / 0.25), 0 12px 28px hsl(var(--navy) / 0.18);
-  }
-  .btn-outline-navy:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 hsl(var(--navy) / 0.15), 0 4px 10px hsl(var(--navy) / 0.1);
+    color: hsl(var(--background));
+    border-color: hsl(var(--navy));
   }
 
   .btn-outline-white {
-    @apply btn-base px-8 py-3.5 text-sm border-2 border-white text-white;
+    @apply btn-base px-7 py-3 text-[15px];
+    border: 1px solid hsl(var(--background) / 0.4);
+    color: hsl(var(--background));
     background: transparent;
-    box-shadow: 0 4px 0 hsl(0 0% 100% / 0.15), 0 6px 20px hsl(0 0% 0% / 0.15);
+    box-shadow: none;
   }
   .btn-outline-white:hover {
-    background: white;
+    background: hsl(var(--background));
     color: hsl(var(--navy));
-    transform: translateY(-2px);
-    box-shadow: 0 6px 0 hsl(0 0% 100% / 0.2), 0 12px 28px hsl(0 0% 0% / 0.2);
-  }
-  .btn-outline-white:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 hsl(0 0% 100% / 0.1), 0 4px 10px hsl(0 0% 0% / 0.12);
+    border-color: hsl(var(--background));
   }
 
   .btn-outline-primary {
-    @apply btn-base px-6 py-2.5 text-xs;
-    border: 2px solid hsl(var(--primary));
-    color: hsl(var(--primary));
+    @apply btn-base px-6 py-2.5 text-sm;
+    border: 1px solid hsl(var(--navy) / 0.3);
+    color: hsl(var(--navy));
     background: transparent;
-    box-shadow: 0 3px 0 hsl(var(--primary) / 0.2), 0 5px 16px hsl(var(--primary) / 0.1);
+    box-shadow: none;
   }
   .btn-outline-primary:hover {
-    background: hsl(var(--primary));
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 0 hsl(var(--primary) / 0.3), 0 10px 24px hsl(var(--primary) / 0.2);
-  }
-  .btn-outline-primary:active {
-    transform: translateY(1px);
-    box-shadow: 0 1px 0 hsl(var(--primary) / 0.2), 0 3px 8px hsl(var(--primary) / 0.12);
+    background: hsl(var(--navy));
+    color: hsl(var(--background));
+    border-color: hsl(var(--navy));
   }
 
   .btn-outline-gold {
-    @apply btn-base px-6 py-2.5 text-xs;
-    border: 2px solid hsl(var(--gold));
+    @apply btn-base px-6 py-2.5 text-sm;
+    border: 1px solid hsl(var(--gold));
     color: hsl(var(--gold));
     background: transparent;
-    box-shadow: 0 3px 0 hsl(var(--gold-dark) / 0.3), 0 5px 16px hsl(var(--gold) / 0.12);
+    box-shadow: none;
   }
   .btn-outline-gold:hover {
     background: hsl(var(--gold));
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 0 hsl(var(--gold-dark)), 0 10px 24px hsl(var(--gold) / 0.25);
-  }
-  .btn-outline-gold:active {
-    transform: translateY(1px);
-    box-shadow: 0 1px 0 hsl(var(--gold-dark) / 0.5), 0 3px 8px hsl(var(--gold) / 0.15);
+    color: hsl(var(--background));
   }
 
   /* ── Service card headers ── */
-  .service-header-navy { background: hsl(var(--navy-light)); }
-  .service-header-teal  { background: hsl(var(--teal)); }
-  .service-header-gold  { background: linear-gradient(135deg, hsl(var(--gold-light)) 0%, hsl(var(--gold)) 100%); }
+  .service-header-navy   { background: hsl(var(--navy)); }
+  .service-header-teal   { background: hsl(var(--navy-light)); }
+  .service-header-gold   { background: hsl(var(--gold)); }
   .service-header-blue   { @apply service-header-navy; }
   .service-header-purple { @apply service-header-teal; }
 
@@ -427,45 +448,43 @@
 
   /* ── Filter pills ── */
   .filter-pill {
-    @apply px-5 py-2 rounded-full text-sm font-body font-semibold cursor-pointer;
+    @apply px-5 py-2 rounded-full text-sm font-body font-medium cursor-pointer;
     color: hsl(var(--navy));
-    transition: all 0.3s var(--ease-smooth);
+    transition: background-color 0.25s var(--ease-smooth),
+      color 0.25s var(--ease-smooth),
+      border-color 0.25s var(--ease-smooth);
   }
   .filter-pill-active {
-    @apply filter-pill text-white;
-    background: hsl(var(--primary));
-    box-shadow: 0 4px 0 hsl(var(--navy-light)), 0 6px 20px hsl(var(--primary) / 0.25);
-  }
-  .filter-pill-active:hover {
-    transform: translateY(-1px);
+    @apply filter-pill;
+    background: hsl(var(--navy));
+    color: hsl(var(--background));
+    border: 1px solid hsl(var(--navy));
+    box-shadow: none;
   }
   .filter-pill-inactive {
-    @apply filter-pill bg-white border border-border;
-    box-shadow: 0 2px 0 hsl(var(--border)), 0 4px 12px hsl(var(--navy) / 0.04);
+    @apply filter-pill;
+    background: transparent;
+    border: 1px solid hsl(var(--border));
+    box-shadow: none;
   }
   .filter-pill-inactive:hover {
-    background: hsl(var(--muted));
-    border-color: hsl(var(--primary) / 0.3);
-    transform: translateY(-1px);
+    border-color: hsl(var(--navy) / 0.4);
   }
 
   .shadow-pro {
-    box-shadow: 0 8px 32px hsl(var(--navy) / 0.1);
+    box-shadow: none;
   }
 
   .btn-scroll-top {
-    @apply p-3 bg-white border border-border text-navy rounded-xl;
-    box-shadow: 0 4px 0 hsl(var(--border)), 0 8px 24px hsl(var(--navy) / 0.1);
-    transition: all 0.3s var(--ease-smooth);
+    @apply p-3 rounded-full;
+    background: hsl(var(--navy));
+    color: hsl(var(--background));
+    border: none;
+    box-shadow: none;
+    transition: background-color 0.25s var(--ease-smooth);
   }
   .btn-scroll-top:hover {
-    @apply bg-primary border-primary text-white;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 0 hsl(var(--navy-light)), 0 12px 28px hsl(var(--navy) / 0.18);
-  }
-  .btn-scroll-top:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 0 hsl(var(--border)), 0 4px 12px hsl(var(--navy) / 0.1);
+    background: hsl(var(--gold));
   }
 
   /* Nav link underline (WDN-style) */
@@ -489,18 +508,17 @@
     width: 100%;
   }
 
-  /* Compact flat CTA for navbar — no 3D lift (avoids layout clipping) */
+  /* Navbar CTA — the one filled orange pill above the fold. */
   .btn-nav-cta {
-    @apply inline-flex items-center justify-center px-5 py-2 text-xs font-semibold uppercase tracking-wide rounded-full;
-    border: 2px solid hsl(var(--primary));
-    color: hsl(var(--primary));
-    background: white;
+    @apply inline-flex items-center justify-center px-5 py-2 text-sm font-medium rounded-full;
+    border: none;
+    color: hsl(var(--background));
+    background: hsl(var(--gold));
     box-shadow: none;
-    transition: background 0.25s var(--ease-smooth), color 0.25s var(--ease-smooth);
+    transition: background-color 0.25s var(--ease-smooth);
   }
   .btn-nav-cta:hover {
-    background: hsl(var(--primary));
-    color: white;
+    background: hsl(var(--gold-dark));
   }
 
   /* ── Internal page typography (projects, blog, service pages) ── */
@@ -508,10 +526,10 @@
     @apply max-w-none font-body;
   }
   .prose-blog h2 {
-    @apply font-display font-bold text-navy text-xl md:text-2xl mt-8 mb-4 pb-2 border-b border-border;
+    @apply font-display text-navy text-2xl md:text-3xl mt-10 mb-4;
   }
   .prose-blog h3 {
-    @apply font-display font-bold text-navy text-lg md:text-xl mt-6 mb-3;
+    @apply font-display text-navy text-xl md:text-2xl mt-8 mb-3;
   }
   .prose-blog p {
     @apply text-muted-foreground leading-[1.85] text-[0.95rem] md:text-[1.05rem] mb-4;
@@ -526,11 +544,11 @@
     @apply text-navy font-semibold;
   }
   .prose-blog a {
-    @apply text-primary font-medium hover:text-gold hover:underline underline-offset-4;
+    @apply text-gold font-medium underline underline-offset-4 decoration-gold/30 hover:decoration-gold;
   }
   .prose-blog blockquote {
     @apply border-l-4 border-primary bg-primary/5 py-3 px-5 rounded-r-xl text-muted-foreground my-6 italic;
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: 'Instrument Sans', system-ui, sans-serif;
   }
   .prose-blog code {
     @apply text-primary bg-muted rounded px-1.5 py-0.5 text-sm;
@@ -552,7 +570,7 @@
     @apply marsha-card p-6;
   }
   .internal-card-title {
-    @apply font-display font-bold text-navy text-base mb-2;
+    @apply font-display text-navy text-lg mb-2;
   }
   .internal-card-text {
     @apply text-muted-foreground text-sm leading-relaxed font-body;

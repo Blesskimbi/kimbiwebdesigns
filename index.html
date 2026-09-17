@@ -50,7 +50,7 @@
     <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
 
     <!-- Theme -->
-    <meta name="theme-color" content="#111a45" />
+    <meta name="theme-color" content="#FBF8EF" />
 
     <!-- Ahrefs Analytics -->
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="x2MI6ht5HwjsR0TpSLZ+eg" async></script>
@@ -81,15 +81,23 @@
          So: only the faces that are actually used, fetched with the
          print-media swap so the parser never waits on them. display=swap
          already meant text painted in the fallback first, so this changes the
-         font timing not at all — it just stops holding up the whole page. -->
+         font timing not at all — it just stops holding up the whole page.
+
+         One family now: Instrument Sans, variable 400-700, upright and
+         italic. This is how Vercel and Ramp do it — a single neutral grotesk
+         where weight and size do the separating, rather than a second face.
+         One request, one file, and no risk of the two faces disagreeing.
+
+         Space Grotesk, Libre Baskerville, Poppins, Instrument Serif and Inter
+         are all gone. -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;1,400&family=Poppins:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
       media="print"
       onload="this.media='all';this.onload=null"
     />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;1,400&family=Poppins:wght@400;500;600&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" />
     </noscript>
 
     <!-- LCP preload. The hero background is the largest element on the
@@ -97,7 +105,7 @@
          resolve. Preloading the WebP starts that fetch in the first burst.
          gen-routes strips this line from every other route, where the file is
          not used. -->
-    <link rel="preload" as="image" href="/hero-bg.jpg.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/bless-kimbi-portrait.png.webp" type="image/webp" fetchpriority="high" />
 
     <!-- JSON-LD: LocalBusiness (Local SEO) -->
     <script type="application/ld+json">

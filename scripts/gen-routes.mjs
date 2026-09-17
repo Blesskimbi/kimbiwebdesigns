@@ -389,7 +389,7 @@ function buildHtml(template, { path, title, description, image, crumb, schemas }
     // The hero preload in the template is the homepage's LCP image. Every other
     // route inherits the template, so without this they would each spend a
     // high-priority connection on a file they never render.
-    [/\s*<link\s+rel="preload"\s+as="image"\s+href="\/hero-bg\.jpg\.webp"[^>]*>/i, ""],
+    [/\s*<link\s+rel="preload"\s+as="image"\s+href="\/bless-kimbi-portrait\.png\.webp"[^>]*>/i, ""],
   ];
 
   const html = swaps.reduce((acc, [re, to]) => acc.replace(re, to), template);

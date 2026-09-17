@@ -30,7 +30,7 @@ const Index = () => {
         <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
       </Helmet>
       <Navbar />
-      <div className="relative min-h-screen bg-white overflow-x-clip">
+      <div className="relative min-h-screen bg-background overflow-x-clip">
         <HeroSection />
         <ServicesSection />
         <ProjectsSection />

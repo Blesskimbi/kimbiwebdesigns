@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const words = ["Modern", "Unique", "Functional"];
 
@@ -29,8 +29,6 @@ const promoCards = [
 ];
 
 const HeroSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
   const dynamicTextRef = useRef<HTMLSpanElement>(null);
   const [index, setIndex] = useState(0);
 
@@ -48,111 +46,123 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(contentRef.current, { opacity: 0, y: 40, duration: 1, ease: "power3.out", delay: 0.2 });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
     <>
-      <section ref={sectionRef} className="relative hero-marsha flex items-center overflow-hidden pt-[72px] min-h-[560px] md:min-h-[640px]">
-        {/* Background photo — drop your image at public/hero-bg.jpg and it appears automatically.
-            Falls back to the navy gradient below if the file isn't present yet. */}
-        <div className="absolute inset-0 z-0">
-          {/* This is the page's LCP element, so it is fetched as eagerly as the
-              browser allows: the WebP twin the build writes (a fraction of the
-              JPEG), a matching preload in index.html so the request starts
-              before the CSS resolves, high fetch priority, and intrinsic
-              dimensions so nothing reflows once it lands. */}
-          <picture className="contents">
-            <source srcSet="/hero-bg.jpg.webp" type="image/webp" />
-            <img
-              src="/hero-bg.jpg"
-              alt=""
-              width={1536}
-              height={1024}
-              // Lowercase, and spread, on purpose. React 18.3 has no
-              // fetchPriority in its prop list, so the camelCase form trips
-              // "React does not recognize the prop" — a console.error, which
-              // Lighthouse counts against Best Practices. Spreading the
-              // lowercase attribute renders it verbatim and says nothing.
-              {...({ fetchpriority: "high" } as Record<string, string>)}
-              decoding="async"
-              className="w-full h-full object-cover"
-              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-            />
-          </picture>
-          {/* Darker over the text (left) side, lighter over the image detail (right) side */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#050b1f]/95 via-[#050b1f]/70 to-[#0d1c4d]/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050b1f]/60 via-transparent to-transparent" />
-        </div>
+      {/* Hero — a split: type on the left, one image on the right, both sitting
+          on the page's own cream. The previous version stacked a photo, two
+          gradient scrims, two blurred glow blobs and an orange strip to create
+          depth; none of that is here, and the headline carries the page on
+          size and restraint instead. */}
+      <section className="relative pt-[72px]">
+        <div className="max-w-[1180px] mx-auto px-6 sm:px-10">
+          {/* The text column takes the larger share. Instrument Sans sets
+              noticeably wider than a serif at the same size, and the longest
+              state of the headline — "Functional Web Designer" — needs ~604px
+              at 52px. An even split left it at 518px, which forced the line to
+              break after "Web". */}
+          <div className="grid lg:grid-cols-[1.12fr_0.88fr] gap-10 lg:gap-14 items-center py-14 md:py-20">
+            <div className="max-w-[640px]">
+              {/* 48px, not larger: the second line has to hold its longest
+                  rotation state, "Functional Web Designer", which measures
+                  558px here against a 585px column. At 52px it was 604px and
+                  the line reflowed to three every time that word came round. */}
+              <h1 className="font-display text-[34px] sm:text-[42px] lg:text-[48px] text-navy leading-[1.08] tracking-[-0.028em] mb-6">
+                Hi, I&apos;m Bless Kimbi
+                <br />
+                <span ref={dynamicTextRef} className="text-gold inline-block">{words[index]}</span>{" "}
+                Web Designer
+              </h1>
 
-        {/* soft brand glow blobs for depth */}
-        <div className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-gold/20 blur-[100px] pointer-events-none" />
-        <div className="absolute -bottom-32 -left-24 w-[380px] h-[380px] rounded-full bg-primary/30 blur-[100px] pointer-events-none" />
+              <p className="font-body text-navy text-base md:text-[17px] font-medium mb-3">
+                Websites that rank on Google and convert.
+              </p>
 
-        {/* Bottom accent line, echoing the reference's orange strip.
-            Kept below the promo cards' z-10 wrapper so it never paints over
-            the cards where they overlap up into the hero. */}
-        <div className="absolute bottom-0 left-0 right-0 h-2 md:h-2.5 bg-gold z-[1]" />
+              <p className="font-body text-muted-foreground text-[15px] md:text-base leading-relaxed mb-9 max-w-lg">
+                Based in Cameroon, I build fast, professional websites and web apps that turn
+                visitors into paying clients for businesses across Africa and worldwide.
+              </p>
 
-        <div ref={contentRef} className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-16 md:py-24">
-          <div className="max-w-2xl text-left">
-            <h1 className="font-['Poppins'] font-semibold text-[34px] md:text-[54px] text-white leading-[1.15] mb-6">
-              Hi, I&apos;m Bless Kimbi
-              <br />
-              <span ref={dynamicTextRef} className="text-[#FF6B0A] inline-block">{words[index]}</span>{" "}
-              Web Designer
-            </h1>
+              <div className="flex flex-wrap gap-3 items-center">
+                <a href="/contact/" className="btn-green">
+                  Get a Free Quote <ArrowRight size={16} />
+                </a>
+                <a href="#projects" className="btn-outline-navy">
+                  View Projects
+                </a>
+              </div>
+            </div>
 
-            <p className="font-['Poppins'] text-[#E2E6EC] text-base md:text-lg leading-relaxed mb-10 max-w-xl">
-              Based in Cameroon, I build fast, professional websites and web apps that rank on
-              Google and convert visitors into paying clients for businesses across Africa and worldwide.
-            </p>
-
-            <div className="flex flex-wrap gap-4 justify-start items-center">
-              <a href="/contact/" className="btn-white">
-                Get a Free Quote <ArrowRight size={16} />
-              </a>
-              <a href="#projects" className="btn-outline-white">
-                View Projects <ArrowDown size={16} />
-              </a>
+            {/* The LCP element. A cut-out portrait has no background of its
+                own, so the frame has to supply one: a warm panel at the card
+                radius, and a single flat disc sitting behind the head to give
+                the figure something to stand against. Both are tonal — no new
+                hue — because the sweater is already almost the accent orange
+                and a second orange here would fight it. */}
+            <div className="relative rounded-[2rem] overflow-hidden bg-muted aspect-square">
+              <div
+                aria-hidden="true"
+                className="absolute left-1/2 top-[9%] -translate-x-1/2 w-[78%] aspect-square rounded-full bg-navy/[0.055]"
+              />
+              <picture className="contents">
+                {/* The WebP twin is written by the imagemin plugin during the
+                    build, so it does not exist under `vite dev`. A <source>
+                    that 404s is not retried against the <img> below it —
+                    <picture> commits to the first matching source — which left
+                    the hero blank locally. Production keeps the WebP. */}
+                {import.meta.env.PROD && <source srcSet="/bless-kimbi-portrait.png.webp" type="image/webp" />}
+                <img
+                  src="/bless-kimbi-portrait.png"
+                  alt="Bless Kimbi, web designer and developer based in Buea, Cameroon"
+                  width={500}
+                  height={500}
+                  // Lowercase, and spread, on purpose. React 18.3 has no
+                  // fetchPriority in its prop list, so the camelCase form trips
+                  // "React does not recognize the prop" — a console.error, which
+                  // Lighthouse counts against Best Practices. Spreading the
+                  // lowercase attribute renders it verbatim and says nothing.
+                  {...({ fetchpriority: "high" } as Record<string, string>)}
+                  decoding="async"
+                  // Bottom-anchored: the cut-out ends in a hard edge at the
+                  // chest, so it has to sit flush with the panel's base or it
+                  // reads as floating. Scaled slightly past the frame so the
+                  // shoulders reach the sides rather than stranding the figure
+                  // in the middle.
+                  className="absolute inset-x-0 bottom-0 w-[106%] left-1/2 -translate-x-1/2 object-contain object-bottom"
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                />
+              </picture>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Promo carousel — three cards sitting fully below the hero, no overlap */}
-      <section
-        className="relative pt-10 pb-16 md:pt-14 md:pb-24"
-        style={{ background: "linear-gradient(180deg, #EFF4FF 0%, #FEE3D0 100%)" }}
-      >
-        <div className="max-w-6xl mx-auto px-6 sm:px-10 relative z-10">
+      {/* Promo cards — flat, on the same cream, separated by a hairline rather
+          than by the old blue-to-peach gradient band. */}
+      <section className="border-t border-border/70 py-14 md:py-20">
+        <div className="max-w-[1180px] mx-auto px-6 sm:px-10">
           <div className="grid sm:grid-cols-3 gap-5 md:gap-6">
             {promoCards.map((card) => (
               <a
                 key={card.title}
                 href={card.href}
-                className="marsha-card overflow-hidden group flex flex-col hover:no-underline"
+                className="marsha-card group flex flex-col hover:no-underline"
               >
-                <div className="h-36 md:h-40 overflow-hidden">
+                <div className="h-40 md:h-44 overflow-hidden">
                   <img
                     src={card.image}
                     alt=""
                     width={740}
                     height={400}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover"
                     loading="lazy"
                     decoding="async"
                   />
                 </div>
-                <div className="p-5 flex flex-col flex-1">
-                  <h5 className="font-display font-bold text-navy text-base mb-1">{card.title}</h5>
-                  <p className="text-muted-foreground text-xs font-body mb-4">{card.subtitle}</p>
-                  <span className="btn-outline-primary self-start !px-4 !py-2 !text-[11px] mt-auto">
-                    {card.cta}
+                <div className="p-6 flex flex-col flex-1">
+                  <h5 className="font-display text-navy text-xl mb-1">{card.title}</h5>
+                  <p className="text-muted-foreground text-sm font-body mb-6">{card.subtitle}</p>
+                  <span className="font-body text-sm font-medium text-gold inline-flex items-center gap-1.5 mt-auto group-hover:gap-2.5 transition-[gap] duration-300">
+                    {card.cta} <ArrowRight size={15} />
                   </span>
                 </div>
               </a>

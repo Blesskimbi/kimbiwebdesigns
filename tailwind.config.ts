@@ -16,11 +16,19 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Space Grotesk", "system-ui", "sans-serif"],
-        body: ["Space Grotesk", "system-ui", "sans-serif"],
-        accent: ["Libre Baskerville", "Georgia", "serif"],
+        // One family in all three roles. The separation between a heading and
+        // body text is carried by weight and size, not by a change of face.
+        display: ["Instrument Sans", "system-ui", "-apple-system", "sans-serif"],
+        body: ["Instrument Sans", "system-ui", "-apple-system", "sans-serif"],
+        accent: ["Instrument Sans", "system-ui", "sans-serif"],
       },
       colors: {
+        // Deliberately shadowing Tailwind's own `white`. See the note in
+        // index.css: the site's ground is cream, and a literal #fff surface
+        // reads as a hole in it. Use `pure-white` where #fff is genuinely
+        // required (image mattes, print).
+        white: "hsl(var(--popover))",
+        "pure-white": "#ffffff",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -83,11 +91,11 @@ export default {
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-        xl: "1rem",
-        "2xl": "1.25rem",
-        "3xl": "1.5rem",
+        md: "calc(var(--radius) - 4px)",
+        sm: "calc(var(--radius) - 8px)",
+        xl: "1.5rem",
+        "2xl": "2rem",
+        "3xl": "2rem",
       },
       keyframes: {
         "accordion-down": {
@@ -98,25 +106,10 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "float": {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-20px)" },
-        },
-        "pulse-glow": {
-          "0%, 100%": { opacity: "0.4" },
-          "50%": { opacity: "0.8" },
-        },
-        "spin-slow": {
-          from: { transform: "rotate(0deg)" },
-          to: { transform: "rotate(360deg)" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "float": "float 6s ease-in-out infinite",
-        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
-        "spin-slow": "spin-slow 20s linear infinite",
       },
     },
   },
