@@ -16,7 +16,13 @@ import type { ImgHTMLAttributes } from "react";
  * otherwise be measuring the wrapper instead of the image.
  */
 const OptimisedImage = ({ src, alt = "", ...rest }: ImgHTMLAttributes<HTMLImageElement>) => {
+  // ...and only in a built bundle. The twins are written by the imagemin
+  // plugin at build time, so under `vite dev` that <source> 404s — and
+  // <picture> does not fall back to the <img> when the source it picked
+  // fails, it just renders nothing. Every local raster on the site was blank
+  // in local development because of it.
   const hasWebpTwin =
+    import.meta.env.PROD &&
     typeof src === "string" && src.startsWith("/") && /\.(png|jpe?g)$/i.test(src);
 
   if (!hasWebpTwin) return <img src={src} alt={alt} {...rest} />;
