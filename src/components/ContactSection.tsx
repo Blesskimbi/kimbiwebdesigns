@@ -35,9 +35,7 @@ const ContactSection = ({ isPage = false }: ContactSectionProps) => {
             rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
             className="marsha-card p-6 flex flex-col items-center gap-3 hover:no-underline group"
           >
-            <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
-              <Icon size={20} className="text-primary" />
-            </div>
+            <Icon size={22} strokeWidth={1.5} className="text-navy" aria-hidden="true" />
             <span className="text-muted-foreground text-xs font-body uppercase tracking-widest">{label}</span>
             <span className="font-body font-semibold text-navy text-sm">{value}</span>
           </a>

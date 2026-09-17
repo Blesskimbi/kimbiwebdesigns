@@ -156,9 +156,7 @@ const CommunityPage = () => (
                 key={title}
                 className="internal-card hover:border-primary/30 transition-colors duration-300"
               >
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
-                  <Icon size={20} className="text-primary" />
-                </div>
+                <Icon size={24} strokeWidth={1.5} className="text-navy mb-4" aria-hidden="true" />
                 <h3 className="internal-card-title">{title}</h3>
                 <p className="internal-card-text">{desc}</p>
               </div>
@@ -168,8 +166,8 @@ const CommunityPage = () => (
 
         {/* ── About the mentor ─────────────────────────────────────────────── */}
         <section className="max-w-4xl mx-auto px-6 mb-20">
-          <div className="bg-gradient-to-br from-primary/10 to-blue-900/10 border border-primary/15 rounded-2xl p-5 sm:p-8 md:p-10">
-            <h2 className="font-display font-bold text-2xl md:text-3xl text-navy mb-6">
+          <div className="marsha-card p-5 sm:p-8 md:p-10">
+            <h2 className="font-display text-2xl md:text-3xl text-navy mb-6">
               Your mentor: Bless Kimbi
             </h2>
             <div className="flex flex-col sm:flex-row gap-6 items-start">

@@ -101,9 +101,7 @@ const Navbar = () => {
                       <div className="bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.12)] border border-border p-3 grid grid-cols-2 gap-1">
                         {serviceDropdownItems.map(({ label, href, icon: Icon, desc }) => (
                           <Link key={href} to={href} className="flex items-start gap-3 p-3 rounded-xl hover:bg-muted transition-colors group">
-                            <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                              <Icon size={16} className="text-primary" />
-                            </div>
+                            <Icon size={18} strokeWidth={1.5} className="text-navy shrink-0 mt-0.5" aria-hidden="true" />
                             <div>
                               <p className="font-body text-sm font-semibold text-navy group-hover:text-primary leading-tight">{label}</p>
                               <p className="font-body text-xs text-muted-foreground mt-0.5">{desc}</p>
