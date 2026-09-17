@@ -70,8 +70,21 @@ const Navbar = () => {
         }`}
       >
         <div className="max-w-6xl mx-auto px-5 sm:px-8 h-[72px] flex items-center justify-between gap-4">
-          <Link to="/" className="font-display font-bold text-xl text-navy tracking-tight shrink-0 z-10">
-            Bless<span className="text-gold">Kimbi</span>
+          {/* The supplied logo is white-and-orange, drawn for a dark ground.
+              logo-ink.png is the same artwork with the white recoloured to the
+              site's foreground, for the cream navbar; the footer keeps the
+              original on its ink panel. Width is intrinsic so the row never
+              reflows while it loads. */}
+          <Link to="/" className="shrink-0 z-10" aria-label="Bless Kimbi — home">
+            <img
+              src="/logo-ink.png"
+              alt="Bless Kimbi"
+              width={720}
+              height={120}
+              className="h-7 sm:h-8 w-auto"
+              {...({ fetchpriority: "high" } as Record<string, string>)}
+              decoding="async"
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-5 xl:gap-6">

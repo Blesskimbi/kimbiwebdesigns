@@ -79,8 +79,18 @@ export const SiteFooter = () => (
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
         {/* Left: brand card */}
         <div className="bg-navy-light/40 border border-white/10 rounded-3xl p-8 md:p-10 flex flex-col">
-          <Link to="/" className="font-display font-bold text-2xl text-white tracking-tight inline-block mb-4">
-            Bless<span className="text-gold">Kimbi</span>
+          {/* The original artwork, unmodified — this panel is ink, which is
+              what the white-and-orange logo was drawn for. */}
+          <Link to="/" className="inline-block mb-5" aria-label="Bless Kimbi — home">
+            <img
+              src="/logo-cream.png"
+              alt="Bless Kimbi"
+              width={720}
+              height={120}
+              className="h-9 w-auto"
+              loading="lazy"
+              decoding="async"
+            />
           </Link>
           <p className="text-white/70 text-sm font-body leading-relaxed mb-8 max-w-md">
             I design and build fast, modern websites, web apps, and digital solutions that help
