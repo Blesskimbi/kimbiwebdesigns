@@ -208,7 +208,40 @@ export const STATIC_SCHEMAS = {
     },
   ],
 
-  "/community/": [faqPage(communityFaqs)],
+  "/community/": [
+    faqPage(communityFaqs),
+    // The free beginner's guide. Declared as its own work so the PDF is
+    // discoverable as a free resource rather than just an anonymous link, and
+    // so "free web development guide" queries have something to match on.
+    {
+      "@context": "https://schema.org",
+      "@type": "DigitalDocument",
+      name: "The Beginner's Guide to Web Development",
+      headline: "The Beginner's Guide to Web Development",
+      description:
+        "A free 10-page PDF guide for complete beginners: what web development is, the no-code and code paths, a step-by-step learning roadmap, free tools and resources, beginner projects, learning alongside AI, handling imposter syndrome, and how to get your first paying client.",
+      author: provider,
+      publisher: provider,
+      url: `${BASE}/community/`,
+      inLanguage: "en",
+      isAccessibleForFree: true,
+      genre: "Web Development",
+      about: ["Web Development", "HTML", "CSS", "JavaScript", "Freelancing"],
+      audience: { "@type": "Audience", audienceType: "Beginner web developers" },
+      fileFormat: "application/pdf",
+      encoding: {
+        "@type": "MediaObject",
+        contentUrl: `${BASE}/beginners-guide-to-web-development-bless-kimbi.pdf`,
+        encodingFormat: "application/pdf",
+      },
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "XAF",
+        availability: "https://schema.org/InStock",
+      },
+    },
+  ],
 
   "/seo-company-in-cameroon/": [
     faqPage(seoCompanyFaqs),

@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { MessageCircle, CheckCircle, Users, BookOpen, Code2, Lightbulb, Star } from "lucide-react";
+import { MessageCircle, CheckCircle, Users, BookOpen, Code2, Lightbulb, Star, Download, FileText } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/ContactSection";
 import FloatingChat from "@/components/FloatingChat";
@@ -7,7 +7,30 @@ import ScrollToTop from "@/components/ScrollToTop";
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import { communityFaqs as faqs } from "@/data/seo-faqs.mjs";
 
-const WHATSAPP_LINK = "https://chat.whatsapp.com/EccaSxibk46HzLENqVSjDo";
+const WHATSAPP_LINK = "https://chat.whatsapp.com/KelcJYaEABL4HAwlo6VP1a";
+
+// The free PDF lives in public/, so it is served straight off the domain and the
+// `download` attribute can name the saved file. Anyone who messages me asking
+// where to start gets this page's link, and the first thing on it is the guide.
+const GUIDE_FILE = "/beginners-guide-to-web-development-bless-kimbi.pdf";
+const GUIDE_TITLE = "The Beginner's Guide to Web Development";
+
+// The twelve chapters, in the order they appear in the PDF. Listed here so a
+// visitor can see what they are getting before they spend data on the download.
+const guideChapters = [
+  { n: "01", title: "Start here", desc: "Welcome, future developer, and how to actually use this guide." },
+  { n: "02", title: "The basics", desc: "Frontend, backend, full stack and web design, explained plainly." },
+  { n: "03", title: "Choose your route", desc: "The no-code path, the code path, and my honest advice on both." },
+  { n: "04", title: "Step by step", desc: "A six-stage roadmap from HTML to your first framework, with timelines." },
+  { n: "05", title: "Your toolkit", desc: "What to install, where to learn free, and the laptop you really need." },
+  { n: "06", title: "Learn by doing", desc: "Six beginner projects worth more than any certificate." },
+  { n: "07", title: "The new reality", desc: "Is AI going to replace developers? My rules for learning alongside it." },
+  { n: "08", title: "Your mindset", desc: "Imposter syndrome is normal, and five ways to handle it." },
+  { n: "09", title: "Turn skills into income", desc: "How to land your first paying client before you feel ready." },
+  { n: "10", title: "Save yourself time", desc: "The six mistakes that cost beginners the most months." },
+  { n: "11", title: "Who is Bless Kimbi", desc: "My story, from stuck on broken code to clients across three continents." },
+  { n: "12", title: "Learn with me", desc: "How one-on-one mentorship works, if you want a guide for the road." },
+];
 
 const benefits = [
   {
@@ -47,17 +70,17 @@ const benefits = [
 const CommunityPage = () => (
   <LenisSmoothScroll>
     <Helmet>
-      <title>Free Dev Mentorship Community | Bless Kimbi</title>
+      <title>Free Beginner's Guide to Web Development (PDF) | Bless Kimbi</title>
       <meta
         name="description"
-        content="Join Bless Kimbi's free software development community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for web and mobile developers worldwide."
+        content="Download The Beginner's Guide to Web Development free, a 10-page PDF by Bless Kimbi covering the learning roadmap, free tools, AI, and how to get your first client. Plus a free WhatsApp community for developers."
       />
       <link rel="canonical" href="https://blesskimbi.com/community/" />
       <meta name="robots" content="index, follow" />
-      <meta property="og:title" content="Free Dev Mentorship Community | Bless Kimbi" />
+      <meta property="og:title" content="Free Beginner's Guide to Web Development (PDF) | Bless Kimbi" />
       <meta
         property="og:description"
-        content="Join Bless Kimbi's free software development community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for web and mobile developers worldwide."
+        content="Download The Beginner's Guide to Web Development free, a 10-page PDF by Bless Kimbi covering the learning roadmap, free tools, AI, and how to get your first client. Plus a free WhatsApp community for developers."
       />
       <meta property="og:url" content="https://blesskimbi.com/community" />
       <meta property="og:type" content="website" />
@@ -65,10 +88,10 @@ const CommunityPage = () => (
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Free Software Development Mentorship Community | Bless Kimbi" />
+      <meta name="twitter:title" content="Free Beginner's Guide to Web Development (PDF) | Bless Kimbi" />
       <meta
         name="twitter:description"
-        content="Join Bless Kimbi's free software development community on WhatsApp. Code reviews, weekly tips, Q&A, and peer support for web and mobile developers worldwide."
+        content="Download The Beginner's Guide to Web Development free, a 10-page PDF by Bless Kimbi covering the learning roadmap, free tools, AI, and how to get your first client. Plus a free WhatsApp community for developers."
       />
       <meta name="twitter:image" content="https://blesskimbi.com/og-image.png" />
     </Helmet>
@@ -79,46 +102,99 @@ const CommunityPage = () => (
 
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
         <section className="max-w-4xl mx-auto px-6 text-center mb-20">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] text-xs font-semibold uppercase tracking-widest mb-6">
-            Free Community
+          <span className="inline-block px-4 py-1.5 rounded-full bg-gold/10 border border-gold/25 text-gold text-xs font-semibold uppercase tracking-widest mb-6">
+            Free PDF Guide
           </span>
           <h1 className="heading-serif text-3xl sm:text-5xl md:text-6xl mb-5">
-            Free Software Development{" "}
-            <span className="text-gradient-primary">Mentorship</span>{" "}
-            Community
+            The Beginner's Guide to{" "}
+            <span className="text-gradient-primary">Web Development</span>
           </h1>
           <p className="text-muted-foreground font-body text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
-            A free WhatsApp community for beginners, aspiring developers, and
-            professionals who want to learn web and mobile development,
-            collaborate on projects, and grow together, no matter where you
-            are in the world.
+            Everything I wish someone had told me when I was starting out, in
+            one free 10-page PDF. How the web actually works, what to learn and
+            in what order, the free tools to use, how to work with AI, and how
+            to land your first paying client.
           </p>
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-[#25D366] hover:bg-[#1fba58] text-white font-display font-bold text-sm sm:text-base tracking-wide transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(37,211,102,0.35)] hover:shadow-[0_0_40px_rgba(37,211,102,0.5)]"
-          >
-            <MessageCircle size={18} className="sm:hidden" />
-            <MessageCircle size={22} className="hidden sm:block" />
-            Join the Community
-          </a>
-          <p className="text-muted-foreground font-body text-sm mt-4">Free to join · No sign-up form · Open now</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <a
+              href={GUIDE_FILE}
+              download
+              className="btn-green w-full sm:w-auto px-8 py-4 text-base"
+            >
+              <Download size={20} aria-hidden="true" />
+              Download the Free Guide
+            </a>
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline-navy w-full sm:w-auto px-8 py-4 text-base"
+            >
+              <MessageCircle size={20} aria-hidden="true" />
+              Join the WhatsApp community
+            </a>
+          </div>
+          <p className="text-muted-foreground font-body text-sm mt-4">
+            10 pages · PDF · Completely free · No email, no sign-up form
+          </p>
+        </section>
+
+        {/* ── What's inside the guide ───────────────────────────────────────── */}
+        <section className="max-w-6xl mx-auto px-6 mb-20">
+          <div className="text-center mb-12">
+            <h2 className="heading-serif text-3xl md:text-4xl mb-4">
+              What's inside the guide
+            </h2>
+            <p className="text-muted-foreground font-body max-w-xl mx-auto">
+              Twelve short chapters, written to be read once from start to
+              finish and then kept close for the days you feel lost.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            {guideChapters.map(({ n, title, desc }) => (
+              <div
+                key={n}
+                className="internal-card hover:border-primary/30 transition-colors duration-300"
+              >
+                <span className="block font-display font-bold text-sm text-gold mb-3">{n}</span>
+                <h3 className="internal-card-title">{title}</h3>
+                <p className="internal-card-text">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="marsha-card p-5 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-8">
+            <FileText size={40} strokeWidth={1.5} className="text-navy shrink-0" aria-hidden="true" />
+            <div className="flex-1">
+              <h3 className="font-display font-bold text-lg text-navy mb-1">{GUIDE_TITLE}</h3>
+              <p className="text-muted-foreground font-body text-sm leading-relaxed">
+                By Bless Kimbi · 10 pages · A small PDF, so it downloads fine on
+                mobile data. Yours to keep, and to share with anyone who needs it.
+              </p>
+            </div>
+            <a
+              href={GUIDE_FILE}
+              download
+              className="btn-green w-full sm:w-auto shrink-0"
+            >
+              <Download size={18} aria-hidden="true" />
+              Download free
+            </a>
+          </div>
         </section>
 
         {/* ── Who it's for ─────────────────────────────────────────────────── */}
         <section className="max-w-4xl mx-auto px-6 mb-20">
           <div className="internal-card p-5 sm:p-8 md:p-10">
             <h2 className="font-display font-bold text-2xl md:text-3xl text-navy mb-4">
-              Who is this community for?
+              Who is this for?
             </h2>
             <p className="text-muted-foreground font-body text-base leading-relaxed mb-6">
-              This community is for anyone who wants to get into software
-              development (web, mobile, or both) but doesn't know where to
-              start, or has started but feels stuck. It's also for experienced
-              developers who want to collaborate, share knowledge, and connect
-              with like-minded builders. If you want a space to actually build
-              things with others, this is the right place.
+              The guide and the community are both for anyone who wants to get
+              into software development (web, mobile, or both) but doesn't know
+              where to start, or has started but feels stuck. They are also for
+              experienced developers who want to collaborate, share knowledge,
+              and connect with like-minded builders. If you want a space to
+              actually build things with others, this is the right place.
             </p>
             <ul className="space-y-3">
               {[
@@ -208,20 +284,31 @@ const CommunityPage = () => (
             Ready to start learning?
           </h2>
           <p className="text-muted-foreground font-body mb-8 leading-relaxed">
-            Join a growing community of developers and builders. It's free,
-            it's on WhatsApp, and it takes 10 seconds to join.
+            Take the guide, read it from start to finish, then come and build
+            with us. Both are free, and both take about ten seconds to start.
           </p>
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 sm:px-10 sm:py-4 rounded-full bg-[#25D366] hover:bg-[#1fba58] text-white font-display font-bold text-sm sm:text-base tracking-wide transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(37,211,102,0.35)] hover:shadow-[0_0_40px_rgba(37,211,102,0.5)]"
-          >
-            <MessageCircle size={18} className="sm:hidden" />
-            <MessageCircle size={22} className="hidden sm:block" />
-            Join the Community
-          </a>
-          <p className="text-muted-foreground font-body text-sm mt-4">Free to join · No sign-up form · Open now</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <a
+              href={GUIDE_FILE}
+              download
+              className="btn-green w-full sm:w-auto px-8 py-4 text-base"
+            >
+              <Download size={20} aria-hidden="true" />
+              Download the Free Guide
+            </a>
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline-navy w-full sm:w-auto px-8 py-4 text-base"
+            >
+              <MessageCircle size={20} aria-hidden="true" />
+              Join the WhatsApp community
+            </a>
+          </div>
+          <p className="text-muted-foreground font-body text-sm mt-4">
+            Free · No sign-up form · Open now
+          </p>
         </section>
 
         {/* ── FAQ ──────────────────────────────────────────────────────────── */}

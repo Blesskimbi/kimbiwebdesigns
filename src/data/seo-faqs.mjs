@@ -12,12 +12,20 @@
 
 export const communityFaqs = [
   {
-    q: "Is this completely free?",
-    a: "Yes. 100% free, no hidden fees, no paid tiers. The WhatsApp group is open to anyone who wants to learn or collaborate on software development.",
+    q: "Is the beginner's guide really free?",
+    a: "Yes. Click the download button on this page and the PDF saves straight to your phone or laptop. No email address, no sign-up form, no payment. Share it with anyone who needs it.",
   },
   {
-    q: "Do I need prior coding experience to join?",
-      a: "No prior experience needed. The community welcomes complete beginners, developers who are still learning, and experienced professionals who want to collaborate and share knowledge.",
+    q: "What does the guide cover?",
+    a: "Twelve chapters across 10 pages: what web development actually is, the no-code and code paths, a step-by-step learning roadmap with timelines, the free tools and resources to use, six beginner projects to build, how to learn alongside AI, handling imposter syndrome, getting your first paying client, and the mistakes that cost beginners the most time.",
+  },
+  {
+    q: "Do I need any coding experience to read it?",
+    a: "None. The guide is written for someone who has never written a line of code and does not know where to start. If you are already learning, the chapters on projects, AI and getting your first client will still be useful.",
+  },
+  {
+    q: "Is the WhatsApp community free too?",
+    a: "Yes. 100% free, no hidden fees, no paid tiers. The WhatsApp group is open to anyone who wants to learn or collaborate on software development, from complete beginners to experienced professionals.",
   },
   {
     q: "How much time do I need to commit each week?",
@@ -29,8 +37,8 @@ export const communityFaqs = [
     a: "Web development (HTML, CSS, JavaScript, React) and mobile app development are both covered. Topics like freelancing, SEO, getting clients, and building a portfolio come up regularly too.",
   },
   {
-    q: "How do I join?",
-    a: "Click the 'Join the Community' button on this page. It links directly to the WhatsApp group. No sign-up form, no waiting list.",
+    q: "How do I join the community?",
+    a: "Click the 'Join the WhatsApp community' button on this page. It links directly to the WhatsApp group. No sign-up form, no waiting list.",
   },
 ];
 

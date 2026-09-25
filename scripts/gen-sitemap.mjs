@@ -35,6 +35,10 @@ const STATIC_ROUTES = [
   { url: "/contact/",                                changefreq: "monthly", priority: 0.7 },
   { url: "/about/",                                  changefreq: "monthly", priority: 0.8 },
   { url: "/community/",                              changefreq: "monthly", priority: 0.6 },
+
+  // The free beginner's guide. Not a route — the PDF itself, which Google will
+  // index and serve directly for "free web development guide" style queries.
+  { url: "/beginners-guide-to-web-development-bless-kimbi.pdf", changefreq: "yearly", priority: 0.6 },
   { url: "/seo-company-in-cameroon/",                changefreq: "monthly", priority: 0.8 },
   { url: "/ecommerce-website-design-in-cameroon/",   changefreq: "monthly", priority: 0.8 },
   { url: "/social-media-management/",               changefreq: "monthly", priority: 0.8 },
