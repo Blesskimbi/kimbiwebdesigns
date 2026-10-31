@@ -45,7 +45,7 @@ const InlineCta = ({ variant = "work" }: Props) => {
       <div className="flex flex-col sm:flex-row gap-3">
         <Link
           to={copy.primary.to}
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-display font-bold text-sm hover:bg-primary/90 transition-colors"
+          className="btn-green"
         >
           {copy.primary.label}
           <ArrowRight size={16} />
@@ -54,7 +54,7 @@ const InlineCta = ({ variant = "work" }: Props) => {
           href={WHATSAPP}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-border text-navy font-display font-bold text-sm hover:border-primary hover:text-primary transition-colors"
+          className="btn-outline-navy"
         >
           <MessageCircle size={16} />
           Message on WhatsApp

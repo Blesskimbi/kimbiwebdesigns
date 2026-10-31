@@ -10,7 +10,7 @@ excerpt: >-
 category: Trends
 author: Bless Kimbi
 date: '2026-05-20'
-imageUrl: /blog-web-design-trends-africa-2026.png
+imageUrl: /blog-cover-web-design-trends-africa-2026.png
 readTime: 8 min read
 focusKeyword: web design trends Kenya 2026
 seoTitle: 'Web Design Trends Kenya 2026: A Nairobi Business Guide'

@@ -65,8 +65,13 @@ const Navbar = () => {
     <>
       <nav
         ref={navRef}
-        className={`fixed top-0 left-0 right-0 z-50 overflow-visible bg-white/95 backdrop-blur-md border-b border-transparent transition-all duration-300 ${
-          scrolled ? "shadow-[0_4px_20px_rgba(0,0,0,0.08)] border-border/50" : "shadow-sm"
+        // Separation on scroll is a hairline, not a drop shadow. The card and
+        // button systems both dropped their shadows in the cream rebuild, and a
+        // neutral black blur was the only thing left casting one across the
+        // full width of the page. At rest the bar has no edge at all, so the
+        // hero reads as continuous with it.
+        className={`fixed top-0 left-0 right-0 z-50 overflow-visible bg-white/95 backdrop-blur-md border-b transition-colors duration-300 ${
+          scrolled ? "border-border" : "border-transparent"
         }`}
       >
         <div className="max-w-6xl mx-auto px-5 sm:px-8 h-[72px] flex items-center justify-between gap-4">
@@ -111,7 +116,12 @@ const Navbar = () => {
                         servicesOpen ? "opacity-100 visible pointer-events-auto translate-y-0" : "opacity-0 invisible pointer-events-none -translate-y-1"
                       }`}
                     >
-                      <div className="bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.12)] border border-border p-3 grid grid-cols-2 gap-1">
+                      {/* The one shadow left on a light ground, and it is
+                          earned: a panel floating over body copy needs depth
+                          or it reads as part of the page. Softened and tinted
+                          to the ink (19,15,2) rather than neutral black, so it
+                          sits in the warm palette instead of next to it. */}
+                      <div className="bg-white rounded-2xl shadow-[0_8px_24px_rgba(19,15,2,0.10)] border border-border p-3 grid grid-cols-2 gap-1">
                         {serviceDropdownItems.map(({ label, href, icon: Icon, desc }) => (
                           <Link key={href} to={href} className="flex items-start gap-3 p-3 rounded-xl hover:bg-muted transition-colors group">
                             <Icon size={18} strokeWidth={1.5} className="text-navy shrink-0 mt-0.5" aria-hidden="true" />

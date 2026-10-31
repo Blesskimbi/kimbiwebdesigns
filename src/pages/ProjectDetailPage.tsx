@@ -366,7 +366,7 @@ const ProjectDetailPage = () => {
                                     <Link
                                         key={rel.id}
                                         to={`/projects/${rel.slug}/`}
-                                        className="group marsha-card overflow-hidden transition-all duration-300 hover:-translate-y-1"
+                                        className="group marsha-card overflow-hidden"
                                     >
                                         <div className="h-40 overflow-hidden">
                                             {rel.cover_image ? (

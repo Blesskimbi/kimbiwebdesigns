@@ -17,10 +17,10 @@ const ProfileImage = () => {
         { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
         { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
         { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },
-        { name: "GitHub", icon: "https://cdn.simpleicons.org/github/FFFFFF" },
+        { name: "GitHub", icon: "https://cdn.simpleicons.org/github/130F02" },
         { name: "Flutter", icon: "https://cdn.simpleicons.org/flutter/54C5F8" },
         { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E" },
-        { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
+        { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/130F02" },
 
         { name: "Vite", icon: "https://cdn.simpleicons.org/vite/646CFF" },
         { name: "Firebase", icon: "https://cdn.simpleicons.org/firebase/FFCA28" },
@@ -111,10 +111,16 @@ const ProfileImage = () => {
     return (
         <div className="relative w-full max-w-[320px] sm:max-w-[480px] aspect-square mx-auto flex items-center justify-center">
             <div ref={containerRef} className="relative w-full h-[95%]">
-                {/* Background Aura Glow */}
+                {/* Background aura. Tonal, not a gradient: --primary is the ink
+                    and --secondary the accent orange, so the old ink-to-orange
+                    blur put a muddy dark smear behind the portrait once the
+                    ground turned cream. One warm wash in the ink hue gives the
+                    figure something to sit against without adding a colour.
+                    The opacity stays a class — the GSAP pulse animates from
+                    whatever it finds here. */}
                 <div
                     ref={glowRef}
-                    className="absolute inset-x-0 bottom-0 top-1/4 bg-gradient-to-tr from-primary/40 to-secondary/30 rounded-full blur-[100px] opacity-40"
+                    className="absolute inset-x-0 bottom-0 top-1/4 bg-navy/[0.07] rounded-full blur-[90px] opacity-40"
                 />
 
                 {/* Image Container */}
@@ -122,7 +128,7 @@ const ProfileImage = () => {
                     ref={imageRef}
                     className="relative z-10 w-full h-full flex items-center justify-center"
                 >
-                    <div className="w-[75%] h-[75%] relative rounded-full overflow-hidden border-4 border-white/10 p-2 bg-glass backdrop-blur-sm shadow-2xl">
+                    <div className="w-[75%] h-[75%] relative rounded-full overflow-hidden border-4 border-border p-2 bg-muted">
                         <img
                             src="/blesskimbi.png"
                             alt="Bless Kimbi"
@@ -159,25 +165,22 @@ const ProfileImage = () => {
                                 top: `${y}%`,
                                 transform: 'translate(-50%, -50%)' 
                             }}
-                            className="absolute z-20 w-8 h-8 sm:w-9 sm:h-9 md:w-11 md:h-11 bg-white/10 border border-white/20 rounded-xl p-1.5 flex items-center justify-center backdrop-blur-md shadow-lg transition-all hover:scale-125 hover:bg-white/20 hover:border-white/40 group"
+                            className="absolute z-20 w-8 h-8 sm:w-9 sm:h-9 md:w-11 md:h-11 bg-white border border-border rounded-xl p-1.5 flex items-center justify-center transition-all hover:scale-125 hover:border-navy/30 group"
                         >
                             <img
                                 src={tech.icon}
                                 alt={tech.name}
-                                className="w-full h-full object-contain filter drop-shadow-sm brightness-110"
+                                className="w-full h-full object-contain"
                                 title={tech.name}
                             />
                             {/* Tooltip */}
-                            <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-black/80 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                            <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-navy text-background text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                                 {tech.name}
                             </span>
                         </div>
                     );
                 })}
 
-                {/* Decorative glass elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-glass border border-white/10 rounded-2xl -rotate-12 blur-[1px] opacity-50" />
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-glass border border-white/10 rounded-full rotate-12 blur-[1px] opacity-30" />
             </div>
 
             {/* Floating Shadow/Glow Underneath */}

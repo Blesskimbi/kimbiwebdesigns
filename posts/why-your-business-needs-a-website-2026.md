@@ -10,7 +10,7 @@ excerpt: >-
 category: Business
 author: Bless Kimbi
 date: '2026-05-15'
-imageUrl: /blog-why-business-needs-website-2025.png
+imageUrl: /blog-cover-why-your-business-needs-a-website-2026.png
 readTime: 9 min read
 focusKeyword: why your business needs a website in Nigeria 2026
 seoTitle: Why Your Business Needs a Website in Nigeria in 2026

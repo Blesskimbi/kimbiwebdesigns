@@ -24,7 +24,7 @@ const BlogImageCarousel = ({ images }: { images: ImageItem[] }) => {
     if (images.length === 0) return null;
 
     return (
-        <div className="relative my-8 rounded-2xl overflow-hidden border border-white/10 shadow-2xl group/carousel bg-black/20">
+        <div className="relative my-8 rounded-2xl overflow-hidden border border-border group/carousel bg-muted">
             <div ref={emblaRef} className="overflow-hidden">
                 <div className="flex touch-pan-y">
                     {images.map((img, i) => (

@@ -8,7 +8,7 @@ excerpt: >-
 category: Business
 author: Bless Kimbi
 date: '2026-06-05'
-imageUrl: /blog-cameroonian-business-needs-website-2026.png
+imageUrl: /blog-cover-why-cameroonian-business-needs-website.png
 metaDescription: >-
   Still running your business on WhatsApp and Facebook? Why every Cameroonian
   business needs a real website in 2026, and what waiting costs you.

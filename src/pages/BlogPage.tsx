@@ -127,7 +127,7 @@ const BlogPage = () => {
                                     first, high enough to be seen at all. */}
                                 {i === 3 && <AdSlot placement="feed" className="md:col-span-2 !my-0" />}
                                 <article
-                                    className="group marsha-card overflow-hidden transition-all duration-300 hover:-translate-y-2 flex flex-col animate-in fade-in zoom-in duration-500"
+                                    className="group marsha-card overflow-hidden flex flex-col animate-in fade-in zoom-in duration-500"
                                     style={{ animationFillMode: "both", animationDelay: `${i * 100}ms` }}
                                 >
                                     {/* Image Area */}

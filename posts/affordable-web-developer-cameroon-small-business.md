@@ -10,7 +10,7 @@ excerpt: >-
 category: Web Development
 author: Bless Kimbi
 date: '2026-05-26'
-imageUrl: /cyprogram-riscam.co.png
+imageUrl: /blog-cover-affordable-web-developer-cameroon-small-business.png
 readTime: 8 min read
 focusKeyword: affordable web developer in Cameroon for small business
 seoTitle: Affordable Web Developer in Cameroon for Small Business

@@ -170,14 +170,14 @@ const SocialMediaPage = () => (
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-display font-bold text-base hover:bg-primary/90 hover:shadow-pro transition-all duration-300"
+              className="btn-green px-8 py-4 text-base"
             >
               Get Started Today
               <ChevronRight size={18} />
             </a>
             <a
               href="/services/"
-              className="btn-outline-navy inline-flex items-center gap-2 px-8 py-4 rounded-full font-display font-semibold text-base"
+              className="btn-outline-navy px-8 py-4 text-base"
             >
               View All Services
             </a>
@@ -352,14 +352,14 @@ const SocialMediaPage = () => (
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-primary text-white font-display font-bold text-base hover:bg-primary/90 hover:shadow-pro transition-all duration-300"
+              className="btn-green px-10 py-4 text-base"
             >
               Start Your Social Growth
               <ChevronRight size={18} />
             </a>
             <a
               href="/contact/"
-              className="btn-outline-navy inline-flex items-center gap-2 px-8 py-4 rounded-full font-display font-semibold text-base"
+              className="btn-outline-navy px-8 py-4 text-base"
             >
               Contact Us
             </a>

@@ -6,27 +6,110 @@ const words = ["Modern", "Unique", "Functional"];
 
 const promoCards = [
   {
-    image: "/promo-1.avif",
+    panel: "services" as const,
     title: "How I Can Help?",
     subtitle: "My Services",
     href: "#services",
     cta: "View All Services",
   },
   {
-    image: "/promo-2.avif",
+    panel: "promise" as const,
     title: "Why Choose Me?",
     subtitle: "My Expertise",
     href: "/about/",
     cta: "What Makes Me Different",
   },
   {
-    image: "/promo-3.avif",
+    panel: "proof" as const,
     title: "Bring Innovative Thinking",
     subtitle: "For My Clients",
     href: "/projects/",
     cta: "View My Work",
   },
 ];
+
+/* The six real service names, in the order the navbar lists them. */
+const panelServices = [
+  "Web Design",
+  "SEO",
+  "Social Media",
+  "Mobile Apps",
+  "UI/UX Design",
+  "E-commerce",
+];
+
+/* The opacity ramp makes the list read as continuing past the frame; hovering
+   the card flattens it to full, so the panel has something to give back.
+   The floor is 55% rather than lower because a phone never gets that hover —
+   whatever the ramp bottoms out at is what a touch visitor reads permanently,
+   and cream below about half opacity stops being legible on the accent. */
+const serviceFade = [
+  "opacity-100",
+  "opacity-90",
+  "opacity-80",
+  "opacity-70",
+  "opacity-[0.62]",
+  "opacity-55",
+];
+
+const panelPromises = ["Fast by default", "Mobile-first", "SEO built in", "Built to convert"];
+
+/* Three typographic panels in place of the stock promo photographs. Each is
+   built from the brand's own three colours and states what its card is about
+   in words, so the card carries its own meaning rather than borrowing it from
+   an unrelated image. They alternate ground — orange field, ink field, then
+   orange type on cream — so the row reads as one system seen three ways, and
+   each uses a different device (a list, a quartered grid, a single numeral)
+   so they are not three variations of the same block. */
+const PromoPanel = ({ panel }: { panel: (typeof promoCards)[number]["panel"] }) => {
+  if (panel === "services") {
+    return (
+      <div className="h-full bg-gold px-6 py-4 flex flex-col justify-center">
+        <ul className="space-y-0.5">
+          {panelServices.map((service, i) => (
+            <li
+              key={service}
+              className={`font-display text-background text-[14px] md:text-[16px] leading-[1.2] ${serviceFade[i]} group-hover:opacity-100 transition-opacity duration-300`}
+            >
+              {service}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  if (panel === "promise") {
+    return (
+      <div className="h-full bg-navy grid grid-cols-2">
+        {panelPromises.map((promise, i) => (
+          <div
+            key={promise}
+            className={`flex items-center px-5 font-display text-background/90 text-[13px] md:text-sm leading-[1.25] border-background/15 transition-colors duration-300 group-hover:border-background/30 ${
+              i % 2 === 0 ? "border-r" : ""
+            } ${i < 2 ? "border-b" : ""}`}
+          >
+            {promise}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="h-full bg-muted border-b border-border px-6 flex flex-col justify-center">
+      <span className="font-display text-gold text-[58px] md:text-[66px] leading-[0.85] tracking-[-0.045em]">
+        50+
+      </span>
+      <span className="font-body text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.18em] text-navy mt-3">
+        Projects delivered
+      </span>
+      <span className="font-body text-xs text-muted-foreground mt-1">
+        Across Africa &amp; worldwide
+      </span>
+    </div>
+  );
+};
 
 const HeroSection = () => {
   const dynamicTextRef = useRef<HTMLSpanElement>(null);
@@ -148,15 +231,7 @@ const HeroSection = () => {
                 className="marsha-card group flex flex-col hover:no-underline"
               >
                 <div className="h-40 md:h-44 overflow-hidden">
-                  <img
-                    src={card.image}
-                    alt=""
-                    width={740}
-                    height={400}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <PromoPanel panel={card.panel} />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <h5 className="font-display text-navy text-xl mb-1">{card.title}</h5>

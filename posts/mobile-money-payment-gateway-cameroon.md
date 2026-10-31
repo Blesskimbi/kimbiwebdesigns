@@ -9,8 +9,7 @@ excerpt: >-
 category: Web Development
 author: Bless Kimbi
 date: '2026-09-06'
-imageUrl: >-
-  https://turusktpzdzrldxhsnvq.supabase.co/storage/v1/object/public/project-images/blog/1788715829138-adding-mtn-momo-and-orange-money-to-a-cameroonian-website.png
+imageUrl: /blog-cover-mobile-money-payment-gateway-cameroon.png
 readTime: 11 min read
 focusKeyword: payment gateway cameroon
 seoTitle: 'Payment Gateway Cameroon: MoMo and Orange Compared'

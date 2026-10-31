@@ -58,7 +58,7 @@ const CityPage = ({ slug }: { slug: string }) => {
                 href={whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-display font-bold text-base hover:bg-primary/90 hover:shadow-pro transition-all duration-300"
+                className="btn-green px-8 py-4 text-base"
               >
                 Get a free quote
                 <ArrowRight className="w-4 h-4" />

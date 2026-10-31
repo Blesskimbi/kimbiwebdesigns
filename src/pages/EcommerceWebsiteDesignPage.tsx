@@ -105,14 +105,14 @@ const EcommerceWebsiteDesignPage = () => (
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="/contact/"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-display font-bold text-base hover:bg-primary/90 hover:shadow-pro transition-all duration-300"
+              className="btn-green px-8 py-4 text-base"
             >
               Get a Free Quote
               <ChevronRight size={18} />
             </a>
             <a
               href="/projects/"
-              className="btn-outline-navy inline-flex items-center gap-2 px-8 py-4 rounded-full font-display font-semibold text-base"
+              className="btn-outline-navy px-8 py-4 text-base"
             >
               View Our Work
             </a>
@@ -267,7 +267,7 @@ const EcommerceWebsiteDesignPage = () => (
           </p>
           <a
             href="/contact/"
-            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-primary text-white font-display font-bold text-base hover:bg-primary/90 hover:shadow-pro transition-all duration-300"
+            className="btn-green px-10 py-4 text-base"
           >
             Get a Free Quote
             <ChevronRight size={18} />

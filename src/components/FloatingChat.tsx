@@ -7,9 +7,9 @@ const FloatingChat = () => {
         <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
             <div className="relative group">
                 {/* Tooltip */}
-                <div className="absolute bottom-full right-0 mb-2 px-3 py-1.5 bg-background/95 border border-white/10 text-foreground text-xs font-medium rounded-xl shadow-lg backdrop-blur-md whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200 pointer-events-none">
+                <div className="absolute bottom-full right-0 mb-2 px-3 py-1.5 bg-popover/95 border border-border text-foreground text-xs font-medium rounded-xl shadow-lg backdrop-blur-md whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200 pointer-events-none">
                     Chat on WhatsApp
-                    <div className="absolute -bottom-1 right-5 w-2 h-2 bg-background/95 border-r border-b border-white/10 rotate-45"></div>
+                    <div className="absolute -bottom-1 right-5 w-2 h-2 bg-popover/95 border-r border-b border-border rotate-45"></div>
                 </div>
 
                 {/* Glow ring */}

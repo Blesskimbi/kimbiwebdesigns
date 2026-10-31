@@ -10,7 +10,7 @@ excerpt: >-
 category: Web Design
 author: Bless Kimbi
 date: '2026-06-01'
-imageUrl: /blog-choose-web-design-agency-south-africa-2026.png
+imageUrl: /blog-cover-choose-a-web-design-agency-in-2026.png
 readTime: 10 min read
 focusKeyword: how to choose a web design agency in South Africa
 seoTitle: How to Choose a Web Design Agency in South Africa

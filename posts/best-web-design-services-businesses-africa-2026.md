@@ -10,7 +10,7 @@ excerpt: >-
 category: Web Design
 author: Bless Kimbi
 date: '2026-05-26'
-imageUrl: /blog-best-web-design-services-africa-2026.png
+imageUrl: /blog-cover-best-web-design-services-businesses-africa-2026.png
 readTime: 9 min read
 focusKeyword: web design services South Africa
 seoTitle: Best Web Design Services for South African Businesses

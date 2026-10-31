@@ -36,7 +36,7 @@ const FeaturedCard = ({
     </div>
     <div className="p-6 flex flex-col flex-1">
       <span className="text-primary text-xs font-semibold uppercase tracking-wide mb-2">{project.category}</span>
-      <h3 className="font-display font-bold text-lg text-navy mb-2 group-hover:text-primary transition-colors duration-300">
+      <h3 className="font-display font-bold text-lg text-navy mb-2 break-words group-hover:text-primary transition-colors duration-300">
         {project.title}
       </h3>
       <p className="text-muted-foreground text-sm font-body line-clamp-2 mb-4">{project.shortDescription}</p>
@@ -76,13 +76,13 @@ const ProjectsSection = () => {
 
         {/* Asymmetric portfolio grid — one tall featured project + a big one and two small ones */}
         {featured.length >= 4 && (
-          <div className="grid md:grid-cols-2 gap-6">
-            <FeaturedCard project={featured[0]} className="h-full" imageClassName="h-full min-h-[280px] md:min-h-[520px]" />
+          <div className="grid lg:grid-cols-2 gap-6">
+            <FeaturedCard project={featured[0]} className="h-full" imageClassName="h-full min-h-[280px] lg:min-h-[520px]" />
             <div className="grid gap-6">
-              <FeaturedCard project={featured[1]} imageClassName="h-48 md:h-60" />
-              <div className="grid grid-cols-2 gap-6">
-                <FeaturedCard project={featured[2]} imageClassName="h-40 md:h-48" />
-                <FeaturedCard project={featured[3]} imageClassName="h-40 md:h-48" />
+              <FeaturedCard project={featured[1]} imageClassName="h-48 md:h-64 lg:h-60" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <FeaturedCard project={featured[2]} imageClassName="h-48 md:h-52 lg:h-48" />
+                <FeaturedCard project={featured[3]} imageClassName="h-48 md:h-52 lg:h-48" />
               </div>
             </div>
           </div>

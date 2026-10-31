@@ -163,7 +163,7 @@ const PostComments = ({ slug }: Props) => {
             <button
               type="submit"
               disabled={sending}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-display font-bold text-sm hover:bg-primary/90 disabled:opacity-60 transition-colors"
+              className="btn-green disabled:opacity-60"
             >
               <Send size={16} />
               {sending ? "Sending..." : "Post comment"}

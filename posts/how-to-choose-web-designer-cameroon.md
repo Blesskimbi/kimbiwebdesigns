@@ -8,7 +8,7 @@ excerpt: >-
 category: Web Design
 author: Bless Kimbi
 date: '2026-06-10'
-imageUrl: /blog-how-to-choose-web-designer-cameroon-2026.png
+imageUrl: /blog-cover-how-to-choose-web-designer-cameroon.png
 metaDescription: >-
   Not every web designer in Cameroon delivers the same result. The checklist to
   run before you hire anyone, so your budget buys a site that performs.

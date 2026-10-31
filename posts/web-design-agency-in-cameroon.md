@@ -8,7 +8,7 @@ excerpt: >-
 category: Web Design
 author: Bless Kimbi
 date: '2026-05-29'
-imageUrl: /blog-web-design-agency-cameroon-2026.png
+imageUrl: /blog-cover-web-design-agency-in-cameroon.png
 readTime: 9 min read
 focusKeyword: web design agency in Cameroon
 seoTitle: Best Web Design Agency in Cameroon in 2026 | Bless Kimbi

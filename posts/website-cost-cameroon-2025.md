@@ -8,7 +8,7 @@ excerpt: >-
 category: Web Design
 author: Bless Kimbi
 date: '2026-06-01'
-imageUrl: /blog-website-cost-cameroon-2025.png
+imageUrl: /blog-cover-website-cost-cameroon-2025.png
 metaDescription: >-
   What a professional website really costs in Cameroon: every tier from a basic
   brochure site to full e-commerce, so you know what to budget for.

@@ -38,7 +38,7 @@ const AboutPage = () => (
     </Helmet>
 
     <Navbar />
-    <div className="relative min-h-screen bg-white overflow-x-clip">
+    <div className="relative min-h-screen bg-background overflow-x-clip">
 
       <main>
         <AboutSection isPage />
